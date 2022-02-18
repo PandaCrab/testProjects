@@ -6,21 +6,13 @@ import {
     Row,
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styled from 'styled-components';
 
-const Discription = styled.p`
-margin-left: 0;
-    padding: 0;
-    font-size: 12px;
-    display: flex
-    line-height: 12px;
-`
-
-const bottonStyle = {
-    color: '#fff',
-    backgroundColor: '#7a3fa8',
-    width: '10em'
-};
+import { 
+    Info,
+    Discription,
+    FormLabel,
+    buttonStyle
+} from '../../Styled/Forms/FormStyle';
 
 const ShippingInfo = () => {
     const [shippingInfo, setShippingInfo] = useState({});
@@ -52,8 +44,9 @@ const ShippingInfo = () => {
         //name
         if (!name || name === '') newErrors.name = 'Please enter recipient full name';
         if (typeof name !== 'undefined') {
-            if (!(/^[a-zA-Z]+\s[a-zA-Z]+$/).test(name)) newErrors.name = 'Please enter recipient full name';
-            else if ((/^[0-9\b]+$/).test(name)) newErrors.name = 'Only letters';
+            if ((/^[0-9\d]+$/).test(name)) newErrors.name = 'Only letters';
+            else if ((/^[$&+,:;=?@#|'<>.-^*()%!]+$/).test(name)) newErrors.name = `Don't use special symbols`;
+            else if (!(/^[a-zA-Z]+\s[a-zA-Z]+$/).test(name)) newErrors.name = 'Please enter Full name';
         }
         //phone
         if (!phone || phone === '') newErrors.phone = 'Please enter phone number';
@@ -68,7 +61,7 @@ const ShippingInfo = () => {
         //city
         if (!city || city === '') newErrors.city = 'Plaese enter city';
         //zip code
-        if (!zip || zip === '') newErrors.zip = 'Please enter ZIP';
+        if (!zip || zip === '') newErrors.zip = 'Enter ZIP';
         if (typeof zip !== 'undefined') {
             if (!(/^[0-9]+$/).test(zip)) newErrors.zip = 'Only numbers'
             else if (zip.length !== 6) newErrors.zip = 'Invalid ZIP'
@@ -91,96 +84,109 @@ const ShippingInfo = () => {
 
     return (
         <>
-            <Form>
-                <Form.Group className="mb-3">
-                    <Form.Label>Recipient</Form.Label>
-                    <br />
-                    <Form.Control 
-                        type="name" 
-                        onChange={({ target }) => setField('name', target.value)}
-                        isInvalid={ !!errors.name } 
-                        placeholder="Full Name" />
-                        <Form.Control.Feedback type='invalid'>
-                            { errors.name }
-                        </Form.Control.Feedback>
-                    <br />
-                    <Row>
-                        <Col sm="7">
-                            <Form.Control 
-                                type="text"  onChange={({ target }) => setField('phone', target.value)}
-                                isInvalid={ !!errors.phone }
-                                placeholder="Daytime Phone" />
-                                <Form.Control.Feedback type='invalid'>
-                                    { errors.phone }
-                                </Form.Control.Feedback>
-                        </Col>
-                        <Col sm="4">
-                            <Discription>For delivery questions only</Discription>
-                        </Col>
-                    </Row>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Address</Form.Label>
-                    <br />
-                    <Form.Control 
-                        type="text"
-                        onChange={({ target }) => setField('address', target.value)}
-                        isInvalid={ !!errors.address } 
-                        placeholder="Street Address" />
-                        <Form.Control.Feedback type='invalid'>
-                            { errors.address }
-                        </Form.Control.Feedback>
-                    <br />
-                    <Form.Control 
-                        type="text" 
-                        onChange={({ target }) => setField('optionalInfo', target.value)}
-                        placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
-                    <br />
-                    <Form.Control 
-                        type="text" 
-                        onChange={({ target }) => setField('city', target.value)}
-                        isInvalid={ !!errors.city } 
-                        placeholder="City" />
-                        <Form.Control.Feedback type='invalid'>
-                            { errors.city }
-                        </Form.Control.Feedback>
-                    <br />
-                    <Row>
-                        <Col sm="8">
-                            <Form.Control 
-                               as="select"
-                               onChange={({ target }) => setField('country', target.value)}
-                               isInvalid={ !!errors.country } >
-                                <option value="">Country</option>
-                                <option value="usa" >USA</option>
-                                <option value="ukraine">Ukraine</option>
-                                <option value="united kingdom">United Kingdom</option>
-                                <option value="latvia">Latvia</option>
-                            </Form.Control>
-                            <Form.Control.Feedback type='invalid'>
-                                { errors.country }
+            <Info>
+                <FormLabel>
+                    <h4>Shipping Information</h4>
+                </FormLabel>
+                <Form fluid="true">
+                    <Form.Group className="mb-4 position-relative">
+                        <Form.Label className="mb-0">Recipient</Form.Label>
+                        <Form.Group className="mb-2 position-relative">
+                            <Form.Control
+                            type="name" 
+                            onChange={({ target }) => setField('name', target.value)}
+                            isInvalid={ !!errors.name } 
+                            placeholder="Full Name" />
+                            <Form.Control.Feedback type='invalid' tooltip>
+                                { errors.name }
                             </Form.Control.Feedback>
-                        </Col>
-                        <Col sm="4">
+                        </Form.Group>
+                        <Form.Group className="position-relative">
+                            <Row>
+                                <Col sm="7">
+                                    <Form.Control 
+                                        type="text"  onChange={({ target }) => setField('phone', target.value)}
+                                        isInvalid={ !!errors.phone }
+                                        placeholder="Daytime Phone" />
+                                    <Form.Control.Feedback type='invalid' tooltip>
+                                        { errors.phone }
+                                    </Form.Control.Feedback>
+                                </Col>
+                                <Col sm="4">
+                                    <Discription>For delivery questions only</Discription>
+                                </Col>
+                            </Row>
+                        </Form.Group>
+                    </Form.Group>    
+                    <Form.Group className="mb-4 position-relative">
+                        <Form.Label className="mb-0" >Address</Form.Label>
+                        <Form.Group className="mb-2 position-relative">
+                            <Form.Control
+                                type="text"
+                                onChange={({ target }) => setField('address', target.value)}
+                                isInvalid={ !!errors.address } 
+                                placeholder="Street Address" />
+                            <Form.Control.Feedback type='invalid' tooltip>
+                                    { errors.address }
+                            </Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group>
                             <Form.Control 
-                                type="text"  
-                                onChange={({ target }) => setField('zip', target.value)}
-                                isInvalid={ !!errors.zip } 
-                                placeholder="ZIP" />
-                                <Form.Control.Feedback type='invalid'>
-                                    { errors.zip }
-                                </Form.Control.Feedback>
-                        </Col>
-                    </Row>
-                </Form.Group>
-                <Button 
-                    variant="primary" 
-                    type="submit" 
-                    onClick={ handleSubmit }
-                    style={bottonStyle}>
-                    Continue
-                </Button>
-            </Form>
+                                className="mb-4"
+                                type="text" 
+                                onChange={({ target }) => setField('optionalInfo', target.value)}
+                                placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
+                        </Form.Group>
+                        <Form.Group className="mb-4 position-relative">
+                            <Form.Control 
+                                className="mb-4"
+                                type="text" 
+                                onChange={({ target }) => setField('city', target.value)}
+                                isInvalid={ !!errors.city } 
+                                placeholder="City" />
+                            <Form.Control.Feedback type='invalid' tooltip>
+                                { errors.city }
+                            </Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group>
+                            <Row>
+                                <Col sm="8">
+                                    <Form.Control 
+                                    as="select"
+                                    onChange={({ target }) => setField('country', target.value)}
+                                    isInvalid={ !!errors.country } >
+                                        <option value="">Country</option>
+                                        <option value="usa" >USA</option>
+                                        <option value="ukraine">Ukraine</option>
+                                        <option value="united kingdom">United Kingdom</option>
+                                        <option value="latvia">Latvia</option>
+                                    </Form.Control>
+                                    <Form.Control.Feedback type='invalid' tooltip>
+                                        { errors.country }
+                                    </Form.Control.Feedback>
+                                </Col>
+                                <Col sm="4">
+                                    <Form.Control 
+                                        type="text"  
+                                        onChange={({ target }) => setField('zip', target.value)}
+                                        isInvalid={ !!errors.zip } 
+                                        placeholder="ZIP" />
+                                    <Form.Control.Feedback type='invalid' tooltip>
+                                        { errors.zip }
+                                    </Form.Control.Feedback>
+                                </Col>
+                            </Row>
+                        </Form.Group>                        
+                    </Form.Group>
+                    <Button 
+                        variant="primary" 
+                        type="submit" 
+                        onClick={ handleSubmit }
+                        style={buttonStyle}>
+                        Continue
+                    </Button>
+                </Form>
+            </Info>    
         </>
     )
 }

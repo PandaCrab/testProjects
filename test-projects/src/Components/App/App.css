@@ -1,10 +1,9 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
     background-color: #e6e9f0;
-    border-color: linear-gradient(90deg, rgba(235,182,232,1) 0%, rgba(253,185,216,1) 32%, rgba(217,178,248,1) 100%);
-    font-family: 'Open Sans', sans-serif;
 }

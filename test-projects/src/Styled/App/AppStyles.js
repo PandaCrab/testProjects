@@ -22,13 +22,13 @@ export const HeaderText = styled.h5`
 
 export const ShoppingBasket = styled.h6`
   font-size: 15px;
-  color: #dc63c5;
+  color: #f03ada;
 `
 
 export const Slash = styled.span`
-  color: #fdb9d8; 
-  font-size: 1.7em;
-  font-style: italic;
+  color: #f03ada; 
+  font-weight: 300;
+  font-size: 2.3em;
 `
 
 export const Order = styled.div`
@@ -44,10 +44,11 @@ export const Order = styled.div`
   position: relative;
 `
 
-export const Info = styled.section`
-  margin: 0;
-  padding: 2em;
-  width: 25em;
-  height: 35em;
-  position: absolute;
+export const Route = styled.section`
+  width: 21em;
+  height: 5%;
+  margin: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `

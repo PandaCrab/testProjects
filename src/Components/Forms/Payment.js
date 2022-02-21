@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
-    Form, 
-    Button, 
+    Form,
     Col,
     Row,
 } from 'react-bootstrap';
@@ -10,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
     Info,
     FormLabel,
-    buttonStyle
+    StyledButton
  } from '../../Styled/Forms/FormStyle';
 
 export const Payment = () => {
@@ -108,7 +107,7 @@ export const Payment = () => {
                 </Form.Group>
                 <Form.Group className="mb-4 position-relative">
                     <Row>
-                        <Col sm="4">
+                        <Col sm="4" xs="4">
                             <Form.Label className="mb-1">Expire Date</Form.Label>
                             <Form.Control
                                 type="text"
@@ -120,7 +119,7 @@ export const Payment = () => {
                                 { errors.date }
                             </Form.Control.Feedback>
                         </Col>
-                        <Col sm="5">
+                        <Col sm="5" xs="5">
                             <Form.Label className="mb-1">Security Code</Form.Label>
                             <Form.Control
                                 type="text"
@@ -132,13 +131,12 @@ export const Payment = () => {
                         </Col>
                     </Row>
                 </Form.Group>
-                <Button 
+                <StyledButton 
                     variant="primary"
                     type="submit"
-                    style={buttonStyle}
                     onClick={ handleSubmit }>
                         Pay Securely
-                    </Button>
+                    </StyledButton>
             </Form>
         </Info>
         

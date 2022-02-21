@@ -1,1 +1,3 @@
-Code review
+Libraries: Styled components, React-Bootstrap
+
+npm start

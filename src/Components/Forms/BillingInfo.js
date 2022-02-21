@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
-    Form, 
-    Button, 
+    Form,
     Col,
     Row
 } from 'react-bootstrap';
@@ -10,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { 
     Info,
-    buttonStyle,
+    StyledButton,
     FormLabel,
     FormLabelParagraph,
 } from '../../Styled/Forms/FormStyle';
@@ -176,13 +175,12 @@ export const BillingInfo = () => {
                             </Form.Group>
                         </Form.Group>
                     </Form.Group>
-                    <Button 
+                    <StyledButton 
                         variant="secondary"
-                        type="submit" 
-                        style={buttonStyle}
+                        type="submit"
                         onClick={ handleSubmit }>
                         Continue
-                    </Button>
+                    </StyledButton>
                 </Form>
             </Info>
         </>

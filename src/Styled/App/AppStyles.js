@@ -16,13 +16,12 @@ export const Header = styled.section`
 export const HeaderText = styled.h5`
   display: flex;
   font-size: 17px;
-  color: #8e5bb6;
   align-items: center;
 `
 
 export const ShoppingBasket = styled.h6`
   font-size: 15px;
-  color: #f03ada;
+  color: #f03ada; 
 `
 
 export const Slash = styled.span`
@@ -45,7 +44,7 @@ export const Order = styled.div`
 `
 
 export const Route = styled.section`
-  width: 21em;
+  max-width: 21em;
   height: 5%;
   margin: 1em;
   display: flex;

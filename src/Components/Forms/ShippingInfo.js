@@ -14,7 +14,7 @@ import {
     buttonStyle
 } from '../../Styled/Forms/FormStyle';
 
-const ShippingInfo = () => {
+export const ShippingInfo = () => {
     const [shippingInfo, setShippingInfo] = useState({});
     const [errors, setErrors] = useState({});
 
@@ -89,7 +89,7 @@ const ShippingInfo = () => {
                     <h4>Shipping Information</h4>
                 </FormLabel>
                 <Form fluid="true">
-                    <Form.Group className="mb-4 position-relative">
+                    <Form.Group className="mb-4">
                         <Form.Label className="mb-0">Recipient</Form.Label>
                         <Form.Group className="mb-2 position-relative">
                             <Form.Control
@@ -150,7 +150,7 @@ const ShippingInfo = () => {
                         </Form.Group>
                         <Form.Group>
                             <Row>
-                                <Col sm="8">
+                                <Col sm="7">
                                     <Form.Control 
                                     as="select"
                                     onChange={({ target }) => setField('country', target.value)}
@@ -165,7 +165,7 @@ const ShippingInfo = () => {
                                         { errors.country }
                                     </Form.Control.Feedback>
                                 </Col>
-                                <Col sm="4">
+                                <Col sm="5">
                                     <Form.Control 
                                         type="text"  
                                         onChange={({ target }) => setField('zip', target.value)}
@@ -181,14 +181,12 @@ const ShippingInfo = () => {
                     <Button 
                         variant="primary" 
                         type="submit" 
-                        onClick={ handleSubmit }
-                        style={buttonStyle}>
+                        style={buttonStyle}
+                        onClick={ handleSubmit }>
                         Continue
                     </Button>
                 </Form>
             </Info>    
         </>
     )
-}
-
-export default ShippingInfo;
+};

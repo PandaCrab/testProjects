@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { OrderInfo } from '../../Styled/OrderPlate/OrderPlateStyles';
 
-const OrderPlate = () => {
+export const OrderPlate = () => {
     //const [order, setOrder] = useState({})
 
     return (
@@ -11,5 +11,3 @@ const OrderPlate = () => {
         </OrderInfo>
     )
 };
-
-export default OrderPlate;

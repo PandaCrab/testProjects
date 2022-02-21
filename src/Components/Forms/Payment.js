@@ -10,12 +10,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
     Info,
     FormLabel,
-    headerStyle,
-    buttonStyle,
-    Labels
+    buttonStyle
  } from '../../Styled/Forms/FormStyle';
 
-const Payment = () => {
+export const Payment = () => {
     const [payment, setPayment] = useState({});
     const [errors, setErrors] = useState({});
 
@@ -82,12 +80,10 @@ const Payment = () => {
 
     return (
         <Info>
-            <FormLabel><h3 style={headerStyle}>Payment</h3></FormLabel>
+            <FormLabel><h3>Payment</h3></FormLabel>
             <Form>
                 <Form.Group className="mb-4 position-relative">
-                    <Form.Label className="mb-0">
-                        <Labels>Cardholder Name</Labels>
-                    </Form.Label>
+                    <Form.Label className="mb-0">Cardholder Name</Form.Label>
                     <Form.Control
                         type="name"
                         onChange={({ target }) => setField('cardholder', target.value) }
@@ -139,7 +135,7 @@ const Payment = () => {
                 <Button 
                     variant="primary"
                     type="submit"
-                    style={ buttonStyle }
+                    style={buttonStyle}
                     onClick={ handleSubmit }>
                         Pay Securely
                     </Button>
@@ -148,5 +144,3 @@ const Payment = () => {
         
     )
 };
-
-export default Payment;

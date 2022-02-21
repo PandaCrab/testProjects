@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-// import ShippingInfo from '../Forms/ShippingInfo';
-import OrderPlate from '../OrderPlate/OrderPlate';
-import ShippingInfo from '../Forms/ShippingInfo';
-import BillingInfo from '../Forms/BillingInfo';
-import Payment from '../Forms/Payment';
+import {
+  ShippingInfo,
+  BillingInfo,
+  Payment,
+  OrderPlate
+} from '../Components/Index';
 
 import {
   Header,
@@ -13,8 +14,8 @@ import {
   Slash,
   Order,
   Route
-} from '../../Styled/App/AppStyles';
-import './App.css';
+} from '../Styled/App/AppStyles';
+import { GlobalStyles } from '../GlobalStyles';
 
 
 function App() {
@@ -32,6 +33,7 @@ const currentForm = () => {
 
   return (
     <>
+      <GlobalStyles />
       <Header>
         <HeaderText> &lt; <Slash>&frasl;</Slash> &gt; Front-end Developer Test Task</HeaderText>
         <ShoppingBasket>cart</ShoppingBasket>

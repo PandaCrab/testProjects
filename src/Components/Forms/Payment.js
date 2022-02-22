@@ -9,7 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
     Info,
     FormLabel,
-    StyledButton
+    StyledButton,
+    FormLabelHeader
  } from '../../Styled/Forms/FormStyle';
 
 export const Payment = () => {
@@ -79,9 +80,11 @@ export const Payment = () => {
 
     return (
         <Info>
-            <FormLabel><h3>Payment</h3></FormLabel>
+            <FormLabel>
+                <FormLabelHeader>Payment</FormLabelHeader>
+            </FormLabel>
             <Form>
-                <Form.Group className="mb-4 position-relative">
+                <Form.Group className=" position-relative">
                     <Form.Label className="mb-0">Cardholder Name</Form.Label>
                     <Form.Control
                         type="name"
@@ -93,7 +96,7 @@ export const Payment = () => {
                         { errors.cardholder }
                     </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className="mb-4 position-relative">
+                <Form.Group className=" position-relative">
                     <Form.Label className="mb-1">Card Number</Form.Label>
                     <Form.Control
                         type="text"
@@ -105,7 +108,7 @@ export const Payment = () => {
                         { errors.cardNum }
                     </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className="mb-4 position-relative">
+                <Form.Group className=" position-relative">
                     <Row>
                         <Col sm="4" xs="4">
                             <Form.Label className="mb-1">Expire Date</Form.Label>

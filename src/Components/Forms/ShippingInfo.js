@@ -89,10 +89,10 @@ export const ShippingInfo = () => {
                     <FormLabelHeader>Shipping Information</FormLabelHeader>
                 </FormLabel>
                 <Form >
-                    <Form.Group className="form-group-sm">
-                        <Form.Group className="mb-4">
+                    <Form.Group className="form-group-xxs">
+                        <Form.Group >
                             <Form.Label className="mb-0">Recipient</Form.Label>
-                            <Form.Group className="mb-2 position-relative">
+                            <Form.Group className="position-relative">
                                 <Form.Control
                                 type="name" 
                                 onChange={({ target }) => setField('name', target.value)}
@@ -113,15 +113,15 @@ export const ShippingInfo = () => {
                                             { errors.phone }
                                         </Form.Control.Feedback>
                                     </Col>
-                                    <Col sm="4" xs="4">
+                                    <Col sm="4" xs="5">
                                         <Discription>For delivery questions only</Discription>
                                     </Col>
                                 </Row>
                             </Form.Group>
                         </Form.Group>    
-                        <Form.Group className="mb-4 position-relative">
+                        <Form.Group className="position-relative">
                             <Form.Label className="mb-0" >Address</Form.Label>
-                            <Form.Group className="mb-2 position-relative">
+                            <Form.Group className=" position-relative">
                                 <Form.Control
                                     type="text"
                                     onChange={({ target }) => setField('address', target.value)}
@@ -133,14 +133,12 @@ export const ShippingInfo = () => {
                             </Form.Group>
                             <Form.Group>
                                 <Form.Control 
-                                    className="mb-4"
                                     type="text" 
                                     onChange={({ target }) => setField('optionalInfo', target.value)}
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
                             </Form.Group>
-                            <Form.Group className="mb-4 position-relative">
+                            <Form.Group className="position-relative">
                                 <Form.Control 
-                                    className="mb-4"
                                     type="text" 
                                     onChange={({ target }) => setField('city', target.value)}
                                     isInvalid={ !!errors.city } 

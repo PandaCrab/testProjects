@@ -35,7 +35,7 @@ const currentForm = () => {
     <>
       <GlobalStyles />
       <Header>
-        <HeaderText> &lt; <Slash>&frasl;</Slash> &gt; Front-end Developer Test Task</HeaderText>
+        <HeaderText> &lt; <Slash>&frasl;</Slash>&gt; Front-end Developer Test Task</HeaderText>
         <ShoppingBasket>cart</ShoppingBasket>
 
       </Header>

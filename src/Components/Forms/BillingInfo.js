@@ -12,6 +12,7 @@ import {
     StyledButton,
     FormLabel,
     FormLabelParagraph,
+    FormLabelHeader
 } from '../../Styled/Forms/FormStyle';
 
 const emailRegex = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
@@ -87,13 +88,13 @@ export const BillingInfo = () => {
         <>  
             <Info>
                 <FormLabel>
-                    <h4>Billing Information</h4>
+                    <FormLabelHeader>Billing Information</FormLabelHeader>
                     <FormLabelParagraph>Same as shipping</FormLabelParagraph>
                 </FormLabel>
                 <Form fluid="true">
-                    <Form.Group className="mb-4 position-relative">
+                    <Form.Group className="position-relative">
                         <Form.Label className="mb-0">Billing Contact</Form.Label>
-                        <Form.Group className="mb-2 position-relative">
+                        <Form.Group className="position-relative">
                             <Form.Control
                                 type="name" 
                                 onChange={({ target }) => setField('name', target.value)}
@@ -114,9 +115,9 @@ export const BillingInfo = () => {
                         </Form.Group>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Group className="mb-4 position-relative">
+                        <Form.Group className="position-relative">
                             <Form.Label className="mb-0" >Billing Address</Form.Label>
-                            <Form.Group className="mb-2 position-relative">
+                            <Form.Group className=" position-relative">
                                 <Form.Control
                                     type="text"
                                     onChange={({ target }) => setField('address', target.value)}
@@ -128,14 +129,14 @@ export const BillingInfo = () => {
                             </Form.Group>
                             <Form.Group>
                                 <Form.Control 
-                                    className="mb-4"
+                                    className=""
                                     type="text" 
                                     onChange={({ target }) => setField('optionalInfo', target.value)}
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
                             </Form.Group>
-                            <Form.Group className="mb-4 position-relative">
+                            <Form.Group className="position-relative">
                                 <Form.Control 
-                                    className="mb-4"
+                                    className=""
                                     type="text" 
                                     onChange={({ target }) => setField('city', target.value)}
                                     isInvalid={ !!errors.city } 
@@ -146,7 +147,7 @@ export const BillingInfo = () => {
                             </Form.Group>
                             <Form.Group>
                                 <Row>
-                                    <Col sm="7">
+                                    <Col sm="7" xs="7">
                                         <Form.Control 
                                         as="select"
                                         onChange={({ target }) => setField('country', target.value)}
@@ -161,7 +162,7 @@ export const BillingInfo = () => {
                                             { errors.country }
                                         </Form.Control.Feedback>
                                     </Col>
-                                    <Col sm="5">
+                                    <Col sm="5" xs="5">
                                         <Form.Control 
                                             type="text"  
                                             onChange={({ target }) => setField('zip', target.value)}

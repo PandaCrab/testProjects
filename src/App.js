@@ -5,7 +5,7 @@ import {
   BillingInfo,
   Payment,
   OrderPlate
-} from '../Components/Index';
+} from './Components/Index';
 
 import {
   Header,
@@ -14,8 +14,8 @@ import {
   Slash,
   Order,
   Route
-} from '../Styled/App/AppStyles';
-import { GlobalStyles } from '../GlobalStyles';
+} from './Styled/AppStyles';
+import { GlobalStyles } from './GlobalStyles';
 
 
 function App() {

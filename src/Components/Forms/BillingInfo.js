@@ -6,6 +6,7 @@ import {
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FindFormErrors } from '../../helpers';
 
 import { 
     Info,
@@ -13,9 +14,7 @@ import {
     FormLabel,
     FormLabelParagraph,
     FormLabelHeader
-} from '../../Styled/Forms/FormStyle';
-
-const emailRegex = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+} from '../../Styled/FormStyle';
 
 export const BillingInfo = () => {
     const [billingInfo, setBillingInfo] = useState({});
@@ -33,49 +32,10 @@ export const BillingInfo = () => {
         })
     };
 
-    const FindFormErrors = () => {
-        const {
-            name,
-            email,
-            address,
-            country,
-            city,
-            zip
-        } = billingInfo;
-        const newErrors = {};
-
-        //name
-        if (!name || name === '') newErrors.name = 'Please enter recipient full name';
-        if (typeof name !== 'undefined') {
-            if ((/^[0-9]+$/).test(name)) newErrors.name = 'Only letters';
-            else if ((/^[$&+,:;=?@#|'<>.-^*()%!]+$/).test(name)) newErrors.name = `Don't use special symbols`;
-            else if (!(/^[a-zA-Z]+\s[a-zA-Z]+$/).test(name)) newErrors.name = 'Please enter Full name';
-        }
-        //phone
-        if (!email || email === '') newErrors.email = 'Please enter email';
-        if (typeof email !== 'undefined') {
-            if (!emailRegex.test(email)) newErrors.email = 'Please enter valid email'
-        }
-        //address
-        if (!address || address === '') newErrors.address = 'Please enter address';
-        //country
-        if (!country || country === '') newErrors.country = 'Please choose country'
-        //city
-        if (!city || city === '') newErrors.city = 'Plaese enter city';
-        //zip code
-        if (!zip || zip === '') newErrors.zip = 'Enter ZIP';
-        if (typeof zip !== 'undefined') {
-            if (!(/^[0-9]+$/).test(zip)) newErrors.zip = 'Only numbers';
-            else if (zip.length > 6) newErrors.zip = 'Invalid ZIP';
-        }
-
-        return newErrors;
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const newErrors = FindFormErrors();
+        const newErrors = FindFormErrors(billingInfo);
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors)

@@ -5,6 +5,7 @@ import {
     Row,
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FindFormErrors } from '../../helpers';
 
 import { 
     Info,
@@ -12,7 +13,7 @@ import {
     FormLabel,
     FormLabelHeader,
     StyledButton,
-} from '../../Styled/Forms/FormStyle';
+} from '../../Styled/FormStyle';
 
 export const ShippingInfo = () => {
     const [shippingInfo, setShippingInfo] = useState({});
@@ -28,52 +29,12 @@ export const ShippingInfo = () => {
             ...errors,
             [field]: null
         })
-    };
-
-    const FindFormErrors = () => {
-        const {
-            name,
-            phone,
-            address,
-            country,
-            city,
-            zip
-        } = shippingInfo;
-        const newErrors = {};
-
-        //name
-        if (!name || name === '') newErrors.name = 'Please enter recipient full name';
-        if (typeof name !== 'undefined') {
-            if ((/^[0-9\d]+$/).test(name)) newErrors.name = 'Only letters';
-            else if ((/^[$&+,:;=?@#|'<>.-^*()%!]+$/).test(name)) newErrors.name = `Don't use special symbols`;
-            else if (!(/^[a-zA-Z]+\s[a-zA-Z]+$/).test(name)) newErrors.name = 'Please enter Full name';
-        }
-        //phone
-        if (!phone || phone === '') newErrors.phone = 'Please enter phone number';
-        if (typeof phone !== 'undefined') {
-            if (!(/^[0-9\b]+$/).test(phone)) newErrors.phone = 'Please enter only nubmers';
-            else if (phone.length !== 10) newErrors.phone = 'Please enter valid phone number';
-        }
-        //address
-        if (!address || address === '') newErrors.address = 'Please enter address';
-        //country
-        if (!country || country === '') newErrors.country = 'Please choose country'
-        //city
-        if (!city || city === '') newErrors.city = 'Plaese enter city';
-        //zip code
-        if (!zip || zip === '') newErrors.zip = 'Enter ZIP';
-        if (typeof zip !== 'undefined') {
-            if (!(/^[0-9]+$/).test(zip)) newErrors.zip = 'Only numbers'
-            else if (zip.length !== 6) newErrors.zip = 'Invalid ZIP'
-        }
-
-        return newErrors;
-    }
+    }; 
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const newErrors = FindFormErrors();
+        const newErrors = FindFormErrors(shippingInfo);
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors)
@@ -88,11 +49,11 @@ export const ShippingInfo = () => {
                 <FormLabel>
                     <FormLabelHeader>Shipping Information</FormLabelHeader>
                 </FormLabel>
-                <Form >
-                    <Form.Group className="form-group-xxs">
-                        <Form.Group >
+                <Form fluid="true">
+                    <Form.Group className="col-xl-8 col-md-9 col-12">
+                        <Form.Group>
                             <Form.Label className="mb-0">Recipient</Form.Label>
-                            <Form.Group className="position-relative">
+                            <Form.Group className="mb-1 mb-md-3 mb-lg-2 mb-xl-2 position-relative">
                                 <Form.Control
                                 type="name" 
                                 onChange={({ target }) => setField('name', target.value)}
@@ -102,14 +63,15 @@ export const ShippingInfo = () => {
                                     { errors.name }
                                 </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group className="position-relative">
+                            <Form.Group className="mb-3 mb-md-4 mb-lg-5 mb-xl-5 position-relative">
                                 <Row>
                                     <Col sm="7" xs="7">
-                                        <Form.Control 
-                                            type="text"  onChange={({ target }) => setField('phone', target.value)}
+                                        <Form.Control   
+                                            type="text"  
+                                            onChange={({ target }) => setField('phone', target.value)}
                                             isInvalid={ !!errors.phone }
                                             placeholder="Daytime Phone" />
-                                        <Form.Control.Feedback type='invalid' tooltip>
+                                        <Form.Control.Feedback  type='invalid' tooltip>
                                             { errors.phone }
                                         </Form.Control.Feedback>
                                     </Col>
@@ -119,25 +81,25 @@ export const ShippingInfo = () => {
                                 </Row>
                             </Form.Group>
                         </Form.Group>    
-                        <Form.Group className="position-relative">
+                        <Form.Group className="mb-2 mb-md-3 mb-lg-4 mb-xl-4 position-relative">
                             <Form.Label className="mb-0" >Address</Form.Label>
-                            <Form.Group className=" position-relative">
+                            <Form.Group className="mb-1 mb-md-3 mb-lg-4 mb-xl-4 position-relative">
                                 <Form.Control
                                     type="text"
                                     onChange={({ target }) => setField('address', target.value)}
                                     isInvalid={ !!errors.address } 
                                     placeholder="Street Address" />
-                                <Form.Control.Feedback type='invalid' tooltip>
+                                <Form.Control.Feedback  type='invalid' tooltip>
                                         { errors.address }
                                 </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group>
+                            <Form.Group className="mb-2 mb-md-3 mb-lg-4 mb-xl-4">
                                 <Form.Control 
                                     type="text" 
                                     onChange={({ target }) => setField('optionalInfo', target.value)}
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
                             </Form.Group>
-                            <Form.Group className="position-relative">
+                            <Form.Group className="mb-2 mb-md-3 mb-lg-4 mb-xl-4 position-relative">
                                 <Form.Control 
                                     type="text" 
                                     onChange={({ target }) => setField('city', target.value)}
@@ -147,7 +109,7 @@ export const ShippingInfo = () => {
                                     { errors.city }
                                 </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group>
+                            <Form.Group className="mb-2 mb-md-3 mb-lg-4 mb-xl-4">
                                 <Row>
                                     <Col sm="7" xs="7">
                                         <Form.Control 

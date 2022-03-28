@@ -1,58 +1,41 @@
 import styled from 'styled-components';
-import { devices, colors } from '../../GlobalStyles';
+import { devices, colors } from '../GlobalStyles';
 import { Button } from 'react-bootstrap';
 
 export const Info = styled.div`
-    margin: 0 2em 1em 2em;
-    width: 49em ;
-    height: 90%;
+    margin: auto;
+    width: 37em;
+    font-size: 2.5vw;
+    height: auto;
     position: relative;
 
     @media${devices.mobileS} {
-        margin-left: 11px;
-        width: 145px;
-        height: inherit;
-        font-size: .5em;
+        margin-left: 8px;
+        width: 95%;
+        font-size: 1rem;
 
         .form-control {
-            font-size: .5em;
-            margin-bottom: 2em;
-            padding: 3px 6px;
+            font-size: 1em;
+            padding: 2px 4px;
         }
-    }
 
-    @media ${devices.mobileM} {
-        width: 175px;
-        height: inherit;
-        font-size: .4em;
-
-        .form-control {
-            font-size: .7em;
-            padding: 4px 8px;
-        }
-    }
-
-    @media ${devices.mobileL} {
-        width: 190px;
-        height: inherit;
-        font-size: .5em;
-
-        .form-control {
-            font-size: .7;
-            margin-bottom: 1.5em;
-            padding: 4px 8px;
+        .invalid-tooltip {
+            font-size: .8em;
+            padding: 1px 3px;
         }
     }
 
     @media ${devices.tablet} {
-        margin-left: 2em;
-        width: 24em;
+        width: 25em;
         font-size: .8em;
 
         .form-control {
             font-size: 1em;
-            margin-bottom: 1em;
             padding: 5px 10px;
+        }
+
+        .invalid-tooltip {
+            font-size: .8em;
         }
     }   
     
@@ -61,9 +44,12 @@ export const Info = styled.div`
         width: 30em;
 
         .form-control {
-            font-size: 1.1em;
-            margin-bottom: 2em;
-            padding: 6px 12px;
+            font-size: 1rem;
+            padding: 8px 14px;
+        }
+
+        .invalid-tooltip {
+            font-size: .9em;
         }
     }
 `
@@ -72,12 +58,13 @@ export const Discription = styled.p`
     margin-bottom: 0;
     padding: 0;
     color: #000;
+    line-height: 1.2em;
     font-size: 12px;
 
     @media ${devices.mobileS} {
         margin-left: 0;
         text-align: flex-start;
-        font-size: .6em;
+        font-size: .7em;
     }
 
     @media ${devices.mobileM} {
@@ -85,11 +72,15 @@ export const Discription = styled.p`
     }
 
     @media ${devices.mobileL} {
-        font-size: .8em;
+        font-size: .9em;
+    }
+
+    @media ${devices.tablet} {
+        font-size: .9em;
     }
 
     @media ${devices.laptop} {
-        font-size: 12px;
+        font-size: 1em;
     }
 `
 
@@ -99,7 +90,8 @@ export const StyledButton = styled(Button)`
 
     @media ${devices.mobileS} {
         padding: 3px 5px;
-        font-size: .5em;
+        font-size: .8em;
+        margin-bottom: 1em;
     }
 
     @media ${devices.tablet} {
@@ -168,7 +160,10 @@ export const FormLabelParagraph = styled.p`
 
     @media ${devices.mobileS} {
         font-size: .5em;
-        text-decoration: none;
+    }
+
+    @media ${devices.tablet} {
+        font-size: .8em;
     }
 
     @media ${devices.laptop} {

@@ -4,7 +4,6 @@ import {
     Col,
     Row
 } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FindFormErrors } from '../../helpers';
 
@@ -52,9 +51,9 @@ export const BillingInfo = () => {
                     <FormLabelParagraph>Same as shipping</FormLabelParagraph>
                 </FormLabel>
                 <Form fluid="true">
-                    <Form.Group className="position-relative">
+                    <Form.Group>
                         <Form.Label className="mb-0">Billing Contact</Form.Label>
-                        <Form.Group className="position-relative">
+                        <Form.Group className="mb-3 position-relative">
                             <Form.Control
                                 type="name" 
                                 onChange={({ target }) => setField('name', target.value)}
@@ -64,7 +63,7 @@ export const BillingInfo = () => {
                                 { errors.name }
                             </Form.Control.Feedback>
                         </Form.Group>
-                        <Form.Group>
+                        <Form.Group className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative">
                             <Form.Control 
                                 type="text"  onChange={({ target }) => setField('email', target.value)}
                                 isInvalid={ !!errors.email }
@@ -77,7 +76,7 @@ export const BillingInfo = () => {
                     <Form.Group>
                         <Form.Group className="position-relative">
                             <Form.Label className="mb-0" >Billing Address</Form.Label>
-                            <Form.Group className=" position-relative">
+                            <Form.Group className="mb-3 position-relative">
                                 <Form.Control
                                     type="text"
                                     onChange={({ target }) => setField('address', target.value)}
@@ -89,14 +88,13 @@ export const BillingInfo = () => {
                             </Form.Group>
                             <Form.Group>
                                 <Form.Control 
-                                    className=""
+                                    className="mb-3 position-relative"
                                     type="text" 
                                     onChange={({ target }) => setField('optionalInfo', target.value)}
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
                             </Form.Group>
-                            <Form.Group className="position-relative">
+                            <Form.Group className="mb-3 position-relative">
                                 <Form.Control 
-                                    className=""
                                     type="text" 
                                     onChange={({ target }) => setField('city', target.value)}
                                     isInvalid={ !!errors.city } 
@@ -105,7 +103,7 @@ export const BillingInfo = () => {
                                     { errors.city }
                                 </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group>
+                            <Form.Group className="mb-3 position-relative">
                                 <Row>
                                     <Col sm="7" xs="7">
                                         <Form.Control 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
     Form,
     Col,
-    Row,
+    Row
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FindFormErrors } from '../../helpers';
@@ -50,10 +50,10 @@ export const ShippingInfo = () => {
                     <FormLabelHeader>Shipping Information</FormLabelHeader>
                 </FormLabel>
                 <Form fluid="true">
-                    <Form.Group className="col-xl-8 col-md-9 col-12">
+                    <Form.Group >
                         <Form.Group>
                             <Form.Label className="mb-0">Recipient</Form.Label>
-                            <Form.Group className="mb-1 mb-md-3 mb-lg-2 mb-xl-2 position-relative">
+                            <Form.Group className="mb-3 mb-md-3 mb-lg-2 mb-xl-2 position-relative">
                                 <Form.Control
                                 type="name" 
                                 onChange={({ target }) => setField('name', target.value)}
@@ -63,7 +63,7 @@ export const ShippingInfo = () => {
                                     { errors.name }
                                 </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group className="mb-3 mb-md-4 mb-lg-5 mb-xl-5 position-relative">
+                            <Form.Group className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative">
                                 <Row>
                                     <Col sm="7" xs="7">
                                         <Form.Control   
@@ -81,9 +81,9 @@ export const ShippingInfo = () => {
                                 </Row>
                             </Form.Group>
                         </Form.Group>    
-                        <Form.Group className="mb-2 mb-md-3 mb-lg-4 mb-xl-4 position-relative">
+                        <Form.Group className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative">
                             <Form.Label className="mb-0" >Address</Form.Label>
-                            <Form.Group className="mb-1 mb-md-3 mb-lg-4 mb-xl-4 position-relative">
+                            <Form.Group className="mb-3 mb-md-3 mb-lg-4 mb-xl-4 position-relative">
                                 <Form.Control
                                     type="text"
                                     onChange={({ target }) => setField('address', target.value)}
@@ -99,7 +99,7 @@ export const ShippingInfo = () => {
                                     onChange={({ target }) => setField('optionalInfo', target.value)}
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
                             </Form.Group>
-                            <Form.Group className="mb-2 mb-md-3 mb-lg-4 mb-xl-4 position-relative">
+                            <Form.Group className="mb-3 mb-md-3 mb-lg-4 mb-xl-4 position-relative">
                                 <Form.Control 
                                     type="text" 
                                     onChange={({ target }) => setField('city', target.value)}

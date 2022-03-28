@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
     Form,
     Col,
-    Row,
+    Row
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FindFormErrors } from '../../helpers';
@@ -48,7 +48,7 @@ export const Payment = () => {
                 <FormLabelHeader>Payment</FormLabelHeader>
             </FormLabel>
             <Form>
-                <Form.Group className=" position-relative">
+                <Form.Group className="mb-4 position-relative">
                     <Form.Label className="mb-0">Cardholder Name</Form.Label>
                     <Form.Control
                         type="name"
@@ -60,7 +60,7 @@ export const Payment = () => {
                         { errors.cardholder }
                     </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className=" position-relative">
+                <Form.Group className="mb-4 position-relative">
                     <Form.Label className="mb-1">Card Number</Form.Label>
                     <Form.Control
                         type="text"
@@ -72,9 +72,9 @@ export const Payment = () => {
                         { errors.cardNum }
                     </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className=" position-relative">
+                <Form.Group className="mb-4 position-relative">
                     <Row>
-                        <Col sm="4" xs="4">
+                        <Col sm="4" xs="5">
                             <Form.Label className="mb-1">Expire Date</Form.Label>
                             <Form.Control
                                 type="text"
@@ -86,7 +86,7 @@ export const Payment = () => {
                                 { errors.date }
                             </Form.Control.Feedback>
                         </Col>
-                        <Col sm="5" xs="5">
+                        <Col sm="5" xs="6">
                             <Form.Label className="mb-1">Security Code</Form.Label>
                             <Form.Control
                                 type="text"

@@ -30,8 +30,8 @@ export const Payment = () => {
         })
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = (event) => {
+        event.preventDefault()
 
         const newErrors = FindFormErrors(payment);
 

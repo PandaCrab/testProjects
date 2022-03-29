@@ -31,8 +31,8 @@ export const ShippingInfo = () => {
         })
     }; 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = (event) => {
+        event.preventDefault()
 
         const newErrors = FindFormErrors(shippingInfo);
 

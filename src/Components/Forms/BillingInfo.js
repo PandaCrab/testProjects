@@ -4,96 +4,56 @@ import {
     Col,
     Row
 } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FindFormErrors } from '../../helpers';
 
 import { 
     Info,
     StyledButton,
     FormLabel,
     FormLabelParagraph,
-} from '../../Styled/Forms/FormStyle';
-
-const emailRegex = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+    FormLabelHeader
+} from '../../Styled/FormStyle';
 
 export const BillingInfo = () => {
     const [billingInfo, setBillingInfo] = useState({});
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({});
 
     const setField = (field, value) => {
         setBillingInfo({
             ...billingInfo,
             [field]: value
-        })
+        });
 
         if (!!errors[field]) setErrors({
             ...errors,
             [field]: null
-        })
+        });
     };
 
-    const FindFormErrors = () => {
-        const {
-            name,
-            email,
-            address,
-            country,
-            city,
-            zip
-        } = billingInfo;
-        const newErrors = {};
+    const handleSubmit = (event) => {
+        event.preventDefault()
 
-        //name
-        if (!name || name === '') newErrors.name = 'Please enter recipient full name';
-        if (typeof name !== 'undefined') {
-            if ((/^[0-9]+$/).test(name)) newErrors.name = 'Only letters';
-            else if ((/^[$&+,:;=?@#|'<>.-^*()%!]+$/).test(name)) newErrors.name = `Don't use special symbols`;
-            else if (!(/^[a-zA-Z]+\s[a-zA-Z]+$/).test(name)) newErrors.name = 'Please enter Full name';
-        }
-        //phone
-        if (!email || email === '') newErrors.email = 'Please enter email';
-        if (typeof email !== 'undefined') {
-            if (!emailRegex.test(email)) newErrors.email = 'Please enter valid email'
-        }
-        //address
-        if (!address || address === '') newErrors.address = 'Please enter address';
-        //country
-        if (!country || country === '') newErrors.country = 'Please choose country'
-        //city
-        if (!city || city === '') newErrors.city = 'Plaese enter city';
-        //zip code
-        if (!zip || zip === '') newErrors.zip = 'Enter ZIP';
-        if (typeof zip !== 'undefined') {
-            if (!(/^[0-9]+$/).test(zip)) newErrors.zip = 'Only numbers';
-            else if (zip.length > 6) newErrors.zip = 'Invalid ZIP';
-        }
-
-        return newErrors;
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        const newErrors = FindFormErrors();
+        const newErrors = FindFormErrors(billingInfo);
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors)
         } else {
             alert('all good!')
-        }
+        };
     };
 
     return (
         <>  
             <Info>
                 <FormLabel>
-                    <h4>Billing Information</h4>
+                    <FormLabelHeader>Billing Information</FormLabelHeader>
                     <FormLabelParagraph>Same as shipping</FormLabelParagraph>
                 </FormLabel>
                 <Form fluid="true">
-                    <Form.Group className="mb-4 position-relative">
+                    <Form.Group>
                         <Form.Label className="mb-0">Billing Contact</Form.Label>
-                        <Form.Group className="mb-2 position-relative">
+                        <Form.Group className="mb-3 position-relative">
                             <Form.Control
                                 type="name" 
                                 onChange={({ target }) => setField('name', target.value)}
@@ -103,7 +63,7 @@ export const BillingInfo = () => {
                                 { errors.name }
                             </Form.Control.Feedback>
                         </Form.Group>
-                        <Form.Group>
+                        <Form.Group className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative">
                             <Form.Control 
                                 type="text"  onChange={({ target }) => setField('email', target.value)}
                                 isInvalid={ !!errors.email }
@@ -114,9 +74,9 @@ export const BillingInfo = () => {
                         </Form.Group>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Group className="mb-4 position-relative">
+                        <Form.Group className="position-relative">
                             <Form.Label className="mb-0" >Billing Address</Form.Label>
-                            <Form.Group className="mb-2 position-relative">
+                            <Form.Group className="mb-3 position-relative">
                                 <Form.Control
                                     type="text"
                                     onChange={({ target }) => setField('address', target.value)}
@@ -128,14 +88,13 @@ export const BillingInfo = () => {
                             </Form.Group>
                             <Form.Group>
                                 <Form.Control 
-                                    className="mb-4"
+                                    className="mb-3 position-relative"
                                     type="text" 
                                     onChange={({ target }) => setField('optionalInfo', target.value)}
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
                             </Form.Group>
-                            <Form.Group className="mb-4 position-relative">
+                            <Form.Group className="mb-3 position-relative">
                                 <Form.Control 
-                                    className="mb-4"
                                     type="text" 
                                     onChange={({ target }) => setField('city', target.value)}
                                     isInvalid={ !!errors.city } 
@@ -144,9 +103,9 @@ export const BillingInfo = () => {
                                     { errors.city }
                                 </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group>
+                            <Form.Group className="mb-3 position-relative">
                                 <Row>
-                                    <Col sm="7">
+                                    <Col sm="7" xs="7">
                                         <Form.Control 
                                         as="select"
                                         onChange={({ target }) => setField('country', target.value)}
@@ -161,7 +120,7 @@ export const BillingInfo = () => {
                                             { errors.country }
                                         </Form.Control.Feedback>
                                     </Col>
-                                    <Col sm="5">
+                                    <Col sm="5" xs="5">
                                         <Form.Control 
                                             type="text"  
                                             onChange={({ target }) => setField('zip', target.value)}

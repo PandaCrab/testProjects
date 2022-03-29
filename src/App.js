@@ -5,7 +5,7 @@ import {
   BillingInfo,
   Payment,
   OrderPlate
-} from '../Components/Index';
+} from './Components/Index';
 
 import {
   Header,
@@ -13,9 +13,11 @@ import {
   ShoppingBasket,
   Slash,
   Order,
-  Route
-} from '../Styled/App/AppStyles';
-import { GlobalStyles } from '../GlobalStyles';
+  Route,
+  Basket,
+  ShippingBasketText
+} from './Styled/AppStyles';
+import { GlobalStyles } from './GlobalStyles';
 
 
 function App() {
@@ -23,21 +25,24 @@ function App() {
     shipping: true,
     billing: false,
     payment: false
-  })
+  });
 
 const currentForm = () => {
-  if (card.shipping === true) return <ShippingInfo />
-  else if (card.billing === true) return <BillingInfo />
-  else if (card.payment === true) return <Payment />
-}
+  if (card.shipping === true) return <ShippingInfo />;
+  else if (card.billing === true) return <BillingInfo />;
+  else if (card.payment === true) return <Payment />;
+};
 
   return (
     <>
       <GlobalStyles />
       <Header>
-        <HeaderText> &lt; <Slash>&frasl;</Slash> &gt; Front-end Developer Test Task</HeaderText>
-        <ShoppingBasket>cart</ShoppingBasket>
-
+        <HeaderText> &lt; <Slash>&frasl;</Slash>&gt; Front-end Developer Test Task</HeaderText>
+        <ShoppingBasket>
+          <ShippingBasketText>cart</ShippingBasketText>
+          <Basket />  
+        </ShoppingBasket>
+        
       </Header>
       <Order>
         <Route>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BsBasket3 } from 'react-icons/bs'
+import { BsBasket3 } from 'react-icons/bs';
 
 import { 
     OrderInfo,
@@ -8,9 +8,7 @@ import {
  } from '../Styled/OrderPlateStyles';
 
 export const OrderPlate = () => {
-    //const [order, setOrder] = useState({})
     const [viewOrder, setViewOrder] = useState(false)
-
 
     return (
         <>

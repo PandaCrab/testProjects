@@ -25,13 +25,13 @@ function App() {
     shipping: true,
     billing: false,
     payment: false
-  })
+  });
 
 const currentForm = () => {
-  if (card.shipping === true) return <ShippingInfo />
-  else if (card.billing === true) return <BillingInfo />
-  else if (card.payment === true) return <Payment />
-}
+  if (card.shipping === true) return <ShippingInfo />;
+  else if (card.billing === true) return <BillingInfo />;
+  else if (card.payment === true) return <Payment />;
+};
 
   return (
     <>

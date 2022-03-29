@@ -13,6 +13,7 @@ export const OrderInfo = styled.section`
   border-radius: inherit;
   top: 0;
   right: 0;
+  z-index: 2;
 
   @media ${devices.mobileS} {
     display: ${props => props.displayMobile};
@@ -20,15 +21,15 @@ export const OrderInfo = styled.section`
     height: 90%;
     margin-top: 5px;
     margin-right: 5px;
-  }
+  };
 
   @media ${devices.tablet} {
     margin: 0;
     display: flex;
     width: 40%;
     height: 100%;
-  }
-`
+  };
+`;
 
 export const OrderCloseBtn = styled(AiOutlineCloseSquare)`
   color: ${colors.violet};
@@ -40,11 +41,8 @@ export const OrderCloseBtn = styled(AiOutlineCloseSquare)`
 
   @media ${devices.tablet} {
     display: none;
-  }
-
-  
-
-`
+  };
+`;
 
 export const OrderInfoBtn = styled.button`
   color: ${colors.white};
@@ -62,13 +60,13 @@ export const OrderInfoBtn = styled.button`
 
   &:active {
     box-shadow: 0 0 7px grey;
-  }
+  };
 
   @media ${devices.mobileS} {
     display: flex;
-  }
+  };
 
   @media ${devices.tablet} {
     display: none;
-  }
-` 
+  };
+`;

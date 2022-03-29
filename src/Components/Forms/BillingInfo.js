@@ -17,22 +17,22 @@ import {
 
 export const BillingInfo = () => {
     const [billingInfo, setBillingInfo] = useState({});
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({});
 
     const setField = (field, value) => {
         setBillingInfo({
             ...billingInfo,
             [field]: value
-        })
+        });
 
         if (!!errors[field]) setErrors({
             ...errors,
             [field]: null
-        })
+        });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = (event) => {
+        event.preventDefault()
 
         const newErrors = FindFormErrors(billingInfo);
 
@@ -40,7 +40,7 @@ export const BillingInfo = () => {
             setErrors(newErrors)
         } else {
             alert('all good!')
-        }
+        };
     };
 
     return (

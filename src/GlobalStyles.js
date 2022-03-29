@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     body, html, root {
         background-color: #e6e9f0;
     };
-`
+`;
 
 export const devices = {
     mobileS: '(min-width: 320px)',
@@ -20,7 +20,7 @@ export const devices = {
     laptop: '(min-width: 1024px)',
     laptopL: '(min-width: 1440px)',
     desctop: '(min-width: 2560px)'
-}
+};
 
 export const colors = {
     violet: '#6e00c5',
@@ -29,4 +29,4 @@ export const colors = {
     orderPlateBackground: '#f1f3f6',
     btn: '#7a3fa8',
     borderGradient: 'linear-gradient(to right, #ebb6e8, #fdb9d8, #d9b2f8) 30'
-}
+};

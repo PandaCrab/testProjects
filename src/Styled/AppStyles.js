@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { devices, colors } from '../GlobalStyles'
-import { HiOutlineShoppingCart } from 'react-icons/hi'
+import styled from 'styled-components';
+import { devices, colors } from '../GlobalStyles';
+import { HiOutlineShoppingCart } from 'react-icons/hi';
 
 export const Header = styled.section`
   margin: auto;
@@ -22,22 +22,22 @@ export const Header = styled.section`
     width: 100%;
     height: 1em;
     fnt-size: 1em;
-  }
+  };
 
   @media ${devices.tablet} {
     width: 100%;
     height: 1em;
-  }
+  };
 
   @media ${devices.laptop} {
     width: 65em;
     height: 1.5em; 
-  }
+  };
 
   @media ${devices.laptopL} {
     height: 1.5em;
-  }
-`
+  };
+`;
 
 export const HeaderText = styled.h5`
   margin: auto;
@@ -46,19 +46,18 @@ export const HeaderText = styled.h5`
   display: flex;
   align-items: center;
 
-
   @media ${devices.mobileS} {
     font-size: .4em;
-  }
+  };
 
   @media ${devices.tablet} {
     font-size: .4em;
-  }
+  };
 
   @media ${devices.laptop} {
     font-size: .6em;
-  }
-`
+  };
+`;
 
 export const ShoppingBasket = styled.section`
   margin: auto;
@@ -69,16 +68,16 @@ export const ShoppingBasket = styled.section`
 
   @media ${devices.mobileS} {
     font-size: .5em;
-  }
+  };
 
   @media ${devices.tablet} {
     font-size: .4em;
-  }
+  };
 
   @media ${devices.laptop} {
     font-size: .5em;
-  }
-`
+  };
+`;
 
 export const ShippingBasketText = styled.p`
   margin-right: .3em;
@@ -86,16 +85,16 @@ export const ShippingBasketText = styled.p`
 
   @media ${devices.mobileS} {
     display: none;
-  }
+  };
 
   @media ${devices.tablet} {
     display: block;
-  }
-`
+  };
+`;
 
 export const Basket = styled( HiOutlineShoppingCart )`
     color: ${colors.slash};
-`
+`;
 
 export const Slash = styled.span`
   color: ${colors.slash}; 
@@ -104,12 +103,12 @@ export const Slash = styled.span`
 
   @media ${devices.mobileS} {
     font-size: 1.5em;
-  }
+  };
 
   @media ${devices.tablet} {
     font-size: 2em;
-  }
-`
+  };
+`;
 
 export const Order = styled.div`
   margin-left: 1.8em;
@@ -128,20 +127,20 @@ export const Order = styled.div`
     margin: auto;
     width: 95vw;
     justify-content: flex-start;
-  }
+  };
 
   @media ${devices.tablet} {
     margin: auto;
     width: 37em;
     height: 28em;
-  }
+  };
 
   @media ${devices.laptop} {
     margin: auto;
     width: 45em;
     height: 37em;
-  }
-`
+  };
+`;
 
 export const Route = styled.section`
   max-width: 21em;
@@ -154,5 +153,5 @@ export const Route = styled.section`
   @media ${devices.mobileS} {
     font-size: 1em;
     justify-content: space-around;
-  }
-`
+  };
+`;

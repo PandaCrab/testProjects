@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 import { devices, colors } from '../GlobalStyles'
+import { HiOutlineShoppingCart } from 'react-icons/hi'
 
 export const Header = styled.section`
   margin: auto;
   margin-bottom: 3em;
   max-width: 1024px;
   height: 2em;
+  color: ${colors.violet};
   background-color: ${colors.white};
   display: flex;
   font-size: 2rem;
@@ -29,8 +31,7 @@ export const Header = styled.section`
 
   @media ${devices.laptop} {
     width: 65em;
-    height: 1.5em;
-    font-size: 
+    height: 1.5em; 
   }
 
   @media ${devices.laptopL} {
@@ -41,6 +42,7 @@ export const Header = styled.section`
 export const HeaderText = styled.h5`
   margin: auto;
   font-size: 1rem;
+  font-weight: 300;
   display: flex;
   align-items: center;
 
@@ -52,19 +54,47 @@ export const HeaderText = styled.h5`
   @media ${devices.tablet} {
     font-size: .4em;
   }
+
+  @media ${devices.laptop} {
+    font-size: .6em;
+  }
 `
 
-export const ShoppingBasket = styled.h6`
+export const ShoppingBasket = styled.section`
   margin: auto;
   color: ${colors.slash};
+  display: flex;
+  align-items: center;
+  font-weight: 300;
 
   @media ${devices.mobileS} {
-    font-size: .3em;
+    font-size: .5em;
   }
 
   @media ${devices.tablet} {
-    font-size: .3em;
+    font-size: .4em;
   }
+
+  @media ${devices.laptop} {
+    font-size: .5em;
+  }
+`
+
+export const ShippingBasketText = styled.p`
+  margin-right: .3em;
+  margin-bottom: 0;
+
+  @media ${devices.mobileS} {
+    display: none;
+  }
+
+  @media ${devices.tablet} {
+    display: block;
+  }
+`
+
+export const Basket = styled( HiOutlineShoppingCart )`
+    color: ${colors.slash};
 `
 
 export const Slash = styled.span`
@@ -88,6 +118,7 @@ export const Order = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: ${colors.violet};
   background-color: ${colors.white};
   border-radius: 5px;
   box-shadow: 0 0 1.5em #e2e3e5;

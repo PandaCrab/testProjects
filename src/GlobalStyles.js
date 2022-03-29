@@ -5,7 +5,6 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: 'Montserrat', sans-serif;
-        color: #6e00c5;
     };
 
     body, html, root {
@@ -24,6 +23,7 @@ export const devices = {
 }
 
 export const colors = {
+    violet: '#6e00c5',
     white: '#fff',
     slash: '#f03ada',
     orderPlateBackground: '#f1f3f6',

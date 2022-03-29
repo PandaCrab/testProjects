@@ -13,7 +13,9 @@ import {
   ShoppingBasket,
   Slash,
   Order,
-  Route
+  Route,
+  Basket,
+  ShippingBasketText
 } from './Styled/AppStyles';
 import { GlobalStyles } from './GlobalStyles';
 
@@ -36,8 +38,11 @@ const currentForm = () => {
       <GlobalStyles />
       <Header>
         <HeaderText> &lt; <Slash>&frasl;</Slash>&gt; Front-end Developer Test Task</HeaderText>
-        <ShoppingBasket>cart</ShoppingBasket>
-
+        <ShoppingBasket>
+          <ShippingBasketText>cart</ShippingBasketText>
+          <Basket />  
+        </ShoppingBasket>
+        
       </Header>
       <Order>
         <Route>

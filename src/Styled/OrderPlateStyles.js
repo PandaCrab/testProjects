@@ -31,6 +31,30 @@ export const OrderInfo = styled.section`
   };
 `;
 
+export const Stuff = styled.section`
+  margin: auto;
+  background-color: white;
+`;
+
+export const StuffCard = styled.div`
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: column;
+  background-color: black;
+  color: white;
+  width: 98%;
+  height: 80%;
+  opacity: 60%;
+`;
+
+export const StuffItem = styled.section`
+  font-size: 0.7em;
+  margin: 3px;
+  background-color: white;
+  color: purple;
+`;
+
 export const OrderCloseBtn = styled(AiOutlineCloseSquare)`
   color: ${colors.violet};
   position: absolute;

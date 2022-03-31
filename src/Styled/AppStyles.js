@@ -142,7 +142,7 @@ export const Order = styled.div`
   };
 `;
 
-export const Route = styled.section`
+export const Nav = styled.section`
   max-width: 21em;
   height: 5%;
   margin-top: 1em;

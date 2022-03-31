@@ -1,11 +1,6 @@
-import React, { useState } from 'react';
-
-import {
-  ShippingInfo,
-  BillingInfo,
-  Payment,
-  OrderPlate
-} from './Components/Index';
+import React from 'react';
+import { OrderPlate } from './Components/Index';
+import { Outlet, Link } from 'react-router-dom';
 
 import {
   Header,
@@ -13,7 +8,7 @@ import {
   ShoppingBasket,
   Slash,
   Order,
-  Route,
+  Nav,
   Basket,
   ShippingBasketText
 } from './Styled/AppStyles';
@@ -21,17 +16,6 @@ import { GlobalStyles } from './GlobalStyles';
 
 
 function App() {
-  const [card, setCard] = useState({
-    shipping: true,
-    billing: false,
-    payment: false
-  });
-
-const currentForm = () => {
-  if (card.shipping === true) return <ShippingInfo />;
-  else if (card.billing === true) return <BillingInfo />;
-  else if (card.payment === true) return <Payment />;
-};
 
   return (
     <>
@@ -45,31 +29,12 @@ const currentForm = () => {
         
       </Header>
       <Order>
-        <Route>
-          <a 
-          onClick={() => {setCard({
-            shipping: true,
-            billing: false,
-            payment: false}); console.log(card)}}
-             value="shipping" href="#Shipping">Shipping</a>&gt;
-          <a 
-           onClick={() => {setCard({
-            shipping: false,
-            billing: true,
-            payment: false
-           }); console.log(card)}}
-           value="billing" href="#Billing">Billing</a>&gt;
-          <a 
-            onClick={ () => {setCard({
-              shipping: false,
-              billing: false,
-              payment: true
-            });  console.log(card)} }
-            value="payment" href="#Payment">Payment</a>
-        </Route>
-        {
-          currentForm()
-        }
+        <Nav>
+          <Link to="/ShippingInfo">ShippingInfo</Link>
+          <Link to="/BillingInfo">BillingInfo</Link>
+          <Link to="/Payment">Payment</Link>
+        </Nav>
+        <Outlet />
         <OrderPlate />
       </Order>
 

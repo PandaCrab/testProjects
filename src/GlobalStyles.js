@@ -23,8 +23,11 @@ export const devices = {
 };
 
 export const colors = {
+    stuffBorder: '#dfe1e3',
+    stuffHeader: '#777879',
     violet: '#6e00c5',
     white: '#fff',
+    black: '#000',
     slash: '#f03ada',
     orderPlateBackground: '#f1f3f6',
     btn: '#7a3fa8',

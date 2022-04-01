@@ -5,9 +5,12 @@ import { Stuff } from './Stuff';
 
 import { 
     OrderInfo,
-    StuffCard,
-    OrderInfoBtn,
-    OrderCloseBtn
+    SummaryHeaderBlock,
+    SummaryHeader,
+    OrderCloseBtn,
+    OrderEdit,
+    OrderCard,
+    OrderInfoBtn
  } from '../../Styled/OrderPlateStyles';
 
 export const OrderPlate = () => {
@@ -17,9 +20,12 @@ export const OrderPlate = () => {
         <>
             <OrderInfo displayMobile={viewOrder ? 'flex' : 'none'}>
                 <OrderCloseBtn onClick={() => setViewOrder(false)} />
-                <StuffCard>
+                <SummaryHeaderBlock>
+                    <SummaryHeader>Order Summary</SummaryHeader> <OrderEdit>edit order</OrderEdit>
+                </SummaryHeaderBlock>
+                <OrderCard>
                     <Stuff />
-                </StuffCard>
+                </OrderCard>
             </OrderInfo>
             <OrderInfoBtn onClick={() => setViewOrder(!viewOrder)}>
                 <BsBasket3 />

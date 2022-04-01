@@ -143,7 +143,7 @@ export const Order = styled.div`
 `;
 
 export const Nav = styled.section`
-  max-width: 21em;
+  width: 17em;
   height: 5%;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -151,7 +151,7 @@ export const Nav = styled.section`
   align-items: center;
 
   @media ${devices.mobileS} {
-    font-size: 1em;
+    font-size: .8em;
     justify-content: space-around;
   };
 `;

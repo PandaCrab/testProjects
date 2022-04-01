@@ -30,8 +30,8 @@ function App() {
       </Header>
       <Order>
         <Nav>
-          <Link to="/ShippingInfo">ShippingInfo</Link>
-          <Link to="/BillingInfo">BillingInfo</Link>
+          <Link to="/ShippingInfo">Shipping</Link>
+          <Link to="/BillingInfo">Billing</Link>
           <Link to="/Payment">Payment</Link>
         </Nav>
         <Outlet />

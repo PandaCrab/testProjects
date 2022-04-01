@@ -3,8 +3,7 @@ import { devices, colors } from '../GlobalStyles';
 import { Button } from 'react-bootstrap';
 
 export const Info = styled.div`
-    margin: auto;
-    width: 37em;
+    width: 55%;
     font-size: 2.5vw;
     height: auto;
     position: relative;
@@ -27,7 +26,7 @@ export const Info = styled.div`
     };
 
     @media ${devices.tablet} {
-        width: 25em;
+        width: 50%;
         font-size: .8em;
 
         .form-control {
@@ -42,7 +41,6 @@ export const Info = styled.div`
     
     @media ${devices.laptop} {
         margin: 0 2em 1em 2em;
-        width: 30em;
 
         .form-control {
             font-size: 1rem;

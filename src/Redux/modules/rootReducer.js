@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 import stuffReducer from "./stuffReducer";
+import appReducer from "./globalReducer";
 
 export const rootReducer = combineReducers({
-    order: stuffReducer,
+    app: appReducer,
+    order: stuffReducer
 })

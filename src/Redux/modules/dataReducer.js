@@ -1,11 +1,14 @@
 export const POST_DATA = 'data/POST_DATA';
+const FILL_DATA = 'data/FILL_DATA'
 
-const initialState = {}
+const initialState = {
+    personInfo: []
+}
 
 export default function dataReducer(state = initialState, action) {
-    switch (action.payload) {
-        case POST_DATA:
-            return {...state, data: action.payload};
+    switch (action.type) {
+        case FILL_DATA:
+            return {...state, personInfo: state.personInfo.concat([action.payload])}
 
         default: return state;
     }
@@ -14,5 +17,12 @@ export default function dataReducer(state = initialState, action) {
 export const postData = () => {
     return {
         type: POST_DATA
+    }
+}
+
+export const fillData = (info) => {
+    return {
+        type: FILL_DATA,
+        payload: info
     }
 }

@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     Form,
     Col,
     Row
 } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { FindFormErrors } from '../../helpers';
+import { useFormik } from 'formik';
 
+import { paymentValidation } from '../../helpers';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
     Info,
     FormLabel,
@@ -15,61 +17,57 @@ import {
  } from '../../Styled/FormStyle';
 
 export const Payment = () => {
-    const [payment, setPayment] = useState({});
-    const [errors, setErrors] = useState({});
 
-    const setField = (field, value) => {
-        setPayment({
-            ...payment,
-            [field]: value
-        })
-
-        if (!!errors[field]) setErrors({
-            ...errors,
-            [field]: null
-        })
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault()
-
-        const newErrors = FindFormErrors(payment);
-
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors)
-        } else {
-            alert('all good!')
+    const formik = useFormik({
+        validationSchema: paymentValidation,
+        onSubmit: () => {
+            console.log(JSON.stringify(formik.values, null, '/f'));
+            formik.handleReset();
+        },
+        initialValues: {
+            cardholder: '',
+            cardNum: '',
+            date: '',
+            code: ''
         }
-    };
+    });
 
     return (
         <Info>
             <FormLabel>
                 <FormLabelHeader>Payment</FormLabelHeader>
             </FormLabel>
-            <Form>
+            <Form fluid="true" noValidate onSubmit={formik.handleSubmit}>
                 <Form.Group className="mb-4 position-relative">
                     <Form.Label className="mb-0">Cardholder Name</Form.Label>
                     <Form.Control
-                        type="name"
-                        onChange={({ target }) => setField('cardholder', target.value) }
-                        isInvalid={ !!errors.cardholder }
+                        id="cardholder"
+                        type="text"
+                        name="cardholder"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.cardholder}
+                        isInvalid={ !!formik.errors.cardholder }
                         placeholder='Name as it appears on your card'
                      />
                     <Form.Control.Feedback type='invalid' tooltip>
-                        { errors.cardholder }
+                        { formik.errors.cardholder }
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-4 position-relative">
                     <Form.Label className="mb-1">Card Number</Form.Label>
                     <Form.Control
+                        id="cardNum"
                         type="text"
-                        onChange={({ target }) => setField('cardNum', target.value) }
-                        isInvalid={ !!errors.cardNum }
+                        name="cardNum"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.cardNum}
+                        isInvalid={ !!formik.errors.cardNum }
                         placeholder="XXXX XXXX XXXX XXXX"
                      />
                     <Form.Control.Feedback type='invalid' tooltip>
-                        { errors.cardNum }
+                        { formik.errors.cardNum }
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-4 position-relative">
@@ -77,31 +75,38 @@ export const Payment = () => {
                         <Col sm="4" xs="5">
                             <Form.Label className="mb-1">Expire Date</Form.Label>
                             <Form.Control
+                                id="date"
                                 type="text"
-                                onChange={({ target }) => setField('date', target.value) }
-                                isInvalid={ !!errors.date }
+                                name="date"
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.date}
+                                isInvalid={ !!formik.errors.date }
                                 placeholder="MM/YY"
                              />
                             <Form.Control.Feedback type='invalid' tooltip>
-                                { errors.date }
+                                { formik.errors.date }
                             </Form.Control.Feedback>
                         </Col>
                         <Col sm="5" xs="6">
                             <Form.Label className="mb-1">Security Code</Form.Label>
                             <Form.Control
+                                id="code"
                                 type="text"
-                                onChange={({ target }) => setField('code', target.value) }
-                                isInvalid={ !!errors.code } />
+                                name="code"
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.code}
+                                isInvalid={ !!formik.errors.code } />
                             <Form.Control.Feedback type='invalid' tooltip>
-                                { errors.code }
+                                { formik.errors.code }
                             </Form.Control.Feedback>
                         </Col>
                     </Row>
                 </Form.Group>
                 <StyledButton 
                     variant="primary"
-                    type="submit"
-                    onClick={ handleSubmit }>
+                    type="submit">
                         Pay Securely
                     </StyledButton>
             </Form>

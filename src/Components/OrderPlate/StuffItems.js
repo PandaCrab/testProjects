@@ -6,7 +6,7 @@ import {
   StuffInfo,
   StuffName,
   StuffPrice,
-  StuffInformstion
+  StuffInformation
  } from '../../Styled/OrderPlateStyles';
 
 export const StuffItems = ({ stuff }) => {
@@ -15,8 +15,8 @@ export const StuffItems = ({ stuff }) => {
         <StuffImage src={stuff.imgUrl} />
         <StuffInfo>
           <StuffName>{stuff.name}</StuffName>
-          <StuffInformstion>{stuff.color}</StuffInformstion>
-          <StuffInformstion>Quantity: 1</StuffInformstion>
+          <StuffInformation>{stuff.color}</StuffInformation>
+          <StuffInformation>Quantity: 1</StuffInformation>
         </StuffInfo>
         <StuffPrice>{stuff.price}$</StuffPrice>
       </StuffItem>

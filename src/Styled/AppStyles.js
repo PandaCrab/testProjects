@@ -26,7 +26,7 @@ export const Header = styled.section`
 
   @media ${devices.tablet} {
     width: 100%;
-    height: 1em;
+    height: 1.4em;
   };
 
   @media ${devices.laptop} {
@@ -37,6 +37,19 @@ export const Header = styled.section`
   @media ${devices.laptopL} {
     height: 1.5em;
   };
+`;
+
+export const HeaderLogo = styled.p`
+  display: flex;
+  height: 1.5em;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 300;
+  background-image: ${colors.textGradient};
+  -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
 `;
 
 export const HeaderText = styled.h5`
@@ -51,7 +64,7 @@ export const HeaderText = styled.h5`
   };
 
   @media ${devices.tablet} {
-    font-size: .4em;
+    font-size: .5em;
   };
 
   @media ${devices.laptop} {
@@ -67,20 +80,46 @@ export const ShoppingBasket = styled.section`
   font-weight: 300;
 
   @media ${devices.mobileS} {
-    font-size: .5em;
+    font-size: .6em;
   };
 
   @media ${devices.tablet} {
-    font-size: .4em;
+    font-size: .6em;
   };
 
   @media ${devices.laptop} {
-    font-size: .5em;
+    font-size: .6em;
   };
 `;
 
-export const ShippingBasketText = styled.p`
-  margin-right: .3em;
+export const BasketContainer = styled.div`
+  width: 2em;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  position: relative;
+`;
+
+export const CircleOfNumber = styled.div`
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #ff1876;
+  position: absolute;
+  right: 12px;
+  top: 0;
+`;
+
+export const NumberOfStuff = styled.p`
+  position: absolute;
+  right: 5px;
+  top: 0;
+  color: ${colors.white};
+  font-size: .6em;
+`;
+
+export const ShoppingBasketText = styled.p`
+  margin-right: .4em;
   margin-bottom: 0;
 
   @media ${devices.mobileS} {
@@ -89,11 +128,13 @@ export const ShippingBasketText = styled.p`
 
   @media ${devices.tablet} {
     display: block;
+    font-size: .8em;
   };
 `;
 
 export const Basket = styled( HiOutlineShoppingCart )`
     color: ${colors.slash};
+    font-size: 1em;
 `;
 
 export const Slash = styled.span`

@@ -24,6 +24,7 @@ ReactDOM.render(
             <Route path="ShippingInfo" element={ <ShippingInfo /> } />
             <Route path="BillingInfo" element={ <BillingInfo /> } />
             <Route path="Payment" element={ <Payment /> } />
+            <Route path="TermsAndConditions" element={<h1>Terms and Conditions</h1>} />
             <Route path="*" element={<p>Cannot find the page : 404</p>} />
           </Route>
         </Routes>

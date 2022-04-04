@@ -4,27 +4,36 @@ import { Outlet, Link } from 'react-router-dom';
 
 import {
   Header,
+  HeaderLogo,
   HeaderText,
   ShoppingBasket,
+  BasketContainer,
   Slash,
   Order,
   Nav,
   Basket,
-  ShippingBasketText
+  ShoppingBasketText,
+  NumberOfStuff,
+  CircleOfNumber
 } from './Styled/AppStyles';
 import { GlobalStyles } from './GlobalStyles';
+import { useSelector } from 'react-redux';
 
 
 function App() {
+  const stuff = useSelector(state => state.order.stuff);
 
   return (
     <>
       <GlobalStyles />
       <Header>
-        <HeaderText> &lt; <Slash>&frasl;</Slash>&gt; Front-end Developer Test Task</HeaderText>
+        <HeaderText> <HeaderLogo>&lt; <Slash>&frasl;</Slash>&gt;</HeaderLogo> Front-end Developer Test Task</HeaderText>
         <ShoppingBasket>
-          <ShippingBasketText>cart</ShippingBasketText>
-          <Basket />  
+          <ShoppingBasketText>cart</ShoppingBasketText>
+          <BasketContainer>
+            <Basket />  
+            <CircleOfNumber><NumberOfStuff>{stuff.length}</NumberOfStuff></CircleOfNumber>
+          </BasketContainer>
         </ShoppingBasket>
         
       </Header>

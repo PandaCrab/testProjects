@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Loader } from '../Loader';
 import { getStuff } from '../../Redux/modules/stuffReducer';
+import { LoaderContainer } from '../../Styled/OrderPlateStyles';
 import { StuffItems } from './StuffItems';
 
 export const Stuff = () => {
@@ -10,7 +11,11 @@ export const Stuff = () => {
         const stuffs = useSelector(state => state.order.stuff); 
         const loading = useSelector(state => state.app.loading);
 
-        if (loading) {return <Loader />}
+        if (loading) {
+            return <LoaderContainer>
+                    <Loader />
+                </LoaderContainer>
+        }
 
         if (!stuffs.length) {
             return dispatch(getStuff())

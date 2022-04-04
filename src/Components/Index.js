@@ -4,4 +4,4 @@ import { Payment } from './Forms/Payment';
 import { OrderPlate } from './OrderPlate/OrderPlate';
 
 
-export { ShippingInfo, BillingInfo, Payment, OrderPlate };
+export { ShippingInfo, BillingInfo, Payment, OrderPlate, };

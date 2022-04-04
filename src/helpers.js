@@ -67,8 +67,8 @@ export const FindFormErrors = (info) => {
     if (!code || code === '') newErrors.code = 'Enter code';
     if (typeof code !== 'undefined') {
         if (!(/^[0-9]+$/).test(code)) newErrors.code = 'Only numbers';
-        else if ((/^[$&+,:;=?@#|'<>.-^*()%!]+$/).test(code)) newErrors.code = 'Only numbers';
-        else if ((/^([0-9]){3}$/).test(code)) newErrors.code = 'To long';
+        else if ((/^[$&+,:;=?@#|'<>.-^*()%!]+$/g).test(code)) newErrors.code = 'Only numbers';
+        else if (!(/^([0-9]){3}$/).test(code)) newErrors.code = 'To long';
     };
     
     return newErrors;

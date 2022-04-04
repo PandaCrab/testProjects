@@ -6,6 +6,7 @@ import {
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FindFormErrors } from '../../helpers';
+import { personInfo } from '../data';
 
 import { 
     Info,
@@ -23,25 +24,31 @@ export const ShippingInfo = () => {
         setShippingInfo({
             ...shippingInfo,
             [field]: value
-        })
-
+        });
+            
         if (!!errors[field]) setErrors({
             ...errors,
             [field]: null
-        })
+        });
     }; 
 
     const handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
 
         const newErrors = FindFormErrors(shippingInfo);
 
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors)
+        if (Object.keys(newErrors).length ) {
+            setErrors(newErrors);
+            alert('you have error')
         } else {
-            alert('all good!')
+            personInfo.push(shippingInfo);
+            setShippingInfo({});
+            alert('all goood');
         }
     };
+
+    console.log(errors)
+    console.log(personInfo)
 
     return (
         <>
@@ -49,7 +56,7 @@ export const ShippingInfo = () => {
                 <FormLabel>
                     <FormLabelHeader>Shipping Information</FormLabelHeader>
                 </FormLabel>
-                <Form fluid="true">
+                <Form fluid="true" onSubmit={handleSubmit}>
                     <Form.Group >
                         <Form.Group>
                             <Form.Label className="mb-0">Recipient</Form.Label>
@@ -142,12 +149,11 @@ export const ShippingInfo = () => {
                     </Form.Group>
                     <StyledButton 
                         variant="primary" 
-                        type="submit"
-                        onClick={ handleSubmit }>
+                        type="submit">
                         Continue
                     </StyledButton>
                 </Form>
             </Info>    
         </>
-    )
+    );
 };

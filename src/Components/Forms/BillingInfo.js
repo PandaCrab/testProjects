@@ -6,6 +6,7 @@ import {
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FindFormErrors } from '../../helpers';
+import { personInfo } from '../data';
 
 import { 
     Info,
@@ -31,6 +32,14 @@ export const BillingInfo = () => {
         });
     };
 
+    const handleSameShipping = () => {
+        if (!personInfo.length) return null
+        setBillingInfo(personInfo[0])
+    }
+
+    console.log(personInfo)
+    console.log(billingInfo)
+
     const handleSubmit = (event) => {
         event.preventDefault()
 
@@ -48,7 +57,7 @@ export const BillingInfo = () => {
             <Info>
                 <FormLabel>
                     <FormLabelHeader>Billing Information</FormLabelHeader>
-                    <FormLabelParagraph>Same as shipping</FormLabelParagraph>
+                    <FormLabelParagraph onClick={()=> handleSameShipping()}>Same as shipping</FormLabelParagraph>
                 </FormLabel>
                 <Form fluid="true">
                     <Form.Group>
@@ -57,6 +66,7 @@ export const BillingInfo = () => {
                             <Form.Control
                                 type="name" 
                                 onChange={({ target }) => setField('name', target.value)}
+                                value={billingInfo.name || ''}
                                 isInvalid={ !!errors.name } 
                                 placeholder="Full Name" />
                             <Form.Control.Feedback type='invalid' tooltip>
@@ -66,6 +76,7 @@ export const BillingInfo = () => {
                         <Form.Group className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative">
                             <Form.Control 
                                 type="text"  onChange={({ target }) => setField('email', target.value)}
+                                value={billingInfo.email || ''}
                                 isInvalid={ !!errors.email }
                                 placeholder="Email Address" />
                             <Form.Control.Feedback type='invalid' tooltip>
@@ -80,6 +91,7 @@ export const BillingInfo = () => {
                                 <Form.Control
                                     type="text"
                                     onChange={({ target }) => setField('address', target.value)}
+                                    value={billingInfo.address || ''}
                                     isInvalid={ !!errors.address } 
                                     placeholder="Street Address" />
                                 <Form.Control.Feedback type='invalid' tooltip>
@@ -91,12 +103,14 @@ export const BillingInfo = () => {
                                     className="mb-3 position-relative"
                                     type="text" 
                                     onChange={({ target }) => setField('optionalInfo', target.value)}
+                                    value={billingInfo.optionalInfo || ''}
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
                             </Form.Group>
                             <Form.Group className="mb-3 position-relative">
                                 <Form.Control 
                                     type="text" 
                                     onChange={({ target }) => setField('city', target.value)}
+                                    value={billingInfo.city || ''}
                                     isInvalid={ !!errors.city } 
                                     placeholder="City" />
                                 <Form.Control.Feedback type='invalid' tooltip>
@@ -109,6 +123,7 @@ export const BillingInfo = () => {
                                         <Form.Control 
                                         as="select"
                                         onChange={({ target }) => setField('country', target.value)}
+                                        value={billingInfo.country || ''}
                                         isInvalid={ !!errors.country } >
                                             <option value="">Country</option>
                                             <option value="usa" >USA</option>
@@ -124,7 +139,8 @@ export const BillingInfo = () => {
                                         <Form.Control 
                                             type="text"  
                                             onChange={({ target }) => setField('zip', target.value)}
-                                            isInvalid={ !!errors.zip } 
+                                            value={billingInfo.zip}
+                                            isInvalid={ !!errors.zip || ''} 
                                             placeholder="ZIP" />
                                         <Form.Control.Feedback type='invalid' tooltip>
                                             { errors.zip }

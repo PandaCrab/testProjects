@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { devices, colors } from '../GlobalStyles';
+import { Link } from 'react-router-dom';
 import { AiOutlineCloseSquare } from 'react-icons/ai';
+import { devices, colors } from '../GlobalStyles';
 
 export const OrderInfo = styled.section`
   margin: 0;
@@ -10,6 +11,7 @@ export const OrderInfo = styled.section`
   display: flex;
   flex-direction: column;
   height: inherit;
+  justify-content: space-between;
   position: absolute;
   border-radius: inherit;
   top: 0;
@@ -40,7 +42,6 @@ export const SummaryHeaderBlock = styled.section`
   align-items: flex-end;
   height: 2em;
   font-size: .5em;
-  letter-spacing: -.5px;
 `;
 
 export const SummaryHeader = styled.h6`
@@ -49,9 +50,9 @@ export const SummaryHeader = styled.h6`
 `;
 
 export const OrderEdit = styled.button`
-  text-decoration: underline .1px ${colors.stuffHeader};
+  text-decoration: underline .1px ${colors.stuffText};
   border: none;
-  color: ${colors.stuffHeader};
+  color: ${colors.stuffText};
   font-size: 1.3em;
 `;
 
@@ -62,19 +63,26 @@ export const OrderCard = styled.div`
   justify-content: flex-start;
   width: 99%;
   max-height: 24em;
-  overflow: scroll;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 
   @media ${devices.mobileS} {
-    max-height: 9em;
+    max-height: 14em;
   };
 
   @media ${devices.tablet} {
-    max-height: 17em;
+    max-height: 16em;
   };
 
   @media ${devices.laptop} {
     max-height: 24em;
   };
+`;
+
+export const LoaderContainer = styled.section`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Stuff = styled.section`
@@ -125,7 +133,7 @@ export const StuffInfo = styled.section`
 
 export const StuffName = styled.h6`
   margin-bottom: 5px;
-  color: ${colors.stuffHeader};
+  color: ${colors.stuffText};
   font-size: 1.2em;
 
   @media ${devices.mobileS} {
@@ -133,9 +141,8 @@ export const StuffName = styled.h6`
   }
 `;
 
-export const StuffInformstion = styled.p`
+export const StuffInformation = styled.p`
   margin-bottom: 1px;
-  letter-spacing: -.5px;
   font-size: .8em;
   color: ${colors.black}
 `;
@@ -146,23 +153,47 @@ export const StuffPrice = styled.p`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  color: ${colors.stuffText}
 `;
 
 export const SummaryPrice = styled.section`
+  margin-bottom: 1em; 
   display: flex;
-  flex-direction: column;
-  background-color: black;
+  flex-direction: row;
+  justify-content: space-between;
   width: 99%;
-  height: 5em;
   border-bottom: 1px solid ${colors.stuffBorder};
+  color: ${colors.stuffText};
+  font-size: .7em;
 `;
 
-export const Prices = styled.p`
-  display: flex;
-  justify-content: space-between;
+export const PriceInfo = styled.section`
   margin-bottom: 2px;
-  color: white;
+`;
+
+export const Price = styled.section`
+  margin-bottom: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+export const PriceText = styled.p`
+  margin-bottom: 2px;
+`;
+
+export const TotalPrice = styled.section`
+  margin-bottom: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const TotalPriceText = styled.p`
+  margin-bottom: 0;
+  color: ${colors.totalPrice};
   font-size: .7em;
+  font-weight: bold;
 `;
 
 export const OrderCloseBtn = styled(AiOutlineCloseSquare)`
@@ -175,6 +206,31 @@ export const OrderCloseBtn = styled(AiOutlineCloseSquare)`
 
   @media ${devices.tablet} {
     display: none;
+  };
+`;
+
+export const TermsConditions = styled.section`
+  display: flex;
+  justify-content: center;
+`;
+
+export const TermsConditionText = styled.p`
+  margin-bottom: 0;
+  color: ${colors.stuffText};
+  font-size: .5em;
+`;
+
+export const TermsConditionsLink = styled(Link)`
+  margin-left: 2px;
+  color: ${colors.stuffText};
+  text-decoration: underline .1em;
+
+  &:active {
+    color: ${colors.violet};
+  };
+
+  &::after {
+    color: ${colors.stuffText}
   };
 `;
 

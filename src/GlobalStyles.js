@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: 'Montserrat', sans-serif;
+        letter-spacing: -.5px;
     };
 
     body, html, root {
@@ -24,12 +25,14 @@ export const devices = {
 
 export const colors = {
     stuffBorder: '#dfe1e3',
-    stuffHeader: '#777879',
+    stuffText: '#777879',
+    totalPrice: '#54316c',
     violet: '#6e00c5',
     white: '#fff',
     black: '#000',
     slash: '#f03ada',
     orderPlateBackground: '#f1f3f6',
     btn: '#7a3fa8',
-    borderGradient: 'linear-gradient(to right, #ebb6e8, #fdb9d8, #d9b2f8) 30'
+    borderGradient: 'linear-gradient(to right, #ebb6e8, #fdb9d8, #d9b2f8) 30',
+    textGradient: 'linear-gradient(90deg, #ebb6e8, #fdb9d8, #d9b2f8)'
 };

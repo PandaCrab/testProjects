@@ -1,6 +1,8 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { FETCH_STUFF, REQUEST_STUFF } from './modules/stuffReducer';
 import { showLoader, hideLoader } from './modules/globalReducer';
+import { POST_DATA } from './modules/dataReducer';
+import { personInfo } from '../Components/data';
 
 export function* sagaWatcher() {
     yield takeEvery(REQUEST_STUFF, sagaWorker)

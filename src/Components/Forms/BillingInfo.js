@@ -21,7 +21,7 @@ import {
 import { fillData, sendData } from '../../Redux/modules/dataReducer';
 
 export const BillingInfo = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const formik = useFormik({
         validationSchema: billingValidation,
@@ -169,5 +169,5 @@ export const BillingInfo = () => {
                 </Form>
             </Info>
         </>
-    )
+    );
 };

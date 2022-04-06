@@ -1,7 +1,7 @@
 import React from "react";
 import {
     Info
-} from '../../Styles/FormStyle'
+} from '../../Styles/FormStyle';
 
 export const SuccessBuying = () => {
     return (
@@ -10,5 +10,5 @@ export const SuccessBuying = () => {
                 <h1>Buying is success! huray!</h1>
             </Info>
         </>
-    )
-}
+    );
+};

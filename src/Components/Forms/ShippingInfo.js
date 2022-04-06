@@ -21,7 +21,7 @@ import {
 import { fillData, sendData } from '../../Redux/modules/dataReducer';
 
 export const ShippingInfo = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const formik = useFormik({
         validationSchema: shippingValidation,

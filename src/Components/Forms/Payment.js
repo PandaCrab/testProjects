@@ -118,5 +118,5 @@ export const Payment = () => {
             </Form>
         </Info>
         
-    )
+    );
 };

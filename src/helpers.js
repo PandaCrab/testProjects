@@ -1,108 +1,44 @@
 import * as Yup from 'yup';
 
 export const shippingValidation = Yup.object().shape({
-    name: Yup.string().required('Required'),
-    phone: Yup.number()
-        .moreThan(10, 'Not enough')
-        .required('Required'),
-    address: Yup.string().required('Required'),
-    country: Yup.string().required('Required'),
-    city: Yup.string().required('Required'),
-    zip: Yup.number().required('Required')
+    name: Yup.string()
+        .matches(/^[a-zA-Z]+\s[a-zA-Z]+$/, 'Invalide full name')
+        .required('Please enter your name'),
+    phone: Yup.string()
+        .min(10, 'Invalide phone number')
+        .max(18, 'You enter long phone')
+        .matches(/^\+[0-9\b]+$/, 'Only numbers')
+        .required('Enter a contact phone'),
+    address: Yup.string().required('Enter shipping address'),
+    country: Yup.string().required('Choose country'),
+    city: Yup.string().required('enter city'),
+    zip: Yup.number().required('Enter zip')
 });
 
 export const billingValidation = Yup.object().shape({
-    name: Yup.string().required('Required'),
+    name: Yup.string()
+        .matches(/^[a-zA-Z]+\s[a-zA-Z]+$/, 'Please enter full name')
+        .required('Please enter your name'),
     email: Yup.string()
         .email('Invalid email address')
-        .required('Required'),
-    address: Yup.string().required('Required'),
-    country: Yup.string().required('Required'),
-    city: Yup.string().required('Required'),
-    zip: Yup.number().required('Required')
+        .required('Please enter email'),
+    address: Yup.string().required('Enter billing address'),
+    country: Yup.string().required('Choose a country'),
+    city: Yup.string().required('Enter city'),
+    zip: Yup.number().required('Enter zip')
 });
 
 export const paymentValidation = Yup.object().shape({
-    cardholder: Yup.string().required('Requied'),
-    cardNum: Yup.number()
-        .min(16, 'Invalid card number')
-        .required('Required'),
-    date: Yup.number().required('Required'),
-    code: Yup.number().required('Required')
+    cardholder: Yup.string()
+        .matches(/^((?:[A-Za-z]+ ?){1,3})$/, 'Enter correct place holder name')
+        .required('Enter a card holder name'),
+    cardNum: Yup.string()
+        .matches(/^([0-9]){4} ([0-9]){4} ([0-9]){4} ([0-9]){4}$/)
+        .required('Enter a card number'),
+    date: Yup.string()
+        .matches(/^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])$/, 'Enter valid date')
+        .required('Enter expire date'),
+    code: Yup.string()
+        .matches(/^\d{3}&/, 'Invalid cvc')
+        .required('Enter a cvc')
 });
-
-const emailRegex = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i;
-
-export const FindFormErrors = (info) => {
-    const {
-        name,
-        email,
-        phone,
-        address,
-        country,
-        city,
-        zip,
-        cardholder,
-        cardNum,
-        date,
-        code
-    } = info;
-    const newErrors = {}
-    //name
-    if (!name || name === '') newErrors.name = 'Please enter recipient full name';
-    if (typeof name !== 'undefined') {
-        if ((/^[0-9\d]+$/).test(name)) newErrors.name = 'Only letters';
-        else if ((/^[$&+,:;=?@#|'<>.-^*()%!]+$/).test(name)) newErrors.name = `Don't use special symbols`;
-        else if (!(/^[a-zA-Z]+\s[a-zA-Z]+$/).test(name)) newErrors.name = 'Please enter Full name';
-    };
-    //email
-    if (!email || email === '') newErrors.email = 'Please enter email';
-    if (typeof email !== 'undefined') {
-        if (!emailRegex.test(email)) newErrors.email = 'Please enter valid email';
-    };
-    //phone
-    if (!phone || phone === '') newErrors.phone = 'Please enter phone number';
-    if (typeof phone !== 'undefined') {
-        if (!(/^[0-9\b]+$/).test(phone)) newErrors.phone = 'Please enter only nubmers';
-        else if (phone.length !== 10) newErrors.phone = 'Please enter valid phone number';
-    };
-    //address
-    if (!address || address === '') newErrors.address = 'Please enter address';
-    //country
-    if (!country || country === '') newErrors.country = 'Please choose country';
-    //city
-    if (!city || city === '') newErrors.city = 'Plaese enter city';
-    //zip code
-    if (!zip || zip === '') newErrors.zip = 'Enter ZIP';
-    if (typeof zip !== 'undefined') {
-        if (!(/^[0-9]+$/).test(zip)) newErrors.zip = 'Only numbers';
-        else if (zip.length !== 6) newErrors.zip = 'Invalid ZIP';
-    };
-    //cardholder
-    if (!cardholder || cardholder === '') newErrors.cardholder = 'Please enter cardholder name';
-    if (typeof cardholder !== 'undefined') {
-        if ((/^[0-9]+$/).test(cardholder)) newErrors.cardholder = 'Only letters';
-        else if ((/^[$&+,:;=?@#|'<>.-^*()%!]+$/).test(cardholder)) newErrors.cardholder = `Don't use special symbols`;
-    };
-    //card number
-    if (!cardNum || cardNum === '') newErrors.cardNum = 'Please enter card number';
-    if (typeof cardNum !== 'undefined') {
-        if ((/^[$&+,:;=?@#|'<>.-^*()%!]+$/).test(cardholder)) newErrors.cardholder = `Don't use special symbols`;
-        else if (!(/^([0-9]){4} ([0-9]){4} ([0-9]){4} ([0-9]){4}$/).test(cardNum)) newErrors.cardNum = 'Enter valid card number';
-    };
-    //date
-    if (!date || date === '') newErrors.date = 'Set date';
-    if (typeof date !== 'undefined') {
-        if (!(/^[\d]{2}\/[\d]{2}$/).test(date)) newErrors.date = 'Invalid date';
-        else if ((/(0[1-9]|1[012])(0[1-9]|1[0-9]|2[0-9]|3[01])/).test(date)) newErrors.date = 'Invalid date';
-    };
-    //security code
-    if (!code || code === '') newErrors.code = 'Enter code';
-    if (typeof code !== 'undefined') {
-        if (!(/^[0-9]+$/).test(code)) newErrors.code = 'Only numbers';
-        else if ((/^[$&+,:;=?@#|'<>.-^*()%!]+$/g).test(code)) newErrors.code = 'Only numbers';
-        else if (!(/^([0-9]){3}$/).test(code)) newErrors.code = 'To long';
-    };
-    
-    return newErrors;
-};

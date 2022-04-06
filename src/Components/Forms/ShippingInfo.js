@@ -7,7 +7,6 @@ import {
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
-
 import { shippingValidation } from '../../helpers';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -68,7 +67,7 @@ export const ShippingInfo = () => {
                             <Form.Group className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative">
                                 <Row>
                                     <Col sm="7" xs="7">
-                                        <Form.Control  
+                                        <Form.Control 
                                             id="Phone" 
                                             type="text"
                                             name="phone"  

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Loader } from '../Loader';
 import { getStuff } from '../../Redux/modules/stuffReducer';
-import { LoaderContainer } from '../../Styled/OrderPlateStyles';
+import { LoaderContainer } from '../../Styles/OrderPlateStyles';
 import { StuffItems } from './StuffItems';
 
 export const Stuff = () => {

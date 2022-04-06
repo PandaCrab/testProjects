@@ -21,7 +21,7 @@ import {
     TermsConditionText,
     TermsConditionsLink,
     OrderInfoBtn
- } from '../../Styled/OrderPlateStyles';
+ } from '../../Styles/OrderPlateStyles';
 
 export const OrderPlate = () => {
     const [viewOrder, setViewOrder] = useState(false);

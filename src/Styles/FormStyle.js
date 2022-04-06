@@ -84,8 +84,15 @@ export const Discription = styled.p`
 `;
 
 export const StyledButton = styled(Button)`
-    background-color: ${colors.btn};
     width: 10em;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ${colors.white};
+    background-color: ${colors.btn};
+    text-decoration: none;
+    border-radius: 5px;
 
     @media ${devices.mobileS} {
         padding: 3px 5px;

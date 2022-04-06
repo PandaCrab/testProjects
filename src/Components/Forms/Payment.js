@@ -4,9 +4,12 @@ import {
     Col,
     Row
 } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
+
 import { paymentValidation } from '../../helpers';
+import { sendData } from '../../Redux/modules/dataReducer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -14,14 +17,17 @@ import {
     FormLabel,
     StyledButton,
     FormLabelHeader
- } from '../../Styled/FormStyle';
+ } from '../../Styles/FormStyle';
+import { fillData } from '../../Redux/modules/dataReducer';
 
 export const Payment = () => {
+    const dispatch = useDispatch();
 
     const formik = useFormik({
         validationSchema: paymentValidation,
         onSubmit: () => {
-            console.log(JSON.stringify(formik.values, null, '/f'));
+            dispatch(fillData({payment: formik.values}));
+            dispatch(sendData());
             formik.handleReset();
         },
         initialValues: {
@@ -104,7 +110,7 @@ export const Payment = () => {
                         </Col>
                     </Row>
                 </Form.Group>
-                <StyledButton 
+                <StyledButton
                     variant="primary"
                     type="submit">
                         Pay Securely

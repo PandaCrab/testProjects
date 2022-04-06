@@ -12,7 +12,8 @@ import {store} from './Redux/store';
 import {
   ShippingInfo,
   BillingInfo,
-  Payment
+  Payment,
+  SuccessBuying
 } from './Components/Index';
 
 ReactDOM.render(
@@ -25,6 +26,7 @@ ReactDOM.render(
             <Route path="BillingInfo" element={ <BillingInfo /> } />
             <Route path="Payment" element={ <Payment /> } />
             <Route path="TermsAndConditions" element={<h1>Terms and Conditions</h1>} />
+            <Route path="SuccessBuying" element={ <SuccessBuying /> } />
             <Route path="*" element={<p>Cannot find the page : 404</p>} />
           </Route>
         </Routes>

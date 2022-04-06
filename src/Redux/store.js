@@ -3,7 +3,7 @@ import createSagaMiddleware from "@redux-saga/core";
 import thunk from 'redux-thunk';
 
 import { rootReducer } from './modules/rootReducer';
-import { sagaWatcher } from "./sagas";
+import { sagaWatcher,  dataSender } from "./sagas";
 
 const saga = createSagaMiddleware();
  
@@ -14,4 +14,5 @@ export const store = createStore(rootReducer, compose(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   ));
 
-  saga.run(sagaWatcher)
+  saga.run(sagaWatcher);
+  saga.run(dataSender);

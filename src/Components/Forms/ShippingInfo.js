@@ -4,7 +4,9 @@ import {
     Col,
     Row
 } from 'react-bootstrap';
-import { useFormik } from 'formik'
+import { useDispatch } from 'react-redux';
+import { useFormik } from 'formik';
+
 
 import { shippingValidation } from '../../helpers';
 
@@ -15,14 +17,17 @@ import {
     FormLabel,
     FormLabelHeader,
     StyledButton,
-} from '../../Styled/FormStyle';
+} from '../../Styles/FormStyle';
+import { fillData, sendData } from '../../Redux/modules/dataReducer';
 
 export const ShippingInfo = () => {
+    const dispatch = useDispatch()
 
     const formik = useFormik({
         validationSchema: shippingValidation,
         onSubmit: () => {
-            console.log(JSON.stringify(formik.values, null, '/f'));
+            dispatch(fillData({shipping: formik.values}));
+            dispatch(sendData());
             formik.handleReset();
         },
         initialValues: {
@@ -161,7 +166,7 @@ export const ShippingInfo = () => {
                             </Form.Group>                        
                         </Form.Group>
                     </Form.Group>
-                    <StyledButton 
+                    <StyledButton
                         variant="primary" 
                         type="submit">
                         Continue

@@ -101,13 +101,13 @@ export const BasketContainer = styled.div`
 `;
 
 export const CircleOfNumber = styled.div`
-  width: 16px;
-  height: 16px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   background-color: #ff1876;
   position: absolute;
-  right: 12px;
-  top: 0;
+  right: 14px;
+  top: 2px;
 `;
 
 export const NumberOfStuff = styled.p`
@@ -115,7 +115,7 @@ export const NumberOfStuff = styled.p`
   right: 5px;
   top: 0;
   color: ${colors.white};
-  font-size: .6em;
+  font-size: .5em;
 `;
 
 export const ShoppingBasketText = styled.p`
@@ -154,7 +154,7 @@ export const Slash = styled.span`
 export const Order = styled.div`
   margin-left: 1.8em;
   width: 90vw;
-  height: auto;
+  min-height: 30em;
   display: flex;
   flex-direction: column;
   justify-content: center;

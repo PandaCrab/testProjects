@@ -13,7 +13,7 @@ export default function appReducer (state = initialState, action) {
             return {...state, loading: false};
 
         default: return state
-    };
+    }
 };
 
 export const showLoader = () => {

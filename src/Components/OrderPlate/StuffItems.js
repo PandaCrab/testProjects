@@ -7,7 +7,7 @@ import {
   StuffName,
   StuffPrice,
   StuffInformation
- } from '../../Styled/OrderPlateStyles';
+ } from '../../Styles/OrderPlateStyles';
 
 export const StuffItems = ({ stuff }) => {
   return (

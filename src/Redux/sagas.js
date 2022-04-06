@@ -1,11 +1,12 @@
-import { takeEvery, put, call } from 'redux-saga/effects';
+import { takeEvery, put, call, select } from 'redux-saga/effects';
 import { FETCH_STUFF, REQUEST_STUFF } from './modules/stuffReducer';
 import { showLoader, hideLoader } from './modules/globalReducer';
-// import { POST_DATA } from './modules/dataReducer';
-// import { personInfo } from '../Components/data';
+import { REQUEST_DATA, dataSelector} from './modules/dataReducer';
 
 export function* sagaWatcher() {
-    yield takeEvery(REQUEST_STUFF, sagaWorker)
+    yield takeEvery(
+        REQUEST_STUFF,
+        sagaWorker )
 };
 
 function* sagaWorker() {
@@ -15,8 +16,29 @@ function* sagaWorker() {
     yield put(hideLoader());
 };
 
+export function* dataSender() {
+    yield takeEvery(REQUEST_DATA, postData);
+};
+
+function* postData() {
+    const data = yield select(dataSelector)
+    yield call(sendData, data)
+}
+
 async function getStuff() {
-    const response = await fetch('https://demo3147501.mockable.io/');
+    const response = await fetch('https://624d3b89d71863d7a814e6c2.mockapi.io/shopping/stuff');
     const json = await response.json();
-    return json.products;
+    return json[0].products;
+};
+
+function sendData(data) {
+    return fetch('https://624d3b89d71863d7a814e6c2.mockapi.io/shopping/info', {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },       
+        body: JSON.stringify(data)
+    }).then(
+            res => res.json()
+        ).then(json => console.log(json))
 };

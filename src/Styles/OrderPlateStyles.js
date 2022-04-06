@@ -64,7 +64,12 @@ export const OrderCard = styled.div`
   width: 99%;
   max-height: 24em;
   overflow-y: scroll;
-  scroll-behavior: smooth;
+  -ms-overflow-styles: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media ${devices.mobileS} {
     max-height: 14em;

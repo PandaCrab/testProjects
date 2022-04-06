@@ -1,4 +1,3 @@
-
 export const FETCH_STUFF = 'stuff/FETCH_STUFF';
 export const REQUEST_STUFF = 'stuff/REQUEST_STUFF';
 
@@ -11,7 +10,7 @@ export default function stuffReducer (state = initialState, action) {
         case FETCH_STUFF: 
             return { ...state, stuff: action.payload }
         default: return state
-    };
+    }
 };
 
 export function getStuff() {

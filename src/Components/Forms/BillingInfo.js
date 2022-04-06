@@ -4,7 +4,9 @@ import {
     Col,
     Row
 } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
+
 
 import { billingValidation } from '../../helpers';
 
@@ -15,14 +17,17 @@ import {
     FormLabel,
     FormLabelParagraph,
     FormLabelHeader
-} from '../../Styled/FormStyle';
+} from '../../Styles/FormStyle';
+import { fillData, sendData } from '../../Redux/modules/dataReducer';
 
 export const BillingInfo = () => {
+    const dispatch = useDispatch()
 
     const formik = useFormik({
         validationSchema: billingValidation,
         onSubmit: () => {
-            console.log(JSON.stringify(formik.values, null, '/f'));
+            dispatch(fillData({billing: formik.values}));
+            dispatch(sendData());
             formik.handleReset();
         },
         initialValues: {

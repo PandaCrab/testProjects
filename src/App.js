@@ -19,8 +19,7 @@ import {
 import { GlobalStyles } from './GlobalStyles';
 import { useSelector } from 'react-redux';
 
-
-function App() {
+const App = () => {
   const stuff = useSelector(state => state.order.stuff);
 
   return (
@@ -39,14 +38,13 @@ function App() {
       </Header>
       <Order>
         <Nav>
-          <Link to="/ShippingInfo">Shipping</Link>
-          <Link to="/BillingInfo">Billing</Link>
-          <Link to="/Payment">Payment</Link>
+          <Link to="/shipping">Shipping</Link>
+          <Link to="/billing">Billing</Link>
+          <Link to="/payment">Payment</Link>
         </Nav>
         <Outlet />
         <OrderPlate />
       </Order>
-
     </>
   );
 }

@@ -7,7 +7,6 @@ import {
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
-
 import { billingValidation } from '../../helpers';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,17 +17,19 @@ import {
     FormLabelParagraph,
     FormLabelHeader
 } from '../../Styles/FormStyle';
-import { fillData, sendData } from '../../Redux/modules/dataReducer';
+import { fillBillingData } from '../../Redux/modules/dataReducer';
+import { useNavigate } from 'react-router-dom';
 
 export const BillingInfo = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const formik = useFormik({
         validationSchema: billingValidation,
         onSubmit: () => {
-            dispatch(fillData({billing: formik.values}));
-            dispatch(sendData());
+            dispatch(fillBillingData(formik.values));
             formik.handleReset();
+            navigate("/payment");
         },
         initialValues: {
             name: '',
@@ -48,10 +49,12 @@ export const BillingInfo = () => {
                     <FormLabelHeader>Billing Information</FormLabelHeader>
                     <FormLabelParagraph>Same as shipping</FormLabelParagraph>
                 </FormLabel>
-                <Form fluid="true" noValidate onSubmit={formik.handleSubmit}>
+                <Form fluid="true"
+                    noValidate
+                    onSubmit={formik.handleSubmit}>
                     <Form.Group>
                         <Form.Label className="mb-0">Billing Contact</Form.Label>
-                        <Form.Group className="mb-3 position-relative">
+                        <Form.Group className="mb-4 position-relative">
                             <Form.Control
                                 id="name"
                                 type="text"
@@ -83,7 +86,7 @@ export const BillingInfo = () => {
                     <Form.Group>
                         <Form.Group className="position-relative">
                             <Form.Label className="mb-0" >Billing Address</Form.Label>
-                            <Form.Group className="mb-3 position-relative">
+                            <Form.Group className="mb-4 position-relative">
                                 <Form.Control
                                     id="address"
                                     type="text"
@@ -99,7 +102,7 @@ export const BillingInfo = () => {
                             </Form.Group>
                             <Form.Group>
                                 <Form.Control 
-                                    className="mb-3 position-relative"
+                                    className="mb-2 position-relative"
                                     id="optional"
                                     type="text"
                                     name="optional" 
@@ -108,7 +111,7 @@ export const BillingInfo = () => {
                                     value={formik.values.optionalInfo}
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
                             </Form.Group>
-                            <Form.Group className="mb-3 position-relative">
+                            <Form.Group className="mb-4 position-relative">
                                 <Form.Control
                                     id="city" 
                                     type="text"
@@ -122,7 +125,7 @@ export const BillingInfo = () => {
                                     { formik.errors.city }
                                 </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group className="mb-3 position-relative">
+                            <Form.Group className="mb-4 position-relative">
                                 <Row>
                                     <Col sm="7" xs="7">
                                         <Form.Control 

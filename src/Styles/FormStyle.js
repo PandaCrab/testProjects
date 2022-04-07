@@ -22,6 +22,8 @@ export const Info = styled.div`
             font-size: .8em;
             padding: 1px 3px;
             z-index: 1;
+            background: none;
+            color: red;
         };
     };
 

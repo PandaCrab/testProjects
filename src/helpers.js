@@ -7,7 +7,7 @@ export const shippingValidation = Yup.object().shape({
     phone: Yup.string()
         .min(10, 'Invalide phone number')
         .max(18, 'You enter long phone')
-        .matches(/^\+[0-9\b]+$/, 'Only numbers')
+        .matches(/^\+\d+\(\d+\)\s\d{3}\-\d{2}\-\d{2}$/, 'Only numbers')
         .required('Enter a contact phone'),
     address: Yup.string().required('Enter shipping address'),
     country: Yup.string().required('Choose country'),
@@ -33,12 +33,12 @@ export const paymentValidation = Yup.object().shape({
         .matches(/^((?:[A-Za-z]+ ?){1,3})$/, 'Enter correct place holder name')
         .required('Enter a card holder name'),
     cardNum: Yup.string()
-        .matches(/^([0-9]){4} ([0-9]){4} ([0-9]){4} ([0-9]){4}$/)
+        .matches(/^([0-9]){4} ([0-9]){4} ([0-9]){4} ([0-9]){4}$/, 'Enter valid card number')
         .required('Enter a card number'),
     date: Yup.string()
         .matches(/^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])$/, 'Enter valid date')
         .required('Enter expire date'),
     code: Yup.string()
-        .matches(/^\d{3}&/, 'Invalid cvc')
+        .matches(/^\d{3}$/, 'Invalid cvc')
         .required('Enter a cvc')
 });

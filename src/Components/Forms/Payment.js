@@ -7,7 +7,6 @@ import {
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
-
 import { paymentValidation } from '../../helpers';
 import { sendData } from '../../Redux/modules/dataReducer';
 
@@ -18,17 +17,21 @@ import {
     StyledButton,
     FormLabelHeader
  } from '../../Styles/FormStyle';
-import { fillData } from '../../Redux/modules/dataReducer';
+import { fillPaymentData } from '../../Redux/modules/dataReducer';
+import { useNavigate } from 'react-router-dom';
+import InputMask from 'react-input-mask/lib/react-input-mask.development';
 
 export const Payment = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const formik = useFormik({
         validationSchema: paymentValidation,
         onSubmit: () => {
-            dispatch(fillData({payment: formik.values}));
+            dispatch(fillPaymentData(formik.values));
             dispatch(sendData());
             formik.handleReset();
+            navigate("/success")
         },
         initialValues: {
             cardholder: '',
@@ -62,16 +65,19 @@ export const Payment = () => {
                 </Form.Group>
                 <Form.Group className="mb-4 position-relative">
                     <Form.Label className="mb-1">Card Number</Form.Label>
-                    <Form.Control
-                        id="cardNum"
-                        type="text"
-                        name="cardNum"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.cardNum}
-                        isInvalid={ !!formik.errors.cardNum }
-                        placeholder="XXXX XXXX XXXX XXXX"
-                     />
+                    <InputMask 
+                            mask="9999 9999 9999 9999"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.cardNum}>
+                        <Form.Control
+                            id="cardNum"
+                            type="text"
+                            name="cardNum"
+                            isInvalid={ !!formik.errors.cardNum }
+                            placeholder="XXXX XXXX XXXX XXXX"
+                        />
+                     </InputMask>
                     <Form.Control.Feedback type='invalid' tooltip>
                         { formik.errors.cardNum }
                     </Form.Control.Feedback>
@@ -80,16 +86,22 @@ export const Payment = () => {
                     <Row>
                         <Col sm="4" xs="5">
                             <Form.Label className="mb-1">Expire Date</Form.Label>
-                            <Form.Control
-                                id="date"
-                                type="text"
-                                name="date"
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                value={formik.values.date}
-                                isInvalid={ !!formik.errors.date }
-                                placeholder="MM/YY"
-                             />
+                            <InputMask 
+                                    mask="99/99"
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.date}>
+                                <Form.Control
+                                    id="date"
+                                    type="text"
+                                    name="date"
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.date}
+                                    isInvalid={ !!formik.errors.date }
+                                    placeholder="MM/YY"
+                                />
+                             </InputMask>
                             <Form.Control.Feedback type='invalid' tooltip>
                                 { formik.errors.date }
                             </Form.Control.Feedback>

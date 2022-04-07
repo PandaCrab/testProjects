@@ -86,6 +86,6 @@ export const OrderPlate = () => {
                 <BsBasket3 />
             </OrderInfoBtn>
         </>
-    )
+    );
 };
 

@@ -7,7 +7,6 @@ import {
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
-
 import { billingValidation } from '../../helpers';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +17,7 @@ import {
     FormLabelParagraph,
     FormLabelHeader
 } from '../../Styles/FormStyle';
-import { fillData, sendData } from '../../Redux/modules/dataReducer';
+import { fillBillingData } from '../../Redux/ducks/data';
 
 export const BillingInfo = () => {
     const dispatch = useDispatch();
@@ -26,8 +25,7 @@ export const BillingInfo = () => {
     const formik = useFormik({
         validationSchema: billingValidation,
         onSubmit: () => {
-            dispatch(fillData({billing: formik.values}));
-            dispatch(sendData());
+            dispatch(fillBillingData(formik.values));
             formik.handleReset();
         },
         initialValues: {

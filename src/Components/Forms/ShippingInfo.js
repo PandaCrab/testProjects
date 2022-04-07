@@ -7,7 +7,6 @@ import {
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
-
 import { shippingValidation } from '../../helpers';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +17,7 @@ import {
     FormLabelHeader,
     StyledButton,
 } from '../../Styles/FormStyle';
-import { fillData, sendData } from '../../Redux/modules/dataReducer';
+import { fillShippingData } from '../../Redux/ducks/data';
 
 export const ShippingInfo = () => {
     const dispatch = useDispatch();
@@ -26,8 +25,7 @@ export const ShippingInfo = () => {
     const formik = useFormik({
         validationSchema: shippingValidation,
         onSubmit: () => {
-            dispatch(fillData({shipping: formik.values}));
-            dispatch(sendData());
+            dispatch(fillShippingData(formik.values));
             formik.handleReset();
         },
         initialValues: {

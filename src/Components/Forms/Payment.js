@@ -7,9 +7,8 @@ import {
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
-
 import { paymentValidation } from '../../helpers';
-import { sendData } from '../../Redux/modules/dataReducer';
+import { fillPaymentData, sendData } from '../../Redux/ducks/data';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -18,7 +17,6 @@ import {
     StyledButton,
     FormLabelHeader
  } from '../../Styles/FormStyle';
-import { fillData } from '../../Redux/modules/dataReducer';
 
 export const Payment = () => {
     const dispatch = useDispatch();
@@ -26,8 +24,8 @@ export const Payment = () => {
     const formik = useFormik({
         validationSchema: paymentValidation,
         onSubmit: () => {
-            dispatch(fillData({payment: formik.values}));
-            dispatch(sendData());
+            dispatch(fillPaymentData(formik.values));
+            dispatch(sendData())
             formik.handleReset();
         },
         initialValues: {

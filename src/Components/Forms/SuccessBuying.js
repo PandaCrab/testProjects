@@ -1,7 +1,6 @@
-import React from "react";
-import {
-    Info
-} from '../../Styles/FormStyle';
+import React from 'react';
+
+import { Info } from '../../Styles/FormStyle';
 
 export const SuccessBuying = () => {
     return (

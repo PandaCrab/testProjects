@@ -20,5 +20,5 @@ export const StuffItems = ({ stuff }) => {
         </StuffInfo>
         <StuffPrice>{stuff.price}$</StuffPrice>
       </StuffItem>
-    )
-}
+    );
+};

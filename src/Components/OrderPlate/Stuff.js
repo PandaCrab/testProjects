@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { StuffItems } from './StuffItems';
 import { Loader } from '../Loader';
-import { getStuff } from '../../Redux/ducks/stuff';
+import { getStuff } from '../../redux/ducks/stuff';
 
-import { LoaderContainer } from '../../Styles/OrderPlateStyles';
+import { LoaderContainer } from '../../styles/OrderPlateStyles';
 
 export const Stuff = () => {
     const dispatch = useDispatch();
@@ -18,9 +18,6 @@ export const Stuff = () => {
             </LoaderContainer>
     };
 
-    if (!stuffs.length) {
-        return dispatch(getStuff())
-    } else {
-        return stuffs.map(stuff => <StuffItems stuff={stuff} key={stuff.id} /> )
-    };
+    if (!stuffs.length) dispatch(getStuff());
+    return stuffs.map(stuff => <StuffItems stuff={stuff} key={stuff.id} />);
 };

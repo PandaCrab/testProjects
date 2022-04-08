@@ -1,4 +1,6 @@
-import { takeEvery,call,select } from "@redux-saga/core/effects";
+import { takeEvery,call,select } from '@redux-saga/core/effects';
+
+import { fetchPostData } from '../../api';
 
 const REQUEST_DATA = 'data/REQUEST_DATA';
 const FILL_SHIPPING_DATA = 'data/FILL_SHIPPING_DATA';
@@ -30,32 +32,24 @@ export default function dataReducer(state = initialState, action) {
     }
 };
     
-export const sendData = () => {
-    return {
-        type: REQUEST_DATA
-    };
-};
+export const sendData = () => ({
+    type: REQUEST_DATA
+});
 
-export const fillShippingData = (info) => {
-    return {
-        type: FILL_SHIPPING_DATA,
-        payload: info
-    };
-};
+export const fillShippingData = (info) => ({
+    type: FILL_SHIPPING_DATA,
+    payload: info
+});
 
-export const fillBillingData = (info) => {
-    return {
-        type: FILL_BILLING_DATA,
-        payload: info
-    };
-};
+export const fillBillingData = (info) => ({
+    type: FILL_BILLING_DATA,
+    payload: info
+});
 
-export const fillPaymentData = (info) => {
-    return {
-        type: FILL_PAYMENT_DATA,
-        payload: info
-    };
-};
+export const fillPaymentData = (info) => ({
+    type: FILL_PAYMENT_DATA,
+    payload: info
+});
     
 const dataSelector = state => state.data
 
@@ -66,16 +60,4 @@ export function* dataWatcher() {
 function* postData() {
     const data = yield select(dataSelector);
     yield call(fetchPostData, data);
-};
-
-function fetchPostData(data) {
-    return fetch('https://624d3b89d71863d7a814e6c2.mockapi.io/shopping/info', {
-        method: 'POST', 
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },       
-        body: JSON.stringify(data)
-    }).then(
-            res => res.json()
-        ).then(json => console.log(json));
 };

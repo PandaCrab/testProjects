@@ -47,9 +47,9 @@ export const HeaderLogo = styled.p`
   font-weight: 300;
   background-image: ${colors.textGradient};
   -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
 `;
 
 export const HeaderText = styled.h5`
@@ -104,7 +104,7 @@ export const CircleOfNumber = styled.div`
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background-color: #ff1876;
+  background-color: ${colors.basketCircle};
   position: absolute;
   right: 14px;
   top: 2px;
@@ -133,8 +133,8 @@ export const ShoppingBasketText = styled.p`
 `;
 
 export const Basket = styled( HiOutlineShoppingCart )`
-    color: ${colors.slash};
-    font-size: 1em;
+  color: ${colors.slash};
+  font-size: 1em;
 `;
 
 export const Slash = styled.span`
@@ -161,7 +161,7 @@ export const Order = styled.div`
   color: ${colors.violet};
   background-color: ${colors.white};
   border-radius: 5px;
-  box-shadow: 0 0 1.5em #e2e3e5;
+  box-shadow: 0 0 1.5em ${colors.shadow};
   position: relative;
 
   @media ${devices.mobileS} {

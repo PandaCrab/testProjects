@@ -1,13 +1,10 @@
 import React from 'react';
-import {
-    Form,
-    Col,
-    Row
-} from 'react-bootstrap';
+import { Form, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
 import { billingValidation } from '../../helpers';
+import { fillBillingData } from '../../redux/ducks/data';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -16,10 +13,9 @@ import {
     FormLabel,
     FormLabelParagraph,
     FormLabelHeader
-} from '../../Styles/FormStyle';
-import { fillBillingData } from '../../Redux/ducks/data';
+} from '../../styles/FormStyle';
 
-export const BillingInfo = () => {
+const BillingInfo = () => {
     const dispatch = useDispatch();
 
     const formik = useFormik({
@@ -169,3 +165,5 @@ export const BillingInfo = () => {
         </>
     );
 };
+
+export default BillingInfo;

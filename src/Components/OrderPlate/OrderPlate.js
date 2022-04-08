@@ -21,9 +21,9 @@ import {
     TermsConditionText,
     TermsConditionsLink,
     OrderInfoBtn
- } from '../../Styles/OrderPlateStyles';
+} from '../../styles/OrderPlateStyles';
 
-export const OrderPlate = () => {
+const OrderPlate = () => {
     const [viewOrder, setViewOrder] = useState(false);
     const [prices, setPrices] = useState({
         subtotal: 0,
@@ -33,10 +33,10 @@ export const OrderPlate = () => {
 
     const stuff = useSelector(state => state.order.stuff);
     useEffect(() => {
-    const addPrices = stuff.reduce(
-        (accumulator, currentValue) => accumulator + currentValue.price,
-        0   
-    );
+        const addPrices = stuff.reduce(
+            (accumulator, currentValue) =>  accumulator + currentValue.price, 0
+        );
+        
         setPrices({
             subtotal: addPrices,
             shipping: 'Free',
@@ -89,3 +89,4 @@ export const OrderPlate = () => {
     );
 };
 
+export default OrderPlate;

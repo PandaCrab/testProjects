@@ -1,5 +1,5 @@
 import React from 'react';
-import { OrderPlate } from './Components/Index';
+import { OrderPlate } from './components/Index';
 import { Outlet, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -16,7 +16,7 @@ import {
   ShoppingBasketText,
   NumberOfStuff,
   CircleOfNumber
-} from './Styles/AppStyles';
+} from './styles/AppStyles';
 import { GlobalStyles } from './GlobalStyles';
 
 const App = () => {

@@ -1,19 +1,26 @@
-import { compose, createStore, applyMiddleware } from "@reduxjs/toolkit";
-import createSagaMiddleware from "@redux-saga/core";
+import { compose, createStore, combineReducers, applyMiddleware } from '@reduxjs/toolkit';
+import createSagaMiddleware from '@redux-saga/core';
 import thunk from 'redux-thunk';
 
-import { rootReducer } from './rootReducer';
-import { stuffWatcher} from "./ducks/stuff";
-import { dataWatcher } from "./ducks/data";
+import stuffReducer, { stuffWatcher} from './ducks/stuff';
+import dataReducer, { dataWatcher } from './ducks/data';
 
 const saga = createSagaMiddleware();
+
+export const rootReducer = combineReducers({
+  order: stuffReducer,
+  data: dataReducer
+});
  
-export const store = createStore(rootReducer, compose(
+export const store = createStore(combineReducers({
+    order: stuffReducer,
+    data: dataReducer
+  }), compose(
     applyMiddleware(
       thunk, saga
     ),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  ));
+));
 
-  saga.run(stuffWatcher);
-  saga.run(dataWatcher);
+saga.run(stuffWatcher);
+saga.run(dataWatcher);

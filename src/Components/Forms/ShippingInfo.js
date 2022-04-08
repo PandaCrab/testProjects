@@ -1,13 +1,10 @@
 import React from 'react';
-import {
-    Form,
-    Col,
-    Row
-} from 'react-bootstrap';
+import { Form, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
 import { shippingValidation } from '../../helpers';
+import { fillShippingData } from '../../redux/ducks/data';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -16,10 +13,9 @@ import {
     FormLabel,
     FormLabelHeader,
     StyledButton,
-} from '../../Styles/FormStyle';
-import { fillShippingData } from '../../Redux/ducks/data';
+} from '../../styles/FormStyle';
 
-export const ShippingInfo = () => {
+const ShippingInfo = () => {
     const dispatch = useDispatch();
 
     const formik = useFormik({
@@ -174,3 +170,5 @@ export const ShippingInfo = () => {
         </>
     );
 };
+
+export default ShippingInfo;

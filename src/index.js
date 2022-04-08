@@ -8,13 +8,13 @@ import {
 import { Provider } from 'react-redux';
 
 import App from './App';
-import {store} from './Redux/store';
+import {store} from './redux/store';
 import {
   ShippingInfo,
   BillingInfo,
   Payment,
   SuccessBuying
-} from './Components/Index';
+} from './components/Index';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,14 +1,10 @@
 import React from 'react';
-import {
-    Form,
-    Col,
-    Row
-} from 'react-bootstrap';
+import { Form, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
 import { paymentValidation } from '../../helpers';
-import { fillPaymentData, sendData } from '../../Redux/ducks/data';
+import { fillPaymentData, sendData } from '../../redux/ducks/data';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -16,9 +12,9 @@ import {
     FormLabel,
     StyledButton,
     FormLabelHeader
- } from '../../Styles/FormStyle';
+ } from '../../styles/FormStyle';
 
-export const Payment = () => {
+const Payment = () => {
     const dispatch = useDispatch();
 
     const formik = useFormik({
@@ -118,3 +114,5 @@ export const Payment = () => {
         
     );
 };
+
+export default Payment;

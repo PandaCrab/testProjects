@@ -1,16 +1,11 @@
 import React from 'react';
-import {
-    Form,
-    Col,
-    Row
-} from 'react-bootstrap';
+import { Form, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
-import InputMask from 'react-input-mask/lib/react-input-mask.development';
 import { useNavigate } from 'react-router-dom';
 
-import { phoneNumberMask, shippingValidation } from '../../helpers';
-import { fillShippingData } from '../../Redux/modules/dataReducer';
+import {shippingValidation } from '../../helpers';
+import { fillShippingData } from '../redux/ducks/data';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -19,7 +14,8 @@ import {
     FormLabel,
     FormLabelHeader,
     StyledButton,
-} from '../../Styles/FormStyle';
+    PhoneControlInput
+} from '../../styles/FormStyle';
 
 export const ShippingInfo = () => {
     const dispatch = useDispatch();
@@ -53,7 +49,7 @@ export const ShippingInfo = () => {
                     <Form.Group >
                         <Form.Group>
                             <Form.Label className="mb-0">Recipient</Form.Label>
-                            <Form.Group className="mb-4 mb-md-3 mb-lg-2 mb-xl-2 position-relative">
+                            <Form.Group className="mb-4 position-relative">
                                 <Form.Control
                                 id="Name"
                                 type="text"
@@ -72,27 +68,23 @@ export const ShippingInfo = () => {
                             </Form.Group>
                             <Form.Group className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative">
                                 <Row>
-                                    <Col sm="7" xs="7">
-                                        <InputMask
-                                            mask='+99(999) 999-99-99'
-                                            onChange={formik.handleChange}
-                                            onBlur={formik.handleBlur}
-                                            value={formik.values.phone}>
-                                            <Form.Control 
-                                                id="Phone" 
-                                                type="text"
-                                                name="phone"  
-                                                onChange={formik.handleChange}
-                                                onBlur={formik.handleBlur}
-                                                value={formik.values.phone}
-                                                isInvalid={ !!formik.errors.phone }
-                                                placeholder="Daytime Phone" />
-                                        </InputMask>
-                                        <Form.Control.Feedback  type='invalid' tooltip>
-                                        { formik.touched.phone && formik.errors.phone ?
-                                            formik.errors.phone
-                                            : 
-                                            null }
+                                    <Col sm="7" xs="7">                                        
+                                        <Form.Control
+                                            as={PhoneControlInput}
+                                            specialLabel=""
+                                            id="Phone" 
+                                            type="text"
+                                            name="phone"  
+                                            onChange={formik.handleChange('phone')}
+                                            onBlur={formik.handleBlur('phone')}
+                                            value={formik.values.phone}
+                                            isInvalid={ !!formik.errors.phone }
+                                            placeholder="Daytime Phone" />
+                                        <Form.Control.Feedback type="invalid" tooltip> 
+                                            { formik.touched.phone && formik.errors.phone ?
+                                                formik.errors.phone
+                                                : 
+                                                null }
                                         </Form.Control.Feedback>
                                     </Col>
                                     <Col sm="4" xs="5">

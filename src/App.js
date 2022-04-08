@@ -15,7 +15,7 @@ import {
   ShoppingBasketText,
   NumberOfStuff,
   CircleOfNumber
-} from './Styles/AppStyles';
+} from './styles/AppStyles';
 import { GlobalStyles } from './GlobalStyles';
 import { useSelector } from 'react-redux';
 

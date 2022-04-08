@@ -7,10 +7,10 @@ import {
   StuffName,
   StuffPrice,
   StuffInformation
- } from '../../Styles/OrderPlateStyles';
+ } from '../../styles/OrderPlateStyles';
 
-export const StuffItems = ({ stuff }) => {
-  return (
+export const StuffItems = ({ stuff }) => 
+    <>
       <StuffItem>
         <StuffImage src={stuff.imgUrl} />
         <StuffInfo>
@@ -20,5 +20,5 @@ export const StuffItems = ({ stuff }) => {
         </StuffInfo>
         <StuffPrice>{stuff.price}$</StuffPrice>
       </StuffItem>
-    )
-}
+    </>
+

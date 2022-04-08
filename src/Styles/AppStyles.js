@@ -104,7 +104,7 @@ export const CircleOfNumber = styled.div`
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background-color: #ff1876;
+  background-color: ${colors.basketCircle};
   position: absolute;
   right: 14px;
   top: 2px;
@@ -161,7 +161,7 @@ export const Order = styled.div`
   color: ${colors.violet};
   background-color: ${colors.white};
   border-radius: 5px;
-  box-shadow: 0 0 1.5em #e2e3e5;
+  box-shadow: 0 0 1.5em ${colors.shadow};
   position: relative;
 
   @media ${devices.mobileS} {

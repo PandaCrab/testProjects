@@ -21,7 +21,7 @@ import {
     TermsConditionText,
     TermsConditionsLink,
     OrderInfoBtn
- } from '../../Styles/OrderPlateStyles';
+ } from '../../styles/OrderPlateStyles';
 
 export const OrderPlate = () => {
     const [viewOrder, setViewOrder] = useState(false);
@@ -86,6 +86,5 @@ export const OrderPlate = () => {
                 <BsBasket3 />
             </OrderInfoBtn>
         </>
-    )
+    );
 };
-

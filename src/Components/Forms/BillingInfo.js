@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-    Form,
-    Col,
-    Row
-} from 'react-bootstrap';
+import { Form, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
@@ -16,8 +12,8 @@ import {
     FormLabel,
     FormLabelParagraph,
     FormLabelHeader
-} from '../../Styles/FormStyle';
-import { fillBillingData } from '../../Redux/modules/dataReducer';
+} from '../../styles/FormStyle';
+import { fillBillingData } from '../redux/ducks/data';
 import { useNavigate } from 'react-router-dom';
 
 export const BillingInfo = () => {
@@ -65,7 +61,10 @@ export const BillingInfo = () => {
                                 isInvalid={ !!formik.errors.name } 
                                 placeholder="Full Name" />
                             <Form.Control.Feedback type='invalid' tooltip>
-                                { formik.errors.name }
+                                { formik.touched.name && formik.errors.name ?
+                                    formik.errors.name
+                                    : 
+                                    null }
                             </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative">
@@ -79,7 +78,10 @@ export const BillingInfo = () => {
                                 isInvalid={ !!formik.errors.email }
                                 placeholder="Email Address" />
                             <Form.Control.Feedback type='invalid' tooltip>
-                                { formik.errors.email }
+                                { formik.touched.email && formik.errors.email ?
+                                    formik.errors.email
+                                    : 
+                                    null }
                             </Form.Control.Feedback>
                         </Form.Group>
                     </Form.Group>
@@ -97,7 +99,10 @@ export const BillingInfo = () => {
                                     isInvalid={ !!formik.errors.address } 
                                     placeholder="Street Address" />
                                 <Form.Control.Feedback type='invalid' tooltip>
-                                        { formik.errors.address }
+                                    { formik.touched.address && formik.errors.address ?
+                                        formik.errors.address
+                                        : 
+                                        null }
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group>
@@ -122,7 +127,10 @@ export const BillingInfo = () => {
                                     isInvalid={ !!formik.errors.city} 
                                     placeholder="City" />
                                 <Form.Control.Feedback type='invalid' tooltip>
-                                    { formik.errors.city }
+                                    { formik.touched.city && formik.errors.city ?
+                                        formik.errors.city
+                                        : 
+                                        null }
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group className="mb-4 position-relative">
@@ -143,7 +151,10 @@ export const BillingInfo = () => {
                                             <option value="latvia">Latvia</option>
                                         </Form.Control>
                                         <Form.Control.Feedback type='invalid' tooltip>
-                                            { formik.errors.country }
+                                            { formik.touched.country && formik.errors.country ?
+                                                formik.errors.country
+                                                : 
+                                                null }
                                         </Form.Control.Feedback>
                                     </Col>
                                     <Col sm="5" xs="5">
@@ -157,7 +168,10 @@ export const BillingInfo = () => {
                                             isInvalid={ !!formik.errors.zip} 
                                             placeholder="ZIP" />
                                         <Form.Control.Feedback type='invalid' tooltip>
-                                            { formik.errors.zip }
+                                            { formik.touched.zip && formik.errors.zip ?
+                                                formik.errors.zip
+                                                : 
+                                                null }
                                         </Form.Control.Feedback>
                                     </Col>
                                 </Row>

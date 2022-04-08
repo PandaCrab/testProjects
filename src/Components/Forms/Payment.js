@@ -1,14 +1,10 @@
 import React from 'react';
-import {
-    Form,
-    Col,
-    Row
-} from 'react-bootstrap';
+import { Form, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
 import { paymentValidation } from '../../helpers';
-import { sendData } from '../../Redux/modules/dataReducer';
+import { sendData } from '../redux/ducks/data';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -16,8 +12,8 @@ import {
     FormLabel,
     StyledButton,
     FormLabelHeader
- } from '../../Styles/FormStyle';
-import { fillPaymentData } from '../../Redux/modules/dataReducer';
+ } from '../../styles/FormStyle';
+import { fillPaymentData } from '../redux/ducks/data';
 import { useNavigate } from 'react-router-dom';
 import InputMask from 'react-input-mask/lib/react-input-mask.development';
 

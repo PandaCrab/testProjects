@@ -6,8 +6,7 @@ export const shippingValidation = Yup.object().shape({
         .required('Please enter your name'),
     phone: Yup.string()
         .min(10, 'Invalide phone number')
-        .max(18, 'You enter long phone')
-        .matches(/^\+\d+\(\d+\)\s\d{3}\-\d{2}\-\d{2}$/, 'Only numbers')
+        .max(19, 'You enter long phone')
         .required('Enter a contact phone'),
     address: Yup.string().required('Enter shipping address'),
     country: Yup.string().required('Choose country'),

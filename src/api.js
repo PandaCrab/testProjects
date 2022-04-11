@@ -1,7 +1,7 @@
 const url = 'https://demo3147501.mockable.io';
 
 const fetchFunc = (url, method, data) => {
-    if (method === 'GET') return fetch(url);
+    if (method === 'GET') return fetch(url)
     if (method === 'POST') fetch(url, {
         method: 'POST',
         headers: {
@@ -20,5 +20,5 @@ export const fetchStuff = async() => {
         return json[0].products;
     } catch(errors) {
         alert('Oops, something wrong')
-    }
+    };
 };

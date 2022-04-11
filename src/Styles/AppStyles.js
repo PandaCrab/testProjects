@@ -39,7 +39,7 @@ export const Header = styled.section`
   };
 `;
 
-export const HeaderLogo = styled.p`
+export const HeaderLogo = styled.span`
   display: flex;
   height: 1.5em;
   align-items: center;

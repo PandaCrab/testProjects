@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Loader } from '../Loader';
-import { getStuff } from '../redux/ducks/stuff';
 import { StuffItems } from './StuffItems';
+import { Loader } from '../Loader';
+import { getStuff } from '../../redux/ducks/stuff';
 
 import { LoaderContainer } from '../../styles/OrderPlateStyles';
 
@@ -13,11 +13,11 @@ export const Stuff = () => {
     const loading = useSelector(state => state.order.loading);
 
     if (loading) {
-        return <LoaderContainer>
+        return (<LoaderContainer>
                 <Loader />
-            </LoaderContainer>
-    }
+            </LoaderContainer>);
+    };
 
-    if (!stuffs.length) return dispatch(getStuff())
-    return stuffs.map(stuff => <StuffItems stuff={stuff} key={stuff.id} /> )
+    if (!stuffs.length) dispatch(getStuff());
+    return stuffs.map(stuff => (<StuffItems stuff={stuff} key={stuff.id} />));
 };

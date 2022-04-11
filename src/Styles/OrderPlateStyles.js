@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { AiOutlineCloseSquare } from 'react-icons/ai';
+
 import { devices, colors } from '../GlobalStyles';
 
 export const OrderInfo = styled.section`

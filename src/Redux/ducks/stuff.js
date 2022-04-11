@@ -1,6 +1,6 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 
-import { fetchStuff } from '../../../api';
+import { fetchStuff } from '../../api';
 
 const FETCH_STUFF = 'stuff/FETCH_STUFF';
 const REQUEST_STUFF = 'stuff/REQUEST_STUFF';

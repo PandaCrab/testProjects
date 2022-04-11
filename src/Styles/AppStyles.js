@@ -39,7 +39,7 @@ export const Header = styled.section`
   };
 `;
 
-export const HeaderLogo = styled.p`
+export const HeaderLogo = styled.span`
   display: flex;
   height: 1.5em;
   align-items: center;
@@ -47,9 +47,9 @@ export const HeaderLogo = styled.p`
   font-weight: 300;
   background-image: ${colors.textGradient};
   -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
 `;
 
 export const HeaderText = styled.h5`
@@ -133,8 +133,8 @@ export const ShoppingBasketText = styled.p`
 `;
 
 export const Basket = styled( HiOutlineShoppingCart )`
-    color: ${colors.slash};
-    font-size: 1em;
+  color: ${colors.slash};
+  font-size: 1em;
 `;
 
 export const Slash = styled.span`

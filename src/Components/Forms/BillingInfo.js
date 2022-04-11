@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
 import { billingValidation } from '../../helpers';
-import { fillBillingData } from '../redux/ducks/data';
+import { fillBillingData } from '../../redux/ducks/data';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -16,7 +16,7 @@ import {
     FormLabelHeader
 } from '../../styles/FormStyle';
 
-export const BillingInfo = () => {
+const BillingInfo = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -188,3 +188,5 @@ export const BillingInfo = () => {
         </>
     );
 };
+
+export default BillingInfo;

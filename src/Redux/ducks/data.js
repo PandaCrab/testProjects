@@ -1,6 +1,6 @@
 import { takeEvery, call, select } from '@redux-saga/core/effects';
 
-import { fetchPostData } from '../../../api';
+import { fetchPostData } from '../../api';
 
 const REQUEST_DATA = 'data/REQUEST_DATA';
 const FILL_SHIPPING_DATA = 'data/FILL_SHIPPING_DATA';

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import InputMask from 'react-input-mask/lib/react-input-mask.development';
 
 import { paymentValidation } from '../../helpers';
-import { sendData, fillPaymentData } from '../redux/ducks/data';
+import { sendData, fillPaymentData } from '../../redux/ducks/data';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -16,7 +16,7 @@ import {
     FormLabelHeader
  } from '../../styles/FormStyle';
 
-export const Payment = () => {
+const Payment = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -134,3 +134,5 @@ export const Payment = () => {
         
     );
 };
+
+export default Payment;

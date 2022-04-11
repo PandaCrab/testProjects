@@ -17,5 +17,5 @@ export const store = createStore(combineReducers({
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   ));
 
-  saga.run(stuffWatcher);
-  saga.run(dataWatcher);
+saga.run(stuffWatcher);
+saga.run(dataWatcher);

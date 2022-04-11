@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
-import {shippingValidation } from '../../helpers';
-import { fillShippingData } from '../redux/ducks/data';
+import { shippingValidation } from '../../helpers';
+import { fillShippingData } from '../../redux/ducks/data';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -17,7 +17,7 @@ import {
     PhoneControlInput
 } from '../../styles/FormStyle';
 
-export const ShippingInfo = () => {
+const ShippingInfo = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -194,3 +194,5 @@ export const ShippingInfo = () => {
         </>
     );
 };
+
+export default ShippingInfo;

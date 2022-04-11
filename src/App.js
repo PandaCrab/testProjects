@@ -1,7 +1,8 @@
 import React from 'react';
-import { OrderPlate } from './components/Index';
 import { Outlet, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
+import { OrderPlate } from './components/Index';
 
 import {
   Header,

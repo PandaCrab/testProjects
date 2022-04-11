@@ -1,5 +1,7 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 
+import { fetchStuff } from '../../../api';
+
 const FETCH_STUFF = 'stuff/FETCH_STUFF';
 const REQUEST_STUFF = 'stuff/REQUEST_STUFF';
 const SHOW_LOADER = 'global/SHOW_LOADER';
@@ -22,39 +24,25 @@ export default function stuffReducer (state = initialState, action) {
     }
 };
 
-export const getStuff = () => {
-    return {
-        type: REQUEST_STUFF
-    };
-};
+export const getStuff = () => ({
+    type: REQUEST_STUFF
+});
 
 export function* stuffWatcher() {
-    yield takeEvery(
-        REQUEST_STUFF,
-        fillStuff )
+    yield takeEvery(REQUEST_STUFF, fillStuff);
 };
 
-const showLoader = () => {
-    return {
-        type: SHOW_LOADER
-    };
-};
+const showLoader = () => ({
+    type: SHOW_LOADER
+});
 
-const hideLoader = () => {
-    return {
-        type: HIDE_LOADER
-    };
-};
+const hideLoader = () => ({
+    type: HIDE_LOADER
+});
 
 function* fillStuff() {
     yield put(showLoader());
     const payload = yield call(fetchStuff);
     yield put({ type: FETCH_STUFF, payload });
     yield put(hideLoader());
-};
-
-const fetchStuff = async() => {
-    const response = await fetch('https://624d3b89d71863d7a814e6c2.mockapi.io/shopping/stuff');
-    const json = await response.json();
-    return json[0].products;
 };

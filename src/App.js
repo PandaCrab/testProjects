@@ -1,6 +1,7 @@
 import React from 'react';
-import { OrderPlate } from './Components/Index';
+import { OrderPlate } from './components/Index';
 import { Outlet, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import {
   Header,
@@ -17,7 +18,6 @@ import {
   CircleOfNumber
 } from './styles/AppStyles';
 import { GlobalStyles } from './GlobalStyles';
-import { useSelector } from 'react-redux';
 
 const App = () => {
   const stuff = useSelector(state => state.order.stuff);
@@ -38,8 +38,8 @@ const App = () => {
       </Header>
       <Order>
         <Nav>
-          <Link to="/shipping">Shipping</Link>
-          <Link to="/billing">Billing</Link>
+          <Link to="/shipping">Shipping</Link> &gt;
+          <Link to="/billing">Billing</Link> &gt;
           <Link to="/payment">Payment</Link>
         </Nav>
         <Outlet />

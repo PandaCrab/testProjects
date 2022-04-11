@@ -2,8 +2,10 @@ import React from 'react';
 import { Form, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 
 import { billingValidation } from '../../helpers';
+import { fillBillingData } from '../redux/ducks/data';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -13,8 +15,6 @@ import {
     FormLabelParagraph,
     FormLabelHeader
 } from '../../styles/FormStyle';
-import { fillBillingData } from '../redux/ducks/data';
-import { useNavigate } from 'react-router-dom';
 
 export const BillingInfo = () => {
     const dispatch = useDispatch();

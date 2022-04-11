@@ -1,4 +1,6 @@
-import { takeEvery, call, select } from "@redux-saga/core/effects";
+import { takeEvery, call, select } from '@redux-saga/core/effects';
+
+import { fetchPostData } from '../../../api';
 
 const REQUEST_DATA = 'data/REQUEST_DATA';
 const FILL_SHIPPING_DATA = 'data/FILL_SHIPPING_DATA';
@@ -66,16 +68,4 @@ export function* dataWatcher() {
 function* postData() {
     const data = yield select(dataSelector);
     yield call(fetchPostData, data);
-};
-
-const fetchPostData = (data) => {
-    return fetch('https://624d3b89d71863d7a814e6c2.mockapi.io/shopping/info', {
-        method: 'POST', 
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },       
-        body: JSON.stringify(data)
-    }).then(
-            res => res.json()
-        ).then(json => console.log(json));
 };

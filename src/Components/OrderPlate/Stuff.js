@@ -8,19 +8,16 @@ import { StuffItems } from './StuffItems';
 import { LoaderContainer } from '../../styles/OrderPlateStyles';
 
 export const Stuff = () => {
-        const dispatch = useDispatch();
-        const stuffs = useSelector(state => state.order.stuff); 
-        const loading = useSelector(state => state.order.loading);
+    const dispatch = useDispatch();
+    const stuffs = useSelector(state => state.order.stuff); 
+    const loading = useSelector(state => state.order.loading);
 
-        if (loading) {
-            return <LoaderContainer>
-                    <Loader />
-                </LoaderContainer>
-        }
+    if (loading) {
+        return <LoaderContainer>
+                <Loader />
+            </LoaderContainer>
+    }
 
-        if (!stuffs.length) {
-            return dispatch(getStuff())
-        } else {
-            return stuffs.map(stuff => <StuffItems stuff={stuff} key={stuff.id} /> )
-        }
-    };
+    if (!stuffs.length) return dispatch(getStuff())
+    return stuffs.map(stuff => <StuffItems stuff={stuff} key={stuff.id} /> )
+};

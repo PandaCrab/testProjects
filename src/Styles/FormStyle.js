@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { devices, colors } from '../GlobalStyles';
 import { Button } from 'react-bootstrap';
 import PhoneInput from 'react-phone-input-2';
+
+import { devices, colors } from '../GlobalStyles';
 
 export const Info = styled.div`
     width: 55%;

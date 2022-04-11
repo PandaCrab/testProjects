@@ -13,11 +13,11 @@ export const Stuff = () => {
     const loading = useSelector(state => state.order.loading);
 
     if (loading) {
-        return <LoaderContainer>
+        return (<LoaderContainer>
                 <Loader />
-            </LoaderContainer>
+            </LoaderContainer>);
     };
 
     if (!stuffs.length) dispatch(getStuff());
-    return stuffs.map(stuff => <StuffItems stuff={stuff} key={stuff.id} />);
+    return stuffs.map(stuff => (<StuffItems stuff={stuff} key={stuff.id} />));
 };

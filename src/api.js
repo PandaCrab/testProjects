@@ -1,14 +1,24 @@
-export const fetchPostData = (data) => 
-    fetch('https://624d3b89d71863d7a814e6c2.mockapi.io/shopping/info', {
-        method: 'POST', 
+const url = 'https://demo3147501.mockable.io';
+
+const fetchFunc = (url, method, data) => {
+    if (method === 'GET') return fetch(url);
+    if (method === 'POST') fetch(url, {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
-        },       
+        },
         body: JSON.stringify(data)
-    });
+    })
+};
+
+export const fetchPostData = (data) => fetchFunc(url, "POST", data);
 
 export const fetchStuff = async() => {
-    const response = await fetch('https://624d3b89d71863d7a814e6c2.mockapi.io/shopping/stuff');
-    const json = await response.json();
-    return json[0].products;
+    try {
+        const response = await fetchFunc(url, 'GET');
+        const json = await response.json();
+        return json[0].products;
+    } catch(errors) {
+        alert('Oops, something wrong')
+    }
 };

@@ -9,7 +9,7 @@ import {
   StuffInformation
 } from '../../styles/OrderPlateStyles';
 
-export const StuffItems = ({ stuff }) => 
+export const StuffItems = ({ stuff }) => (
   <StuffItem>
     <StuffImage src={stuff.imgUrl} />
     <StuffInfo>
@@ -18,4 +18,5 @@ export const StuffItems = ({ stuff }) =>
       <StuffInformation>Quantity: 1</StuffInformation>
     </StuffInfo>
     <StuffPrice>{stuff.price}$</StuffPrice>
-  </StuffItem>;
+  </StuffItem>
+);

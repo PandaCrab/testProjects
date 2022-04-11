@@ -29,9 +29,7 @@ export const getStuff = () => ({
 });
 
 export function* stuffWatcher() {
-    yield takeEvery(
-        REQUEST_STUFF,
-        fillStuff )
+    yield takeEvery(REQUEST_STUFF, fillStuff);
 };
 
 const showLoader = () => ({

@@ -56,7 +56,8 @@ export const Info = styled.div`
 
 export const PhoneControlInput = styled(PhoneInput)`
     padding: 0;
-
+    font-size: 1.7em;
+    border: none;
 `;
 
 export const Discription = styled.p`

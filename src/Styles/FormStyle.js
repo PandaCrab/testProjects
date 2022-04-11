@@ -1,6 +1,8 @@
 import styled from 'styled-components';
-import { devices, colors } from '../GlobalStyles';
 import { Button } from 'react-bootstrap';
+import PhoneInput from 'react-phone-input-2';
+
+import { devices, colors } from '../GlobalStyles';
 
 export const Info = styled.div`
     width: 55%;
@@ -14,14 +16,15 @@ export const Info = styled.div`
         font-size: 1rem;
 
         .form-control {
-            font-size: 1em;
-            padding: 2px 4px;
+            font-size: .8em;
         };
 
         .invalid-tooltip {
-            font-size: .8em;
+            font-size: .6em;
             padding: 1px 3px;
             z-index: 1;
+            background: none;
+            color: red;
         };
     };
 
@@ -30,8 +33,7 @@ export const Info = styled.div`
         font-size: .8em;
 
         .form-control {
-            font-size: 1em;
-            padding: 5px 10px;
+            font-size: 0.9em;
         };
             
         .invalid-tooltip {
@@ -44,13 +46,17 @@ export const Info = styled.div`
 
         .form-control {
             font-size: 1rem;
-            padding: 8px 14px;
         };
 
         .invalid-tooltip {
             font-size: .9em;
         };
     };
+`;
+
+export const PhoneControlInput = styled(PhoneInput)`
+    padding: 0;
+
 `;
 
 export const Discription = styled.p`

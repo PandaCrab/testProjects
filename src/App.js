@@ -39,9 +39,9 @@ const App = () => {
       </Header>
       <Order>
         <Nav>
-          <Link to="/ShippingInfo">Shipping</Link>
-          <Link to="/BillingInfo">Billing</Link>
-          <Link to="/Payment">Payment</Link>
+          <Link to="/shipping">Shipping</Link> &gt;
+          <Link to="/billing">Billing</Link> &gt;
+          <Link to="/payment">Payment</Link>
         </Nav>
         <Outlet />
         <OrderPlate />

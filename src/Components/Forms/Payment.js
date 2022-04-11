@@ -2,9 +2,11 @@ import React from 'react';
 import { Form, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
+import InputMask from 'react-input-mask/lib/react-input-mask.development';
 
 import { paymentValidation } from '../../helpers';
-import { fillPaymentData, sendData } from '../../redux/ducks/data';
+import { sendData, fillPaymentData } from '../../redux/ducks/data';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -16,13 +18,15 @@ import {
 
 const Payment = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const formik = useFormik({
         validationSchema: paymentValidation,
         onSubmit: () => {
             dispatch(fillPaymentData(formik.values));
-            dispatch(sendData())
+            dispatch(sendData());
             formik.handleReset();
+            navigate("/success")
         },
         initialValues: {
             cardholder: '',
@@ -51,41 +55,54 @@ const Payment = () => {
                         placeholder='Name as it appears on your card'
                      />
                     <Form.Control.Feedback type='invalid' tooltip>
-                        { formik.errors.cardholder }
+                        { formik.touched.cardholder && formik.errors.cardholder ?
+                            formik.errors.cardholder
+                            : 
+                            null}
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-4 position-relative">
                     <Form.Label className="mb-1">Card Number</Form.Label>
-                    <Form.Control
-                        id="cardNum"
-                        type="text"
-                        name="cardNum"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.cardNum}
-                        isInvalid={ !!formik.errors.cardNum }
-                        placeholder="XXXX XXXX XXXX XXXX"
-                     />
+                        <Form.Control
+                            as={InputMask}
+                            mask="9999 9999 9999 9999"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.cardNum}
+                            id="cardNum"
+                            type="text"
+                            name="cardNum"
+                            isInvalid={ !!formik.errors.cardNum }
+                            placeholder="XXXX XXXX XXXX XXXX"
+                        />
                     <Form.Control.Feedback type='invalid' tooltip>
-                        { formik.errors.cardNum }
+                        { formik.touched.cardNum && formik.errors.cardNum ?
+                            formik.errors.cardNum
+                            : 
+                            null }
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-4 position-relative">
                     <Row>
                         <Col sm="4" xs="5">
                             <Form.Label className="mb-1">Expire Date</Form.Label>
-                            <Form.Control
-                                id="date"
-                                type="text"
-                                name="date"
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                value={formik.values.date}
-                                isInvalid={ !!formik.errors.date }
-                                placeholder="MM/YY"
-                             />
+                                <Form.Control
+                                    as={InputMask}
+                                    mask="99/99"
+                                    id="date"
+                                    type="text"
+                                    name="date"
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.date}
+                                    isInvalid={ !!formik.errors.date }
+                                    placeholder="MM/YY"
+                                />
                             <Form.Control.Feedback type='invalid' tooltip>
-                                { formik.errors.date }
+                                { formik.touched.date && formik.errors.date ?
+                                    formik.errors.date
+                                    : 
+                                    null }
                             </Form.Control.Feedback>
                         </Col>
                         <Col sm="5" xs="6">
@@ -99,7 +116,10 @@ const Payment = () => {
                                 value={formik.values.code}
                                 isInvalid={ !!formik.errors.code } />
                             <Form.Control.Feedback type='invalid' tooltip>
-                                { formik.errors.code }
+                                { formik.touched.code && formik.errors.code ?
+                                    formik.errors.code
+                                    : 
+                                    null }
                             </Form.Control.Feedback>
                         </Col>
                     </Row>

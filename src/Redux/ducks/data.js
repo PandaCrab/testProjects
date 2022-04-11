@@ -1,4 +1,4 @@
-import { takeEvery,call,select } from '@redux-saga/core/effects';
+import { takeEvery, call, select } from '@redux-saga/core/effects';
 
 import { fetchPostData } from '../../api';
 
@@ -31,26 +31,34 @@ export default function dataReducer(state = initialState, action) {
         default: return state;
     }
 };
-    
-export const sendData = () => ({
-    type: REQUEST_DATA
-});
 
-export const fillShippingData = (info) => ({
-    type: FILL_SHIPPING_DATA,
-    payload: info
-});
+export const sendData = () => {
+    return {
+        type: REQUEST_DATA
+    };
+};
 
-export const fillBillingData = (info) => ({
-    type: FILL_BILLING_DATA,
-    payload: info
-});
+export const fillShippingData = (info) => {
+    return {
+        type: FILL_SHIPPING_DATA,
+        payload: info
+    };
+};
 
-export const fillPaymentData = (info) => ({
-    type: FILL_PAYMENT_DATA,
-    payload: info
-});
-    
+export const fillBillingData = (info) => {
+    return {
+        type: FILL_BILLING_DATA,
+        payload: info
+    };
+};
+
+export const fillPaymentData = (info) => {
+    return {
+        type: FILL_PAYMENT_DATA,
+        payload: info
+    };
+};
+
 const dataSelector = state => state.data
 
 export function* dataWatcher() {

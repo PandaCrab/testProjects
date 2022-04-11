@@ -1,78 +1,51 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Outlet, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import {
-  ShippingInfo,
-  BillingInfo,
-  Payment,
-  OrderPlate
-} from './Components/Index';
+import { OrderPlate } from './components/Index';
 
 import {
   Header,
+  HeaderLogo,
   HeaderText,
   ShoppingBasket,
+  BasketContainer,
   Slash,
   Order,
-  Route,
+  Nav,
   Basket,
-  ShippingBasketText
-} from './Styled/AppStyles';
+  ShoppingBasketText,
+  NumberOfStuff,
+  CircleOfNumber
+} from './styles/AppStyles';
 import { GlobalStyles } from './GlobalStyles';
 
-
-function App() {
-  const [card, setCard] = useState({
-    shipping: true,
-    billing: false,
-    payment: false
-  });
-
-const currentForm = () => {
-  if (card.shipping === true) return <ShippingInfo />;
-  else if (card.billing === true) return <BillingInfo />;
-  else if (card.payment === true) return <Payment />;
-};
+const App = () => {
+  const stuff = useSelector(state => state.order.stuff);
 
   return (
     <>
       <GlobalStyles />
       <Header>
-        <HeaderText> &lt; <Slash>&frasl;</Slash>&gt; Front-end Developer Test Task</HeaderText>
+        <HeaderText> <HeaderLogo>&lt; <Slash>&frasl;</Slash>&gt;</HeaderLogo> Front-end Developer Test Task</HeaderText>
         <ShoppingBasket>
-          <ShippingBasketText>cart</ShippingBasketText>
-          <Basket />  
+          <ShoppingBasketText>cart</ShoppingBasketText>
+          <BasketContainer>
+            <Basket />  
+            <CircleOfNumber><NumberOfStuff>{stuff.length}</NumberOfStuff></CircleOfNumber>
+          </BasketContainer>
         </ShoppingBasket>
         
       </Header>
       <Order>
-        <Route>
-          <a 
-          onClick={() => {setCard({
-            shipping: true,
-            billing: false,
-            payment: false}); console.log(card)}}
-             value="shipping" href="#Shipping">Shipping</a>&gt;
-          <a 
-           onClick={() => {setCard({
-            shipping: false,
-            billing: true,
-            payment: false
-           }); console.log(card)}}
-           value="billing" href="#Billing">Billing</a>&gt;
-          <a 
-            onClick={ () => {setCard({
-              shipping: false,
-              billing: false,
-              payment: true
-            });  console.log(card)} }
-            value="payment" href="#Payment">Payment</a>
-        </Route>
-        {
-          currentForm()
-        }
+        <Nav>
+          <Link to="/ShippingInfo">Shipping</Link>
+          <Link to="/BillingInfo">Billing</Link>
+          <Link to="/Payment">Payment</Link>
+        </Nav>
+        <Outlet />
         <OrderPlate />
       </Order>
-
     </>
   );
 }

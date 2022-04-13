@@ -112,7 +112,7 @@ export const CircleOfNumber = styled.div`
 
 export const NumberOfStuff = styled.p`
   position: absolute;
-  right: 5px;
+  right: 4px;
   top: 0;
   color: ${colors.white};
   font-size: .5em;

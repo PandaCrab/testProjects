@@ -8,7 +8,7 @@ export const shippingValidation = Yup.object().shape({
         .min(10, 'Invalide phone number')
         .max(19, 'You enter long phone')
         .required('Enter a contact phone'),
-    address: Yup.string().required('Enter shipping address'),
+    street: Yup.string().required('Enter shipping address'),
     country: Yup.string().required('Choose country'),
     city: Yup.string().required('enter city'),
     zip: Yup.number().required('Enter zip')
@@ -21,7 +21,7 @@ export const billingValidation = Yup.object().shape({
     email: Yup.string()
         .email('Invalid email address')
         .required('Please enter email'),
-    address: Yup.string().required('Enter billing address'),
+    street: Yup.string().required('Enter billing address'),
     country: Yup.string().required('Choose a country'),
     city: Yup.string().required('Enter city'),
     zip: Yup.number().required('Enter zip')

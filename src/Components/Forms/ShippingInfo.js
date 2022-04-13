@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
@@ -18,6 +18,20 @@ import {
 } from '../../styles/FormStyle';
 
 const ShippingInfo = () => {
+    const [shipping, setShipping] = useState({
+        name: '',
+        phone: '',
+        street: '',
+        optional: '',
+        city: '',
+        country: '',
+        zip: ''
+    });
+
+    useEffect(() => {
+        localStorage.setItem("shipping", JSON.stringify(shipping))
+    }, [shipping])
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -27,16 +41,9 @@ const ShippingInfo = () => {
             dispatch(fillShippingData(formik.values));
             formik.handleReset();
             navigate("/billing")
+            localStorage.setItem("shipping", JSON.stringify(formik.values))
         },
-        initialValues: {
-            name: '',
-            phone: '',
-            address: '',
-            optional: '',
-            city: '',
-            country: '',
-            zip: ''
-        }
+        initialValues: shipping
     });
 
     return (
@@ -97,17 +104,17 @@ const ShippingInfo = () => {
                             <Form.Label className="mb-0" >Address</Form.Label>
                             <Form.Group className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative">
                                 <Form.Control
-                                    id="Address"
+                                    id="street"
                                     type="text"
-                                    name="address"
+                                    name="street"
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
-                                    value={formik.values.address}
-                                    isInvalid={ !!formik.errors.address } 
-                                    placeholder="Street Address" />
+                                    value={formik.values.street}
+                                    isInvalid={ !!formik.errors.street } 
+                                    placeholder="Street street" />
                                 <Form.Control.Feedback  type='invalid' tooltip>
-                                { formik.touched.address && formik.errors.address ?
-                                        formik.errors.address
+                                { formik.touched.street && formik.errors.street ?
+                                        formik.errors.street
                                         : 
                                         null }
                                 </Form.Control.Feedback>
@@ -123,7 +130,7 @@ const ShippingInfo = () => {
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
                             </Form.Group>
                             <Form.Group className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative">
-                                <Form.Control 
+                                <Form.Control
                                     id="City"
                                     type="text"
                                     name="city" 

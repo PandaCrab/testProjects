@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
@@ -17,8 +17,33 @@ import {
 } from '../../styles/FormStyle';
 
 const BillingInfo = () => {
+    const [billing, setBilling] = useState({
+        name: '',
+        email: '',
+        street: '',
+        optional: '',
+        city: '',
+        country: '',
+        zip: ''
+    });
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const handleSameAsShipping = () => {
+        const saved = localStorage.getItem("shipping");
+        const save = JSON.parse(saved);
+
+        setBilling({
+            name: save.name,
+            email: '',
+            street: save.street,
+            optional: save.optional,
+            city: save.city,
+            country: save.country,
+            zip: save.zip
+        })
+        console.log(billing)
+    };
 
     const formik = useFormik({
         validationSchema: billingValidation,
@@ -27,15 +52,8 @@ const BillingInfo = () => {
             formik.handleReset();
             navigate("/payment");
         },
-        initialValues: {
-            name: '',
-            email: '',
-            address: '',
-            optional: '',
-            city: '',
-            country: '',
-            zip: ''
-        }
+        enableReinitialize: true,
+        initialValues: billing
     });
 
     return (
@@ -43,7 +61,7 @@ const BillingInfo = () => {
             <Info>
                 <FormLabel>
                     <FormLabelHeader>Billing Information</FormLabelHeader>
-                    <FormLabelParagraph>Same as shipping</FormLabelParagraph>
+                    <FormLabelParagraph onClick={() => handleSameAsShipping()} >Same as shipping</FormLabelParagraph>
                 </FormLabel>
                 <Form fluid="true"
                     noValidate
@@ -76,7 +94,7 @@ const BillingInfo = () => {
                                 onBlur={formik.handleBlur}
                                 value={formik.values.email}
                                 isInvalid={ !!formik.errors.email }
-                                placeholder="Email Address" />
+                                placeholder="Email street" />
                             <Form.Control.Feedback type='invalid' tooltip>
                                 { formik.touched.email && formik.errors.email ?
                                     formik.errors.email
@@ -87,20 +105,20 @@ const BillingInfo = () => {
                     </Form.Group>
                     <Form.Group>
                         <Form.Group className="position-relative">
-                            <Form.Label className="mb-0" >Billing Address</Form.Label>
+                            <Form.Label className="mb-0" >Billing address</Form.Label>
                             <Form.Group className="mb-4 position-relative">
                                 <Form.Control
-                                    id="address"
+                                    id="street"
                                     type="text"
-                                    name="address"
+                                    name="street"
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
-                                    value={formik.values.address}
-                                    isInvalid={ !!formik.errors.address } 
-                                    placeholder="Street Address" />
+                                    value={formik.values.street}
+                                    isInvalid={ !!formik.errors.street } 
+                                    placeholder="Street street" />
                                 <Form.Control.Feedback type='invalid' tooltip>
-                                    { formik.touched.address && formik.errors.address ?
-                                        formik.errors.address
+                                    { formik.touched.street && formik.errors.street ?
+                                        formik.errors.street
                                         : 
                                         null }
                                 </Form.Control.Feedback>

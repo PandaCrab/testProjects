@@ -12,7 +12,7 @@ export const CardToPrint = React.forwardRef(( props, ref ) => {
             <br/>
             <p>Your will recievean email confirmation shortly to {email}</p>
             <br/>
-            <p>Estimated deivery Day is tomorrow</p>
+            <p>Estimated deivery Day {new Date()}</p>
         </section>
     );
 });

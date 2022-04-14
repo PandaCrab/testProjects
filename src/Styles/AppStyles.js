@@ -43,6 +43,7 @@ export const HeaderLogo = styled.span`
   display: flex;
   height: 1.5em;
   align-items: center;
+  color: transparent;
   font-size: 1em;
   font-weight: 300;
   background-image: ${colors.textGradient};

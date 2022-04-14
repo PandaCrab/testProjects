@@ -1,18 +1,25 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export const CardToPrint = React.forwardRef(( props, ref ) => {
-    const email = useSelector(state => state.data.billing.email);
+    const navigate = useNavigate(); 
+    const saved = localStorage.getItem("billing");
+    const save = JSON.parse(saved);
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const date = new Date();
 
-    return (
-        <section ref={ref}>
-            <h3>Thank you for your order!</h3>
+    return (save === null ?
+        (<h6>
+            You don't write info: <br/>
+            <button onClick={() => navigate('/shipping')}>Write info</button>
+        </h6>)
+        :
+        (<section ref={ref}>
+            <h4>Thank you for your order!</h4>
             <br/>
-            <p>Order number is: {Math.floor(Math.random() * 10000000)}</p>
-            <br/>
-            <p>Your will recievean email confirmation shortly to {email}</p>
-            <br/>
-            <p>Estimated deivery Day {new Date()}</p>
-        </section>
+            <b>Order number is: {Math.floor(Math.random() * 10000000)}</b>
+            <p>Your will recieve an email confirmation shortly to {save.email}</p>
+            <p>Estimated deivery Day is <br/> <b>{date.toLocaleDateString("en-EU", options)}</b></p>
+        </section>)
     );
 });

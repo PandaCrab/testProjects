@@ -29,8 +29,25 @@ const ShippingInfo = () => {
     });
 
     useEffect(() => {
+        const saved = localStorage.getItem("shipping");
+        const save = JSON.parse(saved);
+
+        if (save !== null)
+        setShipping({
+            name: save.name,
+            phone: save.phone,
+            street: save.street,
+            optional: save.optional,
+            city: save.city,
+            country: save.country,
+            zip: save.zip
+        })
+        return
+    }, []);
+
+    useEffect(() => {
         localStorage.setItem("shipping", JSON.stringify(shipping))
-    }, [shipping])
+    }, [shipping]);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -43,6 +60,7 @@ const ShippingInfo = () => {
             navigate("/billing")
             localStorage.setItem("shipping", JSON.stringify(formik.values))
         },
+        enableReinitialize: true,
         initialValues: shipping
     });
 
@@ -61,7 +79,7 @@ const ShippingInfo = () => {
                                 id="Name"
                                 type="text"
                                 name="name" 
-                                onChange={formik.handleChange}
+                                onChange={(event) => setShipping({...shipping, name: event.target.value})}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.name}
                                 isInvalid={ !!formik.errors.name } 
@@ -82,7 +100,7 @@ const ShippingInfo = () => {
                                             id="Phone" 
                                             type="text"
                                             name="phone"  
-                                            onChange={formik.handleChange('phone')}
+                                            onChange={(value) => setShipping({...shipping, phone: value})}
                                             onBlur={formik.handleBlur('phone')}
                                             value={formik.values.phone}
                                             isInvalid={ !!formik.errors.phone }
@@ -107,11 +125,11 @@ const ShippingInfo = () => {
                                     id="street"
                                     type="text"
                                     name="street"
-                                    onChange={formik.handleChange}
+                                    onChange={(event) => setShipping({...shipping, street: event.target.value})}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
-                                    placeholder="Street street" />
+                                    placeholder="Street address" />
                                 <Form.Control.Feedback  type='invalid' tooltip>
                                 { formik.touched.street && formik.errors.street ?
                                         formik.errors.street
@@ -124,7 +142,7 @@ const ShippingInfo = () => {
                                     id="optional" 
                                     type="text"
                                     name="optional" 
-                                    onChange={formik.handleChange}
+                                    onChange={(event) => setShipping({...shipping, optional: event.target.value})}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.optional}
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
@@ -134,7 +152,7 @@ const ShippingInfo = () => {
                                     id="City"
                                     type="text"
                                     name="city" 
-                                    onChange={formik.handleChange}
+                                    onChange={(event) => setShipping({...shipping, city: event.target.value})}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.city}
                                     isInvalid={ !!formik.errors.city } 
@@ -153,7 +171,7 @@ const ShippingInfo = () => {
                                         id="Country"
                                         as="select"
                                         name="country"
-                                        onChange={formik.handleChange}
+                                        onChange={(event) => setShipping({...shipping, country: event.target.value})}
                                         onBlur={formik.handleBlur}
                                         value={formik.values.country}
                                         isInvalid={ !!formik.errors.country } >
@@ -175,7 +193,7 @@ const ShippingInfo = () => {
                                             id="Zip"
                                             type="text"
                                             name="zip"  
-                                            onChange={formik.handleChange}
+                                            onChange={(event) => setShipping({...shipping, zip: event.target.value})}
                                             onBlur={formik.handleBlur}
                                             value={formik.values.zip}
                                             isInvalid={ !!formik.errors.zip } 

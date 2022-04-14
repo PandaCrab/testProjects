@@ -26,7 +26,8 @@ const Payment = () => {
             dispatch(fillPaymentData(formik.values));
             dispatch(sendData());
             formik.handleReset();
-            navigate("/success")
+            navigate("/success");
+            // setTimeout(() => localStorage.clear(), 500)
         },
         initialValues: {
             cardholder: '',

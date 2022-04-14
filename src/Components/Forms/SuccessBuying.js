@@ -12,7 +12,8 @@ const SuccessBuying = () => {
             <CardToPrint ref={componentRef} />
             <ReactToPrint 
                 trigger={() => <p>Print Recipe</p>}
-                content={() => componentRef.current} />
+                content={() => componentRef.current}
+                documentTitle='Order' />
         </Info>
     )
 };

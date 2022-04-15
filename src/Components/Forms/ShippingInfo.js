@@ -29,6 +29,10 @@ const ShippingInfo = () => {
     });
 
     useEffect(() => {
+        localStorage.setItem("shipping", JSON.stringify(shipping))
+    }, [shipping]);
+
+    useEffect(() => {
         const saved = localStorage.getItem("shipping");
         const save = JSON.parse(saved);
 
@@ -44,10 +48,6 @@ const ShippingInfo = () => {
         })
         return
     }, []);
-
-    useEffect(() => {
-        localStorage.setItem("shipping", JSON.stringify(shipping))
-    }, [shipping]);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -132,9 +132,9 @@ const ShippingInfo = () => {
                                     placeholder="Street address" />
                                 <Form.Control.Feedback  type='invalid' tooltip>
                                 { formik.touched.street && formik.errors.street ?
-                                        formik.errors.street
-                                        : 
-                                        null }
+                                    formik.errors.street
+                                    : 
+                                    null }
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group className="mb-2 mb-md-3 mb-lg-4 mb-xl-4">
@@ -159,9 +159,9 @@ const ShippingInfo = () => {
                                     placeholder="City" />
                                 <Form.Control.Feedback type='invalid' tooltip>
                                 { formik.touched.city && formik.errors.city ?
-                                        formik.errors.city
-                                        : 
-                                        null }
+                                    formik.errors.city
+                                    : 
+                                    null }
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group className="mb-2 mb-md-3 mb-lg-4 mb-xl-4">
@@ -175,11 +175,11 @@ const ShippingInfo = () => {
                                         onBlur={formik.handleBlur}
                                         value={formik.values.country}
                                         isInvalid={ !!formik.errors.country } >
-                                            <option value="">Country</option>
-                                            <option value="usa" >USA</option>
-                                            <option value="ukraine">Ukraine</option>
-                                            <option value="united kingdom">United Kingdom</option>
+                                            <option value="">Countries</option>
+                                            <option value="usa">USA</option>
                                             <option value="latvia">Latvia</option>
+                                            <option value="estonia">Estonia</option>
+                                            <option value="ukaraine">Ukraine</option>
                                         </Form.Control>
                                         <Form.Control.Feedback type='invalid' tooltip>
                                         { formik.touched.country && formik.errors.country ?

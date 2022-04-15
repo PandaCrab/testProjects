@@ -29,8 +29,26 @@ const ShippingInfo = () => {
     });
 
     useEffect(() => {
+        const saved = localStorage.getItem("shipping");
+        const save = JSON.parse(saved);
+
+        if (save !== null)
+        setShipping({
+            name: save.name,
+            phone: save.phone,
+            street: save.street,
+            optional: save.optional,
+            city: save.city,
+            country: save.country,
+            zip: save.zip
+        })
+        return
+    }, []);
+
+    useEffect(() => {
         localStorage.setItem("shipping", JSON.stringify(shipping))
     }, [shipping]);
+<<<<<<< HEAD
 
     useEffect(() => {
         const saved = localStorage.getItem("shipping");
@@ -48,6 +66,8 @@ const ShippingInfo = () => {
         })
         return
     }, []);
+=======
+>>>>>>> 297966d0494cbea3c793c5531842064e8542f4ae
 
     const dispatch = useDispatch();
     const navigate = useNavigate();

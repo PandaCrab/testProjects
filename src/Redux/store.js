@@ -4,12 +4,14 @@ import thunk from 'redux-thunk';
 
 import stuffReducer, { stuffWatcher } from './ducks/stuff';
 import dataReducer, { dataWatcher } from './ducks/data';
+import addressReducer, { addressWatcher } from './ducks/address';
 
 const saga = createSagaMiddleware();
  
 export const store = createStore(combineReducers({
     order: stuffReducer,
-    data: dataReducer
+    data: dataReducer,
+    address: addressReducer
   }), compose(
     applyMiddleware(
       thunk, saga
@@ -19,3 +21,4 @@ export const store = createStore(combineReducers({
 
 saga.run(stuffWatcher);
 saga.run(dataWatcher);
+saga.run(addressWatcher);

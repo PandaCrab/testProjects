@@ -1,9 +1,10 @@
-import React from 'react';
-import { Form, Col, Row } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Form, Col, Row, InputGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import InputMask from 'react-input-mask/lib/react-input-mask.development';
+import { usePaymentInputs } from 'react-payment-inputs';
+import images from 'react-payment-inputs/images';
 
 import { paymentValidation } from '../../helpers';
 import { sendData, fillPaymentData } from '../../redux/ducks/data';
@@ -13,12 +14,44 @@ import {
     Info,
     FormLabel,
     StyledButton,
-    FormLabelHeader
+    FormLabelHeader,
+    InputCardImage,
+    CardNumberInput
  } from '../../styles/FormStyle';
 
 const Payment = () => {
+    const [payment, setPayment] = useState({
+        cardholder: '',
+        cardNum: '',
+        date: '',
+        cvv: ''
+    })
+
+    useEffect(() => {
+        const saved = localStorage.getItem("payment");
+        const save = JSON.parse(saved);
+
+        if (save !== null)
+        setPayment({
+            cardholder: save.cardholder,
+            cardNum: save.cardNum
+        })
+        return
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("payment", JSON.stringify(payment));
+    }, [payment]);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const {
+        getCardNumberProps, 
+        getCardImageProps,
+        getExpiryDateProps, 
+        getCVCProps
+    } = usePaymentInputs();
 
     const formik = useFormik({
         validationSchema: paymentValidation,
@@ -27,14 +60,11 @@ const Payment = () => {
             dispatch(sendData());
             formik.handleReset();
             navigate("/success");
-            // setTimeout(() => localStorage.clear(), 500)
+            setTimeout(() => localStorage.clear(), 500)
         },
-        initialValues: {
-            cardholder: '',
-            cardNum: '',
-            date: '',
-            code: ''
-        }
+        enableReinitialize: true,   
+        initialValues: payment
+
     });
 
     return (
@@ -49,12 +79,12 @@ const Payment = () => {
                         id="cardholder"
                         type="text"
                         name="cardholder"
-                        onChange={formik.handleChange}
+                        onChange={(event) => setPayment({...payment, cardholder: event.target.value})}
                         onBlur={formik.handleBlur}
                         value={formik.values.cardholder}
                         isInvalid={ !!formik.errors.cardholder }
                         placeholder='Name as it appears on your card'
-                     />
+                        />                     
                     <Form.Control.Feedback type='invalid' tooltip>
                         { formik.touched.cardholder && formik.errors.cardholder ?
                             formik.errors.cardholder
@@ -64,11 +94,13 @@ const Payment = () => {
                 </Form.Group>
                 <Form.Group className="mb-4 position-relative">
                     <Form.Label className="mb-1">Card Number</Form.Label>
-                        <Form.Control
-                            as={InputMask}
-                            mask="9999 9999 9999 9999"
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
+                    <InputGroup>
+                        <CardNumberInput
+                            {...getCardNumberProps({
+                                onChange: (event) => setPayment({...payment, cardNum: event.target.value}),
+                                onBlur: formik.handleBlur,
+                                
+                            })}
                             value={formik.values.cardNum}
                             id="cardNum"
                             type="text"
@@ -76,25 +108,28 @@ const Payment = () => {
                             isInvalid={ !!formik.errors.cardNum }
                             placeholder="XXXX XXXX XXXX XXXX"
                         />
-                    <Form.Control.Feedback type='invalid' tooltip>
-                        { formik.touched.cardNum && formik.errors.cardNum ?
-                            formik.errors.cardNum
-                            : 
-                            null }
-                    </Form.Control.Feedback>
+                        <InputCardImage {...getCardImageProps({images})} />
+                        <Form.Control.Feedback type='invalid' tooltip>
+                            { formik.touched.cardNum && formik.errors.cardNum ?
+                                formik.errors.cardNum
+                                : 
+                                null }
+                        </Form.Control.Feedback>
+                    </InputGroup>
                 </Form.Group>
                 <Form.Group className="mb-4 position-relative">
                     <Row>
                         <Col sm="4" xs="5">
                             <Form.Label className="mb-1">Expire Date</Form.Label>
                                 <Form.Control
-                                    as={InputMask}
-                                    mask="99/99"
+                                    {...getExpiryDateProps({
+                                        onChange: (event) => setPayment({...payment, date: event.target.value}),
+                                        onBlur: formik.handleBlur
+
+                                    })}
                                     id="date"
                                     type="text"
                                     name="date"
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
                                     value={formik.values.date}
                                     isInvalid={ !!formik.errors.date }
                                     placeholder="MM/YY"
@@ -103,22 +138,26 @@ const Payment = () => {
                                 { formik.touched.date && formik.errors.date ?
                                     formik.errors.date
                                     : 
-                                    null }
+                                    null 
+                                }
                             </Form.Control.Feedback>
                         </Col>
                         <Col sm="5" xs="6">
-                            <Form.Label className="mb-1">Security Code</Form.Label>
+                            <Form.Label className="mb-1">Security code</Form.Label>
                             <Form.Control
-                                id="code"
+                                {...getCVCProps({
+                                    onChange: (event) => setPayment({...payment, cvv: event.target.value}),
+                                    onBlur: formik.handleBlur
+
+                                })}
+                                id="cvv"
                                 type="text"
-                                name="code"
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                value={formik.values.code}
-                                isInvalid={ !!formik.errors.code } />
+                                name="cvv"
+                                value={formik.values.cvv}
+                                isInvalid={ !!formik.errors.cvv } />
                             <Form.Control.Feedback type='invalid' tooltip>
-                                { formik.touched.code && formik.errors.code ?
-                                    formik.errors.code
+                                { formik.touched.cvv && formik.errors.cvv ?
+                                    formik.errors.cvv
                                     : 
                                     null }
                             </Form.Control.Feedback>

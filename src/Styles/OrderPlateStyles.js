@@ -14,10 +14,10 @@ export const OrderInfo = styled.section`
   height: inherit;
   justify-content: space-between;
   position: absolute;
-  border-radius: inherit;
+  border-radius: 0 5px 5px 0;
   top: 0;
   right: 0;
-  z-index: 2;
+  z-index: 4;
 
   @media ${devices.mobileS} {
     display: ${props => props.displayMobile};
@@ -25,6 +25,7 @@ export const OrderInfo = styled.section`
     height: 90%;
     margin-top: 5px;
     margin-right: 5px;
+    box-shadow: -4px 3px 4px ${colors.shadow};
   };
 
   @media ${devices.tablet} {
@@ -32,6 +33,7 @@ export const OrderInfo = styled.section`
     display: flex;
     width: 45%;
     height: 100%;
+    box-shadow: none;
   };
 `;
 

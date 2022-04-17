@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import PhoneInput from 'react-phone-input-2';
 
 import { devices, colors } from '../GlobalStyles';
@@ -17,6 +17,10 @@ export const Info = styled.div`
 
         .form-control {
             font-size: .8em;
+        };
+
+        .is-invalid {
+            background: none
         };
 
         .invalid-tooltip {
@@ -58,6 +62,21 @@ export const PhoneControlInput = styled(PhoneInput)`
     padding: 0;
     font-size: 1.7em;
     border: none;
+`;
+
+export const CardNumberInput = styled(Form.Control)`
+    padding-right: 1em;
+    border-radius: 5px;
+    position: relative;
+`;
+
+export const InputCardImage = styled.svg`
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    width: 40px;
+    height: 90%;
+    z-index: 3;
 `;
 
 export const Discription = styled.p`

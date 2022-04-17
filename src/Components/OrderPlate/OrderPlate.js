@@ -46,7 +46,8 @@ const OrderPlate = () => {
 
     return (
         <>
-            <OrderInfo displayMobile={viewOrder ? 'flex' : 'none'}>
+            <OrderInfo 
+                displayMobile={viewOrder ? 'flex' : 'none'}>
                 <section>
                 <OrderCloseBtn onClick={() => setViewOrder(false)} />
                 <SummaryHeaderBlock>

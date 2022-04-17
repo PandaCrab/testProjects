@@ -1,7 +1,7 @@
 const urlStuff = 'http://localhost:3004/products';
 const urlInfo = 'http://localhost:3004/personInfo';
 const addressApi = 'https://app.geocodeapi.io/api/v1/autocomplete?apikey=YOUR-API-KEY&text=666%20Fifth%20Ave&size=5'
-
+//Need write method to working correct
 const fetchFunc = (url, method, data) => {
     if (method === 'GET') return fetch(url)
     if (method === 'POST') fetch(url, {

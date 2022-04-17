@@ -23,6 +23,7 @@ import { GlobalStyles } from './GlobalStyles';
 const App = () => {
   const stuff = useSelector(state => state.order.stuff);
 
+
   return (
     <>
       <GlobalStyles />
@@ -31,8 +32,12 @@ const App = () => {
         <ShoppingBasket>
           <ShoppingBasketText>cart</ShoppingBasketText>
           <BasketContainer>
-            <Basket />  
-            <CircleOfNumber><NumberOfStuff>{stuff.length}</NumberOfStuff></CircleOfNumber>
+            <Basket /> 
+            { stuff.length === undefined ?
+              null
+              :
+              <CircleOfNumber><NumberOfStuff>{stuff.length}</NumberOfStuff></CircleOfNumber>
+            }   
           </BasketContainer>
         </ShoppingBasket>
         

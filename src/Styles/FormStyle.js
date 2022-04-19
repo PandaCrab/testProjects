@@ -58,6 +58,29 @@ export const Info = styled.div`
     };
 `;
 
+export const AddressesList = styled.ul`
+    padding: 2px;
+    margin-top: 2px;
+    background-color: grey;
+    width: 100%;
+    height: auto;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    font-size: .9em;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+`;
+
+export const AddressesListItems = styled.li`
+    padding: 0;
+    margin-bottom: 3px;
+    color: white;
+    display: flex;
+    align-items: center;
+`;
+
 export const PhoneControlInput = styled(PhoneInput)`
     padding: 0;
     font-size: 1.7em;

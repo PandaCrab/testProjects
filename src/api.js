@@ -1,6 +1,4 @@
-const urlStuff = 'http://localhost:3004/products';
-const urlInfo = 'http://localhost:3004/personInfo';
-const addressApi = 'https://app.geocodeapi.io/api/v1/autocomplete?apikey=YOUR-API-KEY&text=666%20Fifth%20Ave&size=5'
+const url = 'http://localhost:3004';
 //Need write method to working correct
 const fetchFunc = (url, method, data) => {
     if (method === 'GET') return fetch(url)
@@ -13,11 +11,11 @@ const fetchFunc = (url, method, data) => {
     })
 };
 
-export const fetchPostData = (data) => fetchFunc(urlInfo, "POST", data);
+export const fetchPostData = (data) => fetchFunc(url+'/personInfo', "POST", data);
 
 export const fetchStuff = async() => {
     try {
-        const response = await fetchFunc(urlStuff, 'GET');
+        const response = await fetchFunc(url+'/products', 'GET');
         const json = await response.json();
         return json;
     } catch(errors) {
@@ -25,12 +23,18 @@ export const fetchStuff = async() => {
     };
 };
 
+let endpoint = '';
+export const getEndpoint = (addressInput) => {if (addressInput.length > 0) endpoint = addressInput};
 export const fetchAddress = async () => {
     try {
+        console.log(endpoint)
+        const apiKey = 'e2d9f960-bc78-11ec-a0da-bd0e50737306';
+        const addressApi = `https://app.geocodeapi.io/api/v1/autocomplete?apikey=${apiKey}&text=${endpoint}&size=5`;
         const response = await fetchFunc(addressApi, 'GET')
         const json = await response.json()
-        return json;
+        console.log(json.features)
+        return json.features;
     } catch(errors) {
         alert('Sorry, seems somthing broken')
-    }
-}
+    };
+};

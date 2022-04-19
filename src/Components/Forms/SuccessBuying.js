@@ -8,13 +8,16 @@ import { Info } from '../../styles/FormStyle';
 const SuccessBuying = () => {
     const componentRef = useRef();
     return (
-        <Info>
-            <CardToPrint ref={componentRef} />
-            <ReactToPrint 
-                trigger={() => <p>Print Recipe</p>}
-                content={() => componentRef.current}
-                documentTitle='Order' />
-        </Info>
+        <>
+            <br/>
+            <Info>
+                <CardToPrint ref={componentRef} />
+                <ReactToPrint 
+                    trigger={() => <p>Print Recipe</p>}
+                    content={() => componentRef.current}
+                    documentTitle='Order' />
+            </Info>
+        </>
     )
 };
 

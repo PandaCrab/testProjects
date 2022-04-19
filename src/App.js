@@ -1,6 +1,7 @@
-import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { OrderPlate } from './components/Index';
 
@@ -11,18 +12,19 @@ import {
   ShoppingBasket,
   BasketContainer,
   Slash,
-  Order,
-  Nav,
   Basket,
   ShoppingBasketText,
   NumberOfStuff,
-  CircleOfNumber
+  CircleOfNumber,
+  Order
 } from './styles/AppStyles';
 import { GlobalStyles } from './GlobalStyles';
 
 const App = () => {
   const stuff = useSelector(state => state.order.stuff);
+  const navigate = useNavigate();
 
+  useEffect(() => navigate('/shipping'), [navigate])
 
   return (
     <>
@@ -43,11 +45,6 @@ const App = () => {
         
       </Header>
       <Order>
-        <Nav>
-          <Link to="/shipping">Shipping</Link> &gt;
-          <Link to="/billing">Billing</Link> &gt;
-          <Link to="/payment">Payment</Link>
-        </Nav>
         <Outlet />
         <OrderPlate />
       </Order>

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { billingValidation } from '../../helpers';
 import { fillBillingData } from '../../redux/ducks/data';
+import { Navigate } from '../../Navigate';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -81,6 +82,7 @@ const BillingInfo = () => {
 
     return (
         <>  
+            <Navigate />
             <Info>
                 <FormLabel>
                     <FormLabelHeader>Billing Information</FormLabelHeader>

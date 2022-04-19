@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 
 import stuffReducer, { stuffWatcher } from './ducks/stuff';
 import dataReducer, { dataWatcher } from './ducks/data';
-import addressReducer, { addressWatcher } from './ducks/address';
+import addressReducer, { addressWatcher, putEndpoint } from './ducks/address';
 
 const saga = createSagaMiddleware();
  
@@ -14,7 +14,7 @@ export const store = createStore(combineReducers({
     address: addressReducer
   }), compose(
     applyMiddleware(
-      thunk, saga
+      thunk, saga, putEndpoint
     ),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   ));

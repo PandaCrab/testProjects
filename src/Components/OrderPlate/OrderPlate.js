@@ -39,7 +39,7 @@ const OrderPlate = () => {
         
         setPrices({
             subtotal: addPrices,
-            shipping: 'Free',
+            shipping: 5.3,
             taxes: 12.12
         });
     }, [stuff]);
@@ -64,13 +64,21 @@ const OrderPlate = () => {
                     </PriceInfo>
                     <Price>
                         <PriceText>${prices.subtotal}</PriceText>
-                        <PriceText>{prices.shipping}</PriceText>
+                        <PriceText>
+                            {prices.shipping === 'free' || 'Free' ? null : '$'}
+                            {prices.shipping}
+                        </PriceText>
                         <PriceText>${prices.taxes}</PriceText>
                     </Price>
                 </SummaryPrice>
                 <TotalPrice>
                     <TotalPriceText>Total</TotalPriceText>
-                    <TotalPriceText>${prices.subtotal + prices.taxes}</TotalPriceText>
+                    <TotalPriceText>${
+                        prices.shipping === 'free' || 'Free' ?
+                            prices.subtotal + prices.taxes
+                            :
+                            prices.subtotal + prices.shipping + prices.taxes
+                    }</TotalPriceText>
                 </TotalPrice>
                 </section>
                 <section>

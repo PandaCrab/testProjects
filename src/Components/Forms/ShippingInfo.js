@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 
 import { shippingValidation } from '../../helpers';
 import { fillShippingData } from '../../redux/ducks/data';
+import { takeAddress, fillAddressInput } from '../../redux/ducks/address';
+import { Navigate } from '../../Navigate';
+import { DropdownAddresses } from './dropdownAddresses';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -18,6 +21,7 @@ import {
 } from '../../styles/FormStyle';
 
 const ShippingInfo = () => {
+    const [focus, setFocus] = useState(false)
     const [shipping, setShipping] = useState({
         name: '',
         phone: '',
@@ -64,8 +68,20 @@ const ShippingInfo = () => {
         initialValues: shipping
     });
 
+    const handleAutocomplete = (street, city, country) => {setShipping({
+        ...shipping,
+        street: street,
+        city: city,
+        country: country
+    });
+    setFocus(false);
+    };
+
+    const handleUnfocus = () => setFocus(false);
+
     return (
         <>
+            <Navigate />
             <Info>
                 <FormLabel>
                     <FormLabelHeader>Shipping Information</FormLabelHeader>
@@ -125,11 +141,23 @@ const ShippingInfo = () => {
                                     id="street"
                                     type="text"
                                     name="street"
-                                    onChange={(event) => setShipping({...shipping, street: event.target.value})}
+                                    onChange={(event) => {
+                                        setShipping({...shipping, street: event.target.value});
+                                        dispatch(takeAddress());
+                                        dispatch(fillAddressInput(shipping.street));
+                                    }}
+                                    onFocus={() => setFocus(true)}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
+                                    {
+                                        focus === true ?
+                                            <DropdownAddresses
+                                                unfocus={handleUnfocus}
+                                                autocomplete={handleAutocomplete} />
+                                            : null
+                                    }
                                 <Form.Control.Feedback  type='invalid' tooltip>
                                 { formik.touched.street && formik.errors.street ?
                                     formik.errors.street
@@ -168,7 +196,7 @@ const ShippingInfo = () => {
                                 <Row>
                                     <Col sm="7" xs="7">
                                         <Form.Control 
-                                        id="Country"
+                                        id="country"
                                         as="select"
                                         name="country"
                                         onChange={(event) => setShipping({...shipping, country: event.target.value})}

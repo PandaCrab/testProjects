@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Form, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
@@ -9,6 +9,7 @@ import { fillShippingData } from '../../redux/ducks/data';
 import { takeAddress, fillAddressInput } from '../../redux/ducks/address';
 import { Navigate } from '../../Navigate';
 import { DropdownAddresses } from './dropdownAddresses';
+import { CountriesSelect } from './CountriesSelect';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -21,7 +22,9 @@ import {
 } from '../../styles/FormStyle';
 
 const ShippingInfo = () => {
-    const [focus, setFocus] = useState(false)
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [addressFocus, setAddressFocus] = useState(false);
     const [shipping, setShipping] = useState({
         name: '',
         phone: '',
@@ -53,8 +56,11 @@ const ShippingInfo = () => {
         localStorage.setItem("shipping", JSON.stringify(shipping))
     }, [shipping]);
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const focusElement = useRef();
+
+    useEffect(() => {
+        if (focusElement.current) focusElement.corrent.focus();
+    }, [focusElement]);
 
     const formik = useFormik({
         validationSchema: shippingValidation,
@@ -74,10 +80,8 @@ const ShippingInfo = () => {
         city: city,
         country: country
     });
-    setFocus(false);
+    setAddressFocus(false);
     };
-
-    const handleUnfocus = () => setFocus(false);
 
     return (
         <>
@@ -146,15 +150,18 @@ const ShippingInfo = () => {
                                         dispatch(takeAddress());
                                         dispatch(fillAddressInput(shipping.street));
                                     }}
-                                    onFocus={() => setFocus(true)}
-                                    onBlur={formik.handleBlur}
+                                    onFocus={() => setAddressFocus(true)}
+                                    onBlur={() => {
+                                        formik.handleBlur();
+                                        setAddressFocus(false)
+                                    }}
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
                                     {
-                                        focus === true ?
+                                        addressFocus === true ?
                                             <DropdownAddresses
-                                                unfocus={handleUnfocus}
+                                                ref={focusElement}
                                                 autocomplete={handleAutocomplete} />
                                             : null
                                     }
@@ -195,20 +202,17 @@ const ShippingInfo = () => {
                             <Form.Group className="mb-2 mb-md-3 mb-lg-4 mb-xl-4">
                                 <Row>
                                     <Col sm="7" xs="7">
-                                        <Form.Control 
+                                        <Form.Control
+                                        className="custom-select" 
                                         id="country"
-                                        as="select"
+                                        list="countryList"
                                         name="country"
                                         onChange={(event) => setShipping({...shipping, country: event.target.value})}
                                         onBlur={formik.handleBlur}
                                         value={formik.values.country}
-                                        isInvalid={ !!formik.errors.country } >
-                                            <option value="">Countries</option>
-                                            <option value="usa">USA</option>
-                                            <option value="latvia">Latvia</option>
-                                            <option value="estonia">Estonia</option>
-                                            <option value="ukaraine">Ukraine</option>
-                                        </Form.Control>
+                                        placeholder='Country'
+                                        isInvalid={ !!formik.errors.country } />
+                                            <CountriesSelect id="countryList" />
                                         <Form.Control.Feedback type='invalid' tooltip>
                                         { formik.touched.country && formik.errors.country ?
                                             formik.errors.country

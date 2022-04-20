@@ -27,9 +27,8 @@ let endpoint = '';
 export const getEndpoint = (addressInput) => {if (addressInput.length > 0) endpoint = addressInput};
 export const fetchAddress = async () => {
     try {
-        console.log(endpoint)
         const apiKey = 'e2d9f960-bc78-11ec-a0da-bd0e50737306';
-        const addressApi = `https://app.geocodeapi.io/api/v1/autocomplete?apikey=${apiKey}&text=${endpoint}&size=5`;
+        const addressApi = `https://app.geocodeapi.io/api/v1/autocomplete?apikey=${apiKey}&text=${endpoint.replace(/\s/g, '%20')}&size=5`;
         const response = await fetchFunc(addressApi, 'GET')
         const json = await response.json()
         console.log(json.features)

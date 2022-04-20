@@ -59,26 +59,32 @@ export const Info = styled.div`
 `;
 
 export const AddressesList = styled.ul`
-    padding: 2px;
+    padding: 0;
     margin-top: 2px;
-    background-color: grey;
+    background-color: ${colors.white};
     width: 100%;
     height: auto;
     list-style: none;
     display: flex;
     justify-content: center;
-    font-size: .9em;
+    border: 1px solid;
+    border-radius: 3px;
     flex-direction: column;
     position: absolute;
     z-index: 2;
 `;
 
 export const AddressesListItems = styled.li`
-    padding: 0;
+    padding-left: 4px;
     margin-bottom: 3px;
-    color: white;
+    color: ${colors.black};
     display: flex;
     align-items: center;
+
+    &:hover {
+        background-color: ${colors.violet};
+        color: ${colors.white};
+    };
 `;
 
 export const PhoneControlInput = styled(PhoneInput)`

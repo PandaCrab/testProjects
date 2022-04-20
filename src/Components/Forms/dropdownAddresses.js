@@ -1,16 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import {
-    AddressesList,
-    AddressesListItems
-} from '../../styles/FormStyle';
+import { AddressesList, AddressesListItems } from '../../styles/FormStyle';
 
 export const DropdownAddresses = (props) => {
     const addresses = useSelector(state => state.address.addresses)
 
     return (
-        <AddressesList>
+        <AddressesList ref={props.ref}>
             {addresses === null || undefined ? 
                 null
                 :

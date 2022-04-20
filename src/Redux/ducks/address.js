@@ -1,4 +1,4 @@
-import { takeEvery, put, call, delay } from 'redux-saga/effects';
+import { takeLatest, put, call, cancel, delay, take, fork } from 'redux-saga/effects';
 
 import * as api from '../../api';
 
@@ -27,23 +27,36 @@ export const fillAddressInput = text => ({
     payload: text
 });
 
-export const putEndpoint = store => next => action => {
-    if (action.type === SEARCH_ADDRESS) {
-        api.getEndpoint(action.payload)
-    }
-    return next(action)
-}
+// export const putEndpoint = store => next => action => {
+//     if (action.type === SEARCH_ADDRESS) {
+//         api.getEndpoint(action.payload)
+//     }
+//     return next(action)
+// }
+function* putAddressInput(endpoint) {
+    yield delay(500);
+    yield api.getEndpoint(endpoint);
+};
+
+export function* addressInputWatcher() {
+    let setEndpoint;
+    while (true) {
+        const { payload } = yield take(SEARCH_ADDRESS);
+        if (setEndpoint) yield cancel(setEndpoint)
+        setEndpoint = yield fork(putAddressInput, payload)
+    };
+};
 
 export const takeAddress = () => ({
     type: REQUEST_ADDRESS
 });
 
 export function* addressWatcher() {
-    yield takeEvery(REQUEST_ADDRESS, fillAddress)
+    yield takeLatest(REQUEST_ADDRESS, fillAddress)
 }; 
 
 function* fillAddress() {
-    yield delay(1000)
+    yield delay(1000);
     const payload = yield call(api.fetchAddress);
     yield put({type: FETCH_ADDRESS, payload});
 };

@@ -4,7 +4,12 @@ import thunk from 'redux-thunk';
 
 import stuffReducer, { stuffWatcher } from './ducks/stuff';
 import dataReducer, { dataWatcher } from './ducks/data';
-import addressReducer, { addressInputWatcher, addressWatcher } from './ducks/address';
+import addressReducer, { 
+  addressInputWatcher,
+  addressWatcher,
+  navigatorAddressWatcher,
+  geolocationWatcher
+} from './ducks/address';
 
 const saga = createSagaMiddleware();
  
@@ -23,3 +28,5 @@ saga.run(stuffWatcher);
 saga.run(dataWatcher);
 saga.run(addressWatcher);
 saga.run(addressInputWatcher);
+saga.run(navigatorAddressWatcher);
+saga.run(geolocationWatcher);

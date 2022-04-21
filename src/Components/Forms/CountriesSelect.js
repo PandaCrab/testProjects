@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import Select from 'react-select'
+import countryList from 'react-select-country-list';
 
-import { countryList } from '../../helpers';
-
-export const CountriesSelect = (props) => (
-        <datalist id={props.id}>     
-            {countryList.map(country => 
-                (<option key={Object.keys(country)} value={Object.values(country)}>
-                {Object.values(country)}
-                </option >))}
-        </datalist>);
+export const CountriesSelect = (props) => {
+    const options = useMemo(() => countryList().getData(), [])
+    return (
+        <Select
+            menuPlacement='top'
+            options={options}
+            placeholder={props.placeholder}
+            onChange={props.onChange}
+            onBlur={props.onBlur}
+            inputValue={props.value}
+            aria-invalid={props.isInvalid}
+            />
+    );
+};

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
@@ -55,12 +55,6 @@ const ShippingInfo = () => {
     useEffect(() => {
         localStorage.setItem("shipping", JSON.stringify(shipping))
     }, [shipping]);
-
-    const focusElement = useRef();
-
-    useEffect(() => {
-        if (focusElement.current) focusElement.corrent.focus();
-    }, [focusElement]);
 
     const formik = useFormik({
         validationSchema: shippingValidation,
@@ -152,16 +146,14 @@ const ShippingInfo = () => {
                                     }}
                                     onFocus={() => setAddressFocus(true)}
                                     onBlur={() => {
-                                        formik.handleBlur();
-                                        setAddressFocus(false)
+                                        setTimeout(()=>setAddressFocus(false), 500);
                                     }}
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
                                     {
-                                        addressFocus === true ?
+                                        addressFocus ?
                                             <DropdownAddresses
-                                                ref={focusElement}
                                                 autocomplete={handleAutocomplete} />
                                             : null
                                     }
@@ -202,17 +194,17 @@ const ShippingInfo = () => {
                             <Form.Group className="mb-2 mb-md-3 mb-lg-4 mb-xl-4">
                                 <Row>
                                     <Col sm="7" xs="7">
-                                        <Form.Control
+                                        <CountriesSelect
                                         className="custom-select" 
                                         id="country"
-                                        list="countryList"
+                                        state={shipping.country}
+                                        menuPlacement="top"
                                         name="country"
                                         onChange={(event) => setShipping({...shipping, country: event.target.value})}
                                         onBlur={formik.handleBlur}
                                         value={formik.values.country}
                                         placeholder='Country'
                                         isInvalid={ !!formik.errors.country } />
-                                            <CountriesSelect id="countryList" />
                                         <Form.Control.Feedback type='invalid' tooltip>
                                         { formik.touched.country && formik.errors.country ?
                                             formik.errors.country

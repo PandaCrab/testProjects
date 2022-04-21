@@ -65,8 +65,6 @@ export const AddressesList = styled.ul`
     width: 100%;
     height: auto;
     list-style: none;
-    display: flex;
-    justify-content: center;
     border: 1px solid;
     border-radius: 3px;
     flex-direction: column;
@@ -74,7 +72,7 @@ export const AddressesList = styled.ul`
     z-index: 2;
 `;
 
-export const AddressesListItems = styled.li`
+export const ListItems = styled.li`
     padding-left: 4px;
     margin-bottom: 3px;
     color: ${colors.black};
@@ -86,6 +84,11 @@ export const AddressesListItems = styled.li`
         color: ${colors.white};
     };
 `;
+
+export const CountryControlInput = styled(Form.Control)`
+ padding: 0;
+ 
+`
 
 export const PhoneControlInput = styled(PhoneInput)`
     padding: 0;

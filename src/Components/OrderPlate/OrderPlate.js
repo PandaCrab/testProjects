@@ -27,8 +27,9 @@ const OrderPlate = () => {
     const [viewOrder, setViewOrder] = useState(false);
     const [prices, setPrices] = useState({
         subtotal: 0,
-        shipping: 'Free',
-        taxes: 12.12
+        shipping: 5.3,
+        taxes: 12.12,
+        freeShipping: false
     });
 
     const stuff = useSelector(state => state.order.stuff);
@@ -37,12 +38,22 @@ const OrderPlate = () => {
             (accumulator, currentValue) =>  accumulator + currentValue.price, 0
         );
         
-        setPrices({
+        setPrices(prices => ({
+            ...prices,
             subtotal: addPrices,
-            shipping: 5.3,
-            taxes: 12.12
-        });
+            shipping: 5.3
+        }));
     }, [stuff]);
+
+    const checkFreeShipping = () => {
+        if (prices.shipping === ('Free' || 'free')) {
+            prices.freeShipping = true;
+            return (prices.subtotal + prices.taxes).toFixed(2);
+        } else {
+        prices.freeShipping = false;    
+        return (prices.subtotal + prices.shipping + prices.taxes).toFixed(2);
+        };
+    }
 
     return (
         <>
@@ -65,7 +76,7 @@ const OrderPlate = () => {
                     <Price>
                         <PriceText>${prices.subtotal}</PriceText>
                         <PriceText>
-                            {prices.shipping === 'free' || 'Free' ? null : '$'}
+                            {prices.freeShipping ? null : '$'}
                             {prices.shipping}
                         </PriceText>
                         <PriceText>${prices.taxes}</PriceText>
@@ -73,12 +84,7 @@ const OrderPlate = () => {
                 </SummaryPrice>
                 <TotalPrice>
                     <TotalPriceText>Total</TotalPriceText>
-                    <TotalPriceText>${
-                        prices.shipping === 'free' || 'Free' ?
-                            prices.subtotal + prices.taxes
-                            :
-                            prices.subtotal + prices.shipping + prices.taxes
-                    }</TotalPriceText>
+                    <TotalPriceText>${checkFreeShipping()}</TotalPriceText>
                 </TotalPrice>
                 </section>
                 <section>

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { OrderPlate } from './components/Index';
+import { takeGeolocation, takeNavigagtorAddress } from './redux/ducks/address';
 
 import {
   Header,
@@ -21,10 +22,32 @@ import {
 import { GlobalStyles } from './GlobalStyles';
 
 const App = () => {
+  const dispatch = useDispatch();
   const stuff = useSelector(state => state.order.stuff);
   const navigate = useNavigate();
 
-  useEffect(() => navigate('/shipping'), [navigate])
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator
+        .geolocation
+        .getCurrentPosition(
+          position => {
+            dispatch(
+              takeGeolocation(
+                position.coords.latitude, 
+                position.coords.longitude
+              )
+            );
+            dispatch(takeNavigagtorAddress());
+            console.log(position);
+          }
+        );
+      }else{
+        return;
+      }
+    }, [dispatch]);
+    
+  useEffect(() => navigate('/shipping'), [navigate]);
 
   return (
     <>

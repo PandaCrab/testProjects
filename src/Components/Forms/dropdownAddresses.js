@@ -1,18 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { AddressesList, AddressesListItems } from '../../styles/FormStyle';
+import { AddressesList, ListItems } from '../../styles/FormStyle';
 
 export const DropdownAddresses = (props) => {
     const addresses = useSelector(state => state.address.addresses)
 
     return (
-        <AddressesList ref={props.ref}>
+        <AddressesList>
             {addresses === null || undefined ? 
                 null
                 :
                 addresses.map(address => (
-                <AddressesListItems 
+                <ListItems 
                     key={address.properties.id}
                     onClick={() => props.autocomplete(
                         address.properties.name,
@@ -21,7 +21,7 @@ export const DropdownAddresses = (props) => {
                         )
                     }>{
                         address.properties.label
-                    }</AddressesListItems>
+                    }</ListItems>
             ))}
         </AddressesList>
     )

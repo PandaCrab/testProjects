@@ -24,13 +24,14 @@ export const devices = {
 };
 
 export const colors = {
-    stuffBorder: '#dfe1e3',
+    border: '#dfe1e3',
     stuffText: '#777879',
     totalPrice: '#54316c',
     violet: '#6e00c5',
     white: '#fff',
     black: '#000',
     slash: '#f03ada',
+    optionHover: '#4c9aff',
     orderPlateBackground: '#f1f3f6',
     btn: '#7a3fa8',
     basketCircle: '#ff1876',

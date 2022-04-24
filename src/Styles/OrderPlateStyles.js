@@ -103,14 +103,14 @@ export const StuffItem = styled.section`
   padding: 7px 0 7px 7px;
   display: flex;
   flex-direction: row;
-  border-bottom: .5px solid ${colors.stuffBorder};
+  border-bottom: .5px solid ${colors.border};
   font-size: 0.7em;
 `;
 
 export const StuffImage = styled.img`
   width: 20%;
   height: 5em;
-  border: .3px solid ${colors.stuffBorder};
+  border: .3px solid ${colors.border};
 
   @media ${devices.mobileS} {
     width: 20%;
@@ -171,7 +171,7 @@ export const SummaryPrice = styled.section`
   flex-direction: row;
   justify-content: space-between;
   width: 99%;
-  border-bottom: 1px solid ${colors.stuffBorder};
+  border-bottom: 1px solid ${colors.border};
   color: ${colors.stuffText};
   font-size: .7em;
 `;

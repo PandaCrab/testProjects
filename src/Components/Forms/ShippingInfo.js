@@ -113,7 +113,7 @@ const ShippingInfo = () => {
                                             specialLabel=""
                                             id="Phone" 
                                             type="text"
-                                            name="phone"  
+                                            name="phone"
                                             onChange={(value) => setShipping({...shipping, phone: value})}
                                             onBlur={formik.handleBlur('phone')}
                                             value={formik.values.phone}
@@ -146,8 +146,9 @@ const ShippingInfo = () => {
                                     }}
                                     onFocus={() => setAddressFocus(true)}
                                     onBlur={() => {
-                                        setTimeout(()=>setAddressFocus(false), 500);
+                                        setTimeout(() => setAddressFocus(false), 500);
                                     }}
+                                    autoComplete={''}
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
@@ -195,22 +196,21 @@ const ShippingInfo = () => {
                                 <Row>
                                     <Col sm="7" xs="7">
                                         <CountriesSelect
-                                        className="custom-select" 
                                         id="country"
-                                        state={shipping.country}
-                                        menuPlacement="top"
                                         name="country"
-                                        onChange={(event) => setShipping({...shipping, country: event.target.value})}
+                                        onChange={(value) => setShipping({
+                                            ...shipping, 
+                                            country: value.label})}
                                         onBlur={formik.handleBlur}
+                                        onInputChange={value => setShipping({
+                                            ...shipping,
+                                            country: value
+                                        })}
                                         value={formik.values.country}
                                         placeholder='Country'
-                                        isInvalid={ !!formik.errors.country } />
-                                        <Form.Control.Feedback type='invalid' tooltip>
-                                        { formik.touched.country && formik.errors.country ?
-                                            formik.errors.country
-                                            : 
-                                            null }
-                                        </Form.Control.Feedback>
+                                        error={ formik.errors.country }
+                                        touched={ formik.touched.country }
+                                        />
                                     </Col>
                                     <Col sm="5" xs="5">
                                         <Form.Control

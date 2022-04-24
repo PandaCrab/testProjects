@@ -6,7 +6,10 @@ import { useNavigate } from 'react-router-dom';
 
 import { billingValidation } from '../../helpers';
 import { fillBillingData } from '../../redux/ducks/data';
+import { takeAddress, fillAddressInput } from '../../redux/ducks/address';
 import { Navigate } from '../../Navigate';
+import { CountriesSelect } from './CountriesSelect';
+import { DropdownAddresses } from './dropdownAddresses';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -27,6 +30,7 @@ const BillingInfo = () => {
         country: '',
         zip: ''
     });
+    const [addressFocus, setAddressFocus] = useState(false)
 
     useEffect(() => {
         const saved = localStorage.getItem("billing");
@@ -67,6 +71,15 @@ const BillingInfo = () => {
             zip: save.zip
         });
         return
+    };
+
+    const handleAutocomplete = (street, city, country) => {setBilling({
+        ...billing,
+        street: street,
+        city: city,
+        country: country
+    });
+    setAddressFocus(false);
     };
 
     const formik = useFormik({
@@ -136,11 +149,24 @@ const BillingInfo = () => {
                                     id="street"
                                     type="text"
                                     name="street"
-                                    onChange={(event) => setBilling({...billing, street: event.target.value})}
-                                    onBlur={formik.handleBlur}
+                                    onChange={(event) => {
+                                        setBilling({...billing, street: event.target.value});
+                                        dispatch(takeAddress());
+                                        dispatch(fillAddressInput(billing.street));
+                                    }}
+                                    onFocus={() => setAddressFocus(true)}
+                                    onBlur={() => {
+                                        setTimeout(() => setAddressFocus(false), 500);
+                                    }}
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
-                                    placeholder="Street street" />
+                                    placeholder="Street address" />
+                                    {
+                                        addressFocus ?
+                                            <DropdownAddresses
+                                                autocomplete={handleAutocomplete} />
+                                            : null
+                                    }
                                 <Form.Control.Feedback type='invalid' tooltip>
                                     { formik.touched.street && formik.errors.street ?
                                         formik.errors.street
@@ -179,26 +205,22 @@ const BillingInfo = () => {
                             <Form.Group className="mb-4 position-relative">
                                 <Row>
                                     <Col sm="7" xs="7">
-                                        <Form.Control 
+                                    <CountriesSelect
                                         id="country"
                                         name="country"
-                                        as="select"
-                                        onChange={(event) => setBilling({...billing, country: event.target.value})}
+                                        onChange={(value) => setBilling({
+                                            ...billing, 
+                                            country: value.label})}
                                         onBlur={formik.handleBlur}
+                                        onInputChange={value => setBilling({
+                                            ...billing,
+                                            country: value
+                                        })}
                                         value={formik.values.country}
-                                        isInvalid={ !!formik.errors.country } >
-                                            <option value="">Country</option>
-                                            <option value="usa" >USA</option>
-                                            <option value="ukraine">Ukraine</option>
-                                            <option value="united kingdom">United Kingdom</option>
-                                            <option value="latvia">Latvia</option>
-                                        </Form.Control>
-                                        <Form.Control.Feedback type='invalid' tooltip>
-                                            { formik.touched.country && formik.errors.country ?
-                                                formik.errors.country
-                                                : 
-                                                null }
-                                        </Form.Control.Feedback>
+                                        placeholder='Country'
+                                        error={ formik.errors.country }
+                                        touched={ formik.touched.country }
+                                        />
                                     </Col>
                                     <Col sm="5" xs="5">
                                         <Form.Control 

@@ -22,7 +22,7 @@ ReactDOM.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={ <App /> }>
-            <Route path="shipping" element={ <ShippingInfo /> } />
+            <Route path="/shipping" element={ <ShippingInfo /> } />
             <Route path="billing" element={ <BillingInfo /> } />
             <Route path="payment" element={ <Payment /> } />
             <Route path="TermsAndConditions" element={<h1>Terms and Conditions</h1>} />

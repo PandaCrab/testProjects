@@ -60,35 +60,42 @@ export const Info = styled.div`
 
 export const AddressesList = styled.ul`
     padding: 0;
-    margin-top: 2px;
+    margin-top: -4px;
     background-color: ${colors.white};
     width: 100%;
     height: auto;
     list-style: none;
-    border: 1px solid;
-    border-radius: 3px;
+    cursor: default;
+    border: 1px solid ${colors.border};
+    border-radius: 0 0 3px 3px;
+    box-shadow: -1px 3px 4px ${colors.shadow};
     flex-direction: column;
     position: absolute;
     z-index: 2;
 `;
 
+export const ErrorMessage = styled.p`
+    margin: 0;
+    position: absolute;
+    font-size: .9em;
+    padding: 1px 3px;
+    z-index: 1;
+    background: none;
+    color: red;
+`;
+
 export const ListItems = styled.li`
-    padding-left: 4px;
-    margin-bottom: 3px;
+    padding: 5px;
     color: ${colors.black};
+    font-size: 1.2em;
     display: flex;
     align-items: center;
 
     &:hover {
-        background-color: ${colors.violet};
+        background-color: ${colors.optionHover};
         color: ${colors.white};
     };
 `;
-
-export const CountryControlInput = styled(Form.Control)`
- padding: 0;
- 
-`
 
 export const PhoneControlInput = styled(PhoneInput)`
     padding: 0;

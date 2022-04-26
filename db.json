@@ -36,29 +36,29 @@
   "personInfo": [
     {
       "personInfo": [],
-      "payment": {
-        "cardholder": "Pupkin Vasya",
-        "cardNum": "4000 0000 0000 0000",
-        "date": "12 / 33",
-        "cvv": "321"
-      },
       "shipping": {
-        "name": "Snizhana Kozoriz",
-        "phone": "380667805576",
-        "street": "Y,Sirka",
-        "optional": "35",
-        "city": "Sumy",
-        "country": "ukaraine",
-        "zip": "23213"
+        "name": "Vasya Pupkin",
+        "phone": "78005553535",
+        "street": "7А Героїв України вулиця",
+        "optional": "",
+        "city": "Lokhvyts`a",
+        "country": "Ukraine",
+        "zip": "414044"
       },
       "billing": {
-        "name": "Snizhana Kozoriz",
+        "name": "Vasya Pupkin",
         "email": "kolotushkin@mulo.com",
-        "street": "Y,Sirka",
-        "optional": "35",
-        "city": "Sumy",
-        "country": "ukaraine",
-        "zip": "23213"
+        "street": "7А Героїв України вулиця",
+        "optional": "",
+        "city": "Lokhvyts`a",
+        "country": "Ukraine",
+        "zip": "414044"
+      },
+      "payment": {
+        "cardholder": "Pupkin Vasya",
+        "cardNum": "5443 4434 5353 4534",
+        "date": "11 / 42",
+        "cvv": "223"
       },
       "id": 1
     },
@@ -67,56 +67,28 @@
       "shipping": {
         "name": "Vasya Pupkin",
         "phone": "78005553535",
-        "street": "kolotushkina 9",
+        "street": "7А Героїв України вулиця",
         "optional": "",
-        "city": "iuhjyyu",
-        "country": "usa",
-        "zip": "888778"
+        "city": "Lokhvyts`a",
+        "country": "Ukraine",
+        "zip": "32424"
       },
       "billing": {
         "name": "Vasya Pupkin",
         "email": "kolotushkin@mulo.com",
-        "street": "kolotushkina 9",
+        "street": "7А Героїв України вулиця",
         "optional": "",
-        "city": "iuhjyyu",
-        "country": "usa",
-        "zip": "888778"
+        "city": "Lokhvyts`a",
+        "country": "Ukraine",
+        "zip": "32424"
       },
       "payment": {
         "cardholder": "Pupkin Vasya",
-        "cardNum": "4555 4545 4545 4545",
-        "date": "12 / 33",
+        "cardNum": "5534 3432 3423 4324",
+        "date": "12 / 23",
         "cvv": "332"
       },
       "id": 2
-    },
-    {
-      "personInfo": [],
-      "shipping": {
-        "name": "Vasya Pupkin",
-        "phone": "78005553535",
-        "street": "Broadway Manchester",
-        "optional": "",
-        "city": "Los Angeles",
-        "country": "United States",
-        "zip": "554443"
-      },
-      "billing": {
-        "name": "Vasya Pupkin",
-        "email": "kolotushkin@mulo.com",
-        "street": "Broadway Manchester",
-        "optional": "",
-        "city": "Los Angeles",
-        "country": "United States",
-        "zip": "554443"
-      },
-      "payment": {
-        "cardholder": "Pupkin Vasya",
-        "cardNum": "4122 2323 2444 2421",
-        "date": "12 / 32",
-        "cvv": "112"
-      },
-      "id": 3
     }
   ]
 }

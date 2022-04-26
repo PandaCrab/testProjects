@@ -60,7 +60,6 @@ const Payment = () => {
             dispatch(sendData());
             formik.handleReset();
             navigate('/success');
-            setTimeout(() => localStorage.clear(), 500)
         },
         enableReinitialize: true,   
         initialValues: payment

@@ -1,6 +1,7 @@
 const url = 'http://localhost:3004';
 const apiKey = 'e2d9f960-bc78-11ec-a0da-bd0e50737306';
 const addressApi = `https://app.geocodeapi.io/api/v1/`;
+
 //Need write method to working correct
 const fetchFunc = (url, method, data) => {
     if (method === 'GET') return fetch(url)
@@ -13,8 +14,10 @@ const fetchFunc = (url, method, data) => {
     })
 };
 
+//fetch POST of personal info for billing to data
 export const fetchPostData = (data) => fetchFunc(url+'/personInfo', "POST", data);
 
+//fetch products in backet
 export const fetchStuff = async() => {
     try {
         const response = await fetchFunc(url+'/products', 'GET');
@@ -24,12 +27,12 @@ export const fetchStuff = async() => {
         alert('Oops, something wrong')
     };
 };
+
 //fetch by coordinates
 let coordinates;
 export const getGeolocation = (geolocation) => {
     coordinates = geolocation
 };
-console.log(coordinates)
 
 export const fetchGeolocation = async() => {
     try {
@@ -38,12 +41,12 @@ export const fetchGeolocation = async() => {
             'GET'
         );
         const json = await response.json();
-        console.log(json.features)
         return json.features[0].properties;
     } catch(errors) {
         alert(`Can't take geolocation`);
     };
 };
+
 //fetch by input
 const endpoint = {};
 export const getEndpoint = (addressInput) => {
@@ -51,6 +54,7 @@ export const getEndpoint = (addressInput) => {
         endpoint.value = addressInput
     }
 };
+
 export const fetchAddress = async () => {
     try {
         const response = await fetchFunc(

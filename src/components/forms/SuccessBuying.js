@@ -1,21 +1,23 @@
 import React, { useRef } from 'react';
-import ReactToPrint from 'react-to-print';
+import { useNavigate } from 'react-router-dom';
 
 import { CardToPrint } from '../Index';
 
-import { Info } from '../../styles/FormStyle';
+import { Info, StyledButton } from '../../styles/FormStyle';
 
 const SuccessBuying = () => {
     const componentRef = useRef();
+    const navigate = useNavigate();
+
     return (
         <>
             <br/>
             <Info>
                 <CardToPrint ref={componentRef} />
-                <ReactToPrint 
-                    trigger={() => <p>Print Recipe</p>}
-                    content={() => componentRef.current}
-                    documentTitle='Order' />
+                <StyledButton onClick={() => {
+                navigate('/shipping'); 
+                localStorage.clear()
+            }}>Back to shipping</StyledButton>
             </Info>
         </>
     );

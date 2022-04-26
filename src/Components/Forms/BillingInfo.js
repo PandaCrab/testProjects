@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Col, Row } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +15,8 @@ import {
     StyledButton,
     FormLabel,
     FormLabelParagraph,
-    FormLabelHeader
+    FormLabelHeader,
+    NavigateAutocomplete
 } from '../../styles/FormStyle';
 
 const BillingInfo = () => {
@@ -52,6 +53,7 @@ const BillingInfo = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const navigatorAddress = useSelector(state => state.address.navigatorAddress);
 
     const handleSameAsShipping = () => {
         const saved = localStorage.getItem('shipping');
@@ -152,6 +154,12 @@ const BillingInfo = () => {
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
+                                    {navigatorAddress !== '' && (
+                                    <NavigateAutocomplete onClick={() => handleAutocomplete(
+                                        navigatorAddress.street,
+                                        navigatorAddress.city,
+                                        navigatorAddress.country )} />
+                                    )}
                                     { addressFocus && (
                                         <DropdownAddresses autocomplete={handleAutocomplete} />
                                     )}

@@ -26,7 +26,7 @@ const Payment = () => {
         cardNum: '',
         date: '',
         cvv: ''
-    })
+    });
 
     useEffect(() => {
         const saved = localStorage.getItem("payment");
@@ -37,7 +37,7 @@ const Payment = () => {
             cardholder: save.cardholder,
             cardNum: save.cardNum
         })
-        return
+        return;
     }, []);
 
     useEffect(() => {
@@ -109,9 +109,13 @@ const Payment = () => {
                                 type="text"
                                 name="cardNum"
                                 isInvalid={ !!formik.errors.cardNum }
-                                placeholder="XXXX XXXX XXXX XXXX"
+                                placeholder="XXXX XXXX XXXX XXXX XXXX"
                             />
-                            <InputCardImage {...getCardImageProps({images})} />
+                            {payment.cardNum === '' ?
+                                null
+                                :
+                                <InputCardImage {...getCardImageProps({images})} />
+                            }
                             <Form.Control.Feedback type='invalid' tooltip>
                                 { formik.touched.cardNum && formik.errors.cardNum ?
                                     formik.errors.cardNum

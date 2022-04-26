@@ -24,5 +24,5 @@ export const DropdownAddresses = (props) => {
                     }</ListItems>
             ))}
         </AddressesList>
-    )
+    );
 };

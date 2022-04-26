@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import ReactToPrint from 'react-to-print';
 
-import { CardToPrint } from './CardToPrint'
+import { CardToPrint } from './CardToPrint';
 
 import { Info } from '../../styles/FormStyle';
 
@@ -18,7 +18,7 @@ const SuccessBuying = () => {
                     documentTitle='Order' />
             </Info>
         </>
-    )
+    );
 };
 
 export default SuccessBuying;

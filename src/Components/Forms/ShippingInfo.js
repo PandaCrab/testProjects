@@ -49,7 +49,7 @@ const ShippingInfo = () => {
             country: save.country,
             zip: save.zip
         })
-        return
+        return;
     }, []);
 
     useEffect(() => {

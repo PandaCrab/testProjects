@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { StyledButton } from '../../styles/FormStyle';
 
-export const CardToPrint = React.forwardRef(( props, ref ) => {
+export const CardToPrint = React.forwardRef(( prop, ref ) => {
     const navigate = useNavigate(); 
     const saved = localStorage.getItem("billing");
     const save = JSON.parse(saved);
@@ -11,7 +12,7 @@ export const CardToPrint = React.forwardRef(( props, ref ) => {
     return (save === null ?
         (<h6>
             You don't write info: <br/>
-            <button onClick={() => navigate('/shipping')}>Write info</button>
+            <StyledButton onClick={() => navigate('/shipping')}>Write info</StyledButton>
         </h6>)
         :
         (<section ref={ref}>

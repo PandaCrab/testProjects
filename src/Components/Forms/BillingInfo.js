@@ -30,7 +30,7 @@ const BillingInfo = () => {
         country: '',
         zip: ''
     });
-    const [addressFocus, setAddressFocus] = useState(false)
+    const [addressFocus, setAddressFocus] = useState(false);
 
     useEffect(() => {
         const saved = localStorage.getItem("billing");
@@ -69,8 +69,8 @@ const BillingInfo = () => {
             city: save.city,
             country: save.country,
             zip: save.zip
-        });
-        return
+        })
+        return;
     };
 
     const handleAutocomplete = (street, city, country) => {setBilling({

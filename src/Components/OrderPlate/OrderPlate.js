@@ -27,7 +27,7 @@ const OrderPlate = () => {
     const [viewOrder, setViewOrder] = useState(false);
     const [prices, setPrices] = useState({
         subtotal: 0,
-        shipping: 5.3,
+        shipping: 'Free',
         taxes: 12.12,
         freeShipping: false
     });
@@ -40,8 +40,7 @@ const OrderPlate = () => {
         
         setPrices(prices => ({
             ...prices,
-            subtotal: addPrices,
-            shipping: 5.3
+            subtotal: addPrices
         }));
     }, [stuff]);
 

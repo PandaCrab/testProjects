@@ -6,6 +6,7 @@ import { ErrorMessage } from '../../styles/FormStyle';
 
 export const CountriesSelect = (props) => {
     const options = useMemo(() => countryList().getData(), []);
+
     return (
         <>
             <Select
@@ -15,9 +16,8 @@ export const CountriesSelect = (props) => {
                 options={options}
                 onChange={props.onChange}
                 onBlur={props.onBlur}
-                inputValue={props.value}
-                onInputChange={(value, action) => {
-                    if (action.action  === "input-change") props.onInputChange(value)
+                onInputChange={(value, {action}) => {
+                    if (action  === "input-change") props.onInputChange(value)
                 }}
                 placeholder={props.placeholder}
                 />

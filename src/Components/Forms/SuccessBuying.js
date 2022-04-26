@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import ReactToPrint from 'react-to-print';
 
-import { CardToPrint } from './CardToPrint';
+import { CardToPrint } from '../Index';
 
 import { Info } from '../../styles/FormStyle';
 

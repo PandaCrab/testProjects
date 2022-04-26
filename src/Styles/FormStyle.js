@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Button, Form } from 'react-bootstrap';
 import PhoneInput from 'react-phone-input-2';
+import { BsGeoAltFill } from 'react-icons/bs'
 
 import { devices, colors } from '../GlobalStyles';
 
@@ -73,6 +74,14 @@ export const AddressesList = styled.ul`
     position: absolute;
     z-index: 2;
 `;
+
+export const NavigateAutocomplete = styled(BsGeoAltFill)`
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    top: 9px;
+    right: 2px;
+`
 
 export const ErrorMessage = styled.p`
     margin: 0;

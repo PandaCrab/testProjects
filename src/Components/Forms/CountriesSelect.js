@@ -4,7 +4,7 @@ import countryList from 'react-select-country-list';
 
 import { ErrorMessage } from '../../styles/FormStyle';
 
-export const CountriesSelect = (props) => {
+const CountriesSelect = (props) => {
     const options = useMemo(() => countryList().getData(), []);
 
     return (
@@ -16,15 +16,17 @@ export const CountriesSelect = (props) => {
                 options={options}
                 onChange={props.onChange}
                 onBlur={props.onBlur}
+                defaultInputValue={props.value}
                 onInputChange={(value, {action}) => {
-                    if (action  === "input-change") props.onInputChange(value)
+                    if (action  === 'input-change') {props.onInputChange(value)}
                 }}
-                placeholder={props.placeholder}
+                placeholder={props.value !== '' ? props.value : props.placeholder}
                 />
-                {
-                    props.touched && !!props.error &&
-                    (<ErrorMessage>{props.error}</ErrorMessage>)
-                }
+                {props.touched && !!props.error && (
+                <ErrorMessage>{props.error}</ErrorMessage>
+                )}
         </>
     );
 };
+
+export default CountriesSelect;

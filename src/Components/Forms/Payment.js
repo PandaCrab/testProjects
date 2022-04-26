@@ -8,7 +8,7 @@ import images from 'react-payment-inputs/images';
 
 import { paymentValidation } from '../../helpers';
 import { sendData, fillPaymentData } from '../../redux/ducks/data';
-import { Navigate } from '../../Navigate';
+import { Navigate } from '../Index';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -29,19 +29,18 @@ const Payment = () => {
     });
 
     useEffect(() => {
-        const saved = localStorage.getItem("payment");
+        const saved = localStorage.getItem('payment');
         const save = JSON.parse(saved);
 
-        if (save !== null)
-        setPayment({
+        if (save !== null) {setPayment({
             cardholder: save.cardholder,
             cardNum: save.cardNum
-        })
+        })}
         return;
     }, []);
 
     useEffect(() => {
-        localStorage.setItem("payment", JSON.stringify(payment));
+        localStorage.setItem('payment', JSON.stringify(payment));
     }, [payment]);
 
     const dispatch = useDispatch();
@@ -60,7 +59,7 @@ const Payment = () => {
             dispatch(fillPaymentData(formik.values));
             dispatch(sendData());
             formik.handleReset();
-            navigate("/success");
+            navigate('/success');
             setTimeout(() => localStorage.clear(), 500)
         },
         enableReinitialize: true,   
@@ -89,10 +88,7 @@ const Payment = () => {
                             placeholder='Name as it appears on your card'
                             />                     
                         <Form.Control.Feedback type='invalid' tooltip>
-                            { formik.touched.cardholder && formik.errors.cardholder ?
-                                formik.errors.cardholder
-                                : 
-                                null}
+                            { formik.touched.cardholder && formik.errors.cardholder }
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className="mb-4 position-relative">
@@ -111,16 +107,11 @@ const Payment = () => {
                                 isInvalid={ !!formik.errors.cardNum }
                                 placeholder="XXXX XXXX XXXX XXXX XXXX"
                             />
-                            {payment.cardNum === '' ?
-                                null
-                                :
+                            {payment.cardNum !== '' && (
                                 <InputCardImage {...getCardImageProps({images})} />
-                            }
+                            )}
                             <Form.Control.Feedback type='invalid' tooltip>
-                                { formik.touched.cardNum && formik.errors.cardNum ?
-                                    formik.errors.cardNum
-                                    : 
-                                    null }
+                                { formik.touched.cardNum && formik.errors.cardNum }
                             </Form.Control.Feedback>
                         </InputGroup>
                     </Form.Group>
@@ -142,11 +133,7 @@ const Payment = () => {
                                         placeholder="MM/YY"
                                     />
                                 <Form.Control.Feedback type='invalid' tooltip>
-                                    { formik.touched.date && formik.errors.date ?
-                                        formik.errors.date
-                                        : 
-                                        null 
-                                    }
+                                    { formik.touched.date && formik.errors.date }
                                 </Form.Control.Feedback>
                             </Col>
                             <Col sm="5" xs="6">
@@ -163,10 +150,7 @@ const Payment = () => {
                                     value={formik.values.cvv}
                                     isInvalid={ !!formik.errors.cvv } />
                                 <Form.Control.Feedback type='invalid' tooltip>
-                                    { formik.touched.cvv && formik.errors.cvv ?
-                                        formik.errors.cvv
-                                        : 
-                                        null }
+                                    { formik.touched.cvv && formik.errors.cvv }
                                 </Form.Control.Feedback>
                             </Col>
                         </Row>

@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Col, Row } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
 import { shippingValidation } from '../../helpers';
 import { fillShippingData } from '../../redux/ducks/data';
 import { takeAddress, fillAddressInput } from '../../redux/ducks/address';
-import { Navigate } from '../../Navigate';
-import { DropdownAddresses } from './dropdownAddresses';
-import { CountriesSelect } from './CountriesSelect';
+import { Navigate, DropdownAddresses, CountriesSelect } from '../Index';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -18,12 +16,14 @@ import {
     FormLabel,
     FormLabelHeader,
     StyledButton,
-    PhoneControlInput
+    PhoneControlInput,
+    NavigateAutocomplete
 } from '../../styles/FormStyle';
 
 const ShippingInfo = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const navigatorAddress = useSelector(state => state.address.navigatorAddress)
     const [addressFocus, setAddressFocus] = useState(false);
     const [shipping, setShipping] = useState({
         name: '',
@@ -36,11 +36,10 @@ const ShippingInfo = () => {
     });
 
     useEffect(() => {
-        const saved = localStorage.getItem("shipping");
+        const saved = localStorage.getItem('shipping');
         const save = JSON.parse(saved);
 
-        if (save !== null)
-        setShipping({
+        if (save !== null) {setShipping({
             name: save.name,
             phone: save.phone,
             street: save.street,
@@ -48,12 +47,12 @@ const ShippingInfo = () => {
             city: save.city,
             country: save.country,
             zip: save.zip
-        })
+        })}
         return;
     }, []);
 
     useEffect(() => {
-        localStorage.setItem("shipping", JSON.stringify(shipping))
+        localStorage.setItem('shipping', JSON.stringify(shipping))
     }, [shipping]);
 
     const formik = useFormik({
@@ -61,20 +60,21 @@ const ShippingInfo = () => {
         onSubmit: () => {
             dispatch(fillShippingData(formik.values));
             formik.handleReset();
-            navigate("/billing")
-            localStorage.setItem("shipping", JSON.stringify(formik.values))
+            navigate('/billing')
+            localStorage.setItem('shipping', JSON.stringify(formik.values))
         },
         enableReinitialize: true,
         initialValues: shipping
     });
 
-    const handleAutocomplete = (street, city, country) => {setShipping({
-        ...shipping,
-        street: street,
-        city: city,
-        country: country
-    });
-    setAddressFocus(false);
+    const handleAutocomplete = (street, city, country) => {
+        setShipping({
+            ...shipping,
+            street: street,
+            city: city,
+            country: country
+        });
+        setAddressFocus(false);
     };
 
     return (
@@ -99,10 +99,7 @@ const ShippingInfo = () => {
                                 isInvalid={ !!formik.errors.name } 
                                 placeholder="Full Name" />
                                 <Form.Control.Feedback type='invalid' tooltip>
-                                    { formik.touched.name && formik.errors.name ?
-                                        formik.errors.name
-                                        : 
-                                        null }
+                                    { formik.touched.name && formik.errors.name }
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative">
@@ -120,10 +117,7 @@ const ShippingInfo = () => {
                                             isInvalid={ !!formik.errors.phone }
                                             placeholder="Daytime Phone" />
                                         <Form.Control.Feedback type="invalid" tooltip> 
-                                            { formik.touched.phone && formik.errors.phone ?
-                                                formik.errors.phone
-                                                : 
-                                                null }
+                                            { formik.touched.phone && formik.errors.phone }
                                         </Form.Control.Feedback>
                                     </Col>
                                     <Col sm="4" xs="5">
@@ -148,21 +142,20 @@ const ShippingInfo = () => {
                                     onBlur={() => {
                                         setTimeout(() => setAddressFocus(false), 500);
                                     }}
-                                    autoComplete={''}
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
-                                    {
-                                        addressFocus ?
-                                            <DropdownAddresses
-                                                autocomplete={handleAutocomplete} />
-                                            : null
-                                    }
+                                    {navigatorAddress !== '' && (
+                                    <NavigateAutocomplete onClick={() => handleAutocomplete(
+                                        navigatorAddress.street,
+                                        navigatorAddress.city,
+                                        navigatorAddress.country )} />
+                                    )}
+                                    { addressFocus && (
+                                            <DropdownAddresses autocomplete={handleAutocomplete} />
+                                    )}
                                 <Form.Control.Feedback  type='invalid' tooltip>
-                                { formik.touched.street && formik.errors.street ?
-                                    formik.errors.street
-                                    : 
-                                    null }
+                                { formik.touched.street && formik.errors.street }
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group className="mb-2 mb-md-3 mb-lg-4 mb-xl-4">
@@ -186,10 +179,7 @@ const ShippingInfo = () => {
                                     isInvalid={ !!formik.errors.city } 
                                     placeholder="City" />
                                 <Form.Control.Feedback type='invalid' tooltip>
-                                { formik.touched.city && formik.errors.city ?
-                                    formik.errors.city
-                                    : 
-                                    null }
+                                { formik.touched.city && formik.errors.city }
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group className="mb-2 mb-md-3 mb-lg-4 mb-xl-4">
@@ -223,10 +213,7 @@ const ShippingInfo = () => {
                                             isInvalid={ !!formik.errors.zip } 
                                             placeholder="ZIP" />
                                         <Form.Control.Feedback type='invalid' tooltip>
-                                        { formik.touched.zip && formik.errors.zip ?
-                                            formik.errors.zip
-                                            : 
-                                            null }
+                                        { formik.touched.zip && formik.errors.zip }
                                         </Form.Control.Feedback>
                                     </Col>
                                 </Row>

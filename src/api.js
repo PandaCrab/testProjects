@@ -34,7 +34,7 @@ console.log(coordinates)
 export const fetchGeolocation = async() => {
     try {
         const response = await fetchFunc(
-            addressApi+`reverse?apikey=${apiKey}&point.lat=${coordinates.lat}&point.lon=${coordinates.lon}`,
+            addressApi+`reverse?apikey=${apiKey}&point.lat=${coordinates.lat}&point.lon=${coordinates.lon}&layers=address`,
             'GET'
         );
         const json = await response.json();
@@ -45,14 +45,16 @@ export const fetchGeolocation = async() => {
     };
 };
 //fetch by input
-let endpoint = '';
+const endpoint = {};
 export const getEndpoint = (addressInput) => {
-    if (addressInput.length > 0) endpoint = addressInput
+    if (addressInput.length > 0) {
+        endpoint.value = addressInput
+    }
 };
 export const fetchAddress = async () => {
     try {
         const response = await fetchFunc(
-            addressApi+`autocomplete?apikey=${apiKey}&text=${endpoint.replace(/\s/g, '%20')}&size=5`,
+            addressApi+`autocomplete?apikey=${apiKey}&text=${endpoint.value.replace(/\s/g, '%20')}&size=5`,
             'GET');
         const json = await response.json();
         return json.features;

@@ -24,11 +24,7 @@ const initialState = {
         lat: '',
         lon: ''
     },
-    navigatorAddress: {
-        street: '',
-        city: '',
-        country: ''
-    }
+    navigatorAddress: ''
 };
 
 export default function addressReducer(state = initialState, action) {
@@ -49,7 +45,10 @@ export default function addressReducer(state = initialState, action) {
             return state;
     }
 };
-//Take address from navigator
+
+//actions
+
+//navigator
 export const takeGeolocation = (lat, lon) => ({
     type: SET_GEOLOCATION_COORDINATES,
     payload: {
@@ -58,22 +57,36 @@ export const takeGeolocation = (lat, lon) => ({
     }
 });
 
+export const takeNavigagtorAddress = () => ({
+    type: REQUEST_NAVIGATOR_ADDRESS
+});
+
+//Address autocomplete
+export const fillAddressInput = text => ({
+    type: SEARCH_ADDRESS,
+    payload: text
+});
+
+//fetch addresses
+export const takeAddress = () => ({
+    type: REQUEST_ADDRESS
+});
+
 function* putGeolocation(coordinates){
-    yield api.getGeolocation(coordinates)
+    yield api.getGeolocation(coordinates);
 };
 
+//sagas
+
+//navigator
 export function* geolocationWatcher() {
     let setGeolocation;
     while (true) {
         const { payload } = yield take(SET_GEOLOCATION_COORDINATES);
-        if (setGeolocation) yield cancel(setGeolocation)
+        if (setGeolocation) {yield cancel(setGeolocation)}
         setGeolocation = yield fork(putGeolocation, payload)
     };
 };
-
-export const takeNavigagtorAddress = () => ({
-    type: REQUEST_NAVIGATOR_ADDRESS
-});
 
 export function* navigatorAddressWatcher() {
     yield takeEvery(
@@ -87,12 +100,8 @@ function* fillNavigatorAddress() {
     const payload = yield call(api.fetchGeolocation);
     yield put({type:FETCH_NAVIGATOR_ADDRESS, payload})
 };
-//Address autocomplete
-export const fillAddressInput = text => ({
-    type: SEARCH_ADDRESS,
-    payload: text
-});
 
+//Address autocomplete
 function* putAddressInput(endpoint) {
     yield api.getEndpoint(endpoint);
 };
@@ -102,16 +111,13 @@ export function* addressInputWatcher() {
     while (true) {
         const { payload } = yield take(SEARCH_ADDRESS);
         if (setEndpoint) yield cancel(setEndpoint)
-        setEndpoint = yield fork(putAddressInput, payload)
+        setEndpoint = yield fork(putAddressInput, payload);
     };
 };
 
-export const takeAddress = () => ({
-    type: REQUEST_ADDRESS
-});
-
+//fetch addresses from API
 export function* addressWatcher() {
-    yield takeLatest(REQUEST_ADDRESS, fillAddress)
+    yield takeLatest(REQUEST_ADDRESS, fillAddress);
 }; 
 
 function* fillAddress() {

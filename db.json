@@ -89,6 +89,34 @@
         "cvv": "332"
       },
       "id": 2
+    },
+    {
+      "personInfo": [],
+      "shipping": {
+        "name": "Vasya Pupkin",
+        "phone": "78005553535",
+        "street": "Broadway Manchester",
+        "optional": "",
+        "city": "Los Angeles",
+        "country": "United States",
+        "zip": "554443"
+      },
+      "billing": {
+        "name": "Vasya Pupkin",
+        "email": "kolotushkin@mulo.com",
+        "street": "Broadway Manchester",
+        "optional": "",
+        "city": "Los Angeles",
+        "country": "United States",
+        "zip": "554443"
+      },
+      "payment": {
+        "cardholder": "Pupkin Vasya",
+        "cardNum": "4122 2323 2444 2421",
+        "date": "12 / 32",
+        "cvv": "112"
+      },
+      "id": 3
     }
   ]
 }

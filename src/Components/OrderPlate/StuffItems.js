@@ -20,3 +20,5 @@ export const StuffItems = ({ stuff }) => (
     <StuffPrice>{stuff.price}$</StuffPrice>
   </StuffItem>
 );
+
+export default StuffItems;

@@ -7,9 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { billingValidation } from '../../helpers';
 import { fillBillingData } from '../../redux/ducks/data';
 import { takeAddress, fillAddressInput } from '../../redux/ducks/address';
-import { Navigate } from '../../Navigate';
-import { CountriesSelect } from './CountriesSelect';
-import { DropdownAddresses } from './dropdownAddresses';
+import { Navigate, DropdownAddresses, CountriesSelect } from '../Index';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -33,11 +31,10 @@ const BillingInfo = () => {
     const [addressFocus, setAddressFocus] = useState(false);
 
     useEffect(() => {
-        const saved = localStorage.getItem("billing");
+        const saved = localStorage.getItem('billing');
         const save = JSON.parse(saved);
 
-        if (save !== null)
-        setBilling({
+        if (save !== null) {setBilling({
             name: save.name,
             email: save.email,
             street: save.street,
@@ -45,23 +42,22 @@ const BillingInfo = () => {
             city: save.city,
             country: save.country,
             zip: save.zip
-        })
+        })}
         return
     }, []);
 
     useEffect(() => {
-        localStorage.setItem("billing", JSON.stringify(billing));
+        localStorage.setItem('billing', JSON.stringify(billing));
     }, [billing]);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleSameAsShipping = () => {
-        const saved = localStorage.getItem("shipping");
+        const saved = localStorage.getItem('shipping');
         const save = JSON.parse(saved);
 
-        if (save !== null) 
-        setBilling({
+        if (save !== null) {setBilling({
             name: save.name,
             email: '',
             street: save.street,
@@ -69,17 +65,18 @@ const BillingInfo = () => {
             city: save.city,
             country: save.country,
             zip: save.zip
-        })
+        })}
         return;
     };
 
-    const handleAutocomplete = (street, city, country) => {setBilling({
-        ...billing,
-        street: street,
-        city: city,
-        country: country
-    });
-    setAddressFocus(false);
+    const handleAutocomplete = (street, city, country) => {
+        setBilling({
+            ...billing,
+            street: street,
+            city: city,
+            country: country
+        });
+        setAddressFocus(false);
     };
 
     const formik = useFormik({
@@ -87,7 +84,7 @@ const BillingInfo = () => {
         onSubmit: () => {
             dispatch(fillBillingData(formik.values));
             formik.handleReset();
-            navigate("/payment");
+            navigate('/payment');
         },
         enableReinitialize: true,
         initialValues: billing
@@ -117,10 +114,7 @@ const BillingInfo = () => {
                                 isInvalid={ !!formik.errors.name } 
                                 placeholder="Full Name" />
                             <Form.Control.Feedback type='invalid' tooltip>
-                                { formik.touched.name && formik.errors.name ?
-                                    formik.errors.name
-                                    : 
-                                    null }
+                                { formik.touched.name && formik.errors.name }
                             </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative">
@@ -134,10 +128,7 @@ const BillingInfo = () => {
                                 isInvalid={ !!formik.errors.email }
                                 placeholder="Email street" />
                             <Form.Control.Feedback type='invalid' tooltip>
-                                { formik.touched.email && formik.errors.email ?
-                                    formik.errors.email
-                                    : 
-                                    null }
+                                { formik.touched.email && formik.errors.email }
                             </Form.Control.Feedback>
                         </Form.Group>
                     </Form.Group>
@@ -161,17 +152,11 @@ const BillingInfo = () => {
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
-                                    {
-                                        addressFocus ?
-                                            <DropdownAddresses
-                                                autocomplete={handleAutocomplete} />
-                                            : null
-                                    }
+                                    { addressFocus && (
+                                        <DropdownAddresses autocomplete={handleAutocomplete} />
+                                    )}
                                 <Form.Control.Feedback type='invalid' tooltip>
-                                    { formik.touched.street && formik.errors.street ?
-                                        formik.errors.street
-                                        : 
-                                        null }
+                                    { formik.touched.street && formik.errors.street }
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group>
@@ -196,10 +181,7 @@ const BillingInfo = () => {
                                     isInvalid={ !!formik.errors.city} 
                                     placeholder="City" />
                                 <Form.Control.Feedback type='invalid' tooltip>
-                                    { formik.touched.city && formik.errors.city ?
-                                        formik.errors.city
-                                        : 
-                                        null }
+                                    { formik.touched.city && formik.errors.city }
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group className="mb-4 position-relative">
@@ -233,10 +215,7 @@ const BillingInfo = () => {
                                             isInvalid={ !!formik.errors.zip} 
                                             placeholder="ZIP" />
                                         <Form.Control.Feedback type='invalid' tooltip>
-                                            { formik.touched.zip && formik.errors.zip ?
-                                                formik.errors.zip
-                                                : 
-                                                null }
+                                            { formik.touched.zip && formik.errors.zip }
                                         </Form.Control.Feedback>
                                     </Col>
                                 </Row>

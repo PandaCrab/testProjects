@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BsBasket3 } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
 
-import { Stuff } from './Stuff';
+import { Stuff } from '../Index';
 
 import { 
     OrderInfo,

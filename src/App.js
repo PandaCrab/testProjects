@@ -25,7 +25,7 @@ const App = () => {
   const stuff = useSelector(state => state.order.stuff);
 
   useEffect(() => {
-    if ("geolocation" in navigator) {
+    if ('geolocation' in navigator) {
       navigator
         .geolocation
         .getCurrentPosition(
@@ -37,10 +37,9 @@ const App = () => {
               )
             );
             dispatch(takeNavigagtorAddress());
-            console.log(position);
           }
         );
-      }else{
+      } else {
         return;
       }
     }, [dispatch]);
@@ -54,11 +53,9 @@ const App = () => {
           <ShoppingBasketText>cart</ShoppingBasketText>
           <BasketContainer>
             <Basket /> 
-            { stuff.length === undefined ?
-              null
-              :
+            { stuff.length !== undefined && (
               <CircleOfNumber><NumberOfStuff>{stuff.length}</NumberOfStuff></CircleOfNumber>
-            }   
+            )}   
           </BasketContainer>
         </ShoppingBasket>
         

@@ -29,9 +29,10 @@ export const fetchStuff = async() => {
 };
 
 //fetch by coordinates
-let coordinates;
+const coordinates = {};
 export const getGeolocation = (geolocation) => {
-    coordinates = geolocation
+    coordinates.lat = geolocation.lat;
+    coordinates.lon = geolocation.lon;
 };
 
 export const fetchGeolocation = async() => {

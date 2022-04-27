@@ -155,10 +155,10 @@ const BillingInfo = () => {
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
                                     {navigatorAddress !== '' && (
-                                    <NavigateAutocomplete onClick={() => handleAutocomplete(
-                                        navigatorAddress.street,
-                                        navigatorAddress.city,
-                                        navigatorAddress.country )} />
+                                        <NavigateAutocomplete onClick={() => handleAutocomplete(
+                                            navigatorAddress.street,
+                                            navigatorAddress.city,
+                                            navigatorAddress.country )} />
                                     )}
                                     { addressFocus && (
                                         <DropdownAddresses autocomplete={handleAutocomplete} />

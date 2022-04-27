@@ -60,8 +60,7 @@ const ShippingInfo = () => {
         onSubmit: () => {
             dispatch(fillShippingData(formik.values));
             formik.handleReset();
-            navigate('/billing')
-            localStorage.setItem('shipping', JSON.stringify(formik.values))
+            navigate('/billing');
         },
         enableReinitialize: true,
         initialValues: shipping
@@ -146,10 +145,10 @@ const ShippingInfo = () => {
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
                                     {navigatorAddress !== '' && (
-                                    <NavigateAutocomplete onClick={() => handleAutocomplete(
-                                        navigatorAddress.street,
-                                        navigatorAddress.city,
-                                        navigatorAddress.country )} />
+                                        <NavigateAutocomplete onClick={() => handleAutocomplete(
+                                            navigatorAddress.street,
+                                            navigatorAddress.city,
+                                            navigatorAddress.country )} />
                                     )}
                                     { addressFocus && (
                                             <DropdownAddresses autocomplete={handleAutocomplete} />

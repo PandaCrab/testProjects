@@ -34,8 +34,8 @@ const OrderPlate = () => {
 
     const stuff = useSelector(state => state.order.stuff);
     useEffect(() => {
-        const addPrices = stuff.reduce((accumulator, currentValue) => 
-            accumulator + currentValue.price, 0);
+            const addPrices = stuff.reduce((accumulator, currentValue) => 
+                accumulator + currentValue.price, 0);
         
         setPrices(prices => ({
             ...prices,
@@ -48,8 +48,8 @@ const OrderPlate = () => {
             prices.freeShipping = true;
             return (prices.subtotal + prices.taxes).toFixed(2);
         } else {
-        prices.freeShipping = false;    
-        return (prices.subtotal + prices.shipping + prices.taxes).toFixed(2);
+            prices.freeShipping = false;    
+            return (prices.subtotal + prices.shipping + prices.taxes).toFixed(2);
         }   
     };
 

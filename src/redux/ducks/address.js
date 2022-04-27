@@ -72,19 +72,20 @@ export const takeAddress = () => ({
     type: REQUEST_ADDRESS
 });
 
+//sagas
+
+//navigator
+
 function* putGeolocation(coordinates){
     yield api.getGeolocation(coordinates);
 };
 
-//sagas
-
-//navigator
 export function* geolocationWatcher() {
     let setGeolocation;
     while (true) {
         const { payload } = yield take(SET_GEOLOCATION_COORDINATES);
         if (setGeolocation) {yield cancel(setGeolocation)}
-        setGeolocation = yield fork(putGeolocation, payload)
+        setGeolocation = yield fork(putGeolocation, payload);
     };
 };
 
@@ -98,7 +99,7 @@ export function* navigatorAddressWatcher() {
 function* fillNavigatorAddress() {
     yield delay(500);
     const payload = yield call(api.fetchGeolocation);
-    yield put({type:FETCH_NAVIGATOR_ADDRESS, payload})
+    yield put({type:FETCH_NAVIGATOR_ADDRESS, payload});
 };
 
 //Address autocomplete
@@ -110,7 +111,7 @@ export function* addressInputWatcher() {
     let setEndpoint;
     while (true) {
         const { payload } = yield take(SEARCH_ADDRESS);
-        if (setEndpoint) yield cancel(setEndpoint)
+        if (setEndpoint) {yield cancel(setEndpoint)}
         setEndpoint = yield fork(putAddressInput, payload);
     };
 };

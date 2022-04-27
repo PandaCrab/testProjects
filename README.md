@@ -1,3 +1,7 @@
+### `To working project correct`
+
+run 'json-server --watch db.json --port 3004'.
+
 ### `npm start`
 
 Runs the app in the development mode.\

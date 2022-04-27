@@ -43,6 +43,7 @@ export const HeaderLogo = styled.span`
   display: flex;
   height: 1.5em;
   align-items: center;
+  color: transparent;
   font-size: 1em;
   font-weight: 300;
   background-image: ${colors.textGradient};
@@ -112,7 +113,7 @@ export const CircleOfNumber = styled.div`
 
 export const NumberOfStuff = styled.p`
   position: absolute;
-  right: 5px;
+  right: 4px;
   top: 0;
   color: ${colors.white};
   font-size: .5em;

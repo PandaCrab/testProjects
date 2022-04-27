@@ -14,10 +14,9 @@ export const OrderInfo = styled.section`
   height: inherit;
   justify-content: space-between;
   position: absolute;
-  border-radius: inherit;
   top: 0;
   right: 0;
-  z-index: 2;
+  z-index: 4;
 
   @media ${devices.mobileS} {
     display: ${props => props.displayMobile};
@@ -25,6 +24,8 @@ export const OrderInfo = styled.section`
     height: 90%;
     margin-top: 5px;
     margin-right: 5px;
+    border-radius: inherit;
+    box-shadow: -4px 3px 4px ${colors.shadow};
   };
 
   @media ${devices.tablet} {
@@ -32,6 +33,8 @@ export const OrderInfo = styled.section`
     display: flex;
     width: 45%;
     height: 100%;
+    border-radius: 0 5px 5px 0;
+    box-shadow: none;
   };
 `;
 
@@ -100,14 +103,14 @@ export const StuffItem = styled.section`
   padding: 7px 0 7px 7px;
   display: flex;
   flex-direction: row;
-  border-bottom: .5px solid ${colors.stuffBorder};
+  border-bottom: .5px solid ${colors.border};
   font-size: 0.7em;
 `;
 
 export const StuffImage = styled.img`
   width: 20%;
   height: 5em;
-  border: .3px solid ${colors.stuffBorder};
+  border: .3px solid ${colors.border};
 
   @media ${devices.mobileS} {
     width: 20%;
@@ -168,7 +171,7 @@ export const SummaryPrice = styled.section`
   flex-direction: row;
   justify-content: space-between;
   width: 99%;
-  border-bottom: 1px solid ${colors.stuffBorder};
+  border-bottom: 1px solid ${colors.border};
   color: ${colors.stuffText};
   font-size: .7em;
 `;

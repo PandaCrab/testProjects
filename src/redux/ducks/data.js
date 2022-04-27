@@ -1,4 +1,4 @@
-import { takeEvery,call,select } from '@redux-saga/core/effects';
+import { takeEvery, call, select } from '@redux-saga/core/effects';
 
 import { fetchPostData } from '../../api';
 
@@ -31,7 +31,7 @@ export default function dataReducer(state = initialState, action) {
         default: return state;
     }
 };
-    
+
 export const sendData = () => ({
     type: REQUEST_DATA
 });
@@ -50,7 +50,7 @@ export const fillPaymentData = (info) => ({
     type: FILL_PAYMENT_DATA,
     payload: info
 });
-    
+
 const dataSelector = state => state.data
 
 export function* dataWatcher() {

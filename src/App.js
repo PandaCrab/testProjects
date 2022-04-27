@@ -1,8 +1,9 @@
-import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { OrderPlate } from './components/Index';
+import { takeGeolocation, takeNavigagtorAddress } from './redux/ducks/address';
 
 import {
   Header,
@@ -11,17 +12,37 @@ import {
   ShoppingBasket,
   BasketContainer,
   Slash,
-  Order,
-  Nav,
   Basket,
   ShoppingBasketText,
   NumberOfStuff,
-  CircleOfNumber
+  CircleOfNumber,
+  Order
 } from './styles/AppStyles';
 import { GlobalStyles } from './GlobalStyles';
 
 const App = () => {
+  const dispatch = useDispatch();
   const stuff = useSelector(state => state.order.stuff);
+
+  useEffect(() => {
+    if ('geolocation' in navigator) {
+      navigator
+        .geolocation
+        .getCurrentPosition(
+          position => {
+            dispatch(
+              takeGeolocation(
+                position.coords.latitude, 
+                position.coords.longitude
+              )
+            );
+            dispatch(takeNavigagtorAddress());
+          }
+        );
+      } else {
+        return;
+      }
+    }, [dispatch]);
 
   return (
     <>
@@ -31,18 +52,15 @@ const App = () => {
         <ShoppingBasket>
           <ShoppingBasketText>cart</ShoppingBasketText>
           <BasketContainer>
-            <Basket />  
-            <CircleOfNumber><NumberOfStuff>{stuff.length}</NumberOfStuff></CircleOfNumber>
+            <Basket /> 
+            { stuff.length !== undefined && (
+              <CircleOfNumber><NumberOfStuff>{stuff.length}</NumberOfStuff></CircleOfNumber>
+            )}   
           </BasketContainer>
         </ShoppingBasket>
         
       </Header>
       <Order>
-        <Nav>
-          <Link to="/ShippingInfo">Shipping</Link>
-          <Link to="/BillingInfo">Billing</Link>
-          <Link to="/Payment">Payment</Link>
-        </Nav>
         <Outlet />
         <OrderPlate />
       </Order>

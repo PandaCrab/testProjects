@@ -1,6 +1,9 @@
 import styled from 'styled-components';
+import { Button, Form } from 'react-bootstrap';
+import PhoneInput from 'react-phone-input-2';
+import { BsGeoAltFill } from 'react-icons/bs'
+
 import { devices, colors } from '../GlobalStyles';
-import { Button } from 'react-bootstrap';
 
 export const Info = styled.div`
     width: 55%;
@@ -14,14 +17,19 @@ export const Info = styled.div`
         font-size: 1rem;
 
         .form-control {
-            font-size: 1em;
-            padding: 2px 4px;
+            font-size: .8em;
+        };
+
+        .is-invalid {
+            background: none
         };
 
         .invalid-tooltip {
-            font-size: .8em;
+            font-size: .6em;
             padding: 1px 3px;
             z-index: 1;
+            background: none;
+            color: red;
         };
     };
 
@@ -30,8 +38,7 @@ export const Info = styled.div`
         font-size: .8em;
 
         .form-control {
-            font-size: 1em;
-            padding: 5px 10px;
+            font-size: 0.9em;
         };
             
         .invalid-tooltip {
@@ -44,13 +51,80 @@ export const Info = styled.div`
 
         .form-control {
             font-size: 1rem;
-            padding: 8px 14px;
         };
 
         .invalid-tooltip {
             font-size: .9em;
         };
     };
+`;
+
+export const AddressesList = styled.ul`
+    padding: 0;
+    margin-top: -4px;
+    background-color: ${colors.white};
+    width: 100%;
+    height: auto;
+    list-style: none;
+    cursor: default;
+    border: 1px solid ${colors.border};
+    border-radius: 0 0 3px 3px;
+    box-shadow: -1px 3px 4px ${colors.shadow};
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+`;
+
+export const NavigateAutocomplete = styled(BsGeoAltFill)`
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    top: 9px;
+    right: 2px;
+`
+
+export const ErrorMessage = styled.p`
+    margin: 0;
+    position: absolute;
+    font-size: .9em;
+    padding: 1px 3px;
+    z-index: 1;
+    background: none;
+    color: red;
+`;
+
+export const ListItems = styled.li`
+    padding: 5px;
+    color: ${colors.black};
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: ${colors.optionHover};
+        color: ${colors.white};
+    };
+`;
+
+export const PhoneControlInput = styled(PhoneInput)`
+    padding: 0;
+    font-size: 1.7em;
+    border: none;
+`;
+
+export const CardNumberInput = styled(Form.Control)`
+    padding-right: 1em;
+    border-radius: 5px;
+    position: relative;
+`;
+
+export const InputCardImage = styled.svg`
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    width: 40px;
+    height: 90%;
+    z-index: 3;
 `;
 
 export const Discription = styled.p`

@@ -1,9 +1,11 @@
+import type { postData } from "./types";
+
 const url = 'http://localhost:3004';
 const apiKey = 'e2d9f960-bc78-11ec-a0da-bd0e50737306';
 const addressApi = `https://app.geocodeapi.io/api/v1/`;
 
 //Need write method to working correct
-const fetchFunc = (url, method, data) => {
+const fetchFunc = (url: string, method: string, data?: postData) => {
     if (method === 'GET') return fetch(url)
     if (method === 'POST') fetch(url, {
         method: 'POST',
@@ -15,7 +17,7 @@ const fetchFunc = (url, method, data) => {
 };
 
 //fetch POST of personal info for billing to data
-export const fetchPostData = (data) => fetchFunc(url+'/personInfo', "POST", data);
+export const fetchPostData = (data: postData) => fetchFunc(url+'/personInfo', "POST", data);
 
 //fetch products in backet
 export const fetchStuff = async() => {
@@ -29,8 +31,11 @@ export const fetchStuff = async() => {
 };
 
 //fetch by coordinates
-const coordinates = {};
-export const getGeolocation = (geolocation) => {
+const coordinates: {lat: number, lon: number} = {
+    lat: 0,
+    lon: 0
+};
+export const getGeolocation = (geolocation: {lat: number, lon: number}) => {
     coordinates.lat = geolocation.lat;
     coordinates.lon = geolocation.lon;
 };
@@ -49,8 +54,8 @@ export const fetchGeolocation = async() => {
 };
 
 //fetch by input
-const endpoint = {};
-export const getEndpoint = (addressInput) => {
+const endpoint: {value: string} = {value: ''};
+export const getEndpoint = (addressInput: string) => {
     if (addressInput.length > 0) {
         endpoint.value = addressInput
     }

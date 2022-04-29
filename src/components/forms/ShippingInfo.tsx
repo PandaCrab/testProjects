@@ -9,6 +9,8 @@ import { fillShippingData } from '../../redux/ducks/data';
 import { takeAddress, fillAddressInput } from '../../redux/ducks/address';
 import { Navigate, DropdownAddresses, CountriesSelect } from '../Index';
 
+import type { RootState, AppDispatch } from '../../types';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
     Info,
@@ -21,9 +23,9 @@ import {
 } from '../../styles/FormStyle';
 
 const ShippingInfo = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
-    const navigatorAddress = useSelector(state => state.address.navigatorAddress)
+    const navigatorAddress = useSelector((state: RootState) => state.address.navigatorAddress)
     const [addressFocus, setAddressFocus] = useState(false);
     const [shipping, setShipping] = useState({
         name: '',
@@ -59,14 +61,14 @@ const ShippingInfo = () => {
         validationSchema: shippingValidation,
         onSubmit: () => {
             dispatch(fillShippingData(formik.values));
-            formik.handleReset();
+            formik.resetForm();
             navigate('/billing');
         },
         enableReinitialize: true,
         initialValues: shipping
     });
 
-    const handleAutocomplete = (street, city, country) => {
+    const handleAutocomplete = (street: string, city: string, country: string) => {
         setShipping({
             ...shipping,
             street: street,
@@ -83,7 +85,7 @@ const ShippingInfo = () => {
                 <FormLabel>
                     <FormLabelHeader>Shipping Information</FormLabelHeader>
                 </FormLabel>
-                <Form fluid="true" noValidate onSubmit={formik.handleSubmit}>
+                <Form noValidate onSubmit={formik.handleSubmit}>
                     <Form.Group >
                         <Form.Group>
                             <Form.Label className="mb-0">Recipient</Form.Label>

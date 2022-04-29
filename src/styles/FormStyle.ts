@@ -221,7 +221,7 @@ export const FormLabelHeader = styled.h4`
         font-size: 12px;
     };
 
-    @media ${devices.tabley} {
+    @media ${devices.tablet} {
         font-size: 1.5em;
     };
 

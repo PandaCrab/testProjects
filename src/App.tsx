@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { OrderPlate } from './components/Index';
 import { takeGeolocation, takeNavigagtorAddress } from './redux/ducks/address';
 
+import { RootState, AppDispatch } from './types';
+
 import {
   Header,
   HeaderLogo,
@@ -21,8 +23,8 @@ import {
 import { GlobalStyles } from './GlobalStyles';
 
 const App = () => {
-  const dispatch = useDispatch();
-  const stuff = useSelector(state => state.order.stuff);
+  const dispatch = useDispatch<AppDispatch>();
+  const stuff = useSelector((state: RootState)=> state.order.stuff);
 
   useEffect(() => {
     if ('geolocation' in navigator) {

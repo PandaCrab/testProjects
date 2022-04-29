@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 
 import { Stuff } from '../Index';
 
+import type { RootState } from '../../types';
+
 import { 
     OrderInfo,
     SummaryHeaderBlock,
@@ -32,7 +34,7 @@ const OrderPlate = () => {
         freeShipping: false
     });
 
-    const stuff = useSelector(state => state.order.stuff);
+    const stuff = useSelector((state: RootState) => state.order.stuff);
     useEffect(() => {
             const addPrices = stuff.reduce((accumulator, currentValue) => 
                 accumulator + currentValue.price, 0);
@@ -48,8 +50,11 @@ const OrderPlate = () => {
             prices.freeShipping = true;
             return (prices.subtotal + prices.taxes).toFixed(2);
         } else {
-            prices.freeShipping = false;    
-            return (prices.subtotal + prices.shipping + prices.taxes).toFixed(2);
+            prices.freeShipping = false;   
+            const totalValue = () => {
+                if (prices.shipping === 'Free') return 0
+            } 
+            return (prices.subtotal + totalValue() + prices.taxes).toFixed(2);
         }   
     };
 

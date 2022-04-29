@@ -33,11 +33,12 @@ const Payment = () => {
         const save = JSON.parse(saved);
 
         if (save !== null) {setPayment({
+            ...payment,
             cardholder: save.cardholder,
             cardNum: save.cardNum
         })}
         return;
-    }, []);
+    }, [payment]);
 
     useEffect(() => {
         localStorage.setItem('payment', JSON.stringify(payment));
@@ -58,7 +59,7 @@ const Payment = () => {
         onSubmit: () => {
             dispatch(fillPaymentData(formik.values));
             dispatch(sendData());
-            formik.handleReset();
+            formik.resetForm();
             navigate('/success');
         },
         enableReinitialize: true,   
@@ -73,7 +74,7 @@ const Payment = () => {
                 <FormLabel>
                     <FormLabelHeader>Payment</FormLabelHeader>
                 </FormLabel>
-                <Form fluid="true" noValidate onSubmit={formik.handleSubmit}>
+                <Form noValidate onSubmit={formik.handleSubmit}>
                     <Form.Group className="mb-4 position-relative">
                         <Form.Label className="mb-0">Cardholder Name</Form.Label>
                         <Form.Control

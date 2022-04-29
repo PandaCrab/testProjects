@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import { 
   BrowserRouter,
   Routes,
@@ -8,7 +8,7 @@ import {
 import { Provider } from 'react-redux';
 
 import App from './App';
-import {store} from './redux/store';
+import { store } from './redux/store';
 import {
   ShippingInfo,
   BillingInfo,

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ReactToPrint from 'react-to-print';
 
-const CardToPrint = React.forwardRef(( prop, ref ) => {
+const CardToPrint = React.forwardRef(() => {
     const saved = localStorage.getItem('billing');
     const save = JSON.parse(saved);
-    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const componentRef = useRef(null)
     const date = new Date();
 
     return (save === null ? (
@@ -12,15 +12,15 @@ const CardToPrint = React.forwardRef(( prop, ref ) => {
             You don't write info: <br/>
         </h6>
         ) : (
-        <section ref={ref}>
+        <section ref={componentRef}>
             <h4>Thank you for your order!</h4>
             <br/>
             <b>Order number is: {Math.floor(Math.random() * 10000000)}</b>
             <p>Your will recieve an email confirmation shortly to <a href="#/">{save.email}</a></p>
-            <p>Estimated deivery Day is <br/> <b>{date.toLocaleDateString("en-EU", options)}</b></p>
+            <p>Estimated deivery Day is <br/> <b>{date.toLocaleDateString("en-EU")}</b></p>
             <ReactToPrint 
             trigger={() => <p>Print Recipe</p>}
-            content={() => ref.current}
+            content={() => componentRef.current}
             documentTitle='Order' />
         </section>
     ));

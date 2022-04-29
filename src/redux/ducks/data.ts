@@ -7,9 +7,7 @@ const FILL_SHIPPING_DATA = 'data/FILL_SHIPPING_DATA';
 const FILL_BILLING_DATA = 'data/FILL_BILLING_DATA';
 const FILL_PAYMENT_DATA = 'data/FILL_PAYMENT_DATA';
 
-const initialState = {
-    personInfo: []
-};
+const initialState = {};
 
 export default function dataReducer(state = initialState, action) {
     switch (action.type) {

@@ -9,6 +9,8 @@ import { fillBillingData } from '../../redux/ducks/data';
 import { takeAddress, fillAddressInput } from '../../redux/ducks/address';
 import { Navigate, DropdownAddresses, CountriesSelect } from '../Index';
 
+import type { RootState, AppDispatch } from '../../types';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
     Info,
@@ -51,9 +53,9 @@ const BillingInfo = () => {
         localStorage.setItem('billing', JSON.stringify(billing));
     }, [billing]);
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
-    const navigatorAddress = useSelector(state => state.address.navigatorAddress);
+    const navigatorAddress = useSelector((state: RootState) => state.address.navigatorAddress);
 
     const handleSameAsShipping = () => {
         const saved = localStorage.getItem('shipping');
@@ -85,7 +87,7 @@ const BillingInfo = () => {
         validationSchema: billingValidation,
         onSubmit: () => {
             dispatch(fillBillingData(formik.values));
-            formik.handleReset();
+            formik.resetForm();
             navigate('/payment');
         },
         enableReinitialize: true,
@@ -100,7 +102,7 @@ const BillingInfo = () => {
                     <FormLabelHeader>Billing Information</FormLabelHeader>
                     <FormLabelParagraph onClick={() => handleSameAsShipping()} >Same as shipping</FormLabelParagraph>
                 </FormLabel>
-                <Form fluid="true"
+                <Form
                     noValidate
                     onSubmit={formik.handleSubmit}>
                     <Form.Group>
@@ -175,7 +177,7 @@ const BillingInfo = () => {
                                     name="optional" 
                                     onChange={(event) => setBilling({...billing, optional: event.target.value})}
                                     onBlur={formik.handleBlur}
-                                    value={formik.values.optionalInfo}
+                                    value={formik.values.optional}
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
                             </Form.Group>
                             <Form.Group className="mb-4 position-relative">

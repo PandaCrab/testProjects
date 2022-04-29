@@ -6,9 +6,11 @@ import {
     cancel, 
     delay, 
     take, 
-    fork } from 'redux-saga/effects';
+    fork } from '@redux-saga/core/effects';
 
 import * as api from '../../api';
+
+import type { addressState } from '../../types';
 
 const SET_GEOLOCATION_COORDINATES = 'address/SET_GEOLOCATION_COORDINATES';
 const FETCH_NAVIGATOR_ADDRESS = 'address/FETCH_NAVIGATOR_ADDRESS';
@@ -17,12 +19,12 @@ const FETCH_ADDRESS = 'address/FETCH_ADDRESS';
 const REQUEST_ADDRESS = 'address/REQUEST_ADDRESS';
 const SEARCH_ADDRESS = 'address/SEARCH_ADDRESSS';
 
-const initialState = {
-    addressinput: '',
+const initialState: addressState = {
+    addressInput: '',
     addresses: [],
     geolocation: {
-        lat: '',
-        lon: ''
+        lat: 0,
+        lon: 0
     },
     navigatorAddress: ''
 };
@@ -38,7 +40,7 @@ export default function addressReducer(state = initialState, action) {
                 country: action.payload.country
             }};
         case SEARCH_ADDRESS:
-            return {...state, addressinput: action.payload};
+            return {...state, addressInput: action.payload};
         case FETCH_ADDRESS:
             return {...state, addresses: action.payload};
         default: 

@@ -12,16 +12,17 @@ import addressReducer, {
 } from './ducks/address';
 
 const saga = createSagaMiddleware();
+
+const composeEnhancers = window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] as typeof compose || compose;
  
 export const store = createStore(combineReducers({
     order: stuffReducer,
     data: dataReducer,
     address: addressReducer
-  }), compose(
+  }), composeEnhancers(
     applyMiddleware(
       thunk, saga
-    ),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
   ));
 
 saga.run(stuffWatcher);

@@ -4,7 +4,7 @@ import { AiOutlineCloseSquare } from 'react-icons/ai';
 
 import { devices, colors } from '../GlobalStyles';
 
-export const OrderInfo = styled.section`
+export const OrderInfo = styled.section<{displayMobile: string}>`
   margin: 0;
   padding: .3em;
   background-color: ${colors.orderPlateBackground};

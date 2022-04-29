@@ -3,8 +3,10 @@ import { useSelector } from 'react-redux';
 
 import { AddressesList, ListItems } from '../../styles/FormStyle';
 
+import type { RootState } from '../../types';
+
 const DropdownAddresses = (props) => {
-    const addresses = useSelector(state => state.address.addresses);
+    const addresses = useSelector((state: RootState) => state.address.addresses);
     return (addresses !== (null || undefined) && (
         <AddressesList>
             {addresses.map(address => (

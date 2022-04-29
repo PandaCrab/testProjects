@@ -4,12 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Loader, StuffItems } from '../Index';
 import { getStuff } from '../../redux/ducks/stuff';
 
+import type { RootState } from '../../types';
+
 import { LoaderContainer } from '../../styles/OrderPlateStyles';
 
 const Stuff = () => {
     const dispatch = useDispatch();
-    const stuffs = useSelector(state => state.order.stuff); 
-    const loading = useSelector(state => state.order.loading);
+    const stuffs = useSelector((state: RootState) => state.order.stuff); 
+    const loading = useSelector((state: RootState) => state.order.loading);
 
     if (loading) {
         return (<LoaderContainer>

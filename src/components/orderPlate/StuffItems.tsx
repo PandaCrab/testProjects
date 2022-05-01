@@ -9,9 +9,18 @@ import {
   StuffInformation
 } from '../../styles/OrderPlateStyles';
 
-export const StuffItems = ({ stuff }) => (
+interface propTypes {
+  stuff: {
+    imgUrl: string,
+    name: string,
+    color: string;
+    price: number
+  }
+}
+
+export const StuffItems = ({ stuff }: propTypes) => (
   <StuffItem>
-    <StuffImage src={stuff.imgUrl} />
+    <StuffImage src={stuff.imgUrl} alt={stuff.name} />
     <StuffInfo>
       <StuffName>{stuff.name}</StuffName>
       <StuffInformation>{stuff.color}</StuffInformation>

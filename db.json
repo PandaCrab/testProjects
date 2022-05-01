@@ -33,5 +33,15 @@
       "price": 20
     }
   ],
-  "personInfo": []
+  "personInfo": [
+    {
+      "payment": {
+        "cardholder": "Vasya pupkin",
+        "cardNum": "5533 5366 3636 4444",
+        "date": "01 / 33",
+        "cvv": "332"
+      },
+      "id": 1
+    }
+  ]
 }

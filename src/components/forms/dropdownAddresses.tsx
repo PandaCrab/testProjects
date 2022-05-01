@@ -3,13 +3,21 @@ import { useSelector } from 'react-redux';
 
 import { AddressesList, ListItems } from '../../styles/FormStyle';
 
-import type { RootState } from '../../types';
+import type { addressAutocomplete, RootState } from '../../types';
 
-const DropdownAddresses = (props) => {
+interface propTypes {
+    autocomplete: (
+        street: string,
+        city: string,
+        country: string
+    ) => void
+};
+
+const DropdownAddresses = (props: propTypes) => {
     const addresses = useSelector((state: RootState) => state.address.addresses);
     return (addresses !== (null || undefined) && (
         <AddressesList>
-            {addresses.map(address => (
+            {addresses.map((address: addressAutocomplete) => (
                 <ListItems 
                     key={address.properties.id}
                     onClick={() => props.autocomplete(

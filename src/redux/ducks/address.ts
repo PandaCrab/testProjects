@@ -10,7 +10,7 @@ import {
 
 import * as api from '../../api';
 
-import type { addressState } from '../../types';
+import type { addressState, actionAddressTypes, coordinates } from '../../types';
 
 const SET_GEOLOCATION_COORDINATES = 'address/SET_GEOLOCATION_COORDINATES';
 const FETCH_NAVIGATOR_ADDRESS = 'address/FETCH_NAVIGATOR_ADDRESS';
@@ -29,7 +29,7 @@ const initialState: addressState = {
     navigatorAddress: ''
 };
 
-export default function addressReducer(state = initialState, action) {
+export default function addressReducer(state = initialState, action: actionAddressTypes) {
     switch (action.type) {
         case SET_GEOLOCATION_COORDINATES:
             return {...state, geolocation: action.payload};
@@ -51,7 +51,7 @@ export default function addressReducer(state = initialState, action) {
 //actions
 
 //navigator
-export const takeGeolocation = (lat, lon) => ({
+export const takeGeolocation = (lat: number, lon: number) => ({
     type: SET_GEOLOCATION_COORDINATES,
     payload: {
         lat,
@@ -64,7 +64,7 @@ export const takeNavigagtorAddress = () => ({
 });
 
 //Address autocomplete
-export const fillAddressInput = text => ({
+export const fillAddressInput = (text: string) => ({
     type: SEARCH_ADDRESS,
     payload: text
 });
@@ -78,12 +78,12 @@ export const takeAddress = () => ({
 
 //navigator
 
-function* putGeolocation(coordinates){
+function* putGeolocation(coordinates: coordinates){
     yield api.getGeolocation(coordinates);
 };
 
 export function* geolocationWatcher() {
-    let setGeolocation;
+    let setGeolocation: [];
     while (true) {
         const { payload } = yield take(SET_GEOLOCATION_COORDINATES);
         if (setGeolocation) {yield cancel(setGeolocation)}
@@ -100,17 +100,17 @@ export function* navigatorAddressWatcher() {
 
 function* fillNavigatorAddress() {
     yield delay(500);
-    const payload = yield call(api.fetchGeolocation);
+    const payload: string = yield call(api.fetchGeolocation);
     yield put({type:FETCH_NAVIGATOR_ADDRESS, payload});
 };
 
 //Address autocomplete
-function* putAddressInput(endpoint) {
+function* putAddressInput(endpoint: string) {
     yield api.getEndpoint(endpoint);
 };
 
 export function* addressInputWatcher() {
-    let setEndpoint;
+    let setEndpoint: [];
     while (true) {
         const { payload } = yield take(SEARCH_ADDRESS);
         if (setEndpoint) {yield cancel(setEndpoint)}
@@ -125,6 +125,6 @@ export function* addressWatcher() {
 
 function* fillAddress() {
     yield delay(1000);
-    const payload = yield call(api.fetchAddress);
+    const payload: [] = yield call(api.fetchAddress);
     yield put({type: FETCH_ADDRESS, payload});
 };

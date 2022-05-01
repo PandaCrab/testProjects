@@ -3,8 +3,19 @@ import Select from 'react-select'
 import countryList from 'react-select-country-list';
 
 import { ErrorMessage } from '../../styles/FormStyle';
+interface propTypes {
+    name: string,
+    id: string,
+    value: string,
+    onChange: any,
+    onBlur: any
+    placeholder: string,
+    onInputChange: (arg0: string) => void,
+    touched: boolean,
+    error: any
+};
 
-const CountriesSelect = (props) => {
+const CountriesSelect = (props: propTypes) => {
     const options = useMemo(() => countryList().getData(), []);
 
     return (

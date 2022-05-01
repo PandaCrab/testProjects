@@ -7,7 +7,7 @@ import { devices, colors } from '../GlobalStyles';
 
 export const Info = styled.div`
     width: 55%;
-    font-size: 2.5vw;
+    font-size: 1.5em;
     height: auto;
     position: relative;
 
@@ -79,7 +79,7 @@ export const NavigateAutocomplete = styled(BsGeoAltFill)`
     width: 1.5em;
     height: 1.5em;
     position: absolute;
-    top: 9px;
+    top: 6px;
     right: 2px;
 `
 
@@ -108,7 +108,6 @@ export const ListItems = styled.li`
 
 export const PhoneControlInput = styled(PhoneInput)`
     padding: 0;
-    font-size: 1.7em;
     border: none;
 `;
 
@@ -120,10 +119,10 @@ export const CardNumberInput = styled(Form.Control)`
 
 export const InputCardImage = styled.svg`
     position: absolute;
-    right: 5px;
-    top: 2px;
+    right: 4px;
+    top: 1px;
     width: 40px;
-    height: 90%;
+    height: 95%;
     z-index: 3;
 `;
 
@@ -193,10 +192,12 @@ export const FormLabel = styled.section`
     align-items: flex-end;
 
     @media ${devices.mobileS} {
-        font-size: .8em;
+        font-size: 2em;
+        margin-bottom: .3em;
     };
 
     @media ${devices.mobileM} {
+        font-size: 1em;
         margin-bottom: 1em;
     };
 

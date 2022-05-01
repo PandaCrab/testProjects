@@ -25,9 +25,16 @@ import {
     OrderInfoBtn
 } from '../../styles/OrderPlateStyles';
 
+interface stateTypes {
+    subtotal: number,
+    shipping: string | number,
+    taxes: number,
+    freeShipping: boolean
+}
+
 const OrderPlate = () => {
-    const [viewOrder, setViewOrder] = useState(false);
-    const [prices, setPrices] = useState({
+    const [viewOrder, setViewOrder] = useState<boolean>(false);
+    const [prices, setPrices] = useState<stateTypes>({
         subtotal: 0,
         shipping: 'Free',
         taxes: 12.12,
@@ -52,7 +59,7 @@ const OrderPlate = () => {
         } else {
             prices.freeShipping = false;   
             const totalValue = () => {
-                if (prices.shipping === 'Free') return 0
+                if (prices.shipping === 'Free' || 'free') return 0
             } 
             return (prices.subtotal + totalValue() + prices.taxes).toFixed(2);
         }   

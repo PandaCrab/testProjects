@@ -9,7 +9,7 @@ import { fillShippingData } from '../../redux/ducks/data';
 import { takeAddress, fillAddressInput } from '../../redux/ducks/address';
 import { Navigate, DropdownAddresses, CountriesSelect } from '../Index';
 
-import type { RootState, AppDispatch } from '../../types';
+import type { RootState, AppDispatch, values } from '../../types';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -22,12 +22,22 @@ import {
     NavigateAutocomplete
 } from '../../styles/FormStyle';
 
+interface stateTypes {
+    name: string,
+    phone: any,
+    street: string,
+    optional: string,
+    city: string,
+    country: string,
+    zip: string
+};
+
 const ShippingInfo = () => {
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
     const navigatorAddress = useSelector((state: RootState) => state.address.navigatorAddress)
     const [addressFocus, setAddressFocus] = useState(false);
-    const [shipping, setShipping] = useState({
+    const [shipping, setShipping] = useState<stateTypes>({
         name: '',
         phone: '',
         street: '',
@@ -94,7 +104,7 @@ const ShippingInfo = () => {
                                 id="Name"
                                 type="text"
                                 name="name" 
-                                onChange={(event) => setShipping({...shipping, name: event.target.value})}
+                                onChange={(event: values) => setShipping({...shipping, name: event.target.value})}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.name}
                                 isInvalid={ !!formik.errors.name } 
@@ -134,7 +144,7 @@ const ShippingInfo = () => {
                                     id="street"
                                     type="text"
                                     name="street"
-                                    onChange={(event) => {
+                                    onChange={(event: values) => {
                                         setShipping({...shipping, street: event.target.value});
                                         dispatch(takeAddress());
                                         dispatch(fillAddressInput(shipping.street));
@@ -164,7 +174,7 @@ const ShippingInfo = () => {
                                     id="optional" 
                                     type="text"
                                     name="optional" 
-                                    onChange={(event) => setShipping({...shipping, optional: event.target.value})}
+                                    onChange={(event: values) => setShipping({...shipping, optional: event.target.value})}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.optional}
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
@@ -174,7 +184,7 @@ const ShippingInfo = () => {
                                     id="City"
                                     type="text"
                                     name="city" 
-                                    onChange={(event) => setShipping({...shipping, city: event.target.value})}
+                                    onChange={(event: values) => setShipping({...shipping, city: event.target.value})}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.city}
                                     isInvalid={ !!formik.errors.city } 
@@ -189,11 +199,11 @@ const ShippingInfo = () => {
                                         <CountriesSelect
                                         id="country"
                                         name="country"
-                                        onChange={(value) => setShipping({
+                                        onChange={(value: {label: string}) => setShipping({
                                             ...shipping, 
                                             country: value.label})}
                                         onBlur={formik.handleBlur}
-                                        onInputChange={value => setShipping({
+                                        onInputChange={(value: string)=> setShipping({
                                             ...shipping,
                                             country: value
                                         })}
@@ -208,7 +218,7 @@ const ShippingInfo = () => {
                                             id="Zip"
                                             type="text"
                                             name="zip"  
-                                            onChange={(event) => setShipping({...shipping, zip: event.target.value})}
+                                            onChange={(event: values) => setShipping({...shipping, zip: event.target.value})}
                                             onBlur={formik.handleBlur}
                                             value={formik.values.zip}
                                             isInvalid={ !!formik.errors.zip } 

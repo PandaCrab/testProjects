@@ -7,12 +7,12 @@ const REQUEST_STUFF = 'stuff/REQUEST_STUFF';
 const SHOW_LOADER = 'global/SHOW_LOADER';
 const HIDE_LOADER = 'global/HIDE_LOADER';
 
-const initialState = {
+const initialState: {stuff: any[], loading: boolean} = {
     stuff: [],
     loading: false
 };
 
-export default function stuffReducer (state = initialState, action) {
+export default function stuffReducer (state = initialState, action: { type: string; payload: any[]}) {
     switch ( action.type ) {
         case FETCH_STUFF: 
             return { ...state, stuff: action.payload };
@@ -42,7 +42,7 @@ const hideLoader = () => ({
 
 function* fillStuff() {
     yield put(showLoader());
-    const payload = yield call(fetchStuff);
+    const payload: [] = yield call(fetchStuff);
     yield put({ type: FETCH_STUFF, payload });
     yield put(hideLoader());
 };

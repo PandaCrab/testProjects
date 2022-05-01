@@ -9,7 +9,7 @@ import { fillBillingData } from '../../redux/ducks/data';
 import { takeAddress, fillAddressInput } from '../../redux/ducks/address';
 import { Navigate, DropdownAddresses, CountriesSelect } from '../Index';
 
-import type { RootState, AppDispatch } from '../../types';
+import type { RootState, AppDispatch, values } from '../../types';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -21,8 +21,18 @@ import {
     NavigateAutocomplete
 } from '../../styles/FormStyle';
 
+interface stateTypes {
+    name: string,
+    email: string,
+    street: string,
+    optional?: string,
+    city: string,
+    country: string,
+    zip: string
+};
+
 const BillingInfo = () => {
-    const [billing, setBilling] = useState({
+    const [billing, setBilling] = useState<stateTypes>({
         name: '',
         email: '',
         street: '',
@@ -73,7 +83,7 @@ const BillingInfo = () => {
         return;
     };
 
-    const handleAutocomplete = (street, city, country) => {
+    const handleAutocomplete = (street: string, city: string, country: string) => {
         setBilling({
             ...billing,
             street: street,
@@ -112,7 +122,7 @@ const BillingInfo = () => {
                                 id="name"
                                 type="text"
                                 name="name" 
-                                onChange={(event) => setBilling({...billing, name: event.target.value})}
+                                onChange={(event: values) => setBilling({...billing, name: event.target.value})}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.name}
                                 isInvalid={ !!formik.errors.name } 
@@ -126,7 +136,7 @@ const BillingInfo = () => {
                                 id="email"
                                 type="text"
                                 name="email"  
-                                onChange={(event) => setBilling({...billing, email: event.target.value})}
+                                onChange={(event: values) => setBilling({...billing, email: event.target.value})}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.email}
                                 isInvalid={ !!formik.errors.email }
@@ -144,7 +154,7 @@ const BillingInfo = () => {
                                     id="street"
                                     type="text"
                                     name="street"
-                                    onChange={(event) => {
+                                    onChange={(event: values) => {
                                         setBilling({...billing, street: event.target.value});
                                         dispatch(takeAddress());
                                         dispatch(fillAddressInput(billing.street));
@@ -175,7 +185,7 @@ const BillingInfo = () => {
                                     id="optional"
                                     type="text"
                                     name="optional" 
-                                    onChange={(event) => setBilling({...billing, optional: event.target.value})}
+                                    onChange={(event: values) => setBilling({...billing, optional: event.target.value})}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.optional}
                                     placeholder="Apt, Suit, Bidg, Gate Code. (optional)" />
@@ -185,7 +195,7 @@ const BillingInfo = () => {
                                     id="city" 
                                     type="text"
                                     name="city" 
-                                    onChange={(event) => setBilling({...billing, city: event.target.value})}
+                                    onChange={(event: values) => setBilling({...billing, city: event.target.value})}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.city}
                                     isInvalid={ !!formik.errors.city} 
@@ -200,11 +210,11 @@ const BillingInfo = () => {
                                     <CountriesSelect
                                         id="country"
                                         name="country"
-                                        onChange={(value) => setBilling({
+                                        onChange={(value: {label: string}) => setBilling({
                                             ...billing, 
                                             country: value.label})}
                                         onBlur={formik.handleBlur}
-                                        onInputChange={value => setBilling({
+                                        onInputChange={(value: string) => setBilling({
                                             ...billing,
                                             country: value
                                         })}
@@ -219,7 +229,7 @@ const BillingInfo = () => {
                                             id="zip"
                                             type="text"
                                             name="zip"  
-                                            onChange={(event) => setBilling({...billing, zip: event.target.value})}
+                                            onChange={(event: values) => setBilling({...billing, zip: event.target.value})}
                                             onBlur={formik.handleBlur}
                                             value={formik.values.zip}
                                             isInvalid={ !!formik.errors.zip} 

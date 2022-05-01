@@ -6,11 +6,11 @@ export type AppDispatch = typeof store.dispatch;
 export type coordinates = {
     lat: number,
     lon: number
-}
+};
 
 export type endpoint = {
     value: string
-}
+};
 
 export type addressState = {
     addressInput: string,
@@ -20,25 +20,51 @@ export type addressState = {
         lon: number
     },
     navigatorAddress: any
-}
+};
 
-export type postData = {
-    name: string,
-    phone: number,
-    email: string,
-    street: string,
-    optional: string,
-    city: string,
-    country: string,
-    zip: number,
-    cardHolder: string,
-    cardNum: number,
-    date: number,
-    code: number
+export type data = {
+    shipping: {
+        name: string,
+        phone: any,
+        email: string,
+        street: string,
+        optional: string,
+        city: string,
+        country: string,
+        zip: string
+    },
+    billing: {
+        name: string,
+        email: string,
+        street: string,
+        optional: string,
+        city: string,
+        country: string,
+        zip: string
+    },
+    payment: {
+        cardHolder: string,
+        cardNum: number,
+        date: number,
+        code: number
+    }
 };
 
 export type addressAutocomplete = {
-    street?: string,
-    city?: string,
-    country?: string
-}
+    properties: { 
+        id?: React.Key, 
+        name?: string,
+        locality?: string,
+        country: string, 
+        street?: string,
+        city?: string
+        label?: string 
+    };
+};
+
+export type values = { target: { value: string }};
+
+export type actionAddressTypes = { 
+    type: string;
+    payload: any
+};

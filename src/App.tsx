@@ -44,7 +44,7 @@ const App = () => {
       } else {
         return;
       }
-    }, [dispatch]);
+    });
 
   return (
     <>
@@ -55,7 +55,7 @@ const App = () => {
           <ShoppingBasketText>cart</ShoppingBasketText>
           <BasketContainer>
             <Basket /> 
-            { stuff.length !== undefined && (
+            { stuff.length && (
               <CircleOfNumber><NumberOfStuff>{stuff.length}</NumberOfStuff></CircleOfNumber>
             )}   
           </BasketContainer>

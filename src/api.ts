@@ -1,11 +1,11 @@
-import type { postData } from "./types";
+import type { data } from "./types";
 
 const url = 'http://localhost:3004';
 const apiKey = 'e2d9f960-bc78-11ec-a0da-bd0e50737306';
 const addressApi = `https://app.geocodeapi.io/api/v1/`;
 
 //Need write method to working correct
-const fetchFunc = (url: string, method: string, data?: postData) => {
+const fetchFunc = (url: string, method: string, data?: data) => {
     if (method === 'GET') return fetch(url)
     if (method === 'POST') fetch(url, {
         method: 'POST',
@@ -17,7 +17,7 @@ const fetchFunc = (url: string, method: string, data?: postData) => {
 };
 
 //fetch POST of personal info for billing to data
-export const fetchPostData = (data: postData) => fetchFunc(url+'/personInfo', "POST", data);
+export const fetchPostData = (data: data) => fetchFunc(url+'/personInfo', "POST", data);
 
 //fetch products in backet
 export const fetchStuff = async() => {
@@ -40,7 +40,7 @@ export const getGeolocation = (geolocation: {lat: number, lon: number}) => {
     coordinates.lon = geolocation.lon;
 };
 
-export const fetchGeolocation = async() => {
+export const fetchGeolocation: () => Promise<{}> = async() => {
     try {
         const response = await fetchFunc(
             addressApi+`reverse?apikey=${apiKey}&point.lat=${coordinates.lat}&point.lon=${coordinates.lon}&layers=address`,
@@ -61,7 +61,7 @@ export const getEndpoint = (addressInput: string) => {
     }
 };
 
-export const fetchAddress = async () => {
+export const fetchAddress: () => Promise<{}> = async () => {
     try {
         const response = await fetchFunc(
             addressApi+`autocomplete?apikey=${apiKey}&text=${endpoint.value.replace(/\s/g, '%20')}&size=5`,

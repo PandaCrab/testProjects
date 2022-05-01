@@ -10,6 +10,8 @@ import { paymentValidation } from '../../helpers';
 import { sendData, fillPaymentData } from '../../redux/ducks/data';
 import { Navigate } from '../Index';
 
+import { AppDispatch, values } from '../../types';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
     Info,
@@ -18,11 +20,18 @@ import {
     FormLabelHeader,
     InputCardImage,
     CardNumberInput
- } from '../../styles/FormStyle';
+} from '../../styles/FormStyle';
+
+interface stateTypes {
+    cardHolder: string,
+    cardNum: string,
+    date: string,
+    cvv: string
+};
 
 const Payment = () => {
-    const [payment, setPayment] = useState({
-        cardholder: '',
+    const [payment, setPayment] = useState<stateTypes>({
+        cardHolder: '',
         cardNum: '',
         date: '',
         cvv: ''
@@ -32,19 +41,19 @@ const Payment = () => {
         const saved = localStorage.getItem('payment');
         const save = JSON.parse(saved);
 
-        if (save !== null) {setPayment({
+        if (save !== null) {setPayment(payment => ({
             ...payment,
-            cardholder: save.cardholder,
+            cardHolder: save.cardHolder,
             cardNum: save.cardNum
-        })}
+        }))}
         return;
-    }, [payment]);
+    }, []);
 
     useEffect(() => {
         localStorage.setItem('payment', JSON.stringify(payment));
     }, [payment]);
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
 
     const {
@@ -78,17 +87,17 @@ const Payment = () => {
                     <Form.Group className="mb-4 position-relative">
                         <Form.Label className="mb-0">Cardholder Name</Form.Label>
                         <Form.Control
-                            id="cardholder"
+                            id="cardHolder"
                             type="text"
-                            name="cardholder"
-                            onChange={(event) => setPayment({...payment, cardholder: event.target.value})}
+                            name="cardHolder"
+                            onChange={(event: values) => setPayment({...payment, cardHolder: event.target.value})}
                             onBlur={formik.handleBlur}
-                            value={formik.values.cardholder}
-                            isInvalid={ !!formik.errors.cardholder }
+                            value={formik.values.cardHolder}
+                            isInvalid={ !!formik.errors.cardHolder }
                             placeholder='Name as it appears on your card'
                             />                     
                         <Form.Control.Feedback type='invalid' tooltip>
-                            { formik.touched.cardholder && formik.errors.cardholder }
+                            { formik.touched.cardHolder && formik.errors.cardHolder }
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className="mb-4 position-relative">
@@ -96,7 +105,7 @@ const Payment = () => {
                         <InputGroup>
                             <CardNumberInput
                                 {...getCardNumberProps({
-                                    onChange: (event) => setPayment({...payment, cardNum: event.target.value}),
+                                    onChange: (event: values) => setPayment({...payment, cardNum: event.target.value}),
                                     onBlur: formik.handleBlur,
                                     
                                 })}
@@ -108,7 +117,7 @@ const Payment = () => {
                                 placeholder="XXXX XXXX XXXX XXXX XXXX"
                             />
                             {payment.cardNum !== '' && (
-                                <InputCardImage {...getCardImageProps({images})} />
+                                <InputCardImage {...getCardImageProps({ images })} />
                             )}
                             <Form.Control.Feedback type='invalid' tooltip>
                                 { formik.touched.cardNum && formik.errors.cardNum }
@@ -121,7 +130,7 @@ const Payment = () => {
                                 <Form.Label className="mb-1">Expire Date</Form.Label>
                                     <Form.Control
                                         {...getExpiryDateProps({
-                                            onChange: (event) => setPayment({...payment, date: event.target.value}),
+                                            onChange: (event: values) => setPayment({...payment, date: event.target.value}),
                                             onBlur: formik.handleBlur
 
                                         })}
@@ -140,7 +149,7 @@ const Payment = () => {
                                 <Form.Label className="mb-1">Security code</Form.Label>
                                 <Form.Control
                                     {...getCVCProps({
-                                        onChange: (event) => setPayment({...payment, cvv: event.target.value}),
+                                        onChange: (event: values) => setPayment({...payment, cvv: event.target.value}),
                                         onBlur: formik.handleBlur
 
                                     })}

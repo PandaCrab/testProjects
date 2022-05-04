@@ -156,7 +156,7 @@ const ShippingInfo = () => {
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
-                                    {navigatorAddress !== '' && (
+                                    {navigatorAddress && (
                                         <NavigateAutocomplete onClick={() => handleAutocomplete(
                                             navigatorAddress.street,
                                             navigatorAddress.city,

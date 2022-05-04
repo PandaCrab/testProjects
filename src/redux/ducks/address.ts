@@ -26,7 +26,11 @@ const initialState: addressState = {
         lat: 0,
         lon: 0
     },
-    navigatorAddress: ''
+    navigatorAddress: {
+        street: '',
+        city: '',
+        country: ''
+    }
 };
 
 export default function addressReducer(state = initialState, action: actionAddressTypes) {
@@ -36,7 +40,7 @@ export default function addressReducer(state = initialState, action: actionAddre
         case FETCH_NAVIGATOR_ADDRESS:
             return {...state, navigatorAddress: {
                 street: action.payload.name,
-                city: action.payload.locality && '',
+                city: action.payload.locality,
                 country: action.payload.country
             }};
         case SEARCH_ADDRESS:

@@ -166,7 +166,7 @@ const BillingInfo = () => {
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
-                                    {navigatorAddress !== '' && (
+                                    {navigatorAddress ? null : (
                                         <NavigateAutocomplete onClick={() => handleAutocomplete(
                                             navigatorAddress.street,
                                             navigatorAddress.city,

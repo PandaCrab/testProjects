@@ -19,7 +19,11 @@ export type addressState = {
         lat: number,
         lon: number
     },
-    navigatorAddress: any
+    navigatorAddress: {
+        street: string,
+        city: string,
+        country: string
+    }
 };
 
 export type data = {
@@ -65,6 +69,6 @@ export type addressAutocomplete = {
 export type values = { target: { value: string }};
 
 export type actionAddressTypes = { 
-    type: string;
+    type: string,
     payload: any
 };

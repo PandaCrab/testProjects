@@ -27,7 +27,7 @@ import {
 
 interface stateTypes {
     subtotal: number,
-    shipping: string | number,
+    shipping: any,
     taxes: number,
     freeShipping: boolean
 }
@@ -57,11 +57,8 @@ const OrderPlate = () => {
             prices.freeShipping = true;
             return (prices.subtotal + prices.taxes).toFixed(2);
         } else {
-            prices.freeShipping = false;   
-            const totalValue = () => {
-                if (prices.shipping === 'Free' || 'free') return 0
-            } 
-            return (prices.subtotal + totalValue() + prices.taxes).toFixed(2);
+            prices.freeShipping = false;
+            return (prices.subtotal + prices.shipping + prices.taxes).toFixed(2);
         }   
     };
 

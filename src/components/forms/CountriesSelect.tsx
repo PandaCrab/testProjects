@@ -12,7 +12,7 @@ interface propTypes {
     placeholder: string,
     onInputChange: (arg0: string) => void,
     touched: boolean,
-    error: any
+    error: string
 };
 
 const CountriesSelect = (props: propTypes) => {
@@ -31,7 +31,7 @@ const CountriesSelect = (props: propTypes) => {
                 onInputChange={(value, {action}) => {
                     if (action  === 'input-change') {props.onInputChange(value)}
                 }}
-                placeholder={props.value !== '' ? props.value : props.placeholder}
+                placeholder={props.value ? props.value : props.placeholder}
                 />
                 {props.touched && !!props.error && (
                 <ErrorMessage>{props.error}</ErrorMessage>

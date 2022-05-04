@@ -26,7 +26,7 @@ export const fetchStuff = async() => {
         const json = await response.json();
         return json;
     } catch(errors) {
-        alert('Oops, something wrong')
+        console.log('Oops, something wrong')
     };
 };
 
@@ -49,7 +49,7 @@ export const fetchGeolocation: () => Promise<{}> = async() => {
         const json = await response.json();
         return json.features[0].properties;
     } catch(errors) {
-        alert(`Can't take geolocation`);
+        console.log(`Can't take geolocation`);
     };
 };
 
@@ -69,6 +69,6 @@ export const fetchAddress: () => Promise<{}> = async () => {
         const json = await response.json();
         return json.features;
     } catch(errors) {
-        alert('Sorry, seems somthing broken')
+        console.log('Sorry, seems somthing broken')
     };
 };

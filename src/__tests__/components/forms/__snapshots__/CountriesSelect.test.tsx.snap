@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Countrie select component should rendered correctly select component 1`] = `<CountriesSelect />`;

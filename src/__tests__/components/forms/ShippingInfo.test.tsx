@@ -1,11 +1,24 @@
 import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+
 import { ShippingInfo } from '../../../components/Index';
 
 describe('shipping info component:', () => {
 
-    it('should render correctly ShippingInfo component', () => {
-        const shippingInfo = shallow(<ShippingInfo />);
-        expect(shippingInfo).toMatchSnapshot();
+    const initialState = {output: 10}
+    const mockStore = configureStore();
+    let store;
+    
+    it('should render correctly order plate component', () => {
+        store = mockStore(initialState);
+        const component = shallow(
+            <Provider store={store}>
+                <ShippingInfo />
+            </Provider>
+        );
+
+        expect(component).toMatchSnapshot();
     });
 
 });

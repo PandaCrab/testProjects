@@ -2,10 +2,9 @@ import { shallow } from 'enzyme';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import { OrderPlate } from '../../../components/Index';
+import { Stuff } from '../../../components/Index';
 
-
-describe ('<OrderPlate />', () => {
+describe('Stuff element', () => {
     const initialState = [
         {
             "id": 1,
@@ -18,26 +17,15 @@ describe ('<OrderPlate />', () => {
     const mockStore = configureStore();
     let store;
 
-    it('should render correctly order plate component', () => {
+    it('should render correct', () => {    
         store = mockStore(initialState);
         const component = shallow(
             <Provider store={store}>
-                <OrderPlate />
+                <Stuff />
             </Provider>
         );
 
         expect(component).toMatchSnapshot();
-    });
-
-    it('should rendered without stuff', () => {
-        store = mockStore([]);
-        const component = shallow(
-            <Provider store={store}>
-                <OrderPlate />
-            </Provider>
-        );
-
-        expect(component).toBeDefined();
-    });
+    }) ;
 
 });

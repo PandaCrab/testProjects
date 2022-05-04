@@ -1,4 +1,4 @@
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import {CountriesSelect} from '../../../components/Index';
 
@@ -19,10 +19,9 @@ describe('Countrie select component', () => {
         const props: any = {
             value: ''
         },
-        component = mount(<CountriesComponent {...props} />);
+        component = shallow(<CountriesComponent {...props} />);
         
         expect((component).prop('value')).toEqual('');
-        component.unmount();
     });
 
-})
+});

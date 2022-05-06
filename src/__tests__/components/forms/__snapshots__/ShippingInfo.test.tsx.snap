@@ -1,30 +1,360 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shipping info component: should render correctly order plate component 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Object {
-        "addNestedSub": [Function],
-        "getListeners": [Function],
-        "handleChangeWrapper": [Function],
-        "isSubscribed": [Function],
-        "notifyNestedSubs": [Function],
-        "onStateChange": [Function],
-        "trySubscribe": [Function],
-        "tryUnsubscribe": [Function],
-      },
-    }
-  }
->
-  <ShippingInfo />
-</ContextProvider>
+exports[`shipping info component: should render correctly Shipping info component 1`] = `
+Array [
+  <section
+    className="sc-cOFTSb foYTCl"
+  >
+    <a
+      href="/shipping"
+      onClick={[Function]}
+    >
+      Shipping
+    </a>
+     &gt;
+    <a
+      href="/billing"
+      onClick={[Function]}
+    >
+      Billing
+    </a>
+     &gt;
+    <a
+      href="/payment"
+      onClick={[Function]}
+    >
+      Payment
+    </a>
+  </section>,
+  <div
+    className="sc-bczRLJ iLjvJl"
+  >
+    <section
+      className="sc-jqUVSM drOJkA"
+    >
+      <h4
+        className="sc-kDDrLX hxhBIM"
+      >
+        Shipping Information
+      </h4>
+    </section>
+    <form
+      className=""
+      noValidate={true}
+      onSubmit={[Function]}
+    >
+      <div>
+        <div>
+          <label
+            className="mb-0 form-label"
+          >
+            Recipient
+          </label>
+          <div
+            className="mb-4 position-relative"
+          >
+            <input
+              className="form-control"
+              id="Name"
+              name="name"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Full Name"
+              type="text"
+              value=""
+            />
+            <div
+              className="invalid-tooltip"
+            />
+          </div>
+          <div
+            className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col-sm-7 col-7"
+              >
+                <div
+                  className=" react-tel-input sc-jSMfEi hECgnK form-control"
+                  onKeyDown={[Function]}
+                  style={Object {}}
+                >
+                  
+                  <input
+                    className="form-control "
+                    disabled={false}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onCopy={[Function]}
+                    onDoubleClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="Daytime Phone"
+                    style={Object {}}
+                    type="tel"
+                    value=""
+                  />
+                  <div
+                    className="flag-dropdown "
+                    style={Object {}}
+                  >
+                    <div
+                      aria-haspopup="listbox"
+                      className="selected-flag"
+                      onClick={[Function]}
+                      role="button"
+                      tabIndex="0"
+                      title=""
+                    >
+                      <div
+                        className="flag 0"
+                      >
+                        <div
+                          className="arrow"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="invalid-tooltip"
+                />
+              </div>
+              <div
+                className="col-sm-4 col-5"
+              >
+                <p
+                  className="sc-ftvSup dgAAPZ"
+                >
+                  For delivery questions only
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative"
+        >
+          <label
+            className="mb-0 form-label"
+          >
+            Address
+          </label>
+          <div
+            className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative"
+          >
+            <input
+              className="form-control"
+              id="street"
+              name="street"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              placeholder="Street address"
+              type="text"
+              value=""
+            />
+            <svg
+              className="sc-dkzDqf fVHUGe"
+              fill="currentColor"
+              height="1em"
+              onClick={[Function]}
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+              />
+            </svg>
+            <div
+              className="invalid-tooltip"
+            />
+          </div>
+          <div
+            className="mb-2 mb-md-3 mb-lg-4 mb-xl-4"
+          >
+            <input
+              className="form-control"
+              id="optional"
+              name="optional"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Apt, Suit, Bidg, Gate Code. (optional)"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative"
+          >
+            <input
+              className="form-control"
+              id="City"
+              name="city"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="City"
+              type="text"
+              value=""
+            />
+            <div
+              className="invalid-tooltip"
+            />
+          </div>
+          <div
+            className="mb-2 mb-md-3 mb-lg-4 mb-xl-4"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col-sm-7 col-7"
+              >
+                <div
+                  className=" css-b62m3t-container"
+                  id="country"
+                  onKeyDown={[Function]}
+                >
+                  <span
+                    className="css-1f43avz-a11yText-A11yText"
+                    id="react-select-2-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    className="css-1f43avz-a11yText-A11yText"
+                  />
+                  <div
+                    className=" css-1s2u09g-control"
+                    onMouseDown={[Function]}
+                    onTouchEnd={[Function]}
+                  >
+                    <div
+                      className=" css-319lph-ValueContainer"
+                    >
+                      <div
+                        className=" css-14el2xx-placeholder"
+                        id="react-select-2-placeholder"
+                      >
+                        Country
+                      </div>
+                      <div
+                        className=" css-6j8wv5-Input"
+                        data-value=""
+                      >
+                        <input
+                          aria-autocomplete="list"
+                          aria-describedby="react-select-2-placeholder"
+                          aria-expanded={false}
+                          aria-haspopup={true}
+                          autoCapitalize="none"
+                          autoComplete="off"
+                          autoCorrect="off"
+                          className=""
+                          disabled={false}
+                          id="react-select-2-input"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          role="combobox"
+                          spellCheck="false"
+                          style={
+                            Object {
+                              "background": 0,
+                              "border": 0,
+                              "color": "inherit",
+                              "font": "inherit",
+                              "gridArea": "1 / 2",
+                              "label": "input",
+                              "margin": 0,
+                              "minWidth": "2px",
+                              "opacity": 1,
+                              "outline": 0,
+                              "padding": 0,
+                              "width": "100%",
+                            }
+                          }
+                          tabIndex={0}
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className=" css-1hb7zxy-IndicatorsContainer"
+                    >
+                      <span
+                        className=" css-1okebmr-indicatorSeparator"
+                      />
+                      <div
+                        aria-hidden="true"
+                        className=" css-tlfecz-indicatorContainer"
+                        onMouseDown={[Function]}
+                        onTouchEnd={[Function]}
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="css-tj5bde-Svg"
+                          focusable="false"
+                          height={20}
+                          viewBox="0 0 20 20"
+                          width={20}
+                        >
+                          <path
+                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    name="country"
+                    type="hidden"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="col-sm-5 col-5"
+              >
+                <input
+                  className="form-control"
+                  id="Zip"
+                  name="zip"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="ZIP"
+                  type="text"
+                  value=""
+                />
+                <div
+                  className="invalid-tooltip"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        className="sc-papXJ fRWQUH btn btn-primary"
+        disabled={false}
+        type="submit"
+      >
+        Continue
+      </button>
+    </form>
+  </div>,
+]
 `;

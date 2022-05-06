@@ -67,7 +67,7 @@ const OrderPlate = () => {
             <OrderInfo 
                 displayMobile={viewOrder ? 'flex' : 'none'}>
                 <section>
-                <OrderCloseBtn onClick={() => setViewOrder(false)} />
+                <OrderCloseBtn id="close-btn" onClick={() => setViewOrder(false)} />
                 <SummaryHeaderBlock>
                     <SummaryHeader>Order Summary</SummaryHeader> <OrderEdit>edit order</OrderEdit>
                 </SummaryHeaderBlock>
@@ -104,7 +104,7 @@ const OrderPlate = () => {
                 </TermsConditions>
                 </section>
             </OrderInfo>            
-            <OrderInfoBtn onClick={() => setViewOrder(!viewOrder)}>
+            <OrderInfoBtn id="open-close-btn" onClick={() => setViewOrder(!viewOrder)}>
                 <BsBasket3 />
             </OrderInfoBtn>
         </>

@@ -1,20 +1,23 @@
-import { shallow } from 'enzyme';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 
 import { Payment } from '../../../components/Index';
 
 describe('Payment component:', () => {
 
-    const initialState = {output: 10}
+    const initialState = {}
     const mockStore = configureStore();
     let store;
     
-    it('should render correctly order plate component', () => {
+    it('should render correctly Order plate component', () => {
         store = mockStore(initialState);
-        const component = shallow(
+        const component = renderer.create(
             <Provider store={store}>
-                <Payment />
+                <BrowserRouter>
+                    <Payment />
+                </BrowserRouter>
             </Provider>
         );
 

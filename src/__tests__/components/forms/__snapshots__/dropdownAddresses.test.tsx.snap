@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown addresses section render should render component correct 1`] = `
+<ul
+  className="sc-gsnTZi iiYaAR"
+>
+  <li
+    className="sc-eCYdqJ hCLdSg"
+    onClick={[Function]}
+  >
+    7a heros of Ukraine, Likhvitsy\`a, Ukraine
+  </li>
+  <li
+    className="sc-eCYdqJ hCLdSg"
+    onClick={[Function]}
+  >
+    35 Ivana Sirka, Sumy, Ukraine
+  </li>
+</ul>
+`;

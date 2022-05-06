@@ -1,30 +1,260 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`With React Testing Library render app component 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Object {
-        "addNestedSub": [Function],
-        "getListeners": [Function],
-        "handleChangeWrapper": [Function],
-        "isSubscribed": [Function],
-        "notifyNestedSubs": [Function],
-        "onStateChange": [Function],
-        "trySubscribe": [Function],
-        "tryUnsubscribe": [Function],
-      },
-    }
-  }
->
-  <App />
-</ContextProvider>
+Array [
+  <section
+    className="sc-cCsOjp bhGiXb"
+  >
+    <h5
+      className="sc-jdAMXn eUAjuQ"
+    >
+       
+      <span
+        className="sc-ciZhAO bjcAgv"
+      >
+        &lt; 
+        <span
+          className="sc-dPyBCJ gYxQKO"
+        >
+          ⁄
+        </span>
+        &gt;
+      </span>
+       Front-end Developer Test Task
+    </h5>
+    <section
+      className="sc-bZnhIo kSpcjZ"
+    >
+      <p
+        className="sc-cTQhss cXevid"
+      >
+        cart
+      </p>
+      <div
+        className="sc-iTONeN blezqX"
+      >
+        <svg
+          className="sc-jOrMOR bTfVDu"
+          fill="none"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+          />
+        </svg>
+        <div
+          className="sc-iAvgwm ecDikv"
+        >
+          <p
+            className="sc-efBctP kCdEhA"
+          >
+            1
+          </p>
+        </div>
+      </div>
+    </section>
+  </section>,
+  <div
+    className="sc-bBXxYQ dmLUpr"
+  >
+    <section
+      className="sc-ksZaOG ibhyab"
+    >
+      <section>
+        <svg
+          className="sc-kLLXSd kBBKOh"
+          fill="currentColor"
+          height="1em"
+          id="close-btn"
+          onClick={[Function]}
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M354 671h58.9c4.7 0 9.2-2.1 12.3-5.7L512 561.8l86.8 103.5c3 3.6 7.5 5.7 12.3 5.7H670c6.8 0 10.5-7.9 6.1-13.1L553.8 512l122.4-145.9c4.4-5.2.7-13.1-6.1-13.1h-58.9c-4.7 0-9.2 2.1-12.3 5.7L512 462.2l-86.8-103.5c-3-3.6-7.5-5.7-12.3-5.7H354c-6.8 0-10.5 7.9-6.1 13.1L470.2 512 347.9 657.9A7.95 7.95 0 0 0 354 671z"
+          />
+          <path
+            d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+          />
+        </svg>
+        <section
+          className="sc-hAZoDl cQWdqi"
+        >
+          <h6
+            className="sc-fnykZs kPWXFA"
+          >
+            Order Summary
+          </h6>
+           
+          <button
+            className="sc-fEOsli ciOOuy"
+          >
+            edit order
+          </button>
+        </section>
+        <div
+          className="sc-bjUoiL gLLEmD"
+        >
+          <section
+            className="sc-hHLeRK dPNuhk"
+          >
+            <img
+              alt="Check Print Shirt"
+              className="sc-dmRaPn zCVrD"
+              src="https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0"
+            />
+            <section
+              className="sc-kgflAQ dbCiuf"
+            >
+              <h6
+                className="sc-fLlhyt clxgpt"
+              >
+                Check Print Shirt
+              </h6>
+              <p
+                className="sc-bBrHrO bXHGEt"
+              >
+                Grey+red+black
+              </p>
+              <p
+                className="sc-bBrHrO bXHGEt"
+              >
+                Quantity: 1
+              </p>
+            </section>
+            <p
+              className="sc-ivTmOn bpCsUh"
+            >
+              110
+              $
+            </p>
+          </section>
+        </div>
+        <section
+          className="sc-cxabCf lbMhQR"
+        >
+          <section
+            className="sc-llJcti iyHPPe"
+          >
+            <p
+              className="sc-gicCDI bjluxt"
+            >
+              Subtotal
+            </p>
+            <p
+              className="sc-gicCDI bjluxt"
+            >
+              Shipping
+            </p>
+            <p
+              className="sc-gicCDI bjluxt"
+            >
+              Taxes
+            </p>
+          </section>
+          <section
+            className="sc-iIPllB iIWbyc"
+          >
+            <p
+              className="sc-gicCDI bjluxt"
+            >
+              $
+              0
+            </p>
+            <p
+              className="sc-gicCDI bjluxt"
+            >
+              $
+              Free
+            </p>
+            <p
+              className="sc-gicCDI bjluxt"
+            >
+              $
+              12.12
+            </p>
+          </section>
+        </section>
+        <section
+          className="sc-ezWOiH imiMFu"
+        >
+          <p
+            className="sc-bZkfAO gehmlG"
+          >
+            Total
+          </p>
+          <p
+            className="sc-bZkfAO gehmlG"
+          >
+            $
+            12.12
+          </p>
+        </section>
+      </section>
+      <section>
+        <section
+          className="sc-ikZpkk ZNTXr"
+        >
+          <p
+            className="sc-jIZahH jsQqEc"
+          >
+            All purchases are subject to our
+            <a
+              className="sc-himrzO jeWplj"
+              href="/TermsAndConditions"
+              onClick={[Function]}
+            >
+              Terms and Conditions
+            </a>
+          </p>
+        </section>
+      </section>
+    </section>
+    <button
+      className="sc-gXmSlM jELbHU"
+      id="open-close-btn"
+      onClick={[Function]}
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 16 16"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM3.394 15l-1.48-6h-.97l1.525 6.426a.75.75 0 0 0 .729.574h9.606a.75.75 0 0 0 .73-.574L15.056 9h-.972l-1.479 6h-9.21z"
+        />
+      </svg>
+    </button>
+  </div>,
+]
 `;

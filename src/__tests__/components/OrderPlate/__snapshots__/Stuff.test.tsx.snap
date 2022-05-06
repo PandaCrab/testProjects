@@ -1,30 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Stuff element should render correct 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Object {
-        "addNestedSub": [Function],
-        "getListeners": [Function],
-        "handleChangeWrapper": [Function],
-        "isSubscribed": [Function],
-        "notifyNestedSubs": [Function],
-        "onStateChange": [Function],
-        "trySubscribe": [Function],
-        "tryUnsubscribe": [Function],
-      },
-    }
-  }
+<section
+  className="sc-hHLeRK dPNuhk"
 >
-  <Stuff />
-</ContextProvider>
+  <img
+    alt="Check Print Shirt"
+    className="sc-dmRaPn zCVrD"
+    src="https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0"
+  />
+  <section
+    className="sc-kgflAQ dbCiuf"
+  >
+    <h6
+      className="sc-fLlhyt clxgpt"
+    >
+      Check Print Shirt
+    </h6>
+    <p
+      className="sc-bBrHrO bXHGEt"
+    >
+      Grey+red+black
+    </p>
+    <p
+      className="sc-bBrHrO bXHGEt"
+    >
+      Quantity: 1
+    </p>
+  </section>
+  <p
+    className="sc-ivTmOn bpCsUh"
+  >
+    110
+    $
+  </p>
+</section>
 `;

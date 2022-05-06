@@ -1,30 +1,170 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Payment component: should render correctly order plate component 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Object {
-        "addNestedSub": [Function],
-        "getListeners": [Function],
-        "handleChangeWrapper": [Function],
-        "isSubscribed": [Function],
-        "notifyNestedSubs": [Function],
-        "onStateChange": [Function],
-        "trySubscribe": [Function],
-        "tryUnsubscribe": [Function],
-      },
-    }
-  }
->
-  <Payment />
-</ContextProvider>
+exports[`Payment component: should render correctly Order plate component 1`] = `
+Array [
+  <section
+    className="sc-cOFTSb foYTCl"
+  >
+    <a
+      href="/shipping"
+      onClick={[Function]}
+    >
+      Shipping
+    </a>
+     &gt;
+    <a
+      href="/billing"
+      onClick={[Function]}
+    >
+      Billing
+    </a>
+     &gt;
+    <a
+      href="/payment"
+      onClick={[Function]}
+    >
+      Payment
+    </a>
+  </section>,
+  <div
+    className="sc-bczRLJ iLjvJl"
+  >
+    <section
+      className="sc-jqUVSM drOJkA"
+    >
+      <h4
+        className="sc-kDDrLX hxhBIM"
+      >
+        Payment
+      </h4>
+    </section>
+    <form
+      className=""
+      noValidate={true}
+      onSubmit={[Function]}
+    >
+      <div
+        className="mb-4 position-relative"
+      >
+        <label
+          className="mb-0 form-label"
+        >
+          Cardholder Name
+        </label>
+        <input
+          className="form-control"
+          id="cardHolder"
+          name="cardHolder"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Name as it appears on your card"
+          type="text"
+          value=""
+        />
+        <div
+          className="invalid-tooltip"
+        />
+      </div>
+      <div
+        className="mb-4 position-relative"
+      >
+        <label
+          className="mb-1 form-label"
+        >
+          Card Number
+        </label>
+        <div
+          className="input-group"
+        >
+          <input
+            aria-label="Card number"
+            autoComplete="cc-number"
+            className="sc-gKXOVf QmbpH form-control"
+            id="cardNum"
+            name="cardNum"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            placeholder="XXXX XXXX XXXX XXXX XXXX"
+            type="text"
+            value=""
+          />
+          <div
+            className="invalid-tooltip"
+          />
+        </div>
+      </div>
+      <div
+        className="mb-4 position-relative"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col-sm-4 col-5"
+          >
+            <label
+              className="mb-1 form-label"
+            >
+              Expire Date
+            </label>
+            <input
+              aria-label="Expiry date in format MM YY"
+              autoComplete="cc-exp"
+              className="form-control"
+              id="date"
+              name="date"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyPress={[Function]}
+              placeholder="MM/YY"
+              type="text"
+              value=""
+            />
+            <div
+              className="invalid-tooltip"
+            />
+          </div>
+          <div
+            className="col-sm-5 col-6"
+          >
+            <label
+              className="mb-1 form-label"
+            >
+              Security code
+            </label>
+            <input
+              aria-label="CVC"
+              autoComplete="cc-csc"
+              className="form-control"
+              id="cvv"
+              name="cvv"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyPress={[Function]}
+              placeholder="CVC"
+              type="text"
+              value=""
+            />
+            <div
+              className="invalid-tooltip"
+            />
+          </div>
+        </div>
+      </div>
+      <button
+        className="sc-papXJ fRWQUH btn btn-primary"
+        disabled={false}
+        type="submit"
+      >
+        Pay Securely
+      </button>
+    </form>
+  </div>,
+]
 `;

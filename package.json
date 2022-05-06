@@ -69,6 +69,7 @@
       "^.+\\.(ts|tsx)?$": "ts-jest",
       "^.+\\.(js|jsx)$": "babel-jest"
     },
+    "testEnvironment": "jsdom",
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "testPathIgnorePatterns": [
       "/node_modules/"
@@ -117,6 +118,7 @@
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.0.5",
     "@types/react-payment-inputs": "^1.1.0",
+    "@types/react-test-renderer": "^18.0.0",
     "@types/redux-mock-store": "^1.0.3",
     "@types/webpack": "4.1.4",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
@@ -124,6 +126,7 @@
     "babel-plugin-styled-components": "^2.0.2",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
+    "jest-environment-jsdom": "^28.0.2",
     "react-test-renderer": "^17.0.2",
     "redux-devtools-extension": "^2.13.9",
     "ts-jest": "^28.0.1",

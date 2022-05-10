@@ -1,7 +1,19 @@
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 
 import {CountriesSelect} from '../../../components/Index';
+
+const props: any = {
+    name: 'country',
+    id: 'country',
+    value: 'Ukraine',
+    onChange: jest.fn(),
+    onBlur: jest.fn(),
+    onInputChange: jest.fn(),
+    placeholder: 'Country',
+    touched: false,
+    error: ''
+};
 
 const CountriesComponent = (props: any) => (
     <CountriesSelect
@@ -17,18 +29,7 @@ describe('Countrie select component', () => {
     });
 
     it('should rendered with props', () => {
-        const props: any = {
-            name: 'country',
-            id: 'country',
-            value: 'Ukraine',
-            onChange: jest.fn(),
-            onBlur: jest.fn(),
-            onInputChange: jest.fn(),
-            placeholder: 'Country',
-            touched: false,
-            error: ''
-        },
-        component = shallow(<CountriesComponent {...props} />);
+        const component = mount(<CountriesComponent {...props} />);
         expect(component.prop('name')).toEqual('country');
         expect(component.prop('id')).toEqual('country');
         expect(component.prop('value')).toEqual('Ukraine');

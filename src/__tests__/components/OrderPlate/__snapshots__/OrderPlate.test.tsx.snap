@@ -4,6 +4,8 @@ exports[`<OrderPlate /> should render correctly order plate component 1`] = `
 Array [
   <section
     className="sc-ksZaOG ibhyab"
+    data-value={false}
+    id="orderInfo"
   >
     <section>
       <svg

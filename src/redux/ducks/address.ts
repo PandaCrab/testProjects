@@ -26,11 +26,7 @@ const initialState: addressState = {
         lat: 0,
         lon: 0
     },
-    navigatorAddress: {
-        street: '',
-        city: '',
-        country: ''
-    }
+    navigatorAddress: null
 };
 
 export default function addressReducer(state = initialState, action: actionAddressTypes) {

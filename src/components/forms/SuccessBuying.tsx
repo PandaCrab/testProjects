@@ -13,7 +13,7 @@ const SuccessBuying = () => {
             <br/>
             <Info>
                 <CardToPrint />
-                <StyledButton onClick={() => {
+                <StyledButton id="back-to-start" onClick={() => {
                 navigate('/shipping'); 
                 localStorage.clear()
             }}>Back to shipping</StyledButton>

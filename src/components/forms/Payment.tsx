@@ -23,7 +23,7 @@ import {
 } from '../../styles/FormStyle';
 
 interface stateTypes {
-    cardHolder: string,
+    cardholder: string,
     cardNum: string,
     date: string,
     cvv: string
@@ -31,7 +31,7 @@ interface stateTypes {
 
 const Payment = () => {
     const [payment, setPayment] = useState<stateTypes>({
-        cardHolder: '',
+        cardholder: '',
         cardNum: '',
         date: '',
         cvv: ''
@@ -43,7 +43,7 @@ const Payment = () => {
 
         if (save !== null) {setPayment(payment => ({
             ...payment,
-            cardHolder: save.cardHolder,
+            cardholder: save.cardholder,
             cardNum: save.cardNum
         }))}
         return;
@@ -85,19 +85,19 @@ const Payment = () => {
                 </FormLabel>
                 <Form noValidate onSubmit={formik.handleSubmit}>
                     <Form.Group className="mb-4 position-relative">
-                        <Form.Label className="mb-0">Cardholder Name</Form.Label>
+                        <Form.Label className="mb-0">cardholder Name</Form.Label>
                         <Form.Control
-                            id="cardHolder"
+                            id="cardholder"
                             type="text"
-                            name="cardHolder"
-                            onChange={(event: values) => setPayment({...payment, cardHolder: event.target.value})}
+                            name="cardholder"
+                            onChange={(event: values) => setPayment({...payment, cardholder: event.target.value})}
                             onBlur={formik.handleBlur}
-                            value={formik.values.cardHolder}
-                            isInvalid={ !!formik.errors.cardHolder }
+                            value={formik.values.cardholder}
+                            isInvalid={ !!formik.errors.cardholder }
                             placeholder='Name as it appears on your card'
                             />                     
                         <Form.Control.Feedback type='invalid' tooltip>
-                            { formik.touched.cardHolder && formik.errors.cardHolder }
+                            { formik.touched.cardholder && formik.errors.cardholder }
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className="mb-4 position-relative">

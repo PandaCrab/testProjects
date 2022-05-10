@@ -81,7 +81,7 @@ Array [
             name="email"
             onBlur={[Function]}
             onChange={[Function]}
-            placeholder="Email street"
+            placeholder="Email address"
             type="text"
             value=""
           />
@@ -117,9 +117,11 @@ Array [
               className="invalid-tooltip"
             />
           </div>
-          <div>
+          <div
+            className="mb-2 position-relative"
+          >
             <input
-              className="mb-2 position-relative form-control"
+              className="form-control"
               id="optional"
               name="optional"
               onBlur={[Function]}
@@ -162,7 +164,7 @@ Array [
                 >
                   <span
                     className="css-1f43avz-a11yText-A11yText"
-                    id="react-select-2-live-region"
+                    id="react-select-9-live-region"
                   />
                   <span
                     aria-atomic="false"
@@ -180,7 +182,7 @@ Array [
                     >
                       <div
                         className=" css-14el2xx-placeholder"
-                        id="react-select-2-placeholder"
+                        id="react-select-9-placeholder"
                       >
                         Country
                       </div>
@@ -190,7 +192,7 @@ Array [
                       >
                         <input
                           aria-autocomplete="list"
-                          aria-describedby="react-select-2-placeholder"
+                          aria-describedby="react-select-9-placeholder"
                           aria-expanded={false}
                           aria-haspopup={true}
                           autoCapitalize="none"
@@ -198,7 +200,7 @@ Array [
                           autoCorrect="off"
                           className=""
                           disabled={false}
-                          id="react-select-2-input"
+                          id="react-select-9-input"
                           onBlur={[Function]}
                           onChange={[Function]}
                           onFocus={[Function]}

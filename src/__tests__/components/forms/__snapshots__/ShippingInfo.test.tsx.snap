@@ -55,7 +55,7 @@ Array [
           >
             <input
               className="form-control"
-              id="Name"
+              id="name"
               name="name"
               onBlur={[Function]}
               onChange={[Function]}
@@ -200,7 +200,7 @@ Array [
           >
             <input
               className="form-control"
-              id="City"
+              id="city"
               name="city"
               onBlur={[Function]}
               onChange={[Function]}
@@ -228,7 +228,7 @@ Array [
                 >
                   <span
                     className="css-1f43avz-a11yText-A11yText"
-                    id="react-select-2-live-region"
+                    id="react-select-9-live-region"
                   />
                   <span
                     aria-atomic="false"
@@ -246,7 +246,7 @@ Array [
                     >
                       <div
                         className=" css-14el2xx-placeholder"
-                        id="react-select-2-placeholder"
+                        id="react-select-9-placeholder"
                       >
                         Country
                       </div>
@@ -256,7 +256,7 @@ Array [
                       >
                         <input
                           aria-autocomplete="list"
-                          aria-describedby="react-select-2-placeholder"
+                          aria-describedby="react-select-9-placeholder"
                           aria-expanded={false}
                           aria-haspopup={true}
                           autoCapitalize="none"
@@ -264,7 +264,7 @@ Array [
                           autoCorrect="off"
                           className=""
                           disabled={false}
-                          id="react-select-2-input"
+                          id="react-select-9-input"
                           onBlur={[Function]}
                           onChange={[Function]}
                           onFocus={[Function]}
@@ -331,7 +331,7 @@ Array [
               >
                 <input
                   className="form-control"
-                  id="Zip"
+                  id="zip"
                   name="zip"
                   onBlur={[Function]}
                   onChange={[Function]}
@@ -350,6 +350,7 @@ Array [
       <button
         className="sc-papXJ fRWQUH btn btn-primary"
         disabled={false}
+        id="submit"
         type="submit"
       >
         Continue

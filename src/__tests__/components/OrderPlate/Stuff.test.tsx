@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import { Stuff } from '../../../components/Index';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 describe('Stuff element', () => {
     const initialState = {order: {stuff: [
@@ -33,7 +33,7 @@ describe('Stuff element', () => {
 
     it('should rendered without stuff', () => {
         store = mockStore({order: {stuff: [], loading: false}});
-        const component = shallow(
+        const component = mount(
             <Provider store={store} >
                 <Stuff />
             </Provider>
@@ -44,7 +44,7 @@ describe('Stuff element', () => {
 
     it('should render loader when stuff empty', () => {
         store = mockStore({order: {stuff: [], loading: true}});
-        const component = shallow(
+        const component = mount(
             <Provider store={store} >
                 <Stuff />
             </Provider>

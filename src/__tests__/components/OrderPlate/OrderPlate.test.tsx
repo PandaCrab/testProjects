@@ -1,4 +1,4 @@
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
@@ -35,11 +35,13 @@ describe ('<OrderPlate />', () => {
     });
 
     it('should rendered without stuff', () => {
-        store = mockStore([]);
-        const component = shallow(
-            <Provider store={store}>
-                <OrderPlate />
-            </Provider>
+        store = mockStore({order: {stuff: [], loader: false}});
+        const component = mount(
+            <BrowserRouter>
+                <Provider store={store}>
+                    <OrderPlate />
+                </Provider>
+            </BrowserRouter>
         );
 
         expect(component).toBeDefined();
@@ -56,18 +58,21 @@ describe('Open and close buttons', () => {
             </BrowserRouter>
         </Provider>);
 
+
     it('should display or hide order on mobiles, when click', () => {
         component.find('button#open-close-btn').simulate('click');
-        expect(component.find('viewOrder')).toBeTruthy();
+        expect(component.find('section#orderInfo').prop('data-value')).toEqual(true);
 
         component.find('button#open-close-btn').simulate('click');
-        expect(component.find('OrderInfo').prop('displayMobile')).toEqual(false);
+        expect(component.find('section#orderInfo').prop('data-value')).toEqual(false);
     });
 
     it('should hide order on mobiles, when click', () => {
-        component.find('#close-btn').simulate('click');
+        component.find('button#open-close-btn').simulate('click');
+        expect(component.find('section#orderInfo').prop('data-value')).toEqual(true);
 
-        expect(component).toBeDefined()
+        component.find('svg#close-btn').simulate('click');
+        expect(component.find('section#orderInfo').prop('data-value')).toEqual(false);
     });
 
 });

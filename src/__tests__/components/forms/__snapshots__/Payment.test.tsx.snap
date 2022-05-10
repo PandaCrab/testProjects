@@ -49,12 +49,12 @@ Array [
         <label
           className="mb-0 form-label"
         >
-          Cardholder Name
+          cardholder Name
         </label>
         <input
           className="form-control"
-          id="cardHolder"
-          name="cardHolder"
+          id="cardholder"
+          name="cardholder"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Name as it appears on your card"

@@ -101,7 +101,7 @@ const ShippingInfo = () => {
                             <Form.Label className="mb-0">Recipient</Form.Label>
                             <Form.Group className="mb-4 position-relative">
                                 <Form.Control
-                                id="Name"
+                                id="name"
                                 type="text"
                                 name="name" 
                                 onChange={(event: values) => setShipping({...shipping, name: event.target.value})}
@@ -119,7 +119,7 @@ const ShippingInfo = () => {
                                         <Form.Control
                                             as={PhoneControlInput}
                                             specialLabel=""
-                                            id="Phone" 
+                                            id="phone" 
                                             type="text"
                                             name="phone"
                                             onChange={(value) => setShipping({...shipping, phone: value})}
@@ -181,7 +181,7 @@ const ShippingInfo = () => {
                             </Form.Group>
                             <Form.Group className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative">
                                 <Form.Control
-                                    id="City"
+                                    id="city"
                                     type="text"
                                     name="city" 
                                     onChange={(event: values) => setShipping({...shipping, city: event.target.value})}
@@ -215,7 +215,7 @@ const ShippingInfo = () => {
                                     </Col>
                                     <Col sm="5" xs="5">
                                         <Form.Control
-                                            id="Zip"
+                                            id="zip"
                                             type="text"
                                             name="zip"  
                                             onChange={(event: values) => setShipping({...shipping, zip: event.target.value})}
@@ -232,6 +232,7 @@ const ShippingInfo = () => {
                         </Form.Group>
                     </Form.Group>
                     <StyledButton
+                        id="submit"
                         variant="primary" 
                         type="submit">
                         Continue

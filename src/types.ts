@@ -70,5 +70,9 @@ export type values = { target: { value: string }};
 
 export type actionAddressTypes = { 
     type: string,
-    payload: any
+    payload: {
+        name: string,
+        locality: string,
+        country: string
+    }
 };

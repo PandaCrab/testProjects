@@ -140,7 +140,7 @@ const BillingInfo = () => {
                                 onBlur={formik.handleBlur}
                                 value={formik.values.email}
                                 isInvalid={ !!formik.errors.email }
-                                placeholder="Email street" />
+                                placeholder="Email address" />
                             <Form.Control.Feedback type='invalid' tooltip>
                                 { formik.touched.email && formik.errors.email }
                             </Form.Control.Feedback>
@@ -179,9 +179,8 @@ const BillingInfo = () => {
                                     { formik.touched.street && formik.errors.street }
                                 </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group>
-                                <Form.Control 
-                                    className="mb-2 position-relative"
+                            <Form.Group className='mb-2 position-relative'>
+                                <Form.Control
                                     id="optional"
                                     type="text"
                                     name="optional" 

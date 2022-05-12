@@ -220,7 +220,7 @@ describe('Check code field', () => {
             component.find('form').prop('onSubmit')(mockHandleSubmit());
             button.simulate('click');
     
-            expect(mockHandleSubmit).toHaveBeenCalled();
+            expect(mockHandleSubmit).toHaveBeenCalledTimes(1);
         });
     });
 });

@@ -1,10 +1,10 @@
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 
 import { ShippingInfo } from '../../../components/Index';
+import { act } from 'react-test-renderer';
 
 const initialState: any = {address: {
     navigatorAddress: []
@@ -13,11 +13,11 @@ const mockStore = configureStore();
 let store: any;
 
 describe('shipping info component:', () => {
-    store = mockStore(initialState)
+    store = mockStore(initialState);
     
     it('should render correctly Shipping info component', () => {
         store = mockStore(initialState);
-        const component = renderer.create(
+        const component = mount(
             <Provider store={store}>
                 <BrowserRouter>
                     <ShippingInfo />
@@ -30,13 +30,13 @@ describe('shipping info component:', () => {
 });
 
 describe('Check name field in Shipping info component', () => {
-    store = mockStore(initialState)
+    store = mockStore(initialState);
     const component = mount(
         <Provider store={store}>
             <BrowserRouter>
                 <ShippingInfo />
             </BrowserRouter>
-        </Provider>)
+        </Provider>);
 
     const nameInput = component.find('input[name="name"]')
 
@@ -64,18 +64,18 @@ describe('Check name field in Shipping info component', () => {
             target: { value: 'Vasya Pupkin' } 
         });
         const inputAfterChange = component.find('input[name="name"]');
-        expect(inputAfterChange.prop('value')).toEqual('Vasya Pupkin');
+        act(() => expect(inputAfterChange.prop('value')).toEqual('Vasya Pupkin'));
     });
 });
 
 describe('check phone field', () => {
-    store = mockStore(initialState)
+    store = mockStore(initialState);
     const component = mount(
         <Provider store={store}>
             <BrowserRouter>
                 <ShippingInfo />
             </BrowserRouter>
-        </Provider>)
+        </Provider>);
 
     const phoneInput = component.find('input[type="tel"]');
 
@@ -107,18 +107,18 @@ describe('check phone field', () => {
         });
 
         const inputAfterChange = component.find('input[type="tel"]');
-        expect(inputAfterChange.prop('value')).toEqual('+7 (800) 555-35-35');
+        act(() => expect(inputAfterChange.prop('value')).toEqual('+7 (800) 555-35-35'));
     });
 });
 
 describe('check street field', () => {
-    store = mockStore(initialState)
+    store = mockStore(initialState);
     const component = mount(
         <Provider store={store}>
             <BrowserRouter>
                 <ShippingInfo />
             </BrowserRouter>
-        </Provider>)
+        </Provider>);
 
     const streetInput = component.find('input[name="street"]');
 
@@ -135,6 +135,7 @@ describe('check street field', () => {
             onChange: streetInput.prop('onChange'),
             onBlur: streetInput.prop('onBlur'),
             onFocus: streetInput.prop('onFocus'),
+            'data-value': false,
             value: '',
             placeholder: 'Street address',
             readOnly: undefined,
@@ -148,18 +149,62 @@ describe('check street field', () => {
         });
 
         const inputAfterChange = component.find('input[name="street"]');
-        expect(inputAfterChange.prop('value')).toEqual('9 Kolotushina');
+        act(() => expect(inputAfterChange.prop('value')).toEqual('9 Kolotushina'));
     });
 });
 
-describe('check optional field', () => {
-    store = mockStore(initialState)
+describe('check addressFocus true or false', () => {
+    store = mockStore(initialState);
     const component = mount(
         <Provider store={store}>
             <BrowserRouter>
                 <ShippingInfo />
             </BrowserRouter>
-        </Provider>)
+        </Provider>);
+
+    it('should change addressFocus to true when focus', () => {
+        component.find('input[name="street"]').simulate('focus');
+
+        act(() => expect(component.find('input[name="street"]').prop('data-value')).toEqual(true));
+    });
+
+    it('should change addressFocus to false when unfocus', () => {
+        component.find('input[name="street"]').simulate('blur');
+
+        setTimeout(() => expect(component.find('input[name="street"]').prop('data-value')).toEqual(false), 500);
+    });
+});
+
+describe('Check navigator button', () => {
+    store = mockStore(initialState);
+    const component = mount(
+        <Provider store={store}>
+            <BrowserRouter>
+                <ShippingInfo />
+            </BrowserRouter>
+        </Provider>);
+
+    it('should have button of autocomplete navigator address', () => {
+        expect(component.find('BsGeoAltFill')).toBeDefined();
+    });
+
+    it('should autocomplete', () => {
+        const mockAutocomplete = jest.fn();
+        component.find('BsGeoAltFill').prop('onClick')(mockAutocomplete());
+        component.find('BsGeoAltFill').simulate('click');
+
+        expect(mockAutocomplete).toHaveBeenCalled();
+    })
+});
+
+describe('check optional field', () => {
+    store = mockStore(initialState);
+    const component = mount(
+        <Provider store={store}>
+            <BrowserRouter>
+                <ShippingInfo />
+            </BrowserRouter>
+        </Provider>);
 
     const optionalInput = component.find('input[name="optional"]');
 
@@ -188,18 +233,18 @@ describe('check optional field', () => {
         });
 
         const inputAfterChange = component.find('input[name="optional"]');
-        expect(inputAfterChange.prop('value')).toEqual('Door code: 3322');
+        act(() => expect(inputAfterChange.prop('value')).toEqual('Door code: 3322'));
     });
 });
 
 describe('check city field', () => {
-    store = mockStore(initialState)
+    store = mockStore(initialState);
     const component = mount(
         <Provider store={store}>
             <BrowserRouter>
                 <ShippingInfo />
             </BrowserRouter>
-        </Provider>)
+        </Provider>);
 
     const cityInput = component.find('input[name="city"]');
 
@@ -228,18 +273,18 @@ describe('check city field', () => {
         });
 
         const inputAfterChange = component.find('input[name="city"]');
-        expect(inputAfterChange.prop('value')).toEqual('Laplandia');
+        act(() => expect(inputAfterChange.prop('value')).toEqual('Laplandia'));
     });
 });
 
 describe('check zip field', () => {
-    store = mockStore(initialState)
+    store = mockStore(initialState);
     const component = mount(
         <Provider store={store}>
             <BrowserRouter>
                 <ShippingInfo />
             </BrowserRouter>
-        </Provider>)
+        </Provider>);
 
     const zipInput = component.find('input[name="zip"]');
 
@@ -268,7 +313,7 @@ describe('check zip field', () => {
         });
 
         const inputAfterChange = component.find('input[name="zip"]');
-        expect(inputAfterChange.prop('value')).toEqual('3221344');
+        act(() => expect(inputAfterChange.prop('value')).toEqual('3221344'));
     });
 });
 

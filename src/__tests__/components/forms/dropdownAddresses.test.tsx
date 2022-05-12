@@ -12,7 +12,7 @@ const initialState: any = {address: {
                 name: '7a heros of Ukraine',
                 locality: 'Lokvyts`a',
                 country: 'Ukraine',
-                label: '7a heros of Ukraine, Likhvitsy`a, Ukraine'
+                label: '7a heros of Ukraine, Lokhvitsy`a, Ukraine'
             }
         },
         {
@@ -34,7 +34,24 @@ const props = {
 };
 
 describe('Dropdown addresses section render', () => {
+    store = mockStore(initialState);
+    const component = mount(
+        <Provider store={store}>
+            <DropdownAddresses {...props} />
+        </Provider>
+    );
+
     it('should render component correct', () => {
+        expect(component).toMatchSnapshot();
+    });
+
+    it('should have items', () => {
+        expect(component.find('li[key=12234]')).toBeDefined();
+    })
+});
+
+describe('check activate autocomplete on click', () => {
+    it('should fire autocomplete on click', () => {
         store = mockStore(initialState);
         const component = mount(
             <Provider store={store}>
@@ -42,6 +59,8 @@ describe('Dropdown addresses section render', () => {
             </Provider>
         );
 
-        expect(component).toMatchSnapshot();
+        component.find('li').first().simulate('click');
+
+        expect(props.autocomplete).toHaveBeenCalled();
     });
 });

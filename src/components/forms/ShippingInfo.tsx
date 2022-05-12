@@ -153,6 +153,7 @@ const ShippingInfo = () => {
                                     onBlur={() => {
                                         setTimeout(() => setAddressFocus(false), 500);
                                     }}
+                                    data-value={addressFocus}
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />

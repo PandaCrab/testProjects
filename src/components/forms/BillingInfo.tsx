@@ -110,7 +110,7 @@ const BillingInfo = () => {
             <Info>
                 <FormLabel>
                     <FormLabelHeader>Billing Information</FormLabelHeader>
-                    <FormLabelParagraph onClick={() => handleSameAsShipping()} >Same as shipping</FormLabelParagraph>
+                    <FormLabelParagraph id='same-as-shipping' onClick={() => handleSameAsShipping()} >Same as shipping</FormLabelParagraph>
                 </FormLabel>
                 <Form
                     noValidate
@@ -163,10 +163,11 @@ const BillingInfo = () => {
                                     onBlur={() => {
                                         setTimeout(() => setAddressFocus(false), 500);
                                     }}
+                                    data-value={addressFocus}
                                     value={formik.values.street}
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
-                                    {navigatorAddress ? null : (
+                                    {navigatorAddress && (
                                         <NavigateAutocomplete onClick={() => handleAutocomplete(
                                             navigatorAddress.street,
                                             navigatorAddress.city,

@@ -28,7 +28,7 @@ exports[`Dropdown addresses section render should render component correct 1`] =
             className="sc-eCYdqJ hCLdSg"
             onClick={[Function]}
           >
-            7a heros of Ukraine, Likhvitsy\`a, Ukraine
+            7a heros of Ukraine, Lokhvitsy\`a, Ukraine
           </li>
         </styled.li>
         <styled.li

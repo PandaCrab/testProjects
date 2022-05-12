@@ -1,7 +1,6 @@
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 
 import { BillingInfo } from '../../../components/Index';
@@ -16,7 +15,7 @@ describe('Billing info component', () => {
 
     it('should render BillingInfo component correctly', () => {
         store = mockStore(initialState);
-        const component = renderer.create(
+        const component = mount(
             <Provider store={store}>
                 <BrowserRouter>
                     <BillingInfo />
@@ -28,6 +27,22 @@ describe('Billing info component', () => {
     });
 
 });
+
+describe('check same as shipping button', () => {
+    store = mockStore(initialState);
+    const mockSameAsShipping = jest.fn();
+    const component = mount(
+        <Provider store={store}>
+            <BrowserRouter>
+                <BillingInfo />
+            </BrowserRouter>
+        </Provider>
+    );
+
+    component.find('p#same-as-shipping').prop('onClick')(mockSameAsShipping());
+
+    expect(mockSameAsShipping).toHaveBeenCalled();
+})
 
 describe('Check name field in Billing info component', () => {
     store = mockStore(initialState)
@@ -133,6 +148,7 @@ describe('check street field', () => {
             onChange: streetInput.prop('onChange'),
             onBlur: streetInput.prop('onBlur'),
             onFocus: streetInput.prop('onFocus'),
+            'data-value': false,
             value: '',
             placeholder: 'Street address',
             readOnly: undefined,
@@ -148,6 +164,52 @@ describe('check street field', () => {
         const inputAfterChange = component.find('input[name="street"]');
         expect(inputAfterChange.prop('value')).toEqual('9 Kolotushina');
     });
+});
+
+describe('check addressFocus true or false', () => {
+    store = mockStore(initialState);
+    const component = mount(
+        <Provider store={store}>
+            <BrowserRouter>
+                <BillingInfo />
+            </BrowserRouter>
+        </Provider>);
+
+    it('should change addressFocus to true when focus', () => {
+        component.find('input[name="street"]').simulate('focus');
+
+        expect(component.find('input[name="street"]').prop('data-value')).toEqual(true);
+    });
+
+    it('should change addressFocus to false when unfocus', () => {
+        component.find('input[name="street"]').simulate('blur');
+
+        
+
+        setTimeout( () => expect(component.find('input[name="street"]').prop('data-value')).toEqual(false), 500);
+    });
+});
+
+describe('Check navigator button', () => {
+    store = mockStore(initialState);
+    const component = mount(
+        <Provider store={store}>
+            <BrowserRouter>
+                <BillingInfo />
+            </BrowserRouter>
+        </Provider>);
+
+    it('should have button of autocomplete navigator address', () => {
+        expect(component.find('BsGeoAltFill')).toBeDefined();
+    });
+
+    it('should autocomplete', () => {
+        const mockAutocomplete = jest.fn();
+        component.find('BsGeoAltFill').prop('onClick')(mockAutocomplete());
+        component.find('BsGeoAltFill').simulate('click');
+
+        expect(mockAutocomplete).toHaveBeenCalled();
+    })
 });
 
 describe('check optional field', () => {
@@ -230,6 +292,24 @@ describe('check city field', () => {
     });
 });
 
+describe('country select', () => {
+    store = mockStore(initialState)
+    const component = mount(
+        <Provider store={store}>
+            <BrowserRouter>
+                <BillingInfo />
+            </BrowserRouter>
+        </Provider>)
+
+    it('should change value', () => {
+        component.find('CountriesSelect').simulate('change', {
+            value: { label: 'Ukraine' }
+        });
+
+        setTimeout(() => expect(component.find('CountriesSelect').prop('value')).toEqual('Ukraine'), 100);
+    });
+});
+
 describe('check zip field', () => {
     store = mockStore(initialState)
     const component = mount(
@@ -268,29 +348,50 @@ describe('check zip field', () => {
         const inputAfterChange = component.find('input[name="zip"]');
         expect(inputAfterChange.prop('value')).toEqual('321334');
     });
+});
 
-    describe('Submit button', () => {
-        store = mockStore(initialState);
-        const component = mount(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <BillingInfo />
-                </BrowserRouter>
-            </Provider>
-        );
-    
-        const button = component.find('button[type="submit"]');
-    
-        it('should have submit button', () => {
-            expect(button.length).toEqual(1);
-        });
-    
-        it('should submit on click', () => {
-            const mockHandleSubmit = jest.fn();
-            component.find('form').prop('onSubmit')(mockHandleSubmit());
-            button.simulate('click');
-    
-            expect(mockHandleSubmit).toHaveBeenCalled();
-        });
+describe('Submit button', () => {
+    store = mockStore(initialState);
+    const component = mount(
+        <Provider store={store}>
+            <BrowserRouter>
+                <BillingInfo />
+            </BrowserRouter>
+        </Provider>
+    );
+
+    const button = component.find('button[type="submit"]');
+
+    it('should have submit button', () => {
+        expect(button.length).toEqual(1);
+    });
+
+    it('should submit on click', () => {
+        const mockHandleSubmit = jest.fn();
+        component.find('form').prop('onSubmit')(mockHandleSubmit());
+        button.simulate('click');
+
+        expect(mockHandleSubmit).toHaveBeenCalled();
     });
 });
+
+// describe('submit from', () => {
+//     store = mockStore(initialState);
+//     const component = mount(
+//         <Provider store={store}>
+//             <BrowserRouter>
+//                 <BillingInfo />
+//             </BrowserRouter>
+//         </Provider>
+//     );
+
+//     it('should submit form', () => {
+//         const mockSubmit = () => {
+//             jest.fn()
+//         };
+//         component.find('form').prop('onSubmit')(mockSubmit());
+//         component.find('form').simulate('submit');
+
+//         expect(mockSubmit).toHaveBeenCalledTimes(1);
+//     });
+// });

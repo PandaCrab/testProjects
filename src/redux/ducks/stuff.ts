@@ -2,17 +2,17 @@ import { takeEvery, put, call } from 'redux-saga/effects';
 
 import { fetchStuff } from '../../api';
 
-const FETCH_STUFF = 'stuff/FETCH_STUFF';
+export const FETCH_STUFF = 'stuff/FETCH_STUFF';
 const REQUEST_STUFF = 'stuff/REQUEST_STUFF';
-const SHOW_LOADER = 'global/SHOW_LOADER';
-const HIDE_LOADER = 'global/HIDE_LOADER';
+export const SHOW_LOADER = 'global/SHOW_LOADER';
+export const HIDE_LOADER = 'global/HIDE_LOADER';
 
 const initialState: {stuff: any[], loading: boolean} = {
     stuff: [],
     loading: false
 };
 
-export default function stuffReducer (state = initialState, action: { type: string; payload: any[]}) {
+export default function stuffReducer (state = initialState, action: { type: string | any; payload?: any[]}) {
     switch ( action.type ) {
         case FETCH_STUFF: 
             return { ...state, stuff: action.payload };
@@ -40,7 +40,7 @@ const hideLoader = () => ({
     type: HIDE_LOADER
 });
 
-function* fillStuff() {
+export function* fillStuff() {
     yield put(showLoader());
     const payload: [] = yield call(fetchStuff);
     yield put({ type: FETCH_STUFF, payload });

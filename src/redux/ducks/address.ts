@@ -10,14 +10,14 @@ import {
 
 import * as api from '../../api';
 
-import type { addressState, actionAddressTypes, coordinates } from '../../types';
+import type { addressState, actionAddressTypes, coordinates, addressPayload } from '../../types';
 
-const SET_GEOLOCATION_COORDINATES = 'address/SET_GEOLOCATION_COORDINATES';
-const FETCH_NAVIGATOR_ADDRESS = 'address/FETCH_NAVIGATOR_ADDRESS';
+export const SET_GEOLOCATION_COORDINATES = 'address/SET_GEOLOCATION_COORDINATES';
+export const FETCH_NAVIGATOR_ADDRESS = 'address/FETCH_NAVIGATOR_ADDRESS';
 const REQUEST_NAVIGATOR_ADDRESS = 'address/REQUEST_NAVIGATOR_ADDRESS';
-const FETCH_ADDRESS = 'address/FETCH_ADDRESS';
+export const FETCH_ADDRESS = 'address/FETCH_ADDRESS';
 const REQUEST_ADDRESS = 'address/REQUEST_ADDRESS';
-const SEARCH_ADDRESS = 'address/SEARCH_ADDRESSS';
+export const SEARCH_ADDRESS = 'address/SEARCH_ADDRESSS';
 
 const initialState: addressState = {
     addressInput: '',
@@ -40,9 +40,9 @@ export default function addressReducer(state = initialState, action: actionAddre
                 country: action.payload.country
             }};
         case SEARCH_ADDRESS:
-            return {...state, addressInput: action.payload};
+            return {...state, addressInput: action.payload.text};
         case FETCH_ADDRESS:
-            return {...state, addresses: action.payload};
+            return {...state, addresses: action.payload.addresses};
         default: 
             return state;
     }
@@ -66,7 +66,7 @@ export const takeNavigagtorAddress = () => ({
 //Address autocomplete
 export const fillAddressInput = (text: string) => ({
     type: SEARCH_ADDRESS,
-    payload: text
+    payload: { text: text}
 });
 
 //fetch addresses
@@ -125,6 +125,6 @@ export function* addressWatcher() {
 
 function* fillAddress() {
     yield delay(1000);
-    const payload: [] = yield call(api.fetchAddress);
+    const payload: addressPayload = { addresses: yield call(api.fetchAddress) };
     yield put({type: FETCH_ADDRESS, payload});
 };

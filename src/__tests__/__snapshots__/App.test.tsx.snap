@@ -347,7 +347,7 @@ exports[`App component render app component 1`] = `
                                 className="sc-gicCDI bjluxt"
                               >
                                 $
-                                110
+                                0
                               </p>
                             </styled.p>
                             <styled.p>
@@ -385,7 +385,7 @@ exports[`App component render app component 1`] = `
                             className="sc-bZkfAO gehmlG"
                           >
                             $
-                            122.12
+                            12.12
                           </p>
                         </styled.p>
                       </section>

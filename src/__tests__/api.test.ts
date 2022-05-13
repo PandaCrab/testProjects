@@ -37,7 +37,6 @@ it('should post data', async () => {
         shipping: {
             name: '',
             phone: undefined,
-            email: '',
             street: '',
             optional: '',
             city: '',
@@ -55,9 +54,9 @@ it('should post data', async () => {
         },
         payment: {
             cardHolder: '',
-            cardNum: 0,
-            date: 0,
-            code: 0
+            cardNum: '',
+            date: '',
+            code: ''
         }
     };
 

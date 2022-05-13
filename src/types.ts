@@ -30,7 +30,6 @@ export type data = {
     shipping: {
         name: string,
         phone: any,
-        email: string,
         street: string,
         optional: string,
         city: string,
@@ -48,9 +47,9 @@ export type data = {
     },
     payment: {
         cardHolder: string,
-        cardNum: number,
-        date: number,
-        code: number
+        cardNum: string,
+        date: string,
+        code: string
     }
 };
 
@@ -70,9 +69,31 @@ export type values = { target: { value: string }};
 
 export type actionAddressTypes = { 
     type: string,
-    payload: {
-        name: string,
-        locality: string,
-        country: string
+    payload?: {
+        lat?: number,
+        lon?: number
+        name?: string,
+        locality?: string,
+        country?: string,
+        text?: string
+        addresses?: {properties: {
+            id?: number;
+            name?: string;
+            locality?: string;
+            country?: string;
+            label?: string;
+        }}[]
     }
+};
+
+export type addressPayload = {
+    addresses: {
+        properties: {
+            id: number;
+            name: string;
+            locality: string;
+            country: string;
+            label: string;
+        }
+    }[]
 };

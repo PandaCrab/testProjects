@@ -43,13 +43,19 @@ const OrderPlate = () => {
 
     const stuff = useSelector((state: RootState) => state.order.stuff);
     useEffect(() => {
-            const addPrices = stuff.reduce((accumulator, currentValue) => 
+        if(stuff.length > 1) {const addPrices = stuff.reduce((accumulator, currentValue) => 
                 accumulator + currentValue.price, 0);
         
-        setPrices(prices => ({
-            ...prices,
-            subtotal: addPrices
-        }));
+            setPrices(prices => ({
+                ...prices,
+                subtotal: addPrices
+            }));
+        } else {
+            setPrices(prices => ({
+                ...prices,
+                subtotal: 0 
+            }));
+        }
     }, [stuff]);
 
     const checkFreeShipping = () => {

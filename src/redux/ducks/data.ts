@@ -4,9 +4,9 @@ import { fetchPostData } from '../../api';
 import { data } from '../../types';
 
 const REQUEST_DATA = 'data/REQUEST_DATA';
-const FILL_SHIPPING_DATA = 'data/FILL_SHIPPING_DATA';
-const FILL_BILLING_DATA = 'data/FILL_BILLING_DATA';
-const FILL_PAYMENT_DATA = 'data/FILL_PAYMENT_DATA';
+export const FILL_SHIPPING_DATA = 'data/FILL_SHIPPING_DATA';
+export const FILL_BILLING_DATA = 'data/FILL_BILLING_DATA';
+export const FILL_PAYMENT_DATA = 'data/FILL_PAYMENT_DATA';
 
 const initialState = {};
 
@@ -56,7 +56,7 @@ export function* dataWatcher() {
     yield takeEvery(REQUEST_DATA, postData);
 };
 
-function* postData() {
+export function* postData() {
     const data: data = yield select(dataSelector);
     yield call(fetchPostData, data);
 };

@@ -1,4 +1,4 @@
-import configureStore from 'redux-mock-store'
+import configureStore from 'redux-mock-store';
 
 import addressReducer, {
     SET_GEOLOCATION_COORDINATES,
@@ -6,7 +6,7 @@ import addressReducer, {
     SEARCH_ADDRESS,
     FETCH_ADDRESS,
     takeGeolocation,
-    fillAddressInput,
+    fillAddressInput
 } from '../../../redux/ducks/address';
 
 import { addressState } from '../../../types';

@@ -1,4 +1,5 @@
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
@@ -39,7 +40,7 @@ describe('check same as shipping button', () => {
         </Provider>
     );
 
-    component.find('p#same-as-shipping').prop('onClick')(mockSameAsShipping());
+    act(() => component.find('p#same-as-shipping').prop('onClick')(mockSameAsShipping()));
 
     expect(mockSameAsShipping).toHaveBeenCalled();
 })
@@ -184,8 +185,6 @@ describe('check addressFocus true or false', () => {
     it('should change addressFocus to false when unfocus', () => {
         component.find('input[name="street"]').simulate('blur');
 
-        
-
         setTimeout( () => expect(component.find('input[name="street"]').prop('data-value')).toEqual(false), 500);
     });
 });
@@ -205,10 +204,9 @@ describe('Check navigator button', () => {
 
     it('should autocomplete', () => {
         const mockAutocomplete = jest.fn();
-        component.find('BsGeoAltFill').prop('onClick')(mockAutocomplete());
-        component.find('BsGeoAltFill').simulate('click');
+        act(() => component.find('BsGeoAltFill').prop('onClick')(mockAutocomplete()));
 
-        expect(mockAutocomplete).toHaveBeenCalled();
+        expect(mockAutocomplete).toHaveBeenCalledTimes(1);
     })
 });
 
@@ -292,21 +290,21 @@ describe('check city field', () => {
     });
 });
 
-describe('country select', () => {
-    store = mockStore(initialState)
+describe('Check country select', () => {
+    store = mockStore(initialState);
     const component = mount(
         <Provider store={store}>
             <BrowserRouter>
                 <BillingInfo />
             </BrowserRouter>
-        </Provider>)
+        </Provider>);
 
-    it('should change value', () => {
-        component.find('CountriesSelect').simulate('change', {
-            value: { label: 'Ukraine' }
-        });
+    const changeMock = jest.fn().mockReturnValue({label: 'Ukraine'});
 
-        setTimeout(() => expect(component.find('CountriesSelect').prop('value')).toEqual('Ukraine'), 100);
+    it('should fire onChange', () => {
+        act (() => {component.find('CountriesSelect').prop('onChange')(changeMock())});
+
+        expect(changeMock).toHaveBeenCalled();
     });
 });
 
@@ -368,30 +366,8 @@ describe('Submit button', () => {
 
     it('should submit on click', () => {
         const mockHandleSubmit = jest.fn();
-        component.find('form').prop('onSubmit')(mockHandleSubmit());
-        button.simulate('click');
+       act(() => component.find('form').prop('onSubmit')(mockHandleSubmit()));
 
         expect(mockHandleSubmit).toHaveBeenCalled();
     });
 });
-
-// describe('submit from', () => {
-//     store = mockStore(initialState);
-//     const component = mount(
-//         <Provider store={store}>
-//             <BrowserRouter>
-//                 <BillingInfo />
-//             </BrowserRouter>
-//         </Provider>
-//     );
-
-//     it('should submit form', () => {
-//         const mockSubmit = () => {
-//             jest.fn()
-//         };
-//         component.find('form').prop('onSubmit')(mockSubmit());
-//         component.find('form').simulate('submit');
-
-//         expect(mockSubmit).toHaveBeenCalledTimes(1);
-//     });
-// });

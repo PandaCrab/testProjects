@@ -51,6 +51,16 @@ describe('Stuff element', () => {
         );
 
         expect(component.find('LoaderContainer')).toBeDefined();
-    })
+    });
 
+    it('should render loader when stuff is null', () => {
+        store = mockStore({order: {stuff: null, loading: false}});
+        const component = mount(
+            <Provider store={store} >
+                <Stuff />
+            </Provider>
+        );
+
+        expect(component.find('LoaderContainer')).toBeTruthy();
+    });
 });

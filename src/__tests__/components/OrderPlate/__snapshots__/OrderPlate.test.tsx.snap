@@ -3,13 +3,13 @@
 exports[`<OrderPlate /> should render correctly order plate component 1`] = `
 Array [
   <section
-    className="sc-ksZaOG ibhyab"
+    className="sc-hAZoDl kUkOog"
     data-value={false}
     id="orderInfo"
   >
     <section>
       <svg
-        className="sc-kLLXSd kBBKOh"
+        className="sc-ikZpkk btzZAt"
         fill="currentColor"
         height="1em"
         id="close-btn"
@@ -33,52 +33,52 @@ Array [
         />
       </svg>
       <section
-        className="sc-hAZoDl cQWdqi"
+        className="sc-fnykZs bJvmGF"
       >
         <h6
-          className="sc-fnykZs kPWXFA"
+          className="sc-fEOsli gdtNsh"
         >
           Order Summary
         </h6>
          
         <button
-          className="sc-fEOsli ciOOuy"
+          className="sc-bjUoiL bqnLr"
         >
           edit order
         </button>
       </section>
       <div
-        className="sc-bjUoiL gLLEmD"
+        className="sc-idiyUo hzUHfP"
       >
         <section
-          className="sc-hHLeRK dPNuhk"
+          className="sc-dmRaPn dEaXlw"
         >
           <img
             alt="Check Print Shirt"
-            className="sc-dmRaPn zCVrD"
+            className="sc-kgflAQ jBeHF"
             src="https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0"
           />
           <section
-            className="sc-kgflAQ dbCiuf"
+            className="sc-fLlhyt eIMmde"
           >
             <h6
-              className="sc-fLlhyt clxgpt"
+              className="sc-bBrHrO hcTbiR"
             >
               Check Print Shirt
             </h6>
             <p
-              className="sc-bBrHrO bXHGEt"
+              className="sc-ivTmOn Tdoil"
             >
               Grey+red+black
             </p>
             <p
-              className="sc-bBrHrO bXHGEt"
+              className="sc-ivTmOn Tdoil"
             >
               Quantity: 1
             </p>
           </section>
           <p
-            className="sc-ivTmOn bpCsUh"
+            className="sc-cxabCf bUUgBj"
           >
             110
             $
@@ -86,44 +86,44 @@ Array [
         </section>
       </div>
       <section
-        className="sc-cxabCf lbMhQR"
+        className="sc-llJcti dXItsY"
       >
         <section
-          className="sc-llJcti iyHPPe"
+          className="sc-iIPllB bvgYcg"
         >
           <p
-            className="sc-gicCDI bjluxt"
+            className="sc-ezWOiH eqlOWA"
           >
             Subtotal
           </p>
           <p
-            className="sc-gicCDI bjluxt"
+            className="sc-ezWOiH eqlOWA"
           >
             Shipping
           </p>
           <p
-            className="sc-gicCDI bjluxt"
+            className="sc-ezWOiH eqlOWA"
           >
             Taxes
           </p>
         </section>
         <section
-          className="sc-iIPllB iIWbyc"
+          className="sc-gicCDI iaFVfp"
         >
           <p
-            className="sc-gicCDI bjluxt"
+            className="sc-ezWOiH eqlOWA"
           >
             $
             0
           </p>
           <p
-            className="sc-gicCDI bjluxt"
+            className="sc-ezWOiH eqlOWA"
           >
             $
             Free
           </p>
           <p
-            className="sc-gicCDI bjluxt"
+            className="sc-ezWOiH eqlOWA"
           >
             $
             12.12
@@ -131,15 +131,15 @@ Array [
         </section>
       </section>
       <section
-        className="sc-ezWOiH imiMFu"
+        className="sc-bZkfAO cZNQhX"
       >
         <p
-          className="sc-bZkfAO gehmlG"
+          className="sc-kLLXSd fpeVzF"
         >
           Total
         </p>
         <p
-          className="sc-bZkfAO gehmlG"
+          className="sc-kLLXSd fpeVzF"
         >
           $
           12.12
@@ -148,14 +148,14 @@ Array [
     </section>
     <section>
       <section
-        className="sc-ikZpkk ZNTXr"
+        className="sc-jIZahH jpFjKL"
       >
         <p
-          className="sc-jIZahH jsQqEc"
+          className="sc-himrzO kCFsaP"
         >
           All purchases are subject to our
           <a
-            className="sc-himrzO jeWplj"
+            className="sc-gXmSlM QFMyE"
             href="/TermsAndConditions"
             onClick={[Function]}
           >
@@ -166,7 +166,7 @@ Array [
     </section>
   </section>,
   <button
-    className="sc-gXmSlM jELbHU"
+    className="sc-cCsOjp jsjuxO"
     id="open-close-btn"
     onClick={[Function]}
   >

@@ -214,10 +214,6 @@ const BillingInfo = () => {
                                             ...billing, 
                                             country: value.label})}
                                         onBlur={formik.handleBlur}
-                                        onInputChange={(value: string) => setBilling({
-                                            ...billing,
-                                            country: value
-                                        })}
                                         value={formik.values.country}
                                         placeholder='Country'
                                         error={ formik.errors.country }

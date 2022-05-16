@@ -3,7 +3,7 @@
 exports[`Payment component: should render correctly Order plate component 1`] = `
 Array [
   <section
-    className="sc-cOFTSb foYTCl"
+    className="sc-BeQoi dbxsDW"
   >
     <a
       href="/shipping"
@@ -30,10 +30,10 @@ Array [
     className="sc-bczRLJ iLjvJl"
   >
     <section
-      className="sc-jqUVSM drOJkA"
+      className="sc-kDDrLX hFYHf"
     >
       <h4
-        className="sc-kDDrLX hxhBIM"
+        className="sc-iqcoie bSFIcJ"
       >
         Payment
       </h4>
@@ -79,7 +79,7 @@ Array [
           <input
             aria-label="Card number"
             autoComplete="cc-number"
-            className="sc-gKXOVf QmbpH form-control"
+            className="sc-iBkjds bHhSWR form-control"
             id="cardNum"
             name="cardNum"
             onBlur={[Function]}
@@ -158,7 +158,7 @@ Array [
         </div>
       </div>
       <button
-        className="sc-papXJ fRWQUH btn btn-primary"
+        className="sc-jqUVSM lirFSS btn btn-primary"
         disabled={false}
         type="submit"
       >

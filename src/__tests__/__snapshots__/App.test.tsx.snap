@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component render app component 1`] = `
+exports[`should render app component 1`] = `
 <Provider
   store={
     Object {
@@ -50,21 +50,21 @@ exports[`App component render app component 1`] = `
         <Memo(l) />
         <styled.section>
           <section
-            className="sc-cCsOjp bhGiXb"
+            className="sc-ciZhAO jQljdz"
           >
             <styled.h5>
               <h5
-                className="sc-jdAMXn eUAjuQ"
+                className="sc-bZnhIo iLhPIU"
               >
                  
                 <styled.span>
                   <span
-                    className="sc-ciZhAO bjcAgv"
+                    className="sc-jdAMXn jUqhjl"
                   >
                     &lt; 
                     <styled.span>
                       <span
-                        className="sc-dPyBCJ gYxQKO"
+                        className="sc-bBXxYQ jGdUTY"
                       >
                         ⁄
                       </span>
@@ -77,22 +77,22 @@ exports[`App component render app component 1`] = `
             </styled.h5>
             <styled.section>
               <section
-                className="sc-bZnhIo kSpcjZ"
+                className="sc-iTONeN eaMVdC"
               >
                 <styled.p>
                   <p
-                    className="sc-cTQhss cXevid"
+                    className="sc-jOrMOR goGEI"
                   >
                     cart
                   </p>
                 </styled.p>
                 <styled.div>
                   <div
-                    className="sc-iTONeN blezqX"
+                    className="sc-iAvgwm rvmqv"
                   >
                     <Styled(HiOutlineShoppingCart)>
                       <HiOutlineShoppingCart
-                        className="sc-jOrMOR bTfVDu"
+                        className="sc-dPyBCJ cbPGMr"
                       >
                         <IconBase
                           attr={
@@ -102,10 +102,10 @@ exports[`App component render app component 1`] = `
                               "viewBox": "0 0 24 24",
                             }
                           }
-                          className="sc-jOrMOR bTfVDu"
+                          className="sc-dPyBCJ cbPGMr"
                         >
                           <svg
-                            className="sc-jOrMOR bTfVDu"
+                            className="sc-dPyBCJ cbPGMr"
                             fill="none"
                             height="1em"
                             stroke="currentColor"
@@ -132,11 +132,11 @@ exports[`App component render app component 1`] = `
                     </Styled(HiOutlineShoppingCart)>
                     <styled.div>
                       <div
-                        className="sc-iAvgwm ecDikv"
+                        className="sc-efBctP ePJkoa"
                       >
                         <styled.p>
                           <p
-                            className="sc-efBctP kCdEhA"
+                            className="sc-cTQhss fKacYM"
                           >
                             1
                           </p>
@@ -151,7 +151,7 @@ exports[`App component render app component 1`] = `
         </styled.section>
         <styled.div>
           <div
-            className="sc-bBXxYQ dmLUpr"
+            className="sc-cOFTSb dokGPg"
           >
             <Outlet />
             <OrderPlate>
@@ -161,7 +161,7 @@ exports[`App component render app component 1`] = `
                 id="orderInfo"
               >
                 <section
-                  className="sc-ksZaOG ibhyab"
+                  className="sc-hAZoDl kUkOog"
                   data-value={false}
                   id="orderInfo"
                 >
@@ -171,7 +171,7 @@ exports[`App component render app component 1`] = `
                       onClick={[Function]}
                     >
                       <AiOutlineCloseSquare
-                        className="sc-kLLXSd kBBKOh"
+                        className="sc-ikZpkk btzZAt"
                         id="close-btn"
                         onClick={[Function]}
                       >
@@ -181,12 +181,12 @@ exports[`App component render app component 1`] = `
                               "viewBox": "0 0 1024 1024",
                             }
                           }
-                          className="sc-kLLXSd kBBKOh"
+                          className="sc-ikZpkk btzZAt"
                           id="close-btn"
                           onClick={[Function]}
                         >
                           <svg
-                            className="sc-kLLXSd kBBKOh"
+                            className="sc-ikZpkk btzZAt"
                             fill="currentColor"
                             height="1em"
                             id="close-btn"
@@ -216,11 +216,11 @@ exports[`App component render app component 1`] = `
                     </Styled(AiOutlineCloseSquare)>
                     <styled.section>
                       <section
-                        className="sc-hAZoDl cQWdqi"
+                        className="sc-fnykZs bJvmGF"
                       >
                         <styled.h6>
                           <h6
-                            className="sc-fnykZs kPWXFA"
+                            className="sc-fEOsli gdtNsh"
                           >
                             Order Summary
                           </h6>
@@ -228,7 +228,7 @@ exports[`App component render app component 1`] = `
                          
                         <styled.button>
                           <button
-                            className="sc-fEOsli ciOOuy"
+                            className="sc-bjUoiL bqnLr"
                           >
                             edit order
                           </button>
@@ -237,7 +237,7 @@ exports[`App component render app component 1`] = `
                     </styled.section>
                     <styled.div>
                       <div
-                        className="sc-bjUoiL gLLEmD"
+                        className="sc-idiyUo hzUHfP"
                       >
                         <Stuff>
                           <StuffItems
@@ -254,7 +254,7 @@ exports[`App component render app component 1`] = `
                           >
                             <styled.section>
                               <section
-                                className="sc-hHLeRK dPNuhk"
+                                className="sc-dmRaPn dEaXlw"
                               >
                                 <styled.img
                                   alt="Check Print Shirt"
@@ -262,31 +262,31 @@ exports[`App component render app component 1`] = `
                                 >
                                   <img
                                     alt="Check Print Shirt"
-                                    className="sc-dmRaPn zCVrD"
+                                    className="sc-kgflAQ jBeHF"
                                     src="https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0"
                                   />
                                 </styled.img>
                                 <styled.section>
                                   <section
-                                    className="sc-kgflAQ dbCiuf"
+                                    className="sc-fLlhyt eIMmde"
                                   >
                                     <styled.h6>
                                       <h6
-                                        className="sc-fLlhyt clxgpt"
+                                        className="sc-bBrHrO hcTbiR"
                                       >
                                         Check Print Shirt
                                       </h6>
                                     </styled.h6>
                                     <styled.p>
                                       <p
-                                        className="sc-bBrHrO bXHGEt"
+                                        className="sc-ivTmOn Tdoil"
                                       >
                                         Grey+red+black
                                       </p>
                                     </styled.p>
                                     <styled.p>
                                       <p
-                                        className="sc-bBrHrO bXHGEt"
+                                        className="sc-ivTmOn Tdoil"
                                       >
                                         Quantity: 1
                                       </p>
@@ -295,7 +295,7 @@ exports[`App component render app component 1`] = `
                                 </styled.section>
                                 <styled.p>
                                   <p
-                                    className="sc-ivTmOn bpCsUh"
+                                    className="sc-cxabCf bUUgBj"
                                   >
                                     110
                                     $
@@ -309,29 +309,29 @@ exports[`App component render app component 1`] = `
                     </styled.div>
                     <styled.section>
                       <section
-                        className="sc-cxabCf lbMhQR"
+                        className="sc-llJcti dXItsY"
                       >
                         <styled.section>
                           <section
-                            className="sc-llJcti iyHPPe"
+                            className="sc-iIPllB bvgYcg"
                           >
                             <styled.p>
                               <p
-                                className="sc-gicCDI bjluxt"
+                                className="sc-ezWOiH eqlOWA"
                               >
                                 Subtotal
                               </p>
                             </styled.p>
                             <styled.p>
                               <p
-                                className="sc-gicCDI bjluxt"
+                                className="sc-ezWOiH eqlOWA"
                               >
                                 Shipping
                               </p>
                             </styled.p>
                             <styled.p>
                               <p
-                                className="sc-gicCDI bjluxt"
+                                className="sc-ezWOiH eqlOWA"
                               >
                                 Taxes
                               </p>
@@ -340,26 +340,26 @@ exports[`App component render app component 1`] = `
                         </styled.section>
                         <styled.section>
                           <section
-                            className="sc-iIPllB iIWbyc"
+                            className="sc-gicCDI iaFVfp"
                           >
                             <styled.p>
                               <p
-                                className="sc-gicCDI bjluxt"
+                                className="sc-ezWOiH eqlOWA"
                               >
                                 $
-                                0
+                                110
                               </p>
                             </styled.p>
                             <styled.p>
                               <p
-                                className="sc-gicCDI bjluxt"
+                                className="sc-ezWOiH eqlOWA"
                               >
                                 Free
                               </p>
                             </styled.p>
                             <styled.p>
                               <p
-                                className="sc-gicCDI bjluxt"
+                                className="sc-ezWOiH eqlOWA"
                               >
                                 $
                                 12.12
@@ -371,21 +371,21 @@ exports[`App component render app component 1`] = `
                     </styled.section>
                     <styled.section>
                       <section
-                        className="sc-ezWOiH imiMFu"
+                        className="sc-bZkfAO cZNQhX"
                       >
                         <styled.p>
                           <p
-                            className="sc-bZkfAO gehmlG"
+                            className="sc-kLLXSd fpeVzF"
                           >
                             Total
                           </p>
                         </styled.p>
                         <styled.p>
                           <p
-                            className="sc-bZkfAO gehmlG"
+                            className="sc-kLLXSd fpeVzF"
                           >
                             $
-                            12.12
+                            122.12
                           </p>
                         </styled.p>
                       </section>
@@ -394,22 +394,22 @@ exports[`App component render app component 1`] = `
                   <section>
                     <styled.section>
                       <section
-                        className="sc-ikZpkk ZNTXr"
+                        className="sc-jIZahH jpFjKL"
                       >
                         <styled.p>
                           <p
-                            className="sc-jIZahH jsQqEc"
+                            className="sc-himrzO kCFsaP"
                           >
                             All purchases are subject to our
                             <Styled(Link)
                               to="/TermsAndConditions"
                             >
                               <Link
-                                className="sc-himrzO jeWplj"
+                                className="sc-gXmSlM QFMyE"
                                 to="/TermsAndConditions"
                               >
                                 <a
-                                  className="sc-himrzO jeWplj"
+                                  className="sc-gXmSlM QFMyE"
                                   href="/TermsAndConditions"
                                   onClick={[Function]}
                                 >
@@ -429,7 +429,7 @@ exports[`App component render app component 1`] = `
                 onClick={[Function]}
               >
                 <button
-                  className="sc-gXmSlM jELbHU"
+                  className="sc-cCsOjp jsjuxO"
                   id="open-close-btn"
                   onClick={[Function]}
                 >

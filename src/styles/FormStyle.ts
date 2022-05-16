@@ -93,6 +93,10 @@ export const ErrorMessage = styled.p`
     color: red;
 `;
 
+export const SelectContainer = styled.section`
+    font-size: .8em;
+`
+
 export const ListItems = styled.li`
     padding: 5px;
     color: ${colors.black};
@@ -109,6 +113,8 @@ export const ListItems = styled.li`
 export const PhoneControlInput = styled(PhoneInput)`
     padding: 0;
     border: none;
+    font-size: 1.5em
+    width: 120%;
 `;
 
 export const CardNumberInput = styled(Form.Control)`
@@ -236,11 +242,11 @@ export const FormLabelParagraph = styled.p`
     margin: auto;
     margin-right: 0;
     font-size: 11px;
-    text-decoration: underline .5px;
+    text-decoration: underline .1px;
     letter-spacing: normal;
 
     @media ${devices.mobileS} {
-        font-size: .5em;
+        font-size: .3em;
     };
 
     @media ${devices.tablet} {

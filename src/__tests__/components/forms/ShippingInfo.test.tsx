@@ -2,9 +2,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import { act } from 'react-dom/test-utils';
 
 import { ShippingInfo } from '../../../components/Index';
-import { act } from 'react-test-renderer';
 
 const initialState: any = {address: {
     navigatorAddress: []
@@ -64,7 +64,7 @@ describe('Check name field in Shipping info component', () => {
             target: { value: 'Vasya Pupkin' } 
         });
         const inputAfterChange = component.find('input[name="name"]');
-        act(() => expect(inputAfterChange.prop('value')).toEqual('Vasya Pupkin'));
+        expect(inputAfterChange.prop('value')).toEqual('Vasya Pupkin');
     });
 });
 
@@ -149,7 +149,7 @@ describe('check street field', () => {
         });
 
         const inputAfterChange = component.find('input[name="street"]');
-        act(() => expect(inputAfterChange.prop('value')).toEqual('9 Kolotushina'));
+        expect(inputAfterChange.prop('value')).toEqual('9 Kolotushina');
     });
 });
 
@@ -165,7 +165,7 @@ describe('check addressFocus true or false', () => {
     it('should change addressFocus to true when focus', () => {
         component.find('input[name="street"]').simulate('focus');
 
-        act(() => expect(component.find('input[name="street"]').prop('data-value')).toEqual(true));
+        expect(component.find('input[name="street"]').prop('data-value')).toEqual(true);
     });
 
     it('should change addressFocus to false when unfocus', () => {
@@ -190,8 +190,7 @@ describe('Check navigator button', () => {
 
     it('should autocomplete', () => {
         const mockAutocomplete = jest.fn();
-        component.find('BsGeoAltFill').prop('onClick')(mockAutocomplete());
-        component.find('BsGeoAltFill').simulate('click');
+        act(() => {component.find('BsGeoAltFill').prop('onClick')(mockAutocomplete())});
 
         expect(mockAutocomplete).toHaveBeenCalled();
     })
@@ -233,7 +232,25 @@ describe('check optional field', () => {
         });
 
         const inputAfterChange = component.find('input[name="optional"]');
-        act(() => expect(inputAfterChange.prop('value')).toEqual('Door code: 3322'));
+        expect(inputAfterChange.prop('value')).toEqual('Door code: 3322');
+    });
+});
+
+describe('Check country select', () => {
+    store = mockStore(initialState);
+    const component = mount(
+        <Provider store={store}>
+            <BrowserRouter>
+                <ShippingInfo />
+            </BrowserRouter>
+        </Provider>);
+
+    const changeMock = jest.fn().mockReturnValue({label: 'Ukraine'});
+
+    it('should fire onChange', () => {
+        act(() => {component.find('CountriesSelect').prop('onChange')(changeMock())});
+
+        expect(changeMock).toHaveBeenCalled();
     });
 });
 
@@ -273,7 +290,7 @@ describe('check city field', () => {
         });
 
         const inputAfterChange = component.find('input[name="city"]');
-        act(() => expect(inputAfterChange.prop('value')).toEqual('Laplandia'));
+        expect(inputAfterChange.prop('value')).toEqual('Laplandia');
     });
 });
 
@@ -313,7 +330,7 @@ describe('check zip field', () => {
         });
 
         const inputAfterChange = component.find('input[name="zip"]');
-        act(() => expect(inputAfterChange.prop('value')).toEqual('3221344'));
+        expect(inputAfterChange.prop('value')).toEqual('3221344');
     });
 });
 
@@ -335,8 +352,7 @@ describe('Submit button', () => {
 
     it('should submit on click', () => {
         const mockHandleSubmit = jest.fn();
-        component.find('form').prop('onSubmit')(mockHandleSubmit());
-        button.simulate('click');
+        act(() => {component.find('form').prop('onSubmit')(mockHandleSubmit())});
 
         expect(mockHandleSubmit).toHaveBeenCalled();
     });

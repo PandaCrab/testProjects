@@ -19,11 +19,17 @@ const Stuff = () => {
             </LoaderContainer>);
     };
 
-    if (!stuffs.length) dispatch(getStuff());
-    return (
+    if (stuffs) {
+        dispatch(getStuff());
+        return (
         <>
-        {stuffs.map(stuff => (<StuffItems stuff={stuff} key={stuff.id} />))}
-        </>);
+            {stuffs.map(stuff => (<StuffItems stuff={stuff} key={stuff.id} />))}
+        </>)
+    } else {
+        return (<LoaderContainer>
+            <Loader />
+        </LoaderContainer>)
+    };
 };
 
 export default Stuff;

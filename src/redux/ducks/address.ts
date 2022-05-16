@@ -78,7 +78,7 @@ export const takeAddress = () => ({
 
 //navigator
 
-function* putGeolocation(coordinates: coordinates){
+export function* putGeolocation(coordinates: coordinates){
     yield api.getGeolocation(coordinates);
 };
 
@@ -98,7 +98,7 @@ export function* navigatorAddressWatcher() {
     );
 };
 
-function* fillNavigatorAddress() {
+export function* fillNavigatorAddress() {
     yield delay(500);
     const payload: string = yield call(api.fetchGeolocation);
     yield put({type:FETCH_NAVIGATOR_ADDRESS, payload});

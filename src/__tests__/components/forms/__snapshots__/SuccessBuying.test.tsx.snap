@@ -52,14 +52,14 @@ exports[`should render correct 1`] = `
           >
             <Button
               active={false}
-              className="sc-papXJ fRWQUH"
+              className="sc-jqUVSM lirFSS"
               disabled={false}
               id="back-to-start"
               onClick={[Function]}
               variant="primary"
             >
               <button
-                className="sc-papXJ fRWQUH btn btn-primary"
+                className="sc-jqUVSM lirFSS btn btn-primary"
                 disabled={false}
                 id="back-to-start"
                 onClick={[Function]}

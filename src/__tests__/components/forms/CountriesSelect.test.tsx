@@ -37,9 +37,6 @@ describe('Countrie select component', () => {
         const inputValueChange = jest.fn();
 
         component.prop('onInputChange')(inputValueChange());
-        component.simulate('change', {
-            target: { value: 'United States' }
-        });
 
         setTimeout(() => expect(component.prop('inputValue')).toEqual('United States'), 100);
         expect(inputValueChange).toHaveBeenCalled();

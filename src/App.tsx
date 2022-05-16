@@ -30,17 +30,16 @@ const App = () => {
     if ('geolocation' in navigator) {
       navigator
         .geolocation
-        .getCurrentPosition(
+        .getCurrentPosition (
           position => {
-            dispatch(
-              takeGeolocation(
+            dispatch (
+              takeGeolocation (
                 position.coords.latitude, 
                 position.coords.longitude
               )
             );
-            dispatch(takeNavigagtorAddress());
-          }
-        );
+            dispatch (takeNavigagtorAddress());
+          });
       } else {
         return;
       }
@@ -55,7 +54,7 @@ const App = () => {
           <ShoppingBasketText>cart</ShoppingBasketText>
           <BasketContainer>
             <Basket /> 
-            { stuff.length && (
+            { stuff && (
               <CircleOfNumber><NumberOfStuff>{stuff.length}</NumberOfStuff></CircleOfNumber>
             )}   
           </BasketContainer>

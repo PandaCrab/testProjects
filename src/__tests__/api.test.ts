@@ -27,7 +27,7 @@ describe('Stuff fetch',() => {
 
         const reject = await api.fetchStuff();
 
-        expect(reject).toEqual('Oops, something wrong');
+        expect(reject).toEqual(null);
         expect(fetch).toHaveBeenCalledWith('http://localhost:3004/products')
     });
 });
@@ -118,7 +118,7 @@ describe('navigator address', () => {
 
         const reject = await api.fetchGeolocation();
 
-        expect(reject).toEqual(`Can't take geolocation`);
+        expect(reject).toEqual(null);
         expect(fetch).toHaveBeenCalledWith(
             'https://app.geocodeapi.io/api/v1/reverse?apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&point.lat=2&point.lon=2&layers=address'
             );
@@ -172,7 +172,7 @@ describe('autocomplete', () => {
 
         const reject = await api.fetchAddress();
 
-        expect(reject).toEqual(`Sorry, seems somthing broken`);
+        expect(reject).toEqual(null);
         expect(fetch).toHaveBeenCalledWith(
             'https://app.geocodeapi.io/api/v1/autocomplete?apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&text=Yo,%20i%20am%20working&size=5'
             );

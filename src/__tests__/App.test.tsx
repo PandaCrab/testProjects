@@ -19,7 +19,7 @@ loading: false
 const mockStore = configureStore();
 let store;
 
-describe('App component', () => {
+it('should render app component', () => {
     store = mockStore(initialState);
     const component = mount(
             <Provider store={store}>
@@ -28,10 +28,5 @@ describe('App component', () => {
                 </BrowserRouter>
             </Provider>
         );
-
-    it('render app component', () => {
-        
-
         expect(component).toMatchSnapshot();
-    });
 });

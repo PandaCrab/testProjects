@@ -25,7 +25,7 @@ exports[`Dropdown addresses section render should render component correct 1`] =
           onClick={[Function]}
         >
           <li
-            className="sc-eCYdqJ hCLdSg"
+            className="sc-jSMfEi jSEmay"
             onClick={[Function]}
           >
             7a heros of Ukraine, Lokhvitsy\`a, Ukraine
@@ -36,7 +36,7 @@ exports[`Dropdown addresses section render should render component correct 1`] =
           onClick={[Function]}
         >
           <li
-            className="sc-eCYdqJ hCLdSg"
+            className="sc-jSMfEi jSEmay"
             onClick={[Function]}
           >
             35 Ivana Sirka, Sumy, Ukraine

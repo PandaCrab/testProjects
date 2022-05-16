@@ -43,7 +43,7 @@ const OrderPlate = () => {
 
     const stuff = useSelector((state: RootState) => state.order.stuff);
     useEffect(() => {
-        if(stuff.length > 1) {const addPrices = stuff.reduce((accumulator, currentValue) => 
+        if(stuff) {const addPrices = stuff.reduce((accumulator, currentValue) => 
                 accumulator + currentValue.price, 0);
         
             setPrices(prices => ({

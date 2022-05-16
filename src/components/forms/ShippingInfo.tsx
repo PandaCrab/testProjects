@@ -204,10 +204,6 @@ const ShippingInfo = () => {
                                             ...shipping, 
                                             country: value.label})}
                                         onBlur={formik.handleBlur}
-                                        onInputChange={(value: string)=> setShipping({
-                                            ...shipping,
-                                            country: value
-                                        })}
                                         value={formik.values.country}
                                         placeholder='Country'
                                         error={ formik.errors.country }

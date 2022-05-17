@@ -23,8 +23,8 @@ describe('Stuff fetch',() => {
 
         beforeEach(async () => result = await api.fetchStuff());
         
-        it('should be null', () => {
-            setTimeout(() => expect(result).toEqual(products),100);
+        it('should have products', () => {
+            setTimeout(() => expect(result).toEqual('products'),100);
         });
 
         it('should call fetch', () => {

@@ -66,11 +66,11 @@ describe('Stuff reducer', () => {
     });
 });
 
-describe('Stuff actions sagas', () => {
+describe('Stuff sagas', () => {
     describe('dataWatcher', () => {
         const gen = stuffWatcher();
 
-        it('should wait for every REQUEST_DATA and call postData', () => {
+        it('should wait for every REQUEST_STUFF and call fillStuff', () => {
             expect(gen.next().value)
                 .toEqual(takeEvery('stuff/REQUEST_STUFF', fillStuff));
         });

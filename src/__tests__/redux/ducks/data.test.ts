@@ -105,7 +105,7 @@ describe('Data actions', () => {
         city: 'laplandia',
         country: 'United States',
         zip: '223412'
-    }
+    };
 
     it('should dispatch filling shipping action', () => {
         const expectedAction = [{

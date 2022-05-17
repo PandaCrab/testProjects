@@ -8,7 +8,7 @@ import { BillingInfo } from '../../../components/Index';
 
 const initialState: Object = {address: {
     navigatorAddress: []
-}}
+}};
 const mockStore = configureStore();
 let store = mockStore(initialState);
 
@@ -32,10 +32,10 @@ describe('check same as shipping button', () => {
     act(() => component.find('p#same-as-shipping').prop('onClick')(mockSameAsShipping()));
 
     expect(mockSameAsShipping).toHaveBeenCalled();
-})
+});
 
 describe('Check name field in Billing info component', () => {
-    const nameInput = component.find('input[name="name"]')
+    const nameInput = component.find('input[name="name"]');
 
     it('should have name field', () => {
         expect(nameInput.length).toEqual(1);
@@ -67,7 +67,7 @@ describe('Check name field in Billing info component', () => {
 });
 
 describe('Check email field in Billing info component', () => {
-    const emailInput = component.find('input[name="email"]')
+    const emailInput = component.find('input[name="email"]');
 
     it('should have name field', () => {
         expect(emailInput.length).toEqual(1);
@@ -156,7 +156,7 @@ describe('Check navigator button', () => {
         act(() => component.find('BsGeoAltFill').prop('onClick')(mockAutocomplete()));
 
         expect(mockAutocomplete).toHaveBeenCalledTimes(1);
-    })
+    });
 });
 
 describe('check optional field', () => {

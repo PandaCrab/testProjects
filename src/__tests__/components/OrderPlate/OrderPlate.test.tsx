@@ -39,7 +39,7 @@ describe ('<OrderPlate />', () => {
 
         it('should rendered without stuff', () => {
             expect(component).toBeDefined();
-        })
+        });
     });
 });
 

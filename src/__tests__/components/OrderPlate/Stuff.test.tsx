@@ -18,7 +18,7 @@ describe('Stuff element', () => {
             }
         ],
         loading: false
-    }}
+    }};
     const mockStore = configureStore();
     let store: Store<Object, AnyAction> = mockStore(initialState);
 

@@ -27,7 +27,7 @@ describe('shipping info component:', () => {
 });
 
 describe('Check name field in Shipping info component', () => {
-    const nameInput = component.find('input[name="name"]')
+    const nameInput = component.find('input[name="name"]');
 
     it('should have name field', () => {
         expect(nameInput.length).toEqual(1);
@@ -150,7 +150,7 @@ describe('Check navigator button', () => {
         act(() => {component.find('BsGeoAltFill').prop('onClick')(mockAutocomplete())});
 
         expect(mockAutocomplete).toHaveBeenCalled();
-    })
+    });
 });
 
 describe('check optional field', () => {

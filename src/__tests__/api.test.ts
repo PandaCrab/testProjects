@@ -9,9 +9,9 @@ describe('Stuff fetch',() => {
         const products = {products: [
             {
                 'id': 1,
-                'imgUrl': `https://guesseu.scene7.com/is/image/GuessEU/
-                M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg
-                &qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0`,
+                'imgUrl': `https://guesseu.scene7.com/is/image/GuessEU/` +
+                `M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg` +
+                `&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0`,
                 'name': 'Check Print Shirt',
                 'color': 'Grey+red+black',
                 'price': 110
@@ -155,7 +155,8 @@ describe('navigator address', () => {
 
         it('should called with server url', () => {
             expect(fetch).toHaveBeenCalledWith(
-                `https://app.geocodeapi.io/api/v1/reverse?apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&point.lat=2&point.lon=2&layers=address`
+                `https://app.geocodeapi.io/api/v1/reverse?` +
+                `apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&point.lat=2&point.lon=2&layers=address`
             );
         });
     });
@@ -224,7 +225,8 @@ describe('autocomplete', () => {
 
         it('should called with server url', () => {
             expect(fetch).toHaveBeenCalledWith(
-                `https://app.geocodeapi.io/api/v1/autocomplete?apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&text=Yo,%20i%20am%20working&size=5`
+                `https://app.geocodeapi.io/api/v1/autocomplete?` + 
+                `apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&text=Yo,%20i%20am%20working&size=5`
             );
         });
     });

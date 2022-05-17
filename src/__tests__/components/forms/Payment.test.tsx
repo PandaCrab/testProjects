@@ -25,7 +25,7 @@ describe('Payment component:', () => {
 });
 
 describe('Check cardholder field in Payment component', () => {
-    const cardholderInput = component.find('input[name="cardholder"]')
+    const cardholderInput = component.find('input[name="cardholder"]');
 
     it('should have carholder field', () => {
         expect(cardholderInput.length).toEqual(1);

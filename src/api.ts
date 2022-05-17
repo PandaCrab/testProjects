@@ -43,7 +43,8 @@ export const getGeolocation = (geolocation: {lat: number, lon: number}) => {
 export const fetchGeolocation: () => Promise<{}> = async() => {
     try {
         const response = await fetchFunc(
-            addressApi+`reverse?apikey=${apiKey}&point.lat=${coordinates.lat}&point.lon=${coordinates.lon}&layers=address`,
+            addressApi +
+            `reverse?apikey=${apiKey}&point.lat=${coordinates.lat}&point.lon=${coordinates.lon}&layers=address`,
             'GET'
         );
         const json = await response.json();
@@ -56,9 +57,7 @@ export const fetchGeolocation: () => Promise<{}> = async() => {
 //fetch by input
 const endpoint: {value: string} = {value: ''};
 export const getEndpoint = (addressInput: string) => {
-    if (addressInput.length > 0) {
-        endpoint.value = addressInput;
-    }
+    if (addressInput.length > 0) { endpoint.value = addressInput }
 };
 
 export const fetchAddress: () => Promise<{}> = async () => {

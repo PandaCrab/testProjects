@@ -19,8 +19,7 @@ const component = mount(
         {...props}
     />);
 
-describe('Countrie select component', () => {
-    
+describe('Countrie select component', () => {    
     it('should rendered correctly select component', () => {
         expect(component).toMatchSnapshot();
     });

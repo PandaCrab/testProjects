@@ -46,7 +46,7 @@ describe('Dropdown addresses section render', () => {
 
     it('should have items', () => {
         expect(component.find('li[key=12234]')).toBeDefined();
-    })
+    });
 });
 
 describe('check activate autocomplete on click', () => {

@@ -12,8 +12,8 @@ import stuffReducer, {
 
 describe('Stuff reducer', () => {
     it('should have initial state', () => {
-        const action: { type: string, payload: any[] } = {type: 'dummy_action', payload: []};
-        const initialState: { stuff: any, loading: boolean } = {
+        const action: { type: string, payload: Object[] } = {type: 'dummy_action', payload: []};
+        const initialState: { stuff: Object, loading: boolean } = {
             stuff: [],
             loading: false
         };
@@ -21,22 +21,26 @@ describe('Stuff reducer', () => {
     });
 
     it('should fiil stuff', () => {
-        const action: { type: string, payload: any[] } = {type: FETCH_STUFF, payload: [
+        const action: { type: string, payload: Object[] } = {type: FETCH_STUFF, payload: [
             {
-                "id": 1,
-                "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
-                "name": "Check Print Shirt",
-                "color": "Grey+red+black",
-                "price": 110
+                'id': 1,
+                'imgUrl': `https://guesseu.scene7.com/is/image/GuessEU/
+                    M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80
+                    &op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0`,
+                'name': 'Check Print Shirt',
+                'color': 'Grey+red+black',
+                'price': 110
             }
         ]};
-        const initialState: { stuff: any, loading: boolean } = {
+        const initialState: { stuff: Object, loading: boolean } = {
             stuff: [{
-                "id": 1,
-                "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
-                "name": "Check Print Shirt",
-                "color": "Grey+red+black",
-                "price": 110
+                'id': 1,
+                'imgUrl': `https://guesseu.scene7.com/is/image/GuessEU/
+                    M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80
+                    &op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0`,
+                'name': 'Check Print Shirt',
+                'color': 'Grey+red+black',
+                'price': 110
             }],
             loading: false
         };
@@ -45,7 +49,7 @@ describe('Stuff reducer', () => {
 
     it('should change loder to true', () => {
         const action: { type: string } = { type: SHOW_LOADER };
-        const initialState: { stuff: any, loading: boolean } = {
+        const initialState: { stuff: Object[], loading: boolean } = {
             stuff: [],
             loading: true
         };
@@ -54,7 +58,7 @@ describe('Stuff reducer', () => {
 
     it('should change loader to false', () => {
         const action: { type: string } = { type: HIDE_LOADER };
-        const initialState: { stuff: any, loading: boolean } = {
+        const initialState: { stuff: Object[], loading: boolean } = {
             stuff: [],
             loading: false
         };
@@ -76,27 +80,40 @@ describe('Stuff actions sagas', () => {
         });
     });
 
-    it('should despatch show and hide loader and take stuff from server', async () => {
+    describe('despatch show and hide loader and take stuff from server', () => {
         const fakeStuff = [{
-            "id": 1,
-            "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
-            "name": "Check Print Shirt",
-            "color": "Grey+red+black",
-            "price": 110
-        }]
+            'id': 1,
+            'imgUrl': `https://guesseu.scene7.com/is/image/GuessEU/
+                M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80
+                &op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0`,
+            'name': 'Check Print Shirt',
+            'color': 'Grey+red+black',
+            'price': 110
+        }];
 
         const fetchStuff = jest.spyOn(api, 'fetchStuff')
             .mockImplementation(() => Promise.resolve(fakeStuff));
-        const dispatched: any = [];
+        const dispatched: Object[] = [];
 
-        await runSaga({
+        beforeAll(async () => await runSaga({
             dispatch:  (action) => dispatched.push(action)
-        }, fillStuff);
+        }, fillStuff));
 
-        expect(fetchStuff).toHaveBeenCalledTimes(1);
-        expect(dispatched[0]).toEqual({type: SHOW_LOADER});
-        expect(dispatched[1]).toEqual({type: FETCH_STUFF, payload: fakeStuff});
-        expect(dispatched[2]).toEqual({type: HIDE_LOADER});
+        it('should call fetch stuff', () => {
+            expect(fetchStuff).toHaveBeenCalledTimes(1);
+        });
+
+        it('should dispatch SHOW_LOADER', () => {
+            expect(dispatched[0]).toEqual({type: SHOW_LOADER});
+        });
+
+        it('should dispatch FETCH_STUFF', () => {
+            expect(dispatched[1]).toEqual({type: FETCH_STUFF, payload: fakeStuff});
+        });
+
+        it('should dispatch HIDE_LOADER', () => {
+            expect(dispatched[2]).toEqual({type: HIDE_LOADER});
+        });
         fetchStuff.mockClear();
     });    
 });

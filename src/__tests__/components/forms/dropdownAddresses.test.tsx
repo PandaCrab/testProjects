@@ -27,20 +27,19 @@ const initialState: any = {address: {
     ]
 }};
 const mockStore = configureStore();
-let store;
+let store = mockStore(initialState);
 
 const props = {
     autocomplete: jest.fn()
 };
 
-describe('Dropdown addresses section render', () => {
-    store = mockStore(initialState);
-    const component = mount(
-        <Provider store={store}>
-            <DropdownAddresses {...props} />
-        </Provider>
-    );
+const component = mount(
+    <Provider store={store}>
+        <DropdownAddresses {...props} />
+    </Provider>
+);
 
+describe('Dropdown addresses section render', () => {
     it('should render component correct', () => {
         expect(component).toMatchSnapshot();
     });
@@ -52,13 +51,6 @@ describe('Dropdown addresses section render', () => {
 
 describe('check activate autocomplete on click', () => {
     it('should fire autocomplete on click', () => {
-        store = mockStore(initialState);
-        const component = mount(
-            <Provider store={store}>
-                <DropdownAddresses {...props} />
-            </Provider>
-        );
-
         component.find('li').first().simulate('click');
 
         expect(props.autocomplete).toHaveBeenCalled();

@@ -5,30 +5,47 @@ import type { data } from '../types';
 beforeEach(() => fetchMock.resetMocks());
 
 describe('Stuff fetch',() => {
-    it('should take stuff products', async () => {
+    describe('take stuff products', () => {
         const products = {products: [
             {
-                "id": 1,
-                "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
-                "name": "Check Print Shirt",
-                "color": "Grey+red+black",
-                "price": 110
+                'id': 1,
+                'imgUrl': `https://guesseu.scene7.com/is/image/GuessEU/
+                M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg
+                &qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0`,
+                'name': 'Check Print Shirt',
+                'color': 'Grey+red+black',
+                'price': 110
             }
         ]};
         fetchMock.mockResponseOnce(JSON.stringify(products));
 
-        const result = await api.fetchStuff();
-        expect(result).toEqual(products);
-        expect(fetch).toHaveBeenCalledTimes(1);
+        let result: Object;
+
+        beforeEach(async () => result = await api.fetchStuff());
+        
+        it('should be null', () => {
+            setTimeout(() => expect(result).toEqual(products),100);
+        });
+
+        it('should call fetch', () => {
+            expect(fetch).toHaveBeenCalledTimes(1);
+        });
     });
 
-    it('should show error, when reject', async () => {
+    describe('reject fetchStuff', () => {
         fetchMock.mockReject(() => Promise.reject('data is down'));
 
-        const reject = await api.fetchStuff();
+        let reject: string;
 
-        expect(reject).toEqual(null);
-        expect(fetch).toHaveBeenCalledWith('http://localhost:3004/products')
+        beforeEach(async () => reject = await api.fetchStuff());
+
+        it('should be null', () => {
+            expect(reject).toEqual(null);
+        });
+
+        it('should called with server url', () => {
+            expect(fetch).toHaveBeenCalledWith('http://localhost:3004/products');
+        });
     });
 });
 
@@ -70,19 +87,23 @@ describe('navigator address', () => {
         lon: 0
     }
 
-    it('should update coordinates', async () => {
+    describe('update coordinates', () => {
         const geolocation = {
             lat: 2,
             lon: 2
         }
-        api.getGeolocation(geolocation);
+        beforeEach(async () => await api.getGeolocation(geolocation));
 
-        setTimeout(() => {
-            expect(coordinates.lat).toEqual(2);
-            expect(coordinates.lon).toEqual(2)}, 100);
+        it('should have latitude', () => {
+            setTimeout(() => expect(coordinates.lat).toEqual(2), 100);
+        });
+
+        it('should have longitude', () => {
+            setTimeout(() => expect(coordinates.lon).toEqual(2), 100);
+        });
     });
 
-    it('should fetch geolocation by coordinates', async () => {
+    describe('fetch geolocation by coordinates', () => {
         const address = {
             features: [
                 {
@@ -108,20 +129,35 @@ describe('navigator address', () => {
 
         fetchMock.mockResponseOnce(JSON.stringify(address));
 
-        const result = await api.fetchGeolocation();
-        expect(result).toEqual(address.features[0].properties);
-        expect(fetch).toHaveBeenCalledTimes(1);
+        let result: Object;
+
+        beforeEach(async () => result = await api.fetchGeolocation());
+
+        it('should be equal returned address', () => {
+            setTimeout(() => expect(result).toEqual(address.features[0].properties), 100);
+        });
+
+        it('should be called ones', () => {
+            expect(fetch).toHaveBeenCalledTimes(1);
+        });
     });
 
-    it('should show error, when reject', async () => {
+    describe('reject take coordinates', () => {
         fetchMock.mockReject(() => Promise.reject('API is down'));
 
-        const reject = await api.fetchGeolocation();
+        let reject: Object;
 
-        expect(reject).toEqual(null);
-        expect(fetch).toHaveBeenCalledWith(
-            'https://app.geocodeapi.io/api/v1/reverse?apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&point.lat=2&point.lon=2&layers=address'
+        beforeEach(async () => reject = await api.fetchGeolocation());
+
+        it('should be null', () => {
+            expect(reject).toEqual(null);
+        });
+
+        it('should called with server url', () => {
+            expect(fetch).toHaveBeenCalledWith(
+                `https://app.geocodeapi.io/api/v1/reverse?apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&point.lat=2&point.lon=2&layers=address`
             );
+        });
     });
 });
 
@@ -136,7 +172,7 @@ describe('autocomplete', () => {
         setTimeout(() => expect(endpoint.value).toEqual('Yo, i am working'), 100);
     });
 
-    it('should take addresses from api service', async () => {
+    describe('take addresses from api service', () => {
         const address = {
             features: [
                 {
@@ -162,19 +198,34 @@ describe('autocomplete', () => {
 
         fetchMock.mockResponseOnce(JSON.stringify(address));
 
-        const result = await api.fetchAddress();
-        expect(result).toEqual(address.features);
-        expect(fetch).toHaveBeenCalledTimes(1);
+        let result: Object;
+
+        beforeEach(async () => result = await api.fetchAddress());
+
+        it('should have addresses from api', () => {
+            setTimeout(() => expect(result).toEqual(address.features), 100);
+        });
+
+        it('should called ones', () => {
+            expect(fetch).toHaveBeenCalledTimes(1);
+        });
     });
 
-    it('should show error, when reject', async () => {
+    describe('reject autocomplete', () => {
         fetchMock.mockReject(() => Promise.reject('API is down'));
 
-        const reject = await api.fetchAddress();
+        let reject: Object;
 
-        expect(reject).toEqual(null);
-        expect(fetch).toHaveBeenCalledWith(
-            'https://app.geocodeapi.io/api/v1/autocomplete?apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&text=Yo,%20i%20am%20working&size=5'
+        beforeEach(async () => reject = await api.fetchAddress());
+
+        it('should be null', () => {
+            expect(reject).toEqual(null);
+        });
+
+        it('should called with server url', () => {
+            expect(fetch).toHaveBeenCalledWith(
+                `https://app.geocodeapi.io/api/v1/autocomplete?apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&text=Yo,%20i%20am%20working&size=5`
             );
+        });
     });
 });

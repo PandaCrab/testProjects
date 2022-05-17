@@ -76,7 +76,7 @@ describe('Stuff reducer', () => {
             navigatorAddress: null
         };
 
-        expect(addressReducer(undefined, action)).toEqual(expectedState)
+        expect(addressReducer(undefined, action)).toEqual(expectedState);
     });
 
     it('should fill addresses from autocomplete', () => {

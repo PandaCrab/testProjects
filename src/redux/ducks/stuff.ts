@@ -12,7 +12,7 @@ const initialState: {stuff: any[], loading: boolean} = {
     loading: false
 };
 
-export default function stuffReducer (state = initialState, action: { type: string | any; payload?: any[]}) {
+export default function stuffReducer (state = initialState, action: { type: string; payload?: any[]}) {
     switch ( action.type ) {
         case FETCH_STUFF: 
             return { ...state, stuff: action.payload };

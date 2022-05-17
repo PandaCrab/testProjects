@@ -14,7 +14,7 @@ export type endpoint = {
 
 export type addressState = {
     addressInput: string,
-    addresses: any,
+    addresses: Object[],
     geolocation: {
         lat: number,
         lon: number

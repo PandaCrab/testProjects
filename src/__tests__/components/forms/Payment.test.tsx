@@ -1,40 +1,30 @@
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import renderer from 'react-test-renderer';
+import { AnyAction, Store } from 'redux';
 import configureStore from 'redux-mock-store';
 
 import { Payment } from '../../../components/Index';
 
-const initialState = {}
+const initialState: Object = {};
 const mockStore = configureStore();
-let store;
+let store: Store<Object, AnyAction> = mockStore(initialState);
+
+const component = mount(
+    <Provider store={store}>
+        <BrowserRouter>
+            <Payment />
+        </BrowserRouter>
+    </Provider>
+);
 
 describe('Payment component:', () => {
-    
     it('should render correctly Order plate component', () => {
-        store = mockStore(initialState);
-        const component = renderer.create(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <Payment />
-                </BrowserRouter>
-            </Provider>
-        );
-
         expect(component).toMatchSnapshot();
     });
 });
 
 describe('Check cardholder field in Payment component', () => {
-    store = mockStore(initialState)
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <Payment />
-            </BrowserRouter>
-        </Provider>)
-
     const cardholderInput = component.find('input[name="cardholder"]')
 
     it('should have carholder field', () => {
@@ -52,15 +42,7 @@ describe('Check cardholder field in Payment component', () => {
 });
 
 describe('Check card number field', () => {
-    store = mockStore(initialState)
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <Payment />
-            </BrowserRouter>
-        </Provider>)
-
-    const cardNumInput = component.find('input[name="cardNum"]')
+    const cardNumInput = component.find('input[name="cardNum"]');
 
     it('should have carholder field', () => {
         expect(cardNumInput.length).toEqual(1);
@@ -77,15 +59,7 @@ describe('Check card number field', () => {
 });
 
 describe('Check date field', () => {
-    store = mockStore(initialState)
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <Payment />
-            </BrowserRouter>
-        </Provider>)
-
-    const dateInput = component.find('input[name="date"]')
+    const dateInput = component.find('input[name="date"]');
 
     it('should have carholder field', () => {
         expect(dateInput.length).toEqual(1);
@@ -102,15 +76,7 @@ describe('Check date field', () => {
 });
 
 describe('Check code field', () => {
-    store = mockStore(initialState)
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <Payment />
-            </BrowserRouter>
-        </Provider>)
-
-    const cvvInput = component.find('input[name="cvv"]')
+    const cvvInput = component.find('input[name="cvv"]');
 
     it('should have carholder field', () => {
         expect(cvvInput.length).toEqual(1);
@@ -126,16 +92,7 @@ describe('Check code field', () => {
     });
 });
 
-    describe('Submit button', () => {
-    store = mockStore(initialState);
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <Payment />
-            </BrowserRouter>
-        </Provider>
-    );
-
+describe('Submit button', () => {
     it('should have submit button', () => {
         expect(component.find('button[type="submit"]').length).toEqual(1);
     });

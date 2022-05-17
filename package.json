@@ -74,6 +74,7 @@
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
+    "snapshotResolver": "./snapshotResolver.ts",
     "verbose": true,
     "globals": {
       "ts-jest": {

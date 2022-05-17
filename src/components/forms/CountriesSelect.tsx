@@ -8,7 +8,7 @@ interface propTypes {
     id: string,
     value: string,
     onChange: any,
-    onBlur: any
+    onBlur: any,
     placeholder: string,
     touched: boolean,
     error: string

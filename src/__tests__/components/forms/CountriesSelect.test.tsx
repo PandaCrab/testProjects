@@ -39,6 +39,13 @@ describe('Countrie select component', () => {
         component.prop('onInputChange')(inputValueChange());
 
         setTimeout(() => expect(component.prop('inputValue')).toEqual('United States'), 100);
+    });
+
+    it('should called with inputValueChange', () => {
+        const inputValueChange = jest.fn();
+
+        component.prop('onInputChange')(inputValueChange());
+
         expect(inputValueChange).toHaveBeenCalled();
     });
 });

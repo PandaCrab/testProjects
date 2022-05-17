@@ -6,38 +6,27 @@ import { act } from 'react-dom/test-utils';
 
 import { ShippingInfo } from '../../../components/Index';
 
-const initialState: any = {address: {
+const initialState: Object = {address: {
     navigatorAddress: []
 }};
 const mockStore = configureStore();
-let store: any;
+let store = mockStore(initialState);
+
+const component = mount(
+    <Provider store={store}>
+        <BrowserRouter>
+            <ShippingInfo />
+        </BrowserRouter>
+    </Provider>
+);
 
 describe('shipping info component:', () => {
-    store = mockStore(initialState);
-    
     it('should render correctly Shipping info component', () => {
-        store = mockStore(initialState);
-        const component = mount(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <ShippingInfo />
-                </BrowserRouter>
-            </Provider>
-        );
-
         expect(component).toMatchSnapshot();
     });
 });
 
 describe('Check name field in Shipping info component', () => {
-    store = mockStore(initialState);
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <ShippingInfo />
-            </BrowserRouter>
-        </Provider>);
-
     const nameInput = component.find('input[name="name"]')
 
     it('should have name field', () => {
@@ -69,14 +58,6 @@ describe('Check name field in Shipping info component', () => {
 });
 
 describe('check phone field', () => {
-    store = mockStore(initialState);
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <ShippingInfo />
-            </BrowserRouter>
-        </Provider>);
-
     const phoneInput = component.find('input[type="tel"]');
 
     it('should have phone field', () => {
@@ -112,14 +93,6 @@ describe('check phone field', () => {
 });
 
 describe('check street field', () => {
-    store = mockStore(initialState);
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <ShippingInfo />
-            </BrowserRouter>
-        </Provider>);
-
     const streetInput = component.find('input[name="street"]');
 
     it('should have street field', () => {
@@ -154,14 +127,6 @@ describe('check street field', () => {
 });
 
 describe('check addressFocus true or false', () => {
-    store = mockStore(initialState);
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <ShippingInfo />
-            </BrowserRouter>
-        </Provider>);
-
     it('should change addressFocus to true when focus', () => {
         component.find('input[name="street"]').simulate('focus');
 
@@ -176,14 +141,6 @@ describe('check addressFocus true or false', () => {
 });
 
 describe('Check navigator button', () => {
-    store = mockStore(initialState);
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <ShippingInfo />
-            </BrowserRouter>
-        </Provider>);
-
     it('should have button of autocomplete navigator address', () => {
         expect(component.find('BsGeoAltFill')).toBeDefined();
     });
@@ -197,14 +154,6 @@ describe('Check navigator button', () => {
 });
 
 describe('check optional field', () => {
-    store = mockStore(initialState);
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <ShippingInfo />
-            </BrowserRouter>
-        </Provider>);
-
     const optionalInput = component.find('input[name="optional"]');
 
     it('should have optional field', () => {
@@ -237,14 +186,6 @@ describe('check optional field', () => {
 });
 
 describe('Check country select', () => {
-    store = mockStore(initialState);
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <ShippingInfo />
-            </BrowserRouter>
-        </Provider>);
-
     const changeMock = jest.fn().mockReturnValue({label: 'Ukraine'});
 
     it('should fire onChange', () => {
@@ -255,14 +196,6 @@ describe('Check country select', () => {
 });
 
 describe('check city field', () => {
-    store = mockStore(initialState);
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <ShippingInfo />
-            </BrowserRouter>
-        </Provider>);
-
     const cityInput = component.find('input[name="city"]');
 
     it('should have city field', () => {
@@ -295,14 +228,6 @@ describe('check city field', () => {
 });
 
 describe('check zip field', () => {
-    store = mockStore(initialState);
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <ShippingInfo />
-            </BrowserRouter>
-        </Provider>);
-
     const zipInput = component.find('input[name="zip"]');
 
     it('should have zip field', () => {
@@ -335,15 +260,6 @@ describe('check zip field', () => {
 });
 
 describe('Submit button', () => {
-    store = mockStore(initialState);
-    const component = mount(
-        <Provider store={store}>
-            <BrowserRouter>
-                <ShippingInfo />
-            </BrowserRouter>
-        </Provider>
-    );
-
     const button = component.find('button[type="submit"]');
 
     it('should have submit button', () => {

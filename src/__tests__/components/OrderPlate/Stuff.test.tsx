@@ -1,66 +1,60 @@
-import renderer from 'react-test-renderer'
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import { Stuff } from '../../../components/Index';
 import { mount } from 'enzyme';
+import { Store, AnyAction } from 'redux';
 
 describe('Stuff element', () => {
     const initialState = {order: {stuff: [
             {
-                "id": 1,
-                "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
-                "name": "Check Print Shirt",
-                "color": "Grey+red+black",
-                "price": 110
+                'id': 1,
+                'imgUrl': `https://guesseu.scene7.com/is/image/GuessEU/
+                    M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80
+                    &op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0`,
+                'name': 'Check Print Shirt',
+                'color': 'Grey+red+black',
+                'price': 110
             }
         ],
         loading: false
     }}
     const mockStore = configureStore();
-    let store;
+    let store: Store<Object, AnyAction> = mockStore(initialState);
 
-    it('should render correct', () => {    
-        store = mockStore(initialState);
-        const component = renderer.create(
-            <Provider store={store}>
-                <Stuff />
-            </Provider>
-        );
+    const component = mount(
+        <Provider store={store}>
+            <Stuff />
+        </Provider>
+    );
 
+    it('should render correct', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('should rendered without stuff', () => {
-        store = mockStore({order: {stuff: [], loading: false}});
-        const component = mount(
-            <Provider store={store} >
-                <Stuff />
-            </Provider>
-        );
+    describe('render whithout stuff', () => {
+        beforeAll(() => store = mockStore({order: {stuff: [], loading: false}}));
+        afterAll(() => store = mockStore(initialState));
 
-        expect(component).toBeDefined();
+        it('should rendered without stuff', () => {
+            expect(component).toBeTruthy();    
+        });
     });
 
-    it('should render loader when stuff empty', () => {
-        store = mockStore({order: {stuff: [], loading: true}});
-        const component = mount(
-            <Provider store={store} >
-                <Stuff />
-            </Provider>
-        );
-
-        expect(component.find('LoaderContainer')).toBeDefined();
+    describe('render loader', () => {
+        beforeAll(() => store = mockStore({order: {stuff: [], loading: false}}));
+        afterAll(() => store = mockStore(initialState));
+        it('should render loader when stuff empty', () => {
+            expect(component.find('LoaderContainer')).toBeTruthy();
+        });
     });
 
-    it('should render loader when stuff is null', () => {
-        store = mockStore({order: {stuff: null, loading: false}});
-        const component = mount(
-            <Provider store={store} >
-                <Stuff />
-            </Provider>
-        );
+    describe('render loader container when server shut down', () => {
+        beforeAll(() => store = mockStore({order: {stuff: [], loading: false}}));
+        afterAll(() => store = mockStore(initialState));
 
-        expect(component.find('LoaderContainer')).toBeTruthy();
+        it('should render loader when stuff is null', () => {
+            expect(component.find('LoaderContainer')).toBeTruthy();
+        });
     });
 });

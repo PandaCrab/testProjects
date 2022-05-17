@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shipping info component: should render correctly Shipping info component 1`] = `
+exports[`Billing info component should render BillingInfo component correctly 1`] = `
 <Provider
   store={
     Object {
@@ -46,7 +46,7 @@ exports[`shipping info component: should render correctly Shipping info componen
         }
       }
     >
-      <ShippingInfo>
+      <BillingInfo>
         <Navigate>
           <styled.section>
             <section
@@ -99,9 +99,21 @@ exports[`shipping info component: should render correctly Shipping info componen
                   <h4
                     className="sc-iqcoie bSFIcJ"
                   >
-                    Shipping Information
+                    Billing Information
                   </h4>
                 </styled.h4>
+                <styled.p
+                  id="same-as-shipping"
+                  onClick={[Function]}
+                >
+                  <p
+                    className="sc-crXcEl cEbuam"
+                    id="same-as-shipping"
+                    onClick={[Function]}
+                  >
+                    Same as shipping
+                  </p>
+                </styled.p>
               </section>
             </styled.section>
             <Form
@@ -115,281 +127,100 @@ exports[`shipping info component: should render correctly Shipping info componen
               >
                 <FormGroup>
                   <div>
-                    <FormGroup>
-                      <div>
-                        <FormLabel
-                          className="mb-0"
-                          column={false}
-                          visuallyHidden={false}
+                    <FormLabel
+                      className="mb-0"
+                      column={false}
+                      visuallyHidden={false}
+                    >
+                      <label
+                        className="mb-0 form-label"
+                      >
+                        Billing Contact
+                      </label>
+                    </FormLabel>
+                    <FormGroup
+                      className="mb-4 position-relative"
+                    >
+                      <div
+                        className="mb-4 position-relative"
+                      >
+                        <FormControl
+                          id="name"
+                          isInvalid={false}
+                          name="name"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          placeholder="Full Name"
+                          type="text"
+                          value=""
                         >
-                          <label
-                            className="mb-0 form-label"
-                          >
-                            Recipient
-                          </label>
-                        </FormLabel>
-                        <FormGroup
-                          className="mb-4 position-relative"
-                        >
-                          <div
-                            className="mb-4 position-relative"
-                          >
-                            <FormControl
-                              id="name"
-                              isInvalid={false}
-                              name="name"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              placeholder="Full Name"
-                              type="text"
-                              value=""
-                            >
-                              <input
-                                className="form-control"
-                                id="name"
-                                name="name"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                placeholder="Full Name"
-                                type="text"
-                                value=""
-                              />
-                            </FormControl>
-                            <Feedback
-                              tooltip={true}
-                              type="invalid"
-                            >
-                              <div
-                                className="invalid-tooltip"
-                              />
-                            </Feedback>
-                          </div>
-                        </FormGroup>
-                        <FormGroup
-                          className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative"
+                          <input
+                            className="form-control"
+                            id="name"
+                            name="name"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder="Full Name"
+                            type="text"
+                            value=""
+                          />
+                        </FormControl>
+                        <Feedback
+                          tooltip={true}
+                          type="invalid"
                         >
                           <div
-                            className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative"
-                          >
-                            <Row>
-                              <div
-                                className="row"
-                              >
-                                <Col
-                                  sm="7"
-                                  xs="7"
-                                >
-                                  <div
-                                    className="col-sm-7 col-7"
-                                  >
-                                    <FormControl
-                                      as={
-                                        Object {
-                                          "$$typeof": Symbol(react.forward_ref),
-                                          "attrs": Array [],
-                                          "componentStyle": e {
-                                            "baseHash": 1403353376,
-                                            "baseStyle": undefined,
-                                            "componentId": "sc-gKXOVf",
-                                            "isStatic": false,
-                                            "rules": Array [
-                                              "
-    padding: 0;
-    border: none;
-    font-size: 1.5em
-    width: 120%;
-",
-                                            ],
-                                            "staticRulesId": "",
-                                          },
-                                          "foldedComponentIds": Array [],
-                                          "render": [Function],
-                                          "shouldForwardProp": undefined,
-                                          "styledComponentId": "sc-gKXOVf",
-                                          "target": [Function],
-                                          "toString": [Function],
-                                          "warnTooManyClasses": [Function],
-                                          "withComponent": [Function],
-                                        }
-                                      }
-                                      id="phone"
-                                      isInvalid={false}
-                                      name="phone"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      placeholder="Daytime Phone"
-                                      specialLabel=""
-                                      type="text"
-                                      value=""
-                                    >
-                                      <Styled(t)
-                                        className="form-control"
-                                        id="phone"
-                                        name="phone"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        placeholder="Daytime Phone"
-                                        specialLabel=""
-                                        type="text"
-                                        value=""
-                                      >
-                                        <t
-                                          alwaysDefaultMask={false}
-                                          areaCodes={null}
-                                          autoFormat={true}
-                                          autocompleteSearch={false}
-                                          buttonClass=""
-                                          buttonStyle={Object {}}
-                                          className="sc-gKXOVf eMAyiV form-control"
-                                          containerClass=""
-                                          containerStyle={Object {}}
-                                          copyNumbersOnly={true}
-                                          country=""
-                                          countryCodeEditable={true}
-                                          defaultErrorMessage=""
-                                          defaultMask="... ... ... ... .."
-                                          disableCountryCode={false}
-                                          disableCountryGuess={false}
-                                          disableDropdown={false}
-                                          disableInitialCountryGuess={false}
-                                          disableSearchIcon={false}
-                                          disabled={false}
-                                          dropdownClass=""
-                                          dropdownStyle={Object {}}
-                                          enableAreaCodeStretch={false}
-                                          enableAreaCodes={false}
-                                          enableClickOutside={true}
-                                          enableLongNumbers={false}
-                                          enableSearch={false}
-                                          enableTerritories={false}
-                                          excludeCountries={Array []}
-                                          flagsImagePath="./flags.png"
-                                          id="phone"
-                                          inputClass=""
-                                          inputProps={Object {}}
-                                          inputStyle={Object {}}
-                                          isValid={true}
-                                          jumpCursorToEnd={true}
-                                          keys={
-                                            Object {
-                                              "A": 65,
-                                              "DOWN": 40,
-                                              "ENTER": 13,
-                                              "ESC": 27,
-                                              "LEFT": 37,
-                                              "PLUS": 43,
-                                              "RIGHT": 39,
-                                              "SPACE": 32,
-                                              "TAB": 9,
-                                              "UP": 38,
-                                              "Z": 90,
-                                            }
-                                          }
-                                          localization={Object {}}
-                                          masks={null}
-                                          name="phone"
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          onEnterKeyPress={null}
-                                          onlyCountries={Array []}
-                                          placeholder="Daytime Phone"
-                                          preferredCountries={Array []}
-                                          prefix="+"
-                                          preserveOrder={Array []}
-                                          priority={null}
-                                          regions=""
-                                          renderStringAsFlag=""
-                                          searchClass=""
-                                          searchNotFound="No entries to show"
-                                          searchPlaceholder="search"
-                                          searchStyle={Object {}}
-                                          showDropdown={false}
-                                          specialLabel=""
-                                          type="text"
-                                          value=""
-                                        >
-                                          <div
-                                            className=" react-tel-input sc-gKXOVf eMAyiV form-control"
-                                            onKeyDown={[Function]}
-                                            style={Object {}}
-                                          >
-                                            <input
-                                              className="form-control "
-                                              disabled={false}
-                                              onBlur={[Function]}
-                                              onChange={[Function]}
-                                              onClick={[Function]}
-                                              onCopy={[Function]}
-                                              onDoubleClick={[Function]}
-                                              onFocus={[Function]}
-                                              onKeyDown={[Function]}
-                                              placeholder="Daytime Phone"
-                                              style={Object {}}
-                                              type="tel"
-                                              value=""
-                                            />
-                                            <div
-                                              className="flag-dropdown "
-                                              style={Object {}}
-                                            >
-                                              <div
-                                                aria-haspopup="listbox"
-                                                className="selected-flag"
-                                                onClick={[Function]}
-                                                role="button"
-                                                tabIndex="0"
-                                                title=""
-                                              >
-                                                <div
-                                                  className="flag 0"
-                                                >
-                                                  <div
-                                                    className="arrow"
-                                                  />
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </t>
-                                      </Styled(t)>
-                                    </FormControl>
-                                    <Feedback
-                                      tooltip={true}
-                                      type="invalid"
-                                    >
-                                      <div
-                                        className="invalid-tooltip"
-                                      />
-                                    </Feedback>
-                                  </div>
-                                </Col>
-                                <Col
-                                  sm="4"
-                                  xs="5"
-                                >
-                                  <div
-                                    className="col-sm-4 col-5"
-                                  >
-                                    <styled.p>
-                                      <p
-                                        className="sc-papXJ NXrhk"
-                                      >
-                                        For delivery questions only
-                                      </p>
-                                    </styled.p>
-                                  </div>
-                                </Col>
-                              </div>
-                            </Row>
-                          </div>
-                        </FormGroup>
+                            className="invalid-tooltip"
+                          />
+                        </Feedback>
                       </div>
                     </FormGroup>
                     <FormGroup
-                      className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative"
+                      className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative"
                     >
                       <div
-                        className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative"
+                        className="mb-4 mb-md-4 mb-lg-5 mb-xl-5 position-relative"
+                      >
+                        <FormControl
+                          id="email"
+                          isInvalid={false}
+                          name="email"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          placeholder="Email address"
+                          type="text"
+                          value=""
+                        >
+                          <input
+                            className="form-control"
+                            id="email"
+                            name="email"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder="Email address"
+                            type="text"
+                            value=""
+                          />
+                        </FormControl>
+                        <Feedback
+                          tooltip={true}
+                          type="invalid"
+                        >
+                          <div
+                            className="invalid-tooltip"
+                          />
+                        </Feedback>
+                      </div>
+                    </FormGroup>
+                  </div>
+                </FormGroup>
+                <FormGroup>
+                  <div>
+                    <FormGroup
+                      className="position-relative"
+                    >
+                      <div
+                        className="position-relative"
                       >
                         <FormLabel
                           className="mb-0"
@@ -399,14 +230,14 @@ exports[`shipping info component: should render correctly Shipping info componen
                           <label
                             className="mb-0 form-label"
                           >
-                            Address
+                            Billing address
                           </label>
                         </FormLabel>
                         <FormGroup
-                          className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative"
+                          className="mb-4 position-relative"
                         >
                           <div
-                            className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative"
+                            className="mb-4 position-relative"
                           >
                             <FormControl
                               data-value={false}
@@ -485,10 +316,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                           </div>
                         </FormGroup>
                         <FormGroup
-                          className="mb-2 mb-md-3 mb-lg-4 mb-xl-4"
+                          className="mb-2 position-relative"
                         >
                           <div
-                            className="mb-2 mb-md-3 mb-lg-4 mb-xl-4"
+                            className="mb-2 position-relative"
                           >
                             <FormControl
                               id="optional"
@@ -513,10 +344,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                           </div>
                         </FormGroup>
                         <FormGroup
-                          className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative"
+                          className="mb-4 position-relative"
                         >
                           <div
-                            className="mb-4 mb-md-3 mb-lg-4 mb-xl-4 position-relative"
+                            className="mb-4 position-relative"
                           >
                             <FormControl
                               id="city"
@@ -550,10 +381,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                           </div>
                         </FormGroup>
                         <FormGroup
-                          className="mb-2 mb-md-3 mb-lg-4 mb-xl-4"
+                          className="mb-4 position-relative"
                         >
                           <div
-                            className="mb-2 mb-md-3 mb-lg-4 mb-xl-4"
+                            className="mb-4 position-relative"
                           >
                             <Row>
                               <div
@@ -4779,13 +4610,6 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                               @media (min-width:1024px){.iLjvJl{margin:0 2em 1em 2em;}.iLjvJl .form-control{font-size:1rem;}.iLjvJl .invalid-tooltip{font-size:.9em;}}
                                                               .fVHUGe{width:1.5em;height:1.5em;position:absolute;top:6px;right:2px;}
                                                               .cUSfMx{font-size:.8em;}
-                                                              .eMAyiV{padding:0;border:none;font-size:1.5em width:120%;}
-                                                              .NXrhk{margin-bottom:0;padding:0;color:#000;line-height:1.2em;font-size:12px;}
-                                                              @media (min-width:320px){.NXrhk{margin-left:0;text-align:flex-start;font-size:.7em;}}
-                                                              @media (min-width:375px){.NXrhk{font-size:.8em;}}
-                                                              @media (min-width:425px){.NXrhk{font-size:.9em;}}
-                                                              @media (min-width:768px){.NXrhk{font-size:.9em;}}
-                                                              @media (min-width:1024px){.NXrhk{font-size:1em;}}
                                                               .lirFSS{width:10em;height:2.5em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;background-color:#7a3fa8;-webkit-text-decoration:none;text-decoration:none;border-radius:5px;}
                                                               @media (min-width:320px){.lirFSS{padding:3px 5px;font-size:.8em;margin-bottom:1em;}}
                                                               @media (min-width:768px){.lirFSS{padding:4px 8px;font-size:.8em;}}
@@ -4799,6 +4623,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                               @media (min-width:375px){.bSFIcJ{font-size:10px;}}
                                                               @ media (min-width:425px){font-size:12px;}/*|*/@media (min-width:768px){.bSFIcJ{font-size:1.5em;}}
                                                               @media (min-width:1024px){.bSFIcJ{font-size:2em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;}}
+                                                              .cEbuam{margin:auto;margin-right:0;font-size:11px;-webkit-text-decoration:underline .1px;text-decoration:underline .1px;-webkit-letter-spacing:normal;-moz-letter-spacing:normal;-ms-letter-spacing:normal;letter-spacing:normal;}
+                                                              @media (min-width:320px){.cEbuam{font-size:.3em;}}
+                                                              @media (min-width:768px){.cEbuam{font-size:.8em;}}
+                                                              @media (min-width:1024px){.cEbuam{font-size:11px;-webkit-text-decoration:underline .5px;text-decoration:underline .5px;}}
                                                               .dbxsDW{width:17em;height:5%;margin-top:1em;margin-bottom:1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
                                                               @media (min-width:320px){.dbxsDW{font-size:.8em;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;}}
                                                             </style>
@@ -5022,7 +4850,7 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                       getStyles={[Function]}
                                                       getValue={[Function]}
                                                       hasValue={false}
-                                                      id="react-select-12-live-region"
+                                                      id="react-select-2-live-region"
                                                       isFocused={false}
                                                       isMulti={false}
                                                       isRtl={false}
@@ -7107,7 +6935,7 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                       }
                                                     >
                                                       <A11yText
-                                                        id="react-select-12-live-region"
+                                                        id="react-select-2-live-region"
                                                       >
                                                         <EmotionCssPropInternal
                                                           __EMOTION_TYPE_PLEASE_DO_NOT_USE__="span"
@@ -7119,7 +6947,7 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                               "toString": [Function],
                                                             }
                                                           }
-                                                          id="react-select-12-live-region"
+                                                          id="react-select-2-live-region"
                                                         >
                                                           <Insertion
                                                             cache={
@@ -7155,13 +6983,6 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                       @media (min-width:1024px){.iLjvJl{margin:0 2em 1em 2em;}.iLjvJl .form-control{font-size:1rem;}.iLjvJl .invalid-tooltip{font-size:.9em;}}
                                                                       .fVHUGe{width:1.5em;height:1.5em;position:absolute;top:6px;right:2px;}
                                                                       .cUSfMx{font-size:.8em;}
-                                                                      .eMAyiV{padding:0;border:none;font-size:1.5em width:120%;}
-                                                                      .NXrhk{margin-bottom:0;padding:0;color:#000;line-height:1.2em;font-size:12px;}
-                                                                      @media (min-width:320px){.NXrhk{margin-left:0;text-align:flex-start;font-size:.7em;}}
-                                                                      @media (min-width:375px){.NXrhk{font-size:.8em;}}
-                                                                      @media (min-width:425px){.NXrhk{font-size:.9em;}}
-                                                                      @media (min-width:768px){.NXrhk{font-size:.9em;}}
-                                                                      @media (min-width:1024px){.NXrhk{font-size:1em;}}
                                                                       .lirFSS{width:10em;height:2.5em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;background-color:#7a3fa8;-webkit-text-decoration:none;text-decoration:none;border-radius:5px;}
                                                                       @media (min-width:320px){.lirFSS{padding:3px 5px;font-size:.8em;margin-bottom:1em;}}
                                                                       @media (min-width:768px){.lirFSS{padding:4px 8px;font-size:.8em;}}
@@ -7175,6 +6996,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                       @media (min-width:375px){.bSFIcJ{font-size:10px;}}
                                                                       @ media (min-width:425px){font-size:12px;}/*|*/@media (min-width:768px){.bSFIcJ{font-size:1.5em;}}
                                                                       @media (min-width:1024px){.bSFIcJ{font-size:2em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;}}
+                                                                      .cEbuam{margin:auto;margin-right:0;font-size:11px;-webkit-text-decoration:underline .1px;text-decoration:underline .1px;-webkit-letter-spacing:normal;-moz-letter-spacing:normal;-ms-letter-spacing:normal;letter-spacing:normal;}
+                                                                      @media (min-width:320px){.cEbuam{font-size:.3em;}}
+                                                                      @media (min-width:768px){.cEbuam{font-size:.8em;}}
+                                                                      @media (min-width:1024px){.cEbuam{font-size:11px;-webkit-text-decoration:underline .5px;text-decoration:underline .5px;}}
                                                                       .dbxsDW{width:17em;height:5%;margin-top:1em;margin-bottom:1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
                                                                       @media (min-width:320px){.dbxsDW{font-size:.8em;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;}}
                                                                     </style>
@@ -7384,7 +7209,7 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                           />
                                                           <span
                                                             className="css-1f43avz-a11yText-A11yText"
-                                                            id="react-select-12-live-region"
+                                                            id="react-select-2-live-region"
                                                           />
                                                         </EmotionCssPropInternal>
                                                       </A11yText>
@@ -7441,13 +7266,6 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                       @media (min-width:1024px){.iLjvJl{margin:0 2em 1em 2em;}.iLjvJl .form-control{font-size:1rem;}.iLjvJl .invalid-tooltip{font-size:.9em;}}
                                                                       .fVHUGe{width:1.5em;height:1.5em;position:absolute;top:6px;right:2px;}
                                                                       .cUSfMx{font-size:.8em;}
-                                                                      .eMAyiV{padding:0;border:none;font-size:1.5em width:120%;}
-                                                                      .NXrhk{margin-bottom:0;padding:0;color:#000;line-height:1.2em;font-size:12px;}
-                                                                      @media (min-width:320px){.NXrhk{margin-left:0;text-align:flex-start;font-size:.7em;}}
-                                                                      @media (min-width:375px){.NXrhk{font-size:.8em;}}
-                                                                      @media (min-width:425px){.NXrhk{font-size:.9em;}}
-                                                                      @media (min-width:768px){.NXrhk{font-size:.9em;}}
-                                                                      @media (min-width:1024px){.NXrhk{font-size:1em;}}
                                                                       .lirFSS{width:10em;height:2.5em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;background-color:#7a3fa8;-webkit-text-decoration:none;text-decoration:none;border-radius:5px;}
                                                                       @media (min-width:320px){.lirFSS{padding:3px 5px;font-size:.8em;margin-bottom:1em;}}
                                                                       @media (min-width:768px){.lirFSS{padding:4px 8px;font-size:.8em;}}
@@ -7461,6 +7279,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                       @media (min-width:375px){.bSFIcJ{font-size:10px;}}
                                                                       @ media (min-width:425px){font-size:12px;}/*|*/@media (min-width:768px){.bSFIcJ{font-size:1.5em;}}
                                                                       @media (min-width:1024px){.bSFIcJ{font-size:2em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;}}
+                                                                      .cEbuam{margin:auto;margin-right:0;font-size:11px;-webkit-text-decoration:underline .1px;text-decoration:underline .1px;-webkit-letter-spacing:normal;-moz-letter-spacing:normal;-ms-letter-spacing:normal;letter-spacing:normal;}
+                                                                      @media (min-width:320px){.cEbuam{font-size:.3em;}}
+                                                                      @media (min-width:768px){.cEbuam{font-size:.8em;}}
+                                                                      @media (min-width:1024px){.cEbuam{font-size:11px;-webkit-text-decoration:underline .5px;text-decoration:underline .5px;}}
                                                                       .dbxsDW{width:17em;height:5%;margin-top:1em;margin-bottom:1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
                                                                       @media (min-width:320px){.dbxsDW{font-size:.8em;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;}}
                                                                     </style>
@@ -9839,13 +9661,6 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                     @media (min-width:1024px){.iLjvJl{margin:0 2em 1em 2em;}.iLjvJl .form-control{font-size:1rem;}.iLjvJl .invalid-tooltip{font-size:.9em;}}
                                                                     .fVHUGe{width:1.5em;height:1.5em;position:absolute;top:6px;right:2px;}
                                                                     .cUSfMx{font-size:.8em;}
-                                                                    .eMAyiV{padding:0;border:none;font-size:1.5em width:120%;}
-                                                                    .NXrhk{margin-bottom:0;padding:0;color:#000;line-height:1.2em;font-size:12px;}
-                                                                    @media (min-width:320px){.NXrhk{margin-left:0;text-align:flex-start;font-size:.7em;}}
-                                                                    @media (min-width:375px){.NXrhk{font-size:.8em;}}
-                                                                    @media (min-width:425px){.NXrhk{font-size:.9em;}}
-                                                                    @media (min-width:768px){.NXrhk{font-size:.9em;}}
-                                                                    @media (min-width:1024px){.NXrhk{font-size:1em;}}
                                                                     .lirFSS{width:10em;height:2.5em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;background-color:#7a3fa8;-webkit-text-decoration:none;text-decoration:none;border-radius:5px;}
                                                                     @media (min-width:320px){.lirFSS{padding:3px 5px;font-size:.8em;margin-bottom:1em;}}
                                                                     @media (min-width:768px){.lirFSS{padding:4px 8px;font-size:.8em;}}
@@ -9859,6 +9674,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                     @media (min-width:375px){.bSFIcJ{font-size:10px;}}
                                                                     @ media (min-width:425px){font-size:12px;}/*|*/@media (min-width:768px){.bSFIcJ{font-size:1.5em;}}
                                                                     @media (min-width:1024px){.bSFIcJ{font-size:2em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;}}
+                                                                    .cEbuam{margin:auto;margin-right:0;font-size:11px;-webkit-text-decoration:underline .1px;text-decoration:underline .1px;-webkit-letter-spacing:normal;-moz-letter-spacing:normal;-ms-letter-spacing:normal;letter-spacing:normal;}
+                                                                    @media (min-width:320px){.cEbuam{font-size:.3em;}}
+                                                                    @media (min-width:768px){.cEbuam{font-size:.8em;}}
+                                                                    @media (min-width:1024px){.cEbuam{font-size:11px;-webkit-text-decoration:underline .5px;text-decoration:underline .5px;}}
                                                                     .dbxsDW{width:17em;height:5%;margin-top:1em;margin-bottom:1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
                                                                     @media (min-width:320px){.dbxsDW{font-size:.8em;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;}}
                                                                   </style>
@@ -12212,13 +12031,6 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                           @media (min-width:1024px){.iLjvJl{margin:0 2em 1em 2em;}.iLjvJl .form-control{font-size:1rem;}.iLjvJl .invalid-tooltip{font-size:.9em;}}
                                                                           .fVHUGe{width:1.5em;height:1.5em;position:absolute;top:6px;right:2px;}
                                                                           .cUSfMx{font-size:.8em;}
-                                                                          .eMAyiV{padding:0;border:none;font-size:1.5em width:120%;}
-                                                                          .NXrhk{margin-bottom:0;padding:0;color:#000;line-height:1.2em;font-size:12px;}
-                                                                          @media (min-width:320px){.NXrhk{margin-left:0;text-align:flex-start;font-size:.7em;}}
-                                                                          @media (min-width:375px){.NXrhk{font-size:.8em;}}
-                                                                          @media (min-width:425px){.NXrhk{font-size:.9em;}}
-                                                                          @media (min-width:768px){.NXrhk{font-size:.9em;}}
-                                                                          @media (min-width:1024px){.NXrhk{font-size:1em;}}
                                                                           .lirFSS{width:10em;height:2.5em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;background-color:#7a3fa8;-webkit-text-decoration:none;text-decoration:none;border-radius:5px;}
                                                                           @media (min-width:320px){.lirFSS{padding:3px 5px;font-size:.8em;margin-bottom:1em;}}
                                                                           @media (min-width:768px){.lirFSS{padding:4px 8px;font-size:.8em;}}
@@ -12232,6 +12044,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                           @media (min-width:375px){.bSFIcJ{font-size:10px;}}
                                                                           @ media (min-width:425px){font-size:12px;}/*|*/@media (min-width:768px){.bSFIcJ{font-size:1.5em;}}
                                                                           @media (min-width:1024px){.bSFIcJ{font-size:2em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;}}
+                                                                          .cEbuam{margin:auto;margin-right:0;font-size:11px;-webkit-text-decoration:underline .1px;text-decoration:underline .1px;-webkit-letter-spacing:normal;-moz-letter-spacing:normal;-ms-letter-spacing:normal;letter-spacing:normal;}
+                                                                          @media (min-width:320px){.cEbuam{font-size:.3em;}}
+                                                                          @media (min-width:768px){.cEbuam{font-size:.8em;}}
+                                                                          @media (min-width:1024px){.cEbuam{font-size:11px;-webkit-text-decoration:underline .5px;text-decoration:underline .5px;}}
                                                                           .dbxsDW{width:17em;height:5%;margin-top:1em;margin-bottom:1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
                                                                           @media (min-width:320px){.dbxsDW{font-size:.8em;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;}}
                                                                         </style>
@@ -12451,7 +12267,7 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                   hasValue={false}
                                                                   innerProps={
                                                                     Object {
-                                                                      "id": "react-select-12-placeholder",
+                                                                      "id": "react-select-2-placeholder",
                                                                     }
                                                                   }
                                                                   isDisabled={false}
@@ -14552,7 +14368,7 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                         "marginRight": 2,
                                                                       }
                                                                     }
-                                                                    id="react-select-12-placeholder"
+                                                                    id="react-select-2-placeholder"
                                                                   >
                                                                     <Insertion
                                                                       cache={
@@ -14588,13 +14404,6 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                                 @media (min-width:1024px){.iLjvJl{margin:0 2em 1em 2em;}.iLjvJl .form-control{font-size:1rem;}.iLjvJl .invalid-tooltip{font-size:.9em;}}
                                                                                 .fVHUGe{width:1.5em;height:1.5em;position:absolute;top:6px;right:2px;}
                                                                                 .cUSfMx{font-size:.8em;}
-                                                                                .eMAyiV{padding:0;border:none;font-size:1.5em width:120%;}
-                                                                                .NXrhk{margin-bottom:0;padding:0;color:#000;line-height:1.2em;font-size:12px;}
-                                                                                @media (min-width:320px){.NXrhk{margin-left:0;text-align:flex-start;font-size:.7em;}}
-                                                                                @media (min-width:375px){.NXrhk{font-size:.8em;}}
-                                                                                @media (min-width:425px){.NXrhk{font-size:.9em;}}
-                                                                                @media (min-width:768px){.NXrhk{font-size:.9em;}}
-                                                                                @media (min-width:1024px){.NXrhk{font-size:1em;}}
                                                                                 .lirFSS{width:10em;height:2.5em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;background-color:#7a3fa8;-webkit-text-decoration:none;text-decoration:none;border-radius:5px;}
                                                                                 @media (min-width:320px){.lirFSS{padding:3px 5px;font-size:.8em;margin-bottom:1em;}}
                                                                                 @media (min-width:768px){.lirFSS{padding:4px 8px;font-size:.8em;}}
@@ -14608,6 +14417,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                                 @media (min-width:375px){.bSFIcJ{font-size:10px;}}
                                                                                 @ media (min-width:425px){font-size:12px;}/*|*/@media (min-width:768px){.bSFIcJ{font-size:1.5em;}}
                                                                                 @media (min-width:1024px){.bSFIcJ{font-size:2em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;}}
+                                                                                .cEbuam{margin:auto;margin-right:0;font-size:11px;-webkit-text-decoration:underline .1px;text-decoration:underline .1px;-webkit-letter-spacing:normal;-moz-letter-spacing:normal;-ms-letter-spacing:normal;letter-spacing:normal;}
+                                                                                @media (min-width:320px){.cEbuam{font-size:.3em;}}
+                                                                                @media (min-width:768px){.cEbuam{font-size:.8em;}}
+                                                                                @media (min-width:1024px){.cEbuam{font-size:11px;-webkit-text-decoration:underline .5px;text-decoration:underline .5px;}}
                                                                                 .dbxsDW{width:17em;height:5%;margin-top:1em;margin-bottom:1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
                                                                                 @media (min-width:320px){.dbxsDW{font-size:.8em;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;}}
                                                                               </style>
@@ -14818,7 +14631,7 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                     />
                                                                     <div
                                                                       className=" css-14el2xx-placeholder"
-                                                                      id="react-select-12-placeholder"
+                                                                      id="react-select-2-placeholder"
                                                                     >
                                                                       Country
                                                                     </div>
@@ -14826,7 +14639,7 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                 </Placeholder>
                                                                 <Input
                                                                   aria-autocomplete="list"
-                                                                  aria-describedby="react-select-12-placeholder"
+                                                                  aria-describedby="react-select-2-placeholder"
                                                                   aria-expanded={false}
                                                                   aria-haspopup={true}
                                                                   autoCapitalize="none"
@@ -14837,7 +14650,7 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                   getStyles={[Function]}
                                                                   getValue={[Function]}
                                                                   hasValue={false}
-                                                                  id="react-select-12-input"
+                                                                  id="react-select-2-input"
                                                                   innerRef={[Function]}
                                                                   isDisabled={false}
                                                                   isHidden={false}
@@ -16997,13 +16810,6 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                                 @media (min-width:1024px){.iLjvJl{margin:0 2em 1em 2em;}.iLjvJl .form-control{font-size:1rem;}.iLjvJl .invalid-tooltip{font-size:.9em;}}
                                                                                 .fVHUGe{width:1.5em;height:1.5em;position:absolute;top:6px;right:2px;}
                                                                                 .cUSfMx{font-size:.8em;}
-                                                                                .eMAyiV{padding:0;border:none;font-size:1.5em width:120%;}
-                                                                                .NXrhk{margin-bottom:0;padding:0;color:#000;line-height:1.2em;font-size:12px;}
-                                                                                @media (min-width:320px){.NXrhk{margin-left:0;text-align:flex-start;font-size:.7em;}}
-                                                                                @media (min-width:375px){.NXrhk{font-size:.8em;}}
-                                                                                @media (min-width:425px){.NXrhk{font-size:.9em;}}
-                                                                                @media (min-width:768px){.NXrhk{font-size:.9em;}}
-                                                                                @media (min-width:1024px){.NXrhk{font-size:1em;}}
                                                                                 .lirFSS{width:10em;height:2.5em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;background-color:#7a3fa8;-webkit-text-decoration:none;text-decoration:none;border-radius:5px;}
                                                                                 @media (min-width:320px){.lirFSS{padding:3px 5px;font-size:.8em;margin-bottom:1em;}}
                                                                                 @media (min-width:768px){.lirFSS{padding:4px 8px;font-size:.8em;}}
@@ -17017,6 +16823,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                                 @media (min-width:375px){.bSFIcJ{font-size:10px;}}
                                                                                 @ media (min-width:425px){font-size:12px;}/*|*/@media (min-width:768px){.bSFIcJ{font-size:1.5em;}}
                                                                                 @media (min-width:1024px){.bSFIcJ{font-size:2em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;}}
+                                                                                .cEbuam{margin:auto;margin-right:0;font-size:11px;-webkit-text-decoration:underline .1px;text-decoration:underline .1px;-webkit-letter-spacing:normal;-moz-letter-spacing:normal;-ms-letter-spacing:normal;letter-spacing:normal;}
+                                                                                @media (min-width:320px){.cEbuam{font-size:.3em;}}
+                                                                                @media (min-width:768px){.cEbuam{font-size:.8em;}}
+                                                                                @media (min-width:1024px){.cEbuam{font-size:11px;-webkit-text-decoration:underline .5px;text-decoration:underline .5px;}}
                                                                                 .dbxsDW{width:17em;height:5%;margin-top:1em;margin-bottom:1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
                                                                                 @media (min-width:320px){.dbxsDW{font-size:.8em;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;}}
                                                                               </style>
@@ -17231,7 +17041,7 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                     >
                                                                       <input
                                                                         aria-autocomplete="list"
-                                                                        aria-describedby="react-select-12-placeholder"
+                                                                        aria-describedby="react-select-2-placeholder"
                                                                         aria-expanded={false}
                                                                         aria-haspopup={true}
                                                                         autoCapitalize="none"
@@ -17239,7 +17049,7 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                         autoCorrect="off"
                                                                         className=""
                                                                         disabled={false}
-                                                                        id="react-select-12-input"
+                                                                        id="react-select-2-input"
                                                                         onBlur={[Function]}
                                                                         onChange={[Function]}
                                                                         onFocus={[Function]}
@@ -19407,13 +19217,6 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                           @media (min-width:1024px){.iLjvJl{margin:0 2em 1em 2em;}.iLjvJl .form-control{font-size:1rem;}.iLjvJl .invalid-tooltip{font-size:.9em;}}
                                                                           .fVHUGe{width:1.5em;height:1.5em;position:absolute;top:6px;right:2px;}
                                                                           .cUSfMx{font-size:.8em;}
-                                                                          .eMAyiV{padding:0;border:none;font-size:1.5em width:120%;}
-                                                                          .NXrhk{margin-bottom:0;padding:0;color:#000;line-height:1.2em;font-size:12px;}
-                                                                          @media (min-width:320px){.NXrhk{margin-left:0;text-align:flex-start;font-size:.7em;}}
-                                                                          @media (min-width:375px){.NXrhk{font-size:.8em;}}
-                                                                          @media (min-width:425px){.NXrhk{font-size:.9em;}}
-                                                                          @media (min-width:768px){.NXrhk{font-size:.9em;}}
-                                                                          @media (min-width:1024px){.NXrhk{font-size:1em;}}
                                                                           .lirFSS{width:10em;height:2.5em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;background-color:#7a3fa8;-webkit-text-decoration:none;text-decoration:none;border-radius:5px;}
                                                                           @media (min-width:320px){.lirFSS{padding:3px 5px;font-size:.8em;margin-bottom:1em;}}
                                                                           @media (min-width:768px){.lirFSS{padding:4px 8px;font-size:.8em;}}
@@ -19427,6 +19230,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                           @media (min-width:375px){.bSFIcJ{font-size:10px;}}
                                                                           @ media (min-width:425px){font-size:12px;}/*|*/@media (min-width:768px){.bSFIcJ{font-size:1.5em;}}
                                                                           @media (min-width:1024px){.bSFIcJ{font-size:2em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;}}
+                                                                          .cEbuam{margin:auto;margin-right:0;font-size:11px;-webkit-text-decoration:underline .1px;text-decoration:underline .1px;-webkit-letter-spacing:normal;-moz-letter-spacing:normal;-ms-letter-spacing:normal;letter-spacing:normal;}
+                                                                          @media (min-width:320px){.cEbuam{font-size:.3em;}}
+                                                                          @media (min-width:768px){.cEbuam{font-size:.8em;}}
+                                                                          @media (min-width:1024px){.cEbuam{font-size:11px;-webkit-text-decoration:underline .5px;text-decoration:underline .5px;}}
                                                                           .dbxsDW{width:17em;height:5%;margin-top:1em;margin-bottom:1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
                                                                           @media (min-width:320px){.dbxsDW{font-size:.8em;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;}}
                                                                         </style>
@@ -21777,13 +21584,6 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                                 @media (min-width:1024px){.iLjvJl{margin:0 2em 1em 2em;}.iLjvJl .form-control{font-size:1rem;}.iLjvJl .invalid-tooltip{font-size:.9em;}}
                                                                                 .fVHUGe{width:1.5em;height:1.5em;position:absolute;top:6px;right:2px;}
                                                                                 .cUSfMx{font-size:.8em;}
-                                                                                .eMAyiV{padding:0;border:none;font-size:1.5em width:120%;}
-                                                                                .NXrhk{margin-bottom:0;padding:0;color:#000;line-height:1.2em;font-size:12px;}
-                                                                                @media (min-width:320px){.NXrhk{margin-left:0;text-align:flex-start;font-size:.7em;}}
-                                                                                @media (min-width:375px){.NXrhk{font-size:.8em;}}
-                                                                                @media (min-width:425px){.NXrhk{font-size:.9em;}}
-                                                                                @media (min-width:768px){.NXrhk{font-size:.9em;}}
-                                                                                @media (min-width:1024px){.NXrhk{font-size:1em;}}
                                                                                 .lirFSS{width:10em;height:2.5em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;background-color:#7a3fa8;-webkit-text-decoration:none;text-decoration:none;border-radius:5px;}
                                                                                 @media (min-width:320px){.lirFSS{padding:3px 5px;font-size:.8em;margin-bottom:1em;}}
                                                                                 @media (min-width:768px){.lirFSS{padding:4px 8px;font-size:.8em;}}
@@ -21797,6 +21597,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                                 @media (min-width:375px){.bSFIcJ{font-size:10px;}}
                                                                                 @ media (min-width:425px){font-size:12px;}/*|*/@media (min-width:768px){.bSFIcJ{font-size:1.5em;}}
                                                                                 @media (min-width:1024px){.bSFIcJ{font-size:2em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;}}
+                                                                                .cEbuam{margin:auto;margin-right:0;font-size:11px;-webkit-text-decoration:underline .1px;text-decoration:underline .1px;-webkit-letter-spacing:normal;-moz-letter-spacing:normal;-ms-letter-spacing:normal;letter-spacing:normal;}
+                                                                                @media (min-width:320px){.cEbuam{font-size:.3em;}}
+                                                                                @media (min-width:768px){.cEbuam{font-size:.8em;}}
+                                                                                @media (min-width:1024px){.cEbuam{font-size:11px;-webkit-text-decoration:underline .5px;text-decoration:underline .5px;}}
                                                                                 .dbxsDW{width:17em;height:5%;margin-top:1em;margin-bottom:1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
                                                                                 @media (min-width:320px){.dbxsDW{font-size:.8em;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;}}
                                                                               </style>
@@ -24161,13 +23965,6 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                                 @media (min-width:1024px){.iLjvJl{margin:0 2em 1em 2em;}.iLjvJl .form-control{font-size:1rem;}.iLjvJl .invalid-tooltip{font-size:.9em;}}
                                                                                 .fVHUGe{width:1.5em;height:1.5em;position:absolute;top:6px;right:2px;}
                                                                                 .cUSfMx{font-size:.8em;}
-                                                                                .eMAyiV{padding:0;border:none;font-size:1.5em width:120%;}
-                                                                                .NXrhk{margin-bottom:0;padding:0;color:#000;line-height:1.2em;font-size:12px;}
-                                                                                @media (min-width:320px){.NXrhk{margin-left:0;text-align:flex-start;font-size:.7em;}}
-                                                                                @media (min-width:375px){.NXrhk{font-size:.8em;}}
-                                                                                @media (min-width:425px){.NXrhk{font-size:.9em;}}
-                                                                                @media (min-width:768px){.NXrhk{font-size:.9em;}}
-                                                                                @media (min-width:1024px){.NXrhk{font-size:1em;}}
                                                                                 .lirFSS{width:10em;height:2.5em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;background-color:#7a3fa8;-webkit-text-decoration:none;text-decoration:none;border-radius:5px;}
                                                                                 @media (min-width:320px){.lirFSS{padding:3px 5px;font-size:.8em;margin-bottom:1em;}}
                                                                                 @media (min-width:768px){.lirFSS{padding:4px 8px;font-size:.8em;}}
@@ -24181,6 +23978,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                                 @media (min-width:375px){.bSFIcJ{font-size:10px;}}
                                                                                 @ media (min-width:425px){font-size:12px;}/*|*/@media (min-width:768px){.bSFIcJ{font-size:1.5em;}}
                                                                                 @media (min-width:1024px){.bSFIcJ{font-size:2em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;}}
+                                                                                .cEbuam{margin:auto;margin-right:0;font-size:11px;-webkit-text-decoration:underline .1px;text-decoration:underline .1px;-webkit-letter-spacing:normal;-moz-letter-spacing:normal;-ms-letter-spacing:normal;letter-spacing:normal;}
+                                                                                @media (min-width:320px){.cEbuam{font-size:.3em;}}
+                                                                                @media (min-width:768px){.cEbuam{font-size:.8em;}}
+                                                                                @media (min-width:1024px){.cEbuam{font-size:11px;-webkit-text-decoration:underline .5px;text-decoration:underline .5px;}}
                                                                                 .dbxsDW{width:17em;height:5%;margin-top:1em;margin-bottom:1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
                                                                                 @media (min-width:320px){.dbxsDW{font-size:.8em;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;}}
                                                                               </style>
@@ -24449,13 +24250,6 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                                         @media (min-width:1024px){.iLjvJl{margin:0 2em 1em 2em;}.iLjvJl .form-control{font-size:1rem;}.iLjvJl .invalid-tooltip{font-size:.9em;}}
                                                                                         .fVHUGe{width:1.5em;height:1.5em;position:absolute;top:6px;right:2px;}
                                                                                         .cUSfMx{font-size:.8em;}
-                                                                                        .eMAyiV{padding:0;border:none;font-size:1.5em width:120%;}
-                                                                                        .NXrhk{margin-bottom:0;padding:0;color:#000;line-height:1.2em;font-size:12px;}
-                                                                                        @media (min-width:320px){.NXrhk{margin-left:0;text-align:flex-start;font-size:.7em;}}
-                                                                                        @media (min-width:375px){.NXrhk{font-size:.8em;}}
-                                                                                        @media (min-width:425px){.NXrhk{font-size:.9em;}}
-                                                                                        @media (min-width:768px){.NXrhk{font-size:.9em;}}
-                                                                                        @media (min-width:1024px){.NXrhk{font-size:1em;}}
                                                                                         .lirFSS{width:10em;height:2.5em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;background-color:#7a3fa8;-webkit-text-decoration:none;text-decoration:none;border-radius:5px;}
                                                                                         @media (min-width:320px){.lirFSS{padding:3px 5px;font-size:.8em;margin-bottom:1em;}}
                                                                                         @media (min-width:768px){.lirFSS{padding:4px 8px;font-size:.8em;}}
@@ -24469,6 +24263,10 @@ exports[`shipping info component: should render correctly Shipping info componen
                                                                                         @media (min-width:375px){.bSFIcJ{font-size:10px;}}
                                                                                         @ media (min-width:425px){font-size:12px;}/*|*/@media (min-width:768px){.bSFIcJ{font-size:1.5em;}}
                                                                                         @media (min-width:1024px){.bSFIcJ{font-size:2em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;}}
+                                                                                        .cEbuam{margin:auto;margin-right:0;font-size:11px;-webkit-text-decoration:underline .1px;text-decoration:underline .1px;-webkit-letter-spacing:normal;-moz-letter-spacing:normal;-ms-letter-spacing:normal;letter-spacing:normal;}
+                                                                                        @media (min-width:320px){.cEbuam{font-size:.3em;}}
+                                                                                        @media (min-width:768px){.cEbuam{font-size:.8em;}}
+                                                                                        @media (min-width:1024px){.cEbuam{font-size:11px;-webkit-text-decoration:underline .5px;text-decoration:underline .5px;}}
                                                                                         .dbxsDW{width:17em;height:5%;margin-top:1em;margin-bottom:1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
                                                                                         @media (min-width:320px){.dbxsDW{font-size:.8em;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;}}
                                                                                       </style>
@@ -24762,22 +24560,19 @@ exports[`shipping info component: should render correctly Shipping info componen
                   </div>
                 </FormGroup>
                 <Styled(Button)
-                  id="submit"
                   type="submit"
-                  variant="primary"
+                  variant="secondary"
                 >
                   <Button
                     active={false}
                     className="sc-jqUVSM lirFSS"
                     disabled={false}
-                    id="submit"
                     type="submit"
-                    variant="primary"
+                    variant="secondary"
                   >
                     <button
-                      className="sc-jqUVSM lirFSS btn btn-primary"
+                      className="sc-jqUVSM lirFSS btn btn-secondary"
                       disabled={false}
-                      id="submit"
                       type="submit"
                     >
                       Continue
@@ -24788,7 +24583,7 @@ exports[`shipping info component: should render correctly Shipping info componen
             </Form>
           </div>
         </styled.div>
-      </ShippingInfo>
+      </BillingInfo>
     </Router>
   </BrowserRouter>
 </Provider>

@@ -1,10 +1,10 @@
 import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
 import { BrowserRouter } from 'react-router-dom';
 import { mount } from 'enzyme';
+import { Store } from 'redux';
+import configureStore from 'redux-mock-store';
 
 import App from '../App';
-import { Store } from 'redux';
 
 const initialState: Object = {order: {
     stuff: [

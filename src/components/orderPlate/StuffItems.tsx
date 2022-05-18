@@ -11,14 +11,15 @@ import {
 
 interface propTypes {
   stuff: {
-    imgUrl: string,
-    name: string,
-    color: string;
-    price: number
+    imgUrl?: string,
+    name?: string,
+    color?: string
+    price?: number,
+    id?: number
   }
-}
+};
 
-export const StuffItems = ({ stuff }: propTypes) => (
+const StuffItems = ({ stuff }: propTypes) => (
   <StuffItem>
     <StuffImage src={stuff.imgUrl} alt={stuff.name} />
     <StuffInfo>

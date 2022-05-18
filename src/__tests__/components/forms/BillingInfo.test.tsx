@@ -276,6 +276,6 @@ describe('Submit button', () => {
         const mockHandleSubmit = jest.fn();
         act(() => component.find('form').prop('onSubmit')(mockHandleSubmit()));
 
-        expect(mockHandleSubmit).toHaveBeenCalled();
+        expect(mockHandleSubmit).toHaveBeenCalledTimes(1);
     });
 });

@@ -1,10 +1,11 @@
 import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
+import configureStore from 'redux-mock-store';
 
 import { DropdownAddresses } from '../../../components/Index';
+import { addressPayload } from '../../../types';
 
-const initialState: any = {address: {
+const initialState: { address: addressPayload } = {address: {
     addresses: [
         {
             properties: {

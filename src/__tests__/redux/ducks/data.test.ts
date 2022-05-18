@@ -1,5 +1,5 @@
-import configureStore from 'redux-mock-store';
 import { takeEvery } from 'redux-saga/effects';
+import configureStore from 'redux-mock-store';
 
 import dataReducer, {
     FILL_SHIPPING_DATA,

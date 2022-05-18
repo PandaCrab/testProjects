@@ -57,7 +57,7 @@ export const fetchGeolocation: () => Promise<{}> = async() => {
 //fetch by input
 const endpoint: {value: string} = {value: ''};
 export const getEndpoint = (addressInput: string) => {
-    if (addressInput.length > 0) { endpoint.value = addressInput }
+    if (addressInput.length) { endpoint.value = addressInput }
 };
 
 export const fetchAddress: () => Promise<{}> = async () => {

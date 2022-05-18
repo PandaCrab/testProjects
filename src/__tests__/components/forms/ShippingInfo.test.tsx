@@ -1,8 +1,8 @@
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { mount } from 'enzyme';
-import configureStore from 'redux-mock-store';
 import { act } from 'react-dom/test-utils';
+import configureStore from 'redux-mock-store';
 
 import { ShippingInfo } from '../../../components/Index';
 
@@ -270,6 +270,6 @@ describe('Submit button', () => {
         const mockHandleSubmit = jest.fn();
         act(() => {component.find('form').prop('onSubmit')(mockHandleSubmit())});
 
-        expect(mockHandleSubmit).toHaveBeenCalled();
+        expect(mockHandleSubmit).toHaveBeenCalledTimes(1);
     });
 });

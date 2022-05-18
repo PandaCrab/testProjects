@@ -19,17 +19,15 @@ const Stuff = () => {
             </LoaderContainer>);
     };
 
-    if (stuffs) {
-        dispatch(getStuff());
-        return (
-        <>
-            {stuffs.map(stuff => (<StuffItems stuff={stuff} key={stuff.id} />))}
-        </>)
-    } else {
-        return (<LoaderContainer>
-            <Loader />
-        </LoaderContainer>)
-    };
+    if (stuffs && !stuffs.length) { dispatch(getStuff()) }
+
+    return (
+        stuffs && stuffs.length && (
+            <>
+            {stuffs.map((stuff: { id: number }) => (<StuffItems stuff={stuff} key={stuff.id} />))}
+            </>
+        )
+    );
 };
 
 export default Stuff;

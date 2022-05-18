@@ -27,23 +27,22 @@ import {
 
 interface stateTypes {
     subtotal: number,
-    shipping: any,
-    taxes: number,
-    freeShipping: boolean
+    shipping: number,
+    taxes: number
 }
 
 const OrderPlate = () => {
     const [viewOrder, setViewOrder] = useState<boolean>(false);
     const [prices, setPrices] = useState<stateTypes>({
         subtotal: 0,
-        shipping: 'Free',
-        taxes: 12.12,
-        freeShipping: false
+        shipping: 0,
+        taxes: 12.12
     });
 
     const stuff = useSelector((state: RootState) => state.order.stuff);
     useEffect(() => {
-        if(stuff) {const addPrices = stuff.reduce((accumulator, currentValue) => 
+        if(stuff) {
+            const addPrices = stuff.reduce((accumulator: number, currentValue: any) => 
                 accumulator + currentValue.price, 0);
         
             setPrices(prices => ({
@@ -57,16 +56,6 @@ const OrderPlate = () => {
             }));
         }
     }, [stuff]);
-
-    const checkFreeShipping = () => {
-        if (prices.shipping === ('Free' || 'free')) {
-            prices.freeShipping = true;
-            return (prices.subtotal + prices.taxes).toFixed(2);
-        } else {
-            prices.freeShipping = false;
-            return (prices.subtotal + prices.shipping + prices.taxes).toFixed(2);
-        }   
-    };
 
     return (
         <>
@@ -91,15 +80,16 @@ const OrderPlate = () => {
                     <Price>
                         <PriceText>${prices.subtotal}</PriceText>
                         <PriceText>
-                            {prices.freeShipping ? null : '$'}
-                            {prices.shipping}
+                            {prices.shipping === 0 ? 'Free' : `$${prices.shipping}`}
                         </PriceText>
                         <PriceText>${prices.taxes}</PriceText>
                     </Price>
                 </SummaryPrice>
                 <TotalPrice>
                     <TotalPriceText>Total</TotalPriceText>
-                    <TotalPriceText>${checkFreeShipping()}</TotalPriceText>
+                    <TotalPriceText>
+                        ${(prices.subtotal + prices.shipping + prices.taxes).toFixed(2)}
+                    </TotalPriceText>
                 </TotalPrice>
                 </section>
                 <section>

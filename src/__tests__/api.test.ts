@@ -9,9 +9,9 @@ describe('Stuff fetch',() => {
         const products = {products: [
             {
                 'id': 1,
-                'imgUrl': `https://guesseu.scene7.com/is/image/GuessEU/` +
-                `M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg` +
-                `&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0`,
+                'imgUrl': `https://guesseu.scene7.com/is/image/GuessEU/
+                    M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg
+                    &qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0`,
                 'name': 'Check Print Shirt',
                 'color': 'Grey+red+black',
                 'price': 110
@@ -155,14 +155,14 @@ describe('navigator address', () => {
 
         it('should called with server url', () => {
             expect(fetch).toHaveBeenCalledWith(
-                `https://app.geocodeapi.io/api/v1/reverse?` +
-                `apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&point.lat=2&point.lon=2&layers=address`
+                `https://app.geocodeapi.io/api/v1/reverse?apikey=e2d9f960`+
+                `-bc78-11ec-a0da-bd0e50737306&point.lat=2&point.lon=2&layers=address`
             );
         });
     });
 });
 
-describe('autocomplete', () => {
+describe('Check endpoint', () => {
     const endpoint = {
         value: ''
     };
@@ -172,62 +172,63 @@ describe('autocomplete', () => {
 
         setTimeout(() => expect(endpoint.value).toEqual('Yo, i am working'), 100);
     });
+});
 
-    describe('take addresses from api service', () => {
-        const address = {
-            features: [
-                {
-                    properties: {
-                        id: 12234,
-                        name: '7a heros of Ukraine',
-                        locality: 'Lokvyts`a',
-                        country: 'Ukraine',
-                        label: '7a heros of Ukraine, Lokhvitsy`a, Ukraine'
-                    }
-                },
-                {
-                    properties: {
-                        id: 3552,
-                        name: '35 Ivana Sirka',
-                        locality: 'Sumy',
-                        country: 'Ukraine',
-                        label: '35 Ivana Sirka, Sumy, Ukraine'
-                    }
+describe('take addresses from api service', () => {
+    const address = {
+        features: [
+            {
+                properties: {
+                    id: 12234,
+                    name: '7a heros of Ukraine',
+                    locality: 'Lokvyts`a',
+                    country: 'Ukraine',
+                    label: '7a heros of Ukraine, Lokhvitsy`a, Ukraine'
                 }
-            ]
-        };
+            },
+            {
+                properties: {
+                    id: 3552,
+                    name: '35 Ivana Sirka',
+                    locality: 'Sumy',
+                    country: 'Ukraine',
+                    label: '35 Ivana Sirka, Sumy, Ukraine'
+                }
+            }
+        ]
+    };
 
-        fetchMock.mockResponseOnce(JSON.stringify(address));
+    fetchMock.mockResponseOnce(JSON.stringify(address));
 
-        let result: Object;
+    let result: Object;
 
-        beforeEach(async () => result = await api.fetchAddress());
+    beforeEach(async () => result = await api.fetchAddress());
 
-        it('should have addresses from api', () => {
-            setTimeout(() => expect(result).toEqual(address.features), 100);
-        });
-
-        it('should called ones', () => {
-            expect(fetch).toHaveBeenCalledTimes(1);
-        });
+    it('should have addresses from api', () => {
+        setTimeout(() => expect(result).toEqual(address.features), 100);
     });
 
-    describe('reject autocomplete', () => {
-        fetchMock.mockReject(() => Promise.reject('API is down'));
+    it('should called ones', () => {
+        expect(fetch).toHaveBeenCalledTimes(1);
+    });
+});
 
-        let reject: Object;
 
-        beforeEach(async () => reject = await api.fetchAddress());
+describe('reject autocomplete', () => {
+    fetchMock.mockReject(() => Promise.reject('API is down'));
 
-        it('should be null', () => {
-            expect(reject).toEqual(null);
-        });
+    let reject: Object;
 
-        it('should called with server url', () => {
-            expect(fetch).toHaveBeenCalledWith(
-                `https://app.geocodeapi.io/api/v1/autocomplete?` + 
-                `apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&text=Yo,%20i%20am%20working&size=5`
-            );
-        });
+    beforeEach(async () => reject = await api.fetchAddress());
+
+    it('should be null', () => {
+        expect(reject).toEqual(null);
+    });
+
+    it('should called with server url', () => {
+        expect(fetch).toHaveBeenCalledWith(
+            `https://app.geocodeapi.io/api/v1/autocomplete?` +
+            `apikey=e2d9f960-bc78-11ec-a0da-bd0e50737306&text=Yo,%20i%20am%20working&size=5`
+        );
     });
 });

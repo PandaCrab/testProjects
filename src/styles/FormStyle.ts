@@ -94,7 +94,17 @@ export const ErrorMessage = styled.p`
 `;
 
 export const SelectContainer = styled.section`
-    font-size: .8em;
+    @media ${devices.mobileS} {
+        font-size: .8em;
+    };
+
+    @media ${devices.tablet} {
+        font-size: 1em;
+    }
+
+    @media ${devices.laptopL} {
+        font-size: 1.2em;
+    }
 `
 
 export const ListItems = styled.li`
@@ -108,6 +118,14 @@ export const ListItems = styled.li`
         background-color: ${colors.optionHover};
         color: ${colors.white};
     };
+
+    @media ${devices.mobileS} {
+        font-size: .7em;
+    };
+
+    @media ${devices.tablet} {
+        font-size: 1em;
+    }
 `;
 
 export const PhoneControlInput = styled(PhoneInput)`

@@ -9,7 +9,7 @@ import addressReducer, {
     fillAddressInput
 } from '../../../redux/ducks/address';
 
-import { addressState } from '../../../types';
+import type { addressState } from '../../../types';
 
 describe('Stuff reducer', () => {
     it('should have initial state', () => {

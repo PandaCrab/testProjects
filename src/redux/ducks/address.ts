@@ -113,8 +113,8 @@ export function* addressInputWatcher() {
     let setEndpoint: [];
     while (true) {
         const { payload } = yield take(SEARCH_ADDRESS);
-        if (setEndpoint) {yield cancel(setEndpoint)}
-        setEndpoint = yield fork(putAddressInput, payload);
+        if (setEndpoint) { yield cancel(setEndpoint) }
+        setEndpoint = yield fork(putAddressInput, payload.text);
     };
 };
 

@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stuff element should render correct 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Stuff>
+    <StuffItems
+      key="1"
+      stuff={
+        Object {
+          "color": "Grey+red+black",
+          "id": 1,
+          "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/
+                M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80
+                &op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
+          "name": "Check Print Shirt",
+          "price": 110,
+        }
+      }
+    >
+      <styled.section>
+        <section
+          className="sc-dmRaPn dEaXlw"
+        >
+          <styled.img
+            alt="Check Print Shirt"
+            src="https://guesseu.scene7.com/is/image/GuessEU/
+                M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80
+                &op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0"
+          >
+            <img
+              alt="Check Print Shirt"
+              className="sc-kgflAQ jBeHF"
+              src="https://guesseu.scene7.com/is/image/GuessEU/
+                M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80
+                &op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0"
+            />
+          </styled.img>
+          <styled.section>
+            <section
+              className="sc-fLlhyt eIMmde"
+            >
+              <styled.h6>
+                <h6
+                  className="sc-bBrHrO hcTbiR"
+                >
+                  Check Print Shirt
+                </h6>
+              </styled.h6>
+              <styled.p>
+                <p
+                  className="sc-ivTmOn Tdoil"
+                >
+                  Grey+red+black
+                </p>
+              </styled.p>
+              <styled.p>
+                <p
+                  className="sc-ivTmOn Tdoil"
+                >
+                  Quantity: 1
+                </p>
+              </styled.p>
+            </section>
+          </styled.section>
+          <styled.p>
+            <p
+              className="sc-cxabCf bUUgBj"
+            >
+              110
+              $
+            </p>
+          </styled.p>
+        </section>
+      </styled.section>
+    </StuffItems>
+  </Stuff>
+</Provider>
+`;

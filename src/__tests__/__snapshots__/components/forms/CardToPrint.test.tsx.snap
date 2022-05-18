@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render card to print 1`] = `
+<ForwardRef>
+  <h6>
+    You don't write info: 
+    <br />
+  </h6>
+</ForwardRef>
+`;

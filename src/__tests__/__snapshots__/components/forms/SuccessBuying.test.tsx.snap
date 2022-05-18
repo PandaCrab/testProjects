@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correct 1`] = `
+<BrowserRouter>
+  <Router
+    location={
+      Object {
+        "hash": "",
+        "key": "default",
+        "pathname": "/",
+        "search": "",
+        "state": null,
+      }
+    }
+    navigationType="POP"
+    navigator={
+      Object {
+        "action": "POP",
+        "back": [Function],
+        "block": [Function],
+        "createHref": [Function],
+        "forward": [Function],
+        "go": [Function],
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "default",
+          "pathname": "/",
+          "search": "",
+          "state": null,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <SuccessBuying>
+      <br />
+      <styled.div>
+        <div
+          className="sc-bczRLJ iLjvJl"
+        >
+          <ForwardRef>
+            <h6>
+              You don't write info: 
+              <br />
+            </h6>
+          </ForwardRef>
+          <Styled(Button)
+            id="back-to-start"
+            onClick={[Function]}
+          >
+            <Button
+              active={false}
+              className="sc-jqUVSM lirFSS"
+              disabled={false}
+              id="back-to-start"
+              onClick={[Function]}
+              variant="primary"
+            >
+              <button
+                className="sc-jqUVSM lirFSS btn btn-primary"
+                disabled={false}
+                id="back-to-start"
+                onClick={[Function]}
+                type="button"
+              >
+                Back to shipping
+              </button>
+            </Button>
+          </Styled(Button)>
+        </div>
+      </styled.div>
+    </SuccessBuying>
+  </Router>
+</BrowserRouter>
+`;

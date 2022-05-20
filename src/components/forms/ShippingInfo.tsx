@@ -95,7 +95,7 @@ const ShippingInfo = () => {
                 <FormLabel>
                     <FormLabelHeader>Shipping Information</FormLabelHeader>
                 </FormLabel>
-                <Form noValidate onSubmit={formik.handleSubmit}>
+                <Form noValidate onSubmit={formik.handleSubmit} role="form">
                     <Form.Group >
                         <Form.Group>
                             <Form.Label className="mb-0">Recipient</Form.Label>
@@ -103,13 +103,14 @@ const ShippingInfo = () => {
                                 <Form.Control
                                 id="name"
                                 type="text"
-                                name="name" 
+                                name="name"
+                                data-testid="name-input" 
                                 onChange={(event: values) => setShipping({...shipping, name: event.target.value})}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.name}
                                 isInvalid={ !!formik.errors.name } 
                                 placeholder="Full Name" />
-                                <Form.Control.Feedback type='invalid' tooltip>
+                                <Form.Control.Feedback type="invalid" tooltip>
                                     { formik.touched.name && formik.errors.name }
                                 </Form.Control.Feedback>
                             </Form.Group>
@@ -122,8 +123,9 @@ const ShippingInfo = () => {
                                             id="phone" 
                                             type="text"
                                             name="phone"
+                                            data-testid="phone-input"
                                             onChange={(value) => setShipping({...shipping, phone: value})}
-                                            onBlur={formik.handleBlur('phone')}
+                                            onBlur={formik.handleBlur("phone")}
                                             value={formik.values.phone}
                                             isInvalid={ !!formik.errors.phone }
                                             placeholder="Daytime Phone" />
@@ -144,6 +146,7 @@ const ShippingInfo = () => {
                                     id="street"
                                     type="text"
                                     name="street"
+                                    data-testid="street-input"
                                     onChange={(event: values) => {
                                         setShipping({...shipping, street: event.target.value});
                                         dispatch(takeAddress());
@@ -166,7 +169,7 @@ const ShippingInfo = () => {
                                     { addressFocus && (
                                             <DropdownAddresses autocomplete={handleAutocomplete} />
                                     )}
-                                <Form.Control.Feedback  type='invalid' tooltip>
+                                <Form.Control.Feedback  type="invalid" tooltip>
                                 { formik.touched.street && formik.errors.street }
                                 </Form.Control.Feedback>
                             </Form.Group>
@@ -175,6 +178,7 @@ const ShippingInfo = () => {
                                     id="optional" 
                                     type="text"
                                     name="optional" 
+                                    data-testid="optional-input"
                                     onChange={(event: values) => setShipping({...shipping, optional: event.target.value})}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.optional}
@@ -184,13 +188,14 @@ const ShippingInfo = () => {
                                 <Form.Control
                                     id="city"
                                     type="text"
-                                    name="city" 
+                                    name="city"
+                                    data-testid="city-input" 
                                     onChange={(event: values) => setShipping({...shipping, city: event.target.value})}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.city}
                                     isInvalid={ !!formik.errors.city } 
                                     placeholder="City" />
-                                <Form.Control.Feedback type='invalid' tooltip>
+                                <Form.Control.Feedback type="invalid" tooltip>
                                 { formik.touched.city && formik.errors.city }
                                 </Form.Control.Feedback>
                             </Form.Group>
@@ -205,7 +210,7 @@ const ShippingInfo = () => {
                                             country: value.label})}
                                         onBlur={formik.handleBlur}
                                         value={formik.values.country}
-                                        placeholder='Country'
+                                        placeholder="Country"
                                         error={ formik.errors.country }
                                         touched={ formik.touched.country }
                                         />
@@ -215,12 +220,13 @@ const ShippingInfo = () => {
                                             id="zip"
                                             type="text"
                                             name="zip"  
+                                            data-testid="zip-input"
                                             onChange={(event: values) => setShipping({...shipping, zip: event.target.value})}
                                             onBlur={formik.handleBlur}
                                             value={formik.values.zip}
                                             isInvalid={ !!formik.errors.zip } 
                                             placeholder="ZIP" />
-                                        <Form.Control.Feedback type='invalid' tooltip>
+                                        <Form.Control.Feedback type="invalid" tooltip>
                                         { formik.touched.zip && formik.errors.zip }
                                         </Form.Control.Feedback>
                                     </Col>
@@ -230,7 +236,8 @@ const ShippingInfo = () => {
                     </Form.Group>
                     <StyledButton
                         id="submit"
-                        variant="primary" 
+                        variant="primary"
+                        data-testId='submit-button' 
                         type="submit">
                         Continue
                     </StyledButton>

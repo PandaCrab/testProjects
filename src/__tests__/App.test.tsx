@@ -1,12 +1,16 @@
+import {
+    cleanup,
+    render
+} from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import { mount } from 'enzyme';
-import { Store } from 'redux';
 import configureStore from 'redux-mock-store';
 
 import App from '../App';
+import { BrowserRouter } from 'react-router-dom';
 
-const initialState: Object = {order: {
+const mockStore = configureStore();
+const store = mockStore({order: {
     stuff: [
         {
             'id': 1,
@@ -19,20 +23,18 @@ const initialState: Object = {order: {
         }
     ],
     loading: false
-}};
+}})
 
-const mockStore = configureStore();
-let store: Store<Object>;
-
-beforeAll(() => store = mockStore(initialState));
-
-it('should render app component', () => {
-    const component = mount(
+test('should have snapshot', () => {
+    const view = render(
+        <BrowserRouter>
             <Provider store={store}>
-                <BrowserRouter>
-                    <App />
-                </BrowserRouter>
+                <App />
             </Provider>
-        );
-    expect(component).toMatchSnapshot();
+        </BrowserRouter>
+    );
+
+    expect(view).toMatchSnapshot();
+
+    cleanup();
 });

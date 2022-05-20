@@ -1,481 +1,542 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render app component 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <BrowserRouter>
-    <Router
-      location={
-        Object {
-          "hash": "",
-          "key": "default",
-          "pathname": "/",
-          "search": "",
-          "state": null,
-        }
-      }
-      navigationType="POP"
-      navigator={
-        Object {
-          "action": "POP",
-          "back": [Function],
-          "block": [Function],
-          "createHref": [Function],
-          "forward": [Function],
-          "go": [Function],
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "default",
-            "pathname": "/",
-            "search": "",
-            "state": null,
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <App>
-        <Memo(l) />
-        <styled.section>
-          <section
-            className="sc-ciZhAO jQljdz"
+exports[`should have snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <section
+        class="sc-ciZhAO jQljdz"
+      >
+        <h5
+          class="sc-bZnhIo iLhPIU"
+        >
+           
+          <span
+            class="sc-jdAMXn jUqhjl"
           >
-            <styled.h5>
-              <h5
-                className="sc-bZnhIo iLhPIU"
-              >
-                 
-                <styled.span>
-                  <span
-                    className="sc-jdAMXn jUqhjl"
-                  >
-                    &lt; 
-                    <styled.span>
-                      <span
-                        className="sc-bBXxYQ jGdUTY"
-                      >
-                        ⁄
-                      </span>
-                    </styled.span>
-                    &gt;
-                  </span>
-                </styled.span>
-                 Front-end Developer Test Task
-              </h5>
-            </styled.h5>
-            <styled.section>
-              <section
-                className="sc-iTONeN eaMVdC"
-              >
-                <styled.p>
-                  <p
-                    className="sc-jOrMOR goGEI"
-                  >
-                    cart
-                  </p>
-                </styled.p>
-                <styled.div>
-                  <div
-                    className="sc-iAvgwm rvmqv"
-                  >
-                    <Styled(HiOutlineShoppingCart)>
-                      <HiOutlineShoppingCart
-                        className="sc-dPyBCJ cbPGMr"
-                      >
-                        <IconBase
-                          attr={
-                            Object {
-                              "fill": "none",
-                              "stroke": "currentColor",
-                              "viewBox": "0 0 24 24",
-                            }
-                          }
-                          className="sc-dPyBCJ cbPGMr"
-                        >
-                          <svg
-                            className="sc-dPyBCJ cbPGMr"
-                            fill="none"
-                            height="1em"
-                            stroke="currentColor"
-                            strokeWidth="0"
-                            style={
-                              Object {
-                                "color": undefined,
-                              }
-                            }
-                            viewBox="0 0 24 24"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                              key="0"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                            />
-                          </svg>
-                        </IconBase>
-                      </HiOutlineShoppingCart>
-                    </Styled(HiOutlineShoppingCart)>
-                    <styled.div>
-                      <div
-                        className="sc-efBctP ePJkoa"
-                      >
-                        <styled.p>
-                          <p
-                            className="sc-cTQhss fKacYM"
-                          >
-                            1
-                          </p>
-                        </styled.p>
-                      </div>
-                    </styled.div>
-                  </div>
-                </styled.div>
-              </section>
-            </styled.section>
-          </section>
-        </styled.section>
-        <styled.div>
+            &lt; 
+            <span
+              class="sc-bBXxYQ jGdUTY"
+            >
+              ⁄
+            </span>
+            &gt;
+          </span>
+           Front-end Developer Test Task
+        </h5>
+        <section
+          class="sc-iTONeN eaMVdC"
+        >
+          <p
+            class="sc-jOrMOR goGEI"
+          >
+            cart
+          </p>
           <div
-            className="sc-cOFTSb dokGPg"
+            class="sc-iAvgwm rvmqv"
           >
-            <Outlet />
-            <OrderPlate>
-              <styled.section
-                data-value={false}
-                displayMobile="none"
-                id="orderInfo"
+            <svg
+              class="sc-dPyBCJ cbPGMr"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+            <div
+              class="sc-efBctP ePJkoa"
+            >
+              <p
+                class="sc-cTQhss fKacYM"
               >
-                <section
-                  className="sc-hAZoDl kUkOog"
-                  data-value={false}
-                  id="orderInfo"
-                >
-                  <section>
-                    <Styled(AiOutlineCloseSquare)
-                      id="close-btn"
-                      onClick={[Function]}
-                    >
-                      <AiOutlineCloseSquare
-                        className="sc-ikZpkk btzZAt"
-                        id="close-btn"
-                        onClick={[Function]}
-                      >
-                        <IconBase
-                          attr={
-                            Object {
-                              "viewBox": "0 0 1024 1024",
-                            }
-                          }
-                          className="sc-ikZpkk btzZAt"
-                          id="close-btn"
-                          onClick={[Function]}
-                        >
-                          <svg
-                            className="sc-ikZpkk btzZAt"
-                            fill="currentColor"
-                            height="1em"
-                            id="close-btn"
-                            onClick={[Function]}
-                            stroke="currentColor"
-                            strokeWidth="0"
-                            style={
-                              Object {
-                                "color": undefined,
-                              }
-                            }
-                            viewBox="0 0 1024 1024"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M354 671h58.9c4.7 0 9.2-2.1 12.3-5.7L512 561.8l86.8 103.5c3 3.6 7.5 5.7 12.3 5.7H670c6.8 0 10.5-7.9 6.1-13.1L553.8 512l122.4-145.9c4.4-5.2.7-13.1-6.1-13.1h-58.9c-4.7 0-9.2 2.1-12.3 5.7L512 462.2l-86.8-103.5c-3-3.6-7.5-5.7-12.3-5.7H354c-6.8 0-10.5 7.9-6.1 13.1L470.2 512 347.9 657.9A7.95 7.95 0 0 0 354 671z"
-                              key="0"
-                            />
-                            <path
-                              d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                              key="1"
-                            />
-                          </svg>
-                        </IconBase>
-                      </AiOutlineCloseSquare>
-                    </Styled(AiOutlineCloseSquare)>
-                    <styled.section>
-                      <section
-                        className="sc-fnykZs bJvmGF"
-                      >
-                        <styled.h6>
-                          <h6
-                            className="sc-fEOsli gdtNsh"
-                          >
-                            Order Summary
-                          </h6>
-                        </styled.h6>
-                         
-                        <styled.button>
-                          <button
-                            className="sc-bjUoiL bqnLr"
-                          >
-                            edit order
-                          </button>
-                        </styled.button>
-                      </section>
-                    </styled.section>
-                    <styled.div>
-                      <div
-                        className="sc-idiyUo hzUHfP"
-                      >
-                        <Stuff>
-                          <StuffItems
-                            key="1"
-                            stuff={
-                              Object {
-                                "color": "Grey+red+black",
-                                "id": 1,
-                                "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0
-                -L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,
-                1.0,5,0&iccEmbed=0",
-                                "name": "Check Print Shirt",
-                                "price": 110,
-                              }
-                            }
-                          >
-                            <styled.section>
-                              <section
-                                className="sc-dmRaPn dEaXlw"
-                              >
-                                <styled.img
-                                  alt="Check Print Shirt"
-                                  src="https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0
-                -L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,
-                1.0,5,0&iccEmbed=0"
-                                >
-                                  <img
-                                    alt="Check Print Shirt"
-                                    className="sc-kgflAQ jBeHF"
-                                    src="https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0
-                -L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,
-                1.0,5,0&iccEmbed=0"
-                                  />
-                                </styled.img>
-                                <styled.section>
-                                  <section
-                                    className="sc-fLlhyt eIMmde"
-                                  >
-                                    <styled.h6>
-                                      <h6
-                                        className="sc-bBrHrO hcTbiR"
-                                      >
-                                        Check Print Shirt
-                                      </h6>
-                                    </styled.h6>
-                                    <styled.p>
-                                      <p
-                                        className="sc-ivTmOn Tdoil"
-                                      >
-                                        Grey+red+black
-                                      </p>
-                                    </styled.p>
-                                    <styled.p>
-                                      <p
-                                        className="sc-ivTmOn Tdoil"
-                                      >
-                                        Quantity: 1
-                                      </p>
-                                    </styled.p>
-                                  </section>
-                                </styled.section>
-                                <styled.p>
-                                  <p
-                                    className="sc-cxabCf bUUgBj"
-                                  >
-                                    110
-                                    $
-                                  </p>
-                                </styled.p>
-                              </section>
-                            </styled.section>
-                          </StuffItems>
-                        </Stuff>
-                      </div>
-                    </styled.div>
-                    <styled.section>
-                      <section
-                        className="sc-llJcti dXItsY"
-                      >
-                        <styled.section>
-                          <section
-                            className="sc-iIPllB bvgYcg"
-                          >
-                            <styled.p>
-                              <p
-                                className="sc-ezWOiH eqlOWA"
-                              >
-                                Subtotal
-                              </p>
-                            </styled.p>
-                            <styled.p>
-                              <p
-                                className="sc-ezWOiH eqlOWA"
-                              >
-                                Shipping
-                              </p>
-                            </styled.p>
-                            <styled.p>
-                              <p
-                                className="sc-ezWOiH eqlOWA"
-                              >
-                                Taxes
-                              </p>
-                            </styled.p>
-                          </section>
-                        </styled.section>
-                        <styled.section>
-                          <section
-                            className="sc-gicCDI iaFVfp"
-                          >
-                            <styled.p>
-                              <p
-                                className="sc-ezWOiH eqlOWA"
-                              >
-                                $
-                                110
-                              </p>
-                            </styled.p>
-                            <styled.p>
-                              <p
-                                className="sc-ezWOiH eqlOWA"
-                              >
-                                Free
-                              </p>
-                            </styled.p>
-                            <styled.p>
-                              <p
-                                className="sc-ezWOiH eqlOWA"
-                              >
-                                $
-                                12.12
-                              </p>
-                            </styled.p>
-                          </section>
-                        </styled.section>
-                      </section>
-                    </styled.section>
-                    <styled.section>
-                      <section
-                        className="sc-bZkfAO cZNQhX"
-                      >
-                        <styled.p>
-                          <p
-                            className="sc-kLLXSd fpeVzF"
-                          >
-                            Total
-                          </p>
-                        </styled.p>
-                        <styled.p>
-                          <p
-                            className="sc-kLLXSd fpeVzF"
-                          >
-                            $
-                            122.12
-                          </p>
-                        </styled.p>
-                      </section>
-                    </styled.section>
-                  </section>
-                  <section>
-                    <styled.section>
-                      <section
-                        className="sc-jIZahH jpFjKL"
-                      >
-                        <styled.p>
-                          <p
-                            className="sc-himrzO kCFsaP"
-                          >
-                            All purchases are subject to our
-                            <Styled(Link)
-                              to="/TermsAndConditions"
-                            >
-                              <Link
-                                className="sc-gXmSlM QFMyE"
-                                to="/TermsAndConditions"
-                              >
-                                <a
-                                  className="sc-gXmSlM QFMyE"
-                                  href="/TermsAndConditions"
-                                  onClick={[Function]}
-                                >
-                                  Terms and Conditions
-                                </a>
-                              </Link>
-                            </Styled(Link)>
-                          </p>
-                        </styled.p>
-                      </section>
-                    </styled.section>
-                  </section>
-                </section>
-              </styled.section>
-              <styled.button
-                id="open-close-btn"
-                onClick={[Function]}
-              >
-                <button
-                  className="sc-cCsOjp jsjuxO"
-                  id="open-close-btn"
-                  onClick={[Function]}
-                >
-                  <BsBasket3>
-                    <IconBase
-                      attr={
-                        Object {
-                          "fill": "currentColor",
-                          "viewBox": "0 0 16 16",
-                        }
-                      }
-                    >
-                      <svg
-                        fill="currentColor"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 16 16"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM3.394 15l-1.48-6h-.97l1.525 6.426a.75.75 0 0 0 .729.574h9.606a.75.75 0 0 0 .73-.574L15.056 9h-.972l-1.479 6h-9.21z"
-                          key="0"
-                        />
-                      </svg>
-                    </IconBase>
-                  </BsBasket3>
-                </button>
-              </styled.button>
-            </OrderPlate>
+                1
+              </p>
+            </div>
           </div>
-        </styled.div>
-      </App>
-    </Router>
-  </BrowserRouter>
-</Provider>
+        </section>
+      </section>
+      <div
+        class="sc-cOFTSb dokGPg"
+      >
+        <section
+          class="sc-hAZoDl kUkOog"
+          data-value="false"
+          id="orderInfo"
+        >
+          <section>
+            <svg
+              class="sc-ikZpkk btzZAt"
+              fill="currentColor"
+              height="1em"
+              id="close-btn"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 1024 1024"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M354 671h58.9c4.7 0 9.2-2.1 12.3-5.7L512 561.8l86.8 103.5c3 3.6 7.5 5.7 12.3 5.7H670c6.8 0 10.5-7.9 6.1-13.1L553.8 512l122.4-145.9c4.4-5.2.7-13.1-6.1-13.1h-58.9c-4.7 0-9.2 2.1-12.3 5.7L512 462.2l-86.8-103.5c-3-3.6-7.5-5.7-12.3-5.7H354c-6.8 0-10.5 7.9-6.1 13.1L470.2 512 347.9 657.9A7.95 7.95 0 0 0 354 671z"
+              />
+              <path
+                d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+              />
+            </svg>
+            <section
+              class="sc-fnykZs bJvmGF"
+            >
+              <h6
+                class="sc-fEOsli gdtNsh"
+              >
+                Order Summary
+              </h6>
+               
+              <button
+                class="sc-bjUoiL bqnLr"
+              >
+                edit order
+              </button>
+            </section>
+            <div
+              class="sc-idiyUo hzUHfP"
+            >
+              <section
+                class="sc-dmRaPn dEaXlw"
+              >
+                <img
+                  alt="Check Print Shirt"
+                  class="sc-kgflAQ jBeHF"
+                  src="https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0
+                -L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,
+                1.0,5,0&iccEmbed=0"
+                />
+                <section
+                  class="sc-fLlhyt eIMmde"
+                >
+                  <h6
+                    class="sc-bBrHrO hcTbiR"
+                  >
+                    Check Print Shirt
+                  </h6>
+                  <p
+                    class="sc-ivTmOn Tdoil"
+                  >
+                    Grey+red+black
+                  </p>
+                  <p
+                    class="sc-ivTmOn Tdoil"
+                  >
+                    Quantity: 1
+                  </p>
+                </section>
+                <p
+                  class="sc-cxabCf bUUgBj"
+                >
+                  110
+                  $
+                </p>
+              </section>
+            </div>
+            <section
+              class="sc-llJcti dXItsY"
+            >
+              <section
+                class="sc-iIPllB bvgYcg"
+              >
+                <p
+                  class="sc-ezWOiH eqlOWA"
+                >
+                  Subtotal
+                </p>
+                <p
+                  class="sc-ezWOiH eqlOWA"
+                >
+                  Shipping
+                </p>
+                <p
+                  class="sc-ezWOiH eqlOWA"
+                >
+                  Taxes
+                </p>
+              </section>
+              <section
+                class="sc-gicCDI iaFVfp"
+              >
+                <p
+                  class="sc-ezWOiH eqlOWA"
+                >
+                  $
+                  110
+                </p>
+                <p
+                  class="sc-ezWOiH eqlOWA"
+                >
+                  Free
+                </p>
+                <p
+                  class="sc-ezWOiH eqlOWA"
+                >
+                  $
+                  12.12
+                </p>
+              </section>
+            </section>
+            <section
+              class="sc-bZkfAO cZNQhX"
+            >
+              <p
+                class="sc-kLLXSd fpeVzF"
+              >
+                Total
+              </p>
+              <p
+                class="sc-kLLXSd fpeVzF"
+              >
+                $
+                122.12
+              </p>
+            </section>
+          </section>
+          <section>
+            <section
+              class="sc-jIZahH jpFjKL"
+            >
+              <p
+                class="sc-himrzO kCFsaP"
+              >
+                All purchases are subject to our
+                <a
+                  class="sc-gXmSlM QFMyE"
+                  href="/TermsAndConditions"
+                >
+                  Terms and Conditions
+                </a>
+              </p>
+            </section>
+          </section>
+        </section>
+        <button
+          class="sc-cCsOjp jsjuxO"
+          id="open-close-btn"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM3.394 15l-1.48-6h-.97l1.525 6.426a.75.75 0 0 0 .729.574h9.606a.75.75 0 0 0 .73-.574L15.056 9h-.972l-1.479 6h-9.21z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="sc-ciZhAO jQljdz"
+    >
+      <h5
+        class="sc-bZnhIo iLhPIU"
+      >
+         
+        <span
+          class="sc-jdAMXn jUqhjl"
+        >
+          &lt; 
+          <span
+            class="sc-bBXxYQ jGdUTY"
+          >
+            ⁄
+          </span>
+          &gt;
+        </span>
+         Front-end Developer Test Task
+      </h5>
+      <section
+        class="sc-iTONeN eaMVdC"
+      >
+        <p
+          class="sc-jOrMOR goGEI"
+        >
+          cart
+        </p>
+        <div
+          class="sc-iAvgwm rvmqv"
+        >
+          <svg
+            class="sc-dPyBCJ cbPGMr"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+          <div
+            class="sc-efBctP ePJkoa"
+          >
+            <p
+              class="sc-cTQhss fKacYM"
+            >
+              1
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+    <div
+      class="sc-cOFTSb dokGPg"
+    >
+      <section
+        class="sc-hAZoDl kUkOog"
+        data-value="false"
+        id="orderInfo"
+      >
+        <section>
+          <svg
+            class="sc-ikZpkk btzZAt"
+            fill="currentColor"
+            height="1em"
+            id="close-btn"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M354 671h58.9c4.7 0 9.2-2.1 12.3-5.7L512 561.8l86.8 103.5c3 3.6 7.5 5.7 12.3 5.7H670c6.8 0 10.5-7.9 6.1-13.1L553.8 512l122.4-145.9c4.4-5.2.7-13.1-6.1-13.1h-58.9c-4.7 0-9.2 2.1-12.3 5.7L512 462.2l-86.8-103.5c-3-3.6-7.5-5.7-12.3-5.7H354c-6.8 0-10.5 7.9-6.1 13.1L470.2 512 347.9 657.9A7.95 7.95 0 0 0 354 671z"
+            />
+            <path
+              d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+            />
+          </svg>
+          <section
+            class="sc-fnykZs bJvmGF"
+          >
+            <h6
+              class="sc-fEOsli gdtNsh"
+            >
+              Order Summary
+            </h6>
+             
+            <button
+              class="sc-bjUoiL bqnLr"
+            >
+              edit order
+            </button>
+          </section>
+          <div
+            class="sc-idiyUo hzUHfP"
+          >
+            <section
+              class="sc-dmRaPn dEaXlw"
+            >
+              <img
+                alt="Check Print Shirt"
+                class="sc-kgflAQ jBeHF"
+                src="https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0
+                -L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,
+                1.0,5,0&iccEmbed=0"
+              />
+              <section
+                class="sc-fLlhyt eIMmde"
+              >
+                <h6
+                  class="sc-bBrHrO hcTbiR"
+                >
+                  Check Print Shirt
+                </h6>
+                <p
+                  class="sc-ivTmOn Tdoil"
+                >
+                  Grey+red+black
+                </p>
+                <p
+                  class="sc-ivTmOn Tdoil"
+                >
+                  Quantity: 1
+                </p>
+              </section>
+              <p
+                class="sc-cxabCf bUUgBj"
+              >
+                110
+                $
+              </p>
+            </section>
+          </div>
+          <section
+            class="sc-llJcti dXItsY"
+          >
+            <section
+              class="sc-iIPllB bvgYcg"
+            >
+              <p
+                class="sc-ezWOiH eqlOWA"
+              >
+                Subtotal
+              </p>
+              <p
+                class="sc-ezWOiH eqlOWA"
+              >
+                Shipping
+              </p>
+              <p
+                class="sc-ezWOiH eqlOWA"
+              >
+                Taxes
+              </p>
+            </section>
+            <section
+              class="sc-gicCDI iaFVfp"
+            >
+              <p
+                class="sc-ezWOiH eqlOWA"
+              >
+                $
+                110
+              </p>
+              <p
+                class="sc-ezWOiH eqlOWA"
+              >
+                Free
+              </p>
+              <p
+                class="sc-ezWOiH eqlOWA"
+              >
+                $
+                12.12
+              </p>
+            </section>
+          </section>
+          <section
+            class="sc-bZkfAO cZNQhX"
+          >
+            <p
+              class="sc-kLLXSd fpeVzF"
+            >
+              Total
+            </p>
+            <p
+              class="sc-kLLXSd fpeVzF"
+            >
+              $
+              122.12
+            </p>
+          </section>
+        </section>
+        <section>
+          <section
+            class="sc-jIZahH jpFjKL"
+          >
+            <p
+              class="sc-himrzO kCFsaP"
+            >
+              All purchases are subject to our
+              <a
+                class="sc-gXmSlM QFMyE"
+                href="/TermsAndConditions"
+              >
+                Terms and Conditions
+              </a>
+            </p>
+          </section>
+        </section>
+      </section>
+      <button
+        class="sc-cCsOjp jsjuxO"
+        id="open-close-btn"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 16 16"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM3.394 15l-1.48-6h-.97l1.525 6.426a.75.75 0 0 0 .729.574h9.606a.75.75 0 0 0 .73-.574L15.056 9h-.972l-1.479 6h-9.21z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

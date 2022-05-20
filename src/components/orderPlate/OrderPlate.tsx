@@ -59,12 +59,13 @@ const OrderPlate = () => {
 
     return (
         <>
-            <OrderInfo 
+            <OrderInfo
+                data-testid={viewOrder}
                 data-value={viewOrder}
-                id='orderInfo'
+                id="orderInfo"
                 displayMobile={viewOrder ? 'flex' : 'none'}>
                 <section>
-                <OrderCloseBtn id="close-btn" onClick={() => setViewOrder(false)} />
+                <OrderCloseBtn data-testid="close-btn" id="close-btn" onClick={() => setViewOrder(false)} />
                 <SummaryHeaderBlock>
                     <SummaryHeader>Order Summary</SummaryHeader> <OrderEdit>edit order</OrderEdit>
                 </SummaryHeaderBlock>
@@ -102,7 +103,7 @@ const OrderPlate = () => {
                 </TermsConditions>
                 </section>
             </OrderInfo>            
-            <OrderInfoBtn id="open-close-btn" onClick={() => setViewOrder(!viewOrder)}>
+            <OrderInfoBtn data-testid="open-close-btn" id="open-close-btn" onClick={() => setViewOrder(!viewOrder)}>
                 <BsBasket3 />
             </OrderInfoBtn>
         </>

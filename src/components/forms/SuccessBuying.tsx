@@ -13,10 +13,13 @@ const SuccessBuying = () => {
             <br/>
             <Info>
                 <CardToPrint />
-                <StyledButton id="back-to-start" onClick={() => {
-                navigate('/shipping'); 
-                localStorage.clear()
-            }}>Back to shipping</StyledButton>
+                <StyledButton
+                    data-testid="back-to-start"
+                    id="back-to-start"
+                    onClick={() => {
+                        navigate('/shipping'); 
+                        localStorage.clear()
+                }}>Back to shipping</StyledButton>
             </Info>
         </>
     );

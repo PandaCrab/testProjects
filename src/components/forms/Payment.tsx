@@ -83,13 +83,14 @@ const Payment = () => {
                 <FormLabel>
                     <FormLabelHeader>Payment</FormLabelHeader>
                 </FormLabel>
-                <Form noValidate onSubmit={formik.handleSubmit}>
+                <Form role="form" noValidate onSubmit={formik.handleSubmit}>
                     <Form.Group className="mb-4 position-relative">
                         <Form.Label className="mb-0">cardholder Name</Form.Label>
                         <Form.Control
                             id="cardholder"
                             type="text"
                             name="cardholder"
+                            data-testid="cardholder"
                             onChange={(event: values) => setPayment({...payment, cardholder: event.target.value})}
                             onBlur={formik.handleBlur}
                             value={formik.values.cardholder}
@@ -111,6 +112,7 @@ const Payment = () => {
                                 })}
                                 value={formik.values.cardNum}
                                 id="cardNum"
+                                data-testid="cardNum"
                                 type="text"
                                 name="cardNum"
                                 isInvalid={ !!formik.errors.cardNum }
@@ -136,6 +138,7 @@ const Payment = () => {
                                         })}
                                         id="date"
                                         type="text"
+                                        data-testid="date"
                                         name="date"
                                         value={formik.values.date}
                                         isInvalid={ !!formik.errors.date }
@@ -154,6 +157,7 @@ const Payment = () => {
 
                                     })}
                                     id="cvv"
+                                    data-testid="cvv"
                                     type="text"
                                     name="cvv"
                                     value={formik.values.cvv}
@@ -165,6 +169,7 @@ const Payment = () => {
                         </Row>
                     </Form.Group>
                     <StyledButton
+                        data-testid="submit-button"
                         variant="primary"
                         type="submit">
                             Pay Securely

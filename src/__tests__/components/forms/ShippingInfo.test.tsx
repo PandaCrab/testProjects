@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {
     render,
     fireEvent,
@@ -20,41 +19,29 @@ const store = mockStore({address: {
     addresses: []
 }});
 
+const setup = () => render(
+    <BrowserRouter>
+        <Provider store={store}>
+            <ShippingInfo />
+        </Provider>
+    </BrowserRouter>
+);
+
 afterEach(cleanup)
 
 it('should match snapshot', () => {
-    const { container } = render(
-        <BrowserRouter>
-            <Provider store={store}>
-                <ShippingInfo />
-            </Provider>
-        </BrowserRouter>
-    );
-
-    expect(container).toMatchSnapshot();
+    expect(setup()).toMatchSnapshot();
 });
 
 it('should have form', async () => {
-    render(
-        <BrowserRouter>
-            <Provider store={store}>
-                <ShippingInfo />
-            </Provider>
-        </BrowserRouter>
-    );
+    setup();
     const form = screen.getByRole('form');
 
     expect(form).toBeInTheDocument();
 })
 
-it('should have values', () => {
-    render(
-        <BrowserRouter>
-            <Provider store={store}>
-                <ShippingInfo />
-            </Provider>
-        </BrowserRouter>
-    );
+it('should have form values', () => {
+    setup();
 
     expect(screen.getByRole('form')).toHaveFormValues({
         name: '',
@@ -66,14 +53,18 @@ it('should have values', () => {
     });
 });
 
-it('should chnage values', async () => {
-    render(
-        <BrowserRouter>
-            <Provider store={store}>
-                <ShippingInfo />
-            </Provider>
-        </BrowserRouter>
-    );
+it('should change phone input value', async () => {
+    setup();
+
+    await fireEvent.change(screen.getByPlaceholderText('Daytime Phone'), {
+        target: { value: '78005553535' }
+    });
+
+    expect(screen.getByPlaceholderText('Daytime Phone')).toHaveValue('+7 (800) 555-35-35')
+});
+
+it('should chnage form values', async () => {
+    setup();
 
     await fireEvent.change(screen.getByTestId('name-input'), {
         target: {value: 'Vasya Pupkin'}
@@ -103,32 +94,59 @@ it('should chnage values', async () => {
 });
 
 it('should have submit button', () => {
-    render(
-        <BrowserRouter>
-            <Provider store={store}>
-                <ShippingInfo />
-            </Provider>
-        </BrowserRouter>
-    );
+    setup();
 
     expect(screen.getByTestId('submit-button')).toBeInTheDocument();
 });
 
 it('should submit form', async () => {
-    render(
-        <BrowserRouter>
-            <Provider store={store}>
-                <ShippingInfo />
-            </Provider>
-        </BrowserRouter>
-    );
+    setup();
     const handleSubmit = jest.fn();
-
-
-
+    
     await fireEvent.submit(screen.getByRole('form', handleSubmit()));
+    
+    await waitFor(() => 
+    expect(handleSubmit).toHaveBeenCalledTimes(1)
+    );
+});
+
+it('should have autocomplite geolocation button', () => {
+    setup();
+
+    expect(screen.getByTestId('autocomplete-geolocation')).toBeInTheDocument();
+});
+
+it('should autocomplete geolocation on click', async () => {
+    setup();
+    const handleAutocomplete = jest.fn();
+
+    await fireEvent.click(screen.getByTestId('autocomplete-geolocation'), handleAutocomplete());
 
     await waitFor(() => 
-        expect(handleSubmit).toHaveBeenCalledTimes(1)
+        expect(handleAutocomplete).toHaveBeenCalledTimes(1)
     );
+});
+
+it('should show dropdown addresses when focus', async() => {
+    setup();
+
+    screen.getByTestId('street-input').focus();
+    await fireEvent.change(screen.getByTestId('street-input'), {
+        target: { value: 'un' }
+    });
+
+    await expect(screen.getByTestId('dropdown-addresses')).toBeInTheDocument();
+});
+
+it('should hide dropdown addresses when blur', async() => {
+    setup();
+
+    screen.getByTestId('street-input').focus();
+    await fireEvent.change(screen.getByTestId('street-input'), {
+        target: { value: 'un' }
+    });
+
+    screen.getByTestId('street-input').blur();
+
+    setTimeout( () => expect(screen.queryByTestId('dropdown-addresses')).not.toBeInTheDocument(), 500);
 });

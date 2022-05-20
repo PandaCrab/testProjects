@@ -161,13 +161,16 @@ const ShippingInfo = () => {
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
                                     {navigatorAddress && (
-                                        <NavigateAutocomplete onClick={() => handleAutocomplete(
-                                            navigatorAddress.street,
-                                            navigatorAddress.city,
-                                            navigatorAddress.country )} />
+                                        <NavigateAutocomplete 
+                                            data-testid="autocomplete-geolocation" 
+                                            onClick={() => handleAutocomplete(
+                                                navigatorAddress.street,
+                                                navigatorAddress.city,
+                                                navigatorAddress.country )} />
                                     )}
                                     { addressFocus && (
-                                            <DropdownAddresses autocomplete={handleAutocomplete} />
+                                            <DropdownAddresses
+                                                autocomplete={handleAutocomplete} />
                                     )}
                                 <Form.Control.Feedback  type="invalid" tooltip>
                                 { formik.touched.street && formik.errors.street }
@@ -237,7 +240,7 @@ const ShippingInfo = () => {
                     <StyledButton
                         id="submit"
                         variant="primary"
-                        data-testId='submit-button' 
+                        data-testid='submit-button' 
                         type="submit">
                         Continue
                     </StyledButton>

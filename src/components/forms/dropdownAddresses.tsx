@@ -16,9 +16,10 @@ interface propTypes {
 const DropdownAddresses = (props: propTypes) => {
     const addresses = useSelector((state: RootState) => state.address.addresses);
     return (addresses !== (null || undefined) && (
-        <AddressesList>
+        <AddressesList data-testid="dropdown-addresses">
             {addresses.map((address: addressAutocomplete) => (
-                <ListItems 
+                <ListItems
+                    data-testid={address.properties.id}
                     key={address.properties.id}
                     onClick={() => props.autocomplete(
                         address.properties.name,

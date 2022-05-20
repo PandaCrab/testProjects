@@ -113,6 +113,7 @@ const BillingInfo = () => {
                     <FormLabelParagraph id='same-as-shipping' onClick={() => handleSameAsShipping()} >Same as shipping</FormLabelParagraph>
                 </FormLabel>
                 <Form
+                    role="form"
                     noValidate
                     onSubmit={formik.handleSubmit}>
                     <Form.Group>
@@ -122,6 +123,7 @@ const BillingInfo = () => {
                                 id="name"
                                 type="text"
                                 name="name" 
+                                data-testid="name-input"
                                 onChange={(event: values) => setBilling({...billing, name: event.target.value})}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.name}
@@ -135,7 +137,8 @@ const BillingInfo = () => {
                             <Form.Control 
                                 id="email"
                                 type="text"
-                                name="email"  
+                                name="email" 
+                                data-testid="email-input" 
                                 onChange={(event: values) => setBilling({...billing, email: event.target.value})}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.email}
@@ -154,6 +157,7 @@ const BillingInfo = () => {
                                     id="street"
                                     type="text"
                                     name="street"
+                                    data-testid="street-input"
                                     onChange={(event: values) => {
                                         setBilling({...billing, street: event.target.value});
                                         dispatch(takeAddress());
@@ -168,10 +172,12 @@ const BillingInfo = () => {
                                     isInvalid={ !!formik.errors.street } 
                                     placeholder="Street address" />
                                     {navigatorAddress && (
-                                        <NavigateAutocomplete onClick={() => handleAutocomplete(
-                                            navigatorAddress.street,
-                                            navigatorAddress.city,
-                                            navigatorAddress.country )} />
+                                        <NavigateAutocomplete
+                                            data-testid="autocomplete-geolocation"
+                                            onClick={() => handleAutocomplete(
+                                                navigatorAddress.street,
+                                                navigatorAddress.city,
+                                                navigatorAddress.country )} />
                                     )}
                                     { addressFocus && (
                                         <DropdownAddresses autocomplete={handleAutocomplete} />
@@ -184,7 +190,8 @@ const BillingInfo = () => {
                                 <Form.Control
                                     id="optional"
                                     type="text"
-                                    name="optional" 
+                                    name="optional"
+                                    data-testid="optional-input" 
                                     onChange={(event: values) => setBilling({...billing, optional: event.target.value})}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.optional}
@@ -195,6 +202,7 @@ const BillingInfo = () => {
                                     id="city" 
                                     type="text"
                                     name="city" 
+                                    data-testid="city-input"
                                     onChange={(event: values) => setBilling({...billing, city: event.target.value})}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.city}
@@ -210,6 +218,7 @@ const BillingInfo = () => {
                                     <CountriesSelect
                                         id="country"
                                         name="country"
+                                        data-testid="country-input"
                                         onChange={(value: {label: string}) => setBilling({
                                             ...billing, 
                                             country: value.label})}
@@ -224,7 +233,8 @@ const BillingInfo = () => {
                                         <Form.Control 
                                             id="zip"
                                             type="text"
-                                            name="zip"  
+                                            name="zip"
+                                            data-testid="zip-input"  
                                             onChange={(event: values) => setBilling({...billing, zip: event.target.value})}
                                             onBlur={formik.handleBlur}
                                             value={formik.values.zip}
@@ -238,7 +248,8 @@ const BillingInfo = () => {
                             </Form.Group>
                         </Form.Group>
                     </Form.Group>
-                    <StyledButton 
+                    <StyledButton
+                        data-testid="submit-button" 
                         variant="secondary"
                         type="submit">
                         Continue

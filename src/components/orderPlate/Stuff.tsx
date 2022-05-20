@@ -14,7 +14,7 @@ const Stuff = () => {
     const loading = useSelector((state: RootState) => state.order.loading);
 
     if (loading) {
-        return (<LoaderContainer>
+        return (<LoaderContainer data-testid="loading">
                 <Loader />
             </LoaderContainer>);
     };

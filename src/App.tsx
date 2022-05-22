@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { takeGeolocation, takeNavigagtorAddress } from './redux/ducks/address';
 
@@ -20,6 +20,7 @@ import {
 import { GlobalStyles } from './GlobalStyles';
 
 const App = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const stuff = useSelector((state: RootState)=> state.order.stuff);
 
@@ -46,7 +47,7 @@ const App = () => {
     <>
       <GlobalStyles />
       <Header>
-        <HeaderText> <HeaderLogo>&lt; <Slash>&frasl;</Slash>&gt;</HeaderLogo> Front-end Developer Test Task</HeaderText>
+        <HeaderText> <HeaderLogo onClick={() => navigate('/')}>&lt; <Slash>&frasl;</Slash>&gt;</HeaderLogo> Front-end Developer Test Task</HeaderText>
         <ShoppingBasket>
           <ShoppingBasketText>cart</ShoppingBasketText>
           <BasketContainer>

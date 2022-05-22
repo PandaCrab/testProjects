@@ -10,11 +10,13 @@ import {
   TableHeaderRow,
   TableRowDetail,
 } from '@devexpress/dx-react-grid-material-ui';
-
-import { StartPage } from '../styles/HomePageStyles';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { AppDispatch, RootState } from '../types';
+
 import { getProductsStorage } from '../redux/ducks/stuff';
+import { Heading, NavigationButton, StartPage } from '../styles/HomePageStyles';
 
 const RowDetail = ({ row }: any) => (
     <div>
@@ -26,6 +28,7 @@ const RowDetail = ({ row }: any) => (
 )
 
 const ProductsStorage = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
     const productsStorage = useSelector((state: RootState) => state.order.productsStorage);
 
@@ -50,8 +53,9 @@ const ProductsStorage = () => {
 
     return (
         <StartPage>
-            <h1>Hello in storage</h1>
-
+            <Heading>
+                <h1>Hello in storage</h1>  <NavigationButton onClick={() => navigate('/')} >Home</NavigationButton>
+            </Heading>
             <Grid
                 rows={productsStorage.map((product: any) => ({
                     id: product.id,

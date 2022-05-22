@@ -20,7 +20,16 @@ export const StartPage = styled.div`
 
     @media ${devices.tablet} {
         font-size: 1.2em;
+        width: 80%;
     };
+`;
+
+export const Heading = styled.section`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 `;
 
 export const NavigationButton = styled.button`

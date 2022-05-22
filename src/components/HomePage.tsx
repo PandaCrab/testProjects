@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { 
     StartPage,
-    NavigationButton
+    NavigationButton,
+    StorageButton
 } from '../styles/HomePageStyles';
 
 const HomePage = () => {
@@ -15,7 +16,7 @@ const HomePage = () => {
                 <h1>Hello World</h1>
 
                 <NavigationButton onClick={() => navigate('/shipping')}>start fill Shipping information</NavigationButton>
-                <NavigationButton onClick={() => navigate('/storage')}>Check storage</NavigationButton>
+                <StorageButton onClick={() => navigate('/storage')}>Check storage</StorageButton>
             </StartPage>
         </>
     );

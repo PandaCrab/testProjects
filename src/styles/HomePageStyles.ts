@@ -15,7 +15,7 @@ export const StartPage = styled.div`
     border-radius: 3px;
 
     @media ${devices.mobileS} {
-        font-size: .6em;
+        width: 100%;
     };
 
     @media ${devices.tablet} {
@@ -32,4 +32,23 @@ export const NavigationButton = styled.button`
     background-color: ${colors.violet};
     border: none;
     border-radius: 5px;
+`;
+
+export const StorageButton = styled.button`
+margin-top: 3px;
+    padding: 3px 5px;
+    heigth: 2em;
+    font-size: .9em;
+    color: ${colors.white};
+    background-color: ${colors.violet};
+    border: none;
+    border-radius: 5px;
+
+    @media ${devices.mobileS} {
+        display: none;
+    };
+
+    @media ${devices.tablet} {
+        display: block;
+    };
 `;

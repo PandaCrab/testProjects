@@ -2,13 +2,13 @@ import { compose, createStore, combineReducers, applyMiddleware } from '@reduxjs
 import createSagaMiddleware from '@redux-saga/core';
 import thunk from 'redux-thunk';
 
-import stuffReducer, { stuffWatcher } from './ducks/stuff';
+import stuffReducer, { stuffWatcher, productsStorageWatcher } from './ducks/stuff';
 import dataReducer, { dataWatcher } from './ducks/data';
 import addressReducer, { 
   addressInputWatcher,
   addressWatcher,
   navigatorAddressWatcher,
-  geolocationWatcher
+  geolocationWatcher,
 } from './ducks/address';
 
 const saga = createSagaMiddleware();
@@ -31,3 +31,4 @@ saga.run(addressWatcher);
 saga.run(addressInputWatcher);
 saga.run(navigatorAddressWatcher);
 saga.run(geolocationWatcher);
+saga.run(productsStorageWatcher);

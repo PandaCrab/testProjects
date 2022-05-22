@@ -30,6 +30,18 @@ export const fetchStuff = async() => {
     };
 };
 
+//fetch from stuff from storage
+export const fetchProductsStorage = async() => {
+    try {
+        const response = await fetchFunc(url+'/productsStorage', 'GET');
+        const json = await response.json();
+        return json;
+    } catch(error) {
+        console.error(error)
+        return null;
+    };
+};
+
 //fetch by coordinates
 const coordinates: {lat: number, lon: number} = {
     lat: 0,

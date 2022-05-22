@@ -10,10 +10,12 @@ import { Provider } from 'react-redux';
 import App from './App';
 import { store } from './redux/store';
 import {
+  HomePage,
   ShippingInfo,
   BillingInfo,
   Payment,
-  SuccessBuying
+  SuccessBuying,
+  ProductsStorage
 } from './components/Index';
 
 ReactDOM.render(
@@ -22,7 +24,8 @@ ReactDOM.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={ <App /> }>
-            <Route index element={ <ShippingInfo /> } />
+            <Route index element={ <HomePage /> } />
+            <Route path="storage" element={ <ProductsStorage /> } />
             <Route path="shipping" element={ <ShippingInfo /> } />
             <Route path="billing" element={ <BillingInfo /> } />
             <Route path="payment" element={ <Payment /> } />

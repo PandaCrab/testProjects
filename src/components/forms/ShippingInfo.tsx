@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { shippingValidation } from '../../helpers';
 import { fillShippingData } from '../../redux/ducks/data';
 import { takeAddress, fillAddressInput } from '../../redux/ducks/address';
-import { Navigate, DropdownAddresses, CountriesSelect } from '../Index';
+import { Navigate, DropdownAddresses, CountriesSelect, OrderPlate } from '../Index';
 
 import type { RootState, AppDispatch, values } from '../../types';
 
@@ -21,6 +21,7 @@ import {
     PhoneControlInput,
     NavigateAutocomplete
 } from '../../styles/FormStyle';
+import { Order } from '../../styles/AppStyles';
 
 interface stateTypes {
     name: string,
@@ -89,7 +90,7 @@ const ShippingInfo = () => {
     };
 
     return (
-        <>
+        <Order>
             <Navigate />
             <Info>
                 <FormLabel>
@@ -245,8 +246,9 @@ const ShippingInfo = () => {
                         Continue
                     </StyledButton>
                 </Form> 
-            </Info>              
-        </>
+            </Info> 
+            <OrderPlate />
+      </Order>
     );
 };
 

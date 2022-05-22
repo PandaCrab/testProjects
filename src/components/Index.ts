@@ -10,7 +10,8 @@ import Loader from './Loader';
 import CardToPrint from './forms/CardToPrint';
 import DropdownAddresses from './forms/dropdownAddresses';
 import CountriesSelect from './forms/CountriesSelect';
-
+import HomePage from './HomePage';
+import ProductsStorage from './ProductsStorage';
 
 export { ShippingInfo,
     BillingInfo, 
@@ -23,5 +24,7 @@ export { ShippingInfo,
     Loader,
     CardToPrint,
     DropdownAddresses,
-    CountriesSelect
+    CountriesSelect,
+    HomePage,
+    ProductsStorage
 };

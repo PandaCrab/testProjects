@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { billingValidation } from '../../helpers';
 import { fillBillingData } from '../../redux/ducks/data';
 import { takeAddress, fillAddressInput } from '../../redux/ducks/address';
-import { Navigate, DropdownAddresses, CountriesSelect } from '../Index';
+import { Navigate, DropdownAddresses, CountriesSelect, OrderPlate } from '../Index';
 
 import type { RootState, AppDispatch, values } from '../../types';
 
@@ -20,6 +20,7 @@ import {
     FormLabelHeader,
     NavigateAutocomplete
 } from '../../styles/FormStyle';
+import { Order } from '../../styles/AppStyles';
 
 interface stateTypes {
     name: string,
@@ -105,7 +106,7 @@ const BillingInfo = () => {
     });
 
     return (
-        <>  
+        <Order>  
             <Navigate />
             <Info>
                 <FormLabel>
@@ -256,7 +257,8 @@ const BillingInfo = () => {
                     </StyledButton>
                 </Form>
             </Info>
-        </>
+            <OrderPlate />
+        </Order>
     );
 };
 

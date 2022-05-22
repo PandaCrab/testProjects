@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { OrderPlate } from './components/Index';
 import { takeGeolocation, takeNavigagtorAddress } from './redux/ducks/address';
 
 import { RootState, AppDispatch } from './types';
@@ -17,8 +15,7 @@ import {
   Basket,
   ShoppingBasketText,
   NumberOfStuff,
-  CircleOfNumber,
-  Order
+  CircleOfNumber
 } from './styles/AppStyles';
 import { GlobalStyles } from './GlobalStyles';
 
@@ -54,19 +51,16 @@ const App = () => {
           <ShoppingBasketText>cart</ShoppingBasketText>
           <BasketContainer>
             <Basket /> 
-            { stuff && (
+            { stuff && stuff.length > 0 && (
               <CircleOfNumber><NumberOfStuff>{stuff.length}</NumberOfStuff></CircleOfNumber>
             )}   
           </BasketContainer>
-        </ShoppingBasket>
-        
+        </ShoppingBasket> 
       </Header>
-      <Order>
-        <Outlet />
-        <OrderPlate />
-      </Order>
+
+      <Outlet />
     </>
   );
-}
+};
 
 export default App;

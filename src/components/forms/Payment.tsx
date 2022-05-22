@@ -8,9 +8,9 @@ import images from 'react-payment-inputs/images';
 
 import { paymentValidation } from '../../helpers';
 import { sendData, fillPaymentData } from '../../redux/ducks/data';
-import { Navigate } from '../Index';
+import { Navigate, OrderPlate } from '../Index';
 
-import { AppDispatch, values } from '../../types';
+import type { AppDispatch, values } from '../../types';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -21,6 +21,7 @@ import {
     InputCardImage,
     CardNumberInput
 } from '../../styles/FormStyle';
+import { Order } from '../../styles/AppStyles';
 
 interface stateTypes {
     cardholder: string,
@@ -77,7 +78,7 @@ const Payment = () => {
     });
 
     return (
-        <>
+        <Order>
             <Navigate />
             <Info>
                 <FormLabel>
@@ -176,7 +177,8 @@ const Payment = () => {
                         </StyledButton>
                 </Form>
             </Info>
-        </>
+            <OrderPlate />
+        </Order>
     );
 };
 

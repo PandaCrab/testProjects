@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { 
     SortingState,
     IntegratedSorting,
@@ -10,13 +10,22 @@ import {
   TableHeaderRow,
   TableRowDetail,
 } from '@devexpress/dx-react-grid-material-ui';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
 
-import { AppDispatch, RootState } from '../types';
+// import { AppDispatch, RootState } from '../types';
 
-import { getProductsStorage } from '../redux/ducks/stuff';
+// import { getProductsStorage } from '../redux/ducks/stuff';
 import { Heading, NavigationButton, StartPage } from '../styles/HomePageStyles';
+import { TAKE_PRODUCTS_FROM_STORAGE } from '../api';
+
+interface graphQlData {
+    id: string,
+    name: string,
+    price: number,
+    quantity: number
+}
 
 const RowDetail = ({ row }: any) => (
     <div>
@@ -28,14 +37,15 @@ const RowDetail = ({ row }: any) => (
 )
 
 const ProductsStorage = () => {
+    const { error, data } = useQuery(TAKE_PRODUCTS_FROM_STORAGE);
     const navigate = useNavigate();
-    const dispatch = useDispatch<AppDispatch>();
-    const productsStorage = useSelector((state: RootState) => state.order.productsStorage);
+    // const dispatch = useDispatch<AppDispatch>();
+    // const productsStorage = useSelector((state: RootState) => state.order.productsStorage);
 
-    useEffect(() => { 
-        dispatch(getProductsStorage())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => { 
+    //     dispatch(getProductsStorage())
+    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
     const [columns] = useState([
         { name: 'id', title: 'Id' },
@@ -57,11 +67,11 @@ const ProductsStorage = () => {
                 <h1>Hello in storage</h1>  <NavigationButton onClick={() => navigate('/')} >Home</NavigationButton>
             </Heading>
             <Grid
-                rows={productsStorage.map((product: any) => ({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    quantity: product.quantity
+                rows={data.productsStorage.map(({ id, name, price, quantity }: graphQlData) => ({
+                    id,
+                    name,
+                    price,
+                    quantity
                 }))}
                 columns={columns}
             >

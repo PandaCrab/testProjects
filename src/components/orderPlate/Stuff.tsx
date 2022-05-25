@@ -1,33 +1,37 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useQuery } from '@apollo/client';
 
 import { Loader, StuffItems } from '../Index';
-import { getStuff } from '../../redux/ducks/stuff';
-
-import type { AppDispatch, RootState } from '../../types';
+import { TAKE_PRODUCTS } from '../../api';
 
 import { LoaderContainer } from '../../styles/OrderPlateStyles';
 
+interface queryProducts {
+    id: number,
+    name: string,
+    price: number,
+    imgUrl: string,
+    color: string
+}
+
 const Stuff = () => {
-    const dispatch = useDispatch<AppDispatch>();
-    const stuffs = useSelector((state: RootState) => state.order.stuff); 
-    const loading = useSelector((state: RootState) => state.order.loading);
+    const { loading, error, data } = useQuery(TAKE_PRODUCTS)
 
     if (loading) {
         return (<LoaderContainer data-testid="loading">
                 <Loader />
             </LoaderContainer>);
-    };
+    }
 
-    if (stuffs && !stuffs.length) { dispatch(getStuff()) }
+    if (error) { 
+        return (
+        <LoaderContainer data-testid="loading">
+            Somthing wrong
+            <Loader />
+        </LoaderContainer>)
+    }
 
-    return (
-        stuffs && stuffs.length && (
-            <>
-            {stuffs.map((stuff: { id: number }) => (<StuffItems stuff={stuff} key={stuff.id} />))}
-            </>
-        )
-    );
+    return data.products.map((stuff: queryProducts) => (<StuffItems stuff={stuff} key={stuff.id} />))
 };
 
 export default Stuff;

@@ -1,27 +1,61 @@
 const { ApolloServer, gql } = require('apollo-server');
 
 const typeDefs = gql`
-    type storageProduct {
-        id: String
+    type ProductInStorage {
+        id: Int
         name: String
         imgUrl: String
         color: String
-        price: String
-        quantity: String
+        price: Float
+        quantity: Float
     }
 
-    type product {
-        id: ID
+    type Product {
+        id: ID!
         name: String
         imgUrl: String
         color: String
-        price: String
+        price: Float
+    }
+    
+    type Shipping {
+        name: String
+        phone: String
+        street: String
+        optional: String
+        city: String
+        country: String
+        zip: String
+    }
+
+    type Billing {
+        name: String
+        email: String
+        street: String
+        oprional: String
+        city: String
+        country: String
+        zip: String
+    }
+
+    type Payment {
+        cardholder: String
+        cardNum: String
+        date: String
+        cvv: String
+    }
+
+    type PersonInfo {
+        shipping: [Shipping]
+        billing: [Billing]
+        payment: [Payment]
     }
 
     type Query {
-        productsStorage: [storageProduct]
-        product(id: ID): product
-        products: [product]
+        productsStorage: [ProductInStorage]
+        personInfo: [PersonInfo]
+        product(id: ID! ): Product
+        products: [Product]
     }
 `;
 
@@ -102,16 +136,17 @@ const products = [
 
 const personInfo = [];
 
-const resolver = {
+const resolvers = {
     Query: {
-        allProductsStorage: () => productsStorage,
-        products: () => products
+        productsStorage: () => productsStorage,
+        products: () => products,
+        personInfo: () => personInfo
     }
 };
 
 const server = new ApolloServer({
     typeDefs,
-    resolver,
+    resolvers,
     csrfPrevenition: true
 });
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { 
     SortingState,
     IntegratedSorting,
@@ -10,22 +10,12 @@ import {
   TableHeaderRow,
   TableRowDetail,
 } from '@devexpress/dx-react-grid-material-ui';
-// import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-// import { AppDispatch, RootState } from '../types';
-
-// import { getProductsStorage } from '../redux/ducks/stuff';
-import { Heading, NavigationButton, StartPage } from '../styles/HomePageStyles';
 import { TAKE_PRODUCTS_FROM_STORAGE } from '../api';
 
-interface graphQlData {
-    id: string,
-    name: string,
-    price: number,
-    quantity: number
-}
+import { Heading, NavigationButton, StartPage } from '../styles/HomePageStyles';
 
 const RowDetail = ({ row }: any) => (
     <div>
@@ -37,15 +27,15 @@ const RowDetail = ({ row }: any) => (
 )
 
 const ProductsStorage = () => {
-    const { error, data } = useQuery(TAKE_PRODUCTS_FROM_STORAGE);
-    const navigate = useNavigate();
-    // const dispatch = useDispatch<AppDispatch>();
-    // const productsStorage = useSelector((state: RootState) => state.order.productsStorage);
+    const [queryData, setQueryData] = useState([])
+    const { error, loading, data } = useQuery(TAKE_PRODUCTS_FROM_STORAGE);
 
-    // useEffect(() => { 
-    //     dispatch(getProductsStorage())
-    // // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
+    useEffect(() => {
+        if (!loading) { setQueryData(data.productsStorage) }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [loading])
+
+    const navigate = useNavigate();
 
     const [columns] = useState([
         { name: 'id', title: 'Id' },
@@ -56,10 +46,13 @@ const ProductsStorage = () => {
 
     const [tableColumnExtensions] = useState([
         { columnName: 'id', width: '10%' },
-        { columnName: 'name', width: '50%' },
-        { columnName: 'price', width: '10%' },
-        { columnName: 'quantity', width: '15%' },
+        { columnName: 'name', width: '45%' },
+        { columnName: 'price', width: '15%' },
+        { columnName: 'quantity', width: '20%' },
       ]);
+
+    if (loading) { return <StartPage>Loading...</StartPage> }
+    if (error) { return <StartPage>{error.message}</StartPage> }
 
     return (
         <StartPage>
@@ -67,16 +60,11 @@ const ProductsStorage = () => {
                 <h1>Hello in storage</h1>  <NavigationButton onClick={() => navigate('/')} >Home</NavigationButton>
             </Heading>
             <Grid
-                rows={data.productsStorage.map(({ id, name, price, quantity }: graphQlData) => ({
-                    id,
-                    name,
-                    price,
-                    quantity
-                }))}
+                rows={queryData}
                 columns={columns}
             >
                 <SortingState
-                    defaultSorting={[{ columnName: 'name', direction: 'asc' }]}
+                    defaultSorting={[{ columnName: 'id', direction: 'asc' }]}
                 />
                 <IntegratedSorting />
                 <RowDetailState />
@@ -88,7 +76,7 @@ const ProductsStorage = () => {
                 />
             </Grid>
         </StartPage>
-    );
+    )
 };
 
 export default ProductsStorage;

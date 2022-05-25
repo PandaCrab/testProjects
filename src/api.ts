@@ -1,15 +1,10 @@
-import { gql, ApolloClient, InMemoryCache } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 import type { data } from "./types";
 
 const url = 'http://localhost:3004';
 const apiKey = 'e2d9f960-bc78-11ec-a0da-bd0e50737306';
 const addressApi = `https://app.geocodeapi.io/api/v1/`;
-
-export const apolloClient = new ApolloClient({
-    uri: 'http://localhost:4000/',
-    cache: new InMemoryCache()
-});
 
 //Need write method to working correct
 const fetchFunc = (url: string, method: string, data?: data) => {
@@ -37,16 +32,19 @@ export const fetchStuff = async() => {
     };
 };
 
-export const TAKE_PRODUCTS_FROM_STORAGE = gql`
-        query productsStorage {
+export const TAKE_PRODUCTS = gql`
+    query basketProducts {
+        products {
             id
             name
             price
-            quantity
+            imgUrl
+            color
         }
+    }
 `;
 
-//fetch from stuff from storage
+//fetch stuff from storage
 export const fetchProductsStorage = async() => {
     try {
         const response = await fetchFunc(url+'/productsStorage', 'GET');
@@ -57,6 +55,17 @@ export const fetchProductsStorage = async() => {
         return null;
     };
 };
+
+export const TAKE_PRODUCTS_FROM_STORAGE = gql`
+    query allProductsFromStorage{
+        productsStorage {
+            id
+            name
+            price
+            quantity
+        }
+    }
+`;
 
 //fetch by coordinates
 const coordinates: {lat: number, lon: number} = {

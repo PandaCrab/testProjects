@@ -31,7 +31,8 @@ const ProductsStorage = () => {
     const { error, loading, data } = useQuery(TAKE_PRODUCTS_FROM_STORAGE);
 
     useEffect(() => {
-        if (!loading) { setQueryData(data.productsStorage) }
+        if (!loading && data) { setQueryData(data.productsStorage) }
+        else { return } 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading])
 
@@ -52,7 +53,7 @@ const ProductsStorage = () => {
       ]);
 
     if (loading) { return <StartPage>Loading...</StartPage> }
-    if (error) { return <StartPage>{error.message}</StartPage> }
+    if (error) { return <StartPage>Oops, we have a technical problems</StartPage> }
 
     return (
         <StartPage>

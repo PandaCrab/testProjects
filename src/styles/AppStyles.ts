@@ -3,6 +3,7 @@ import { devices, colors } from '../GlobalStyles';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 
 export const Header = styled.section`
+  position: reletive;
   margin: auto;
   margin-bottom: 3em;
   max-width: 1024px;
@@ -37,6 +38,20 @@ export const Header = styled.section`
   @media ${devices.laptopL} {
     height: 1.5em;
   };
+`;
+
+export const OpenDrawerBtn = styled.button`
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: 5px;
+
+  @media ${devices.laptopL} {
+    width: 30px;
+    height: 30px;
+    left: 17%;
+  }
 `;
 
 export const HeaderLogo = styled.span`

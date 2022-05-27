@@ -1,6 +1,6 @@
 ### `To working project correct`
 
-run 'json-server --watch db.json --port 3004'.
+run 'node testServer.js'.
 
 ### `npm start`
 

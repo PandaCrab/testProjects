@@ -20,7 +20,8 @@ import {
   BillingInfo,
   Payment,
   SuccessBuying,
-  ProductsStorage
+  ProductsStorage,
+  SaleChart
 } from './components/Index';
 
 export const apolloClient = new ApolloClient({
@@ -37,6 +38,7 @@ ReactDOM.render(
             <Route path="/" element={ <App /> }>
               <Route index element={ <HomePage /> } />
               <Route path="storage" element={ <ProductsStorage /> } />
+              <Route path="chart" element={ <SaleChart /> } />
               <Route path="shipping" element={ <ShippingInfo /> } />
               <Route path="billing" element={ <BillingInfo /> } />
               <Route path="payment" element={ <Payment /> } />

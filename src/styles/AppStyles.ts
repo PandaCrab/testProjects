@@ -73,6 +73,14 @@ export const HeaderText = styled.h5`
   };
 `;
 
+export const OpenDrawerBtn = styled.button`
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 5px;
+  right: 6px;
+`
+
 export const ShoppingBasket = styled.section`
   margin: auto;
   color: ${colors.slash};

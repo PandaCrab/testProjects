@@ -12,6 +12,7 @@ import DropdownAddresses from './forms/dropdownAddresses';
 import CountriesSelect from './forms/CountriesSelect';
 import HomePage from './HomePage';
 import ProductsStorage from './ProductsStorage';
+import ShoppingPage from './shopPage/ShoppingPage';
 import SaleChart from './SaleChart';
 
 export { ShippingInfo,
@@ -28,5 +29,6 @@ export { ShippingInfo,
     CountriesSelect,
     HomePage,
     ProductsStorage,
-    SaleChart
+    SaleChart,
+    ShoppingPage
 };

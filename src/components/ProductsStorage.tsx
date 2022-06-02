@@ -31,7 +31,8 @@ const ProductsStorage = () => {
     const { error, loading, data } = useQuery(TAKE_PRODUCTS_FROM_STORAGE);
 
     useEffect(() => {
-        if (!loading) { setQueryData(data.productsStorage) }
+        if (!loading && data) { setQueryData(data.productsStorage) }
+        return
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading])
 
@@ -57,7 +58,8 @@ const ProductsStorage = () => {
     return (
         <StartPage>
             <Heading>
-                <h1>Hello in storage</h1>  <NavigationButton onClick={() => navigate('/')} >Home</NavigationButton>
+                <h1>Hello in storage</h1>
+                <NavigationButton onClick={() => navigate('/')} >Home</NavigationButton>
             </Heading>
             <Grid
                 rows={queryData}

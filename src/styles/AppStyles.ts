@@ -40,12 +40,14 @@ export const Header = styled.section`
 `;
 
 export const HeaderLogo = styled.span`
+  margin-right: 10px;
   display: flex;
   height: 1.5em;
   align-items: center;
   color: transparent;
   font-size: 1em;
   font-weight: 300;
+  cursor: pointer;
   background-image: ${colors.textGradient};
   -webkit-background-clip: text;
   -moz-background-clip: text;

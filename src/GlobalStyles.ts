@@ -36,6 +36,6 @@ export const colors = {
     btn: '#7a3fa8',
     basketCircle: '#ff1876',
     shadow: '#e2e3e5',
-    borderGradient: 'linear-gradient(to right, #ebb6e8, #fdb9d8, #d9b2f8) 30',
-    textGradient: 'linear-gradient(90deg, #ebb6e8, #fdb9d8, #d9b2f8)'
+    borderGradient: 'linear-gradient(13deg,#cc00ff,#ff00b1,#8e00ff)30',
+    textGradient: 'linear-gradient(273deg,#8e00ff,#ff00b1,#8e00ff)'
 };

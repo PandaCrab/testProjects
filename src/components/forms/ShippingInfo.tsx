@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { shippingValidation } from '../../helpers';
 import { fillShippingData } from '../../redux/ducks/data';
-import { takeAddress, fillAddressInput } from '../../redux/ducks/address';
+import { takeAddress, fillAddressInput, takeGeolocation, takeNavigagtorAddress } from '../../redux/ducks/address';
 import { Navigate, DropdownAddresses, CountriesSelect, OrderPlate } from '../Index';
 
 import type { RootState, AppDispatch, values } from '../../types';
@@ -63,6 +63,25 @@ const ShippingInfo = () => {
         })}
         return;
     }, []);
+
+    useEffect(() => {
+        if ('geolocation' in navigator) {
+          navigator
+            .geolocation
+            .getCurrentPosition (
+              position => {
+                dispatch (
+                  takeGeolocation (
+                    position.coords.latitude, 
+                    position.coords.longitude
+                  )
+                );
+                dispatch (takeNavigagtorAddress());
+              });
+          } else {
+            return;
+          }
+      });
 
     useEffect(() => {
         localStorage.setItem('shipping', JSON.stringify(shipping))

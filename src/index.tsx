@@ -20,7 +20,8 @@ import {
   BillingInfo,
   Payment,
   SuccessBuying,
-  ProductsStorage
+  ProductsStorage,
+  JQueryTest
 } from './components/Index';
 
 export const apolloClient = new ApolloClient({
@@ -40,6 +41,7 @@ ReactDOM.render(
               <Route path="shipping" element={ <ShippingInfo /> } />
               <Route path="billing" element={ <BillingInfo /> } />
               <Route path="payment" element={ <Payment /> } />
+              <Route path="jQueryTest" element={ <JQueryTest /> } />
               <Route path="TermsAndConditions" element={<h1>Terms and Conditions</h1>} />
               <Route path="success" element={ <SuccessBuying /> } />
               <Route path="*" element={<p>Cannot find the page : 404</p>} />

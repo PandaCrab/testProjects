@@ -15,7 +15,6 @@ const HomePage = () => {
             <StartPage>
                 <h1>Hello World</h1>
 
-                <NavigationButton onClick={() => navigate('/shipping')}>start fill Shipping information</NavigationButton>
                 <StorageButton onClick={() => navigate('/storage')}>Check storage</StorageButton>
             </StartPage>
         </>

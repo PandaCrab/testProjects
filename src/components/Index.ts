@@ -12,6 +12,7 @@ import DropdownAddresses from './forms/dropdownAddresses';
 import CountriesSelect from './forms/CountriesSelect';
 import HomePage from './HomePage';
 import ProductsStorage from './ProductsStorage';
+import JQueryTest from '../JQueryTest';
 
 export { ShippingInfo,
     BillingInfo, 
@@ -26,5 +27,6 @@ export { ShippingInfo,
     DropdownAddresses,
     CountriesSelect,
     HomePage,
-    ProductsStorage
+    ProductsStorage,
+    JQueryTest
 };
